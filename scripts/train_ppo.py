@@ -281,7 +281,16 @@ def copy_linear_prefix(dst: torch.Tensor, src: torch.Tensor) -> None:
 
 def load_model_compatible(model: nn.Module, state_dict: dict[str, torch.Tensor]) -> None:
     if isinstance(model, ActorCritic) and "observation_scale" in state_dict:
-        model.set_observation_scale(state_dict["observation_scale"])
+        source_scale = state_dict["observation_scale"]
+        target_scale = model.observation_scale
+        if target_scale is not None and target_scale.numel() > source_scale.numel():
+            source_scale = source_scale.to(device=target_scale.device, dtype=target_scale.dtype)
+            if not torch.allclose(target_scale[-source_scale.numel():], source_scale):
+                raise ValueError("Expanded history must preserve the checkpoint's observation units")
+            state_dict = dict(state_dict)
+            state_dict["observation_scale"] = target_scale
+        else:
+            model.set_observation_scale(source_scale)
     current = model.state_dict()
     for name, src in state_dict.items():
         if name not in current:
@@ -291,6 +300,9 @@ def load_model_compatible(model: nn.Module, state_dict: dict[str, torch.Tensor])
             dst.copy_(src)
         elif name == "net.0.weight" and dst.ndim == 2 and src.ndim == 2 and dst.shape[1] > src.shape[1]:
             rows = min(dst.shape[0], src.shape[0])
+            # Start new history features at zero, preserving the old policy
+            # exactly while keeping the author's right-aligned recent frames.
+            dst[:rows].zero_()
             dst[:rows, -src.shape[1]:].copy_(src[:rows])
         elif name.startswith("net.") or name.startswith("actor.") or name.startswith("critic."):
             copy_linear_prefix(dst, src)

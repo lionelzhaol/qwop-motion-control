@@ -22,6 +22,13 @@ private:
     float previousRewardTime_ = 0.0f;
     float lowPostureTime_ = 0.0f;
     float penalizedLowPostureSeconds_ = 0.0f;
+    float backwardLeanTime_ = 0.0f;
+    float paceWindowTime_ = 0.0f;
+    float paceWindowProgress_ = 0.0f;
+    float recentProgressSpeed_ = 0.0f;
+    bool paceMeasurementReady_ = false;
+    bool paceAnchorReady_ = false;
+    float maximumTorsoX_ = 0.0f;
     bool longJumpLandingSeen_ = false;
     float longJumpPostLandingX_ = 0.0f;
 };
