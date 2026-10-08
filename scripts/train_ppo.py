@@ -58,6 +58,7 @@ class PPOConfig:
     save_interval: int = 100
     hidden_sizes: tuple[int, ...] = (128, 128)
     frame_stack: int = 1
+    normalize_observations: bool = False
     rnd_beta: float = 0.0
     rnd_beta_final: float | None = None
     rnd_beta_decay_updates: int = 0
@@ -152,7 +153,7 @@ class ActorCritic(nn.Module):
     critic 输出当前状态的 value，用来估计“从这个状态往后还能拿多少回报”。
     """
 
-    def __init__(self, obs_dim: int, action_dim: int, hidden_sizes: tuple[int, ...] = (128, 128)):
+    def __init__(self, obs_dim: int, action_dim: int, hidden_sizes: tuple[int, ...] = (128, 128), observation_scale=None):
         super().__init__()
         # 这里的观测是向量特征，所以用 MLP；如果输入是图像，通常会换成 CNN。
         layers: list[nn.Module] = []
@@ -164,9 +165,29 @@ class ActorCritic(nn.Module):
         self.net = nn.Sequential(*layers)
         self.actor = nn.Linear(in_dim, action_dim)
         self.critic = nn.Linear(in_dim, 1)
+        # Fixed preprocessing belongs to the checkpoint, so replay/export paths
+        # use exactly the same scales without changing the raw environment API.
+        self.register_buffer("observation_scale", None)
+        if observation_scale is not None:
+            self.set_observation_scale(observation_scale)
+
+    def set_observation_scale(self, scale) -> None:
+        scale = torch.as_tensor(scale, dtype=torch.float32, device=self.actor.weight.device)
+        if scale.shape != (self.net[0].in_features,):
+            raise ValueError("Observation scale must match the model input dimension")
+        if not torch.isfinite(scale).all() or not (scale > 0).all():
+            raise ValueError("Observation scales must be finite and positive")
+        self.observation_scale = scale.detach().clone()
+
+    def load_state_dict(self, state_dict, strict=True, assign=False):
+        if "observation_scale" in state_dict:
+            self.set_observation_scale(state_dict["observation_scale"])
+        return super().load_state_dict(state_dict, strict=strict, assign=assign)
 
     def forward(self, obs: torch.Tensor):
         # 返回 actor logits 和 critic value。value squeeze 到 [batch]，便于和 reward/return 对齐。
+        if self.observation_scale is not None:
+            obs = obs / self.observation_scale
         hidden = self.net(obs)
         return self.actor(hidden), self.critic(hidden).squeeze(-1)
 
@@ -259,6 +280,8 @@ def copy_linear_prefix(dst: torch.Tensor, src: torch.Tensor) -> None:
 
 
 def load_model_compatible(model: nn.Module, state_dict: dict[str, torch.Tensor]) -> None:
+    if isinstance(model, ActorCritic) and "observation_scale" in state_dict:
+        model.set_observation_scale(state_dict["observation_scale"])
     current = model.state_dict()
     for name, src in state_dict.items():
         if name not in current:
@@ -335,7 +358,14 @@ def train(cfg: PPOConfig) -> None:
     obs_dim = stacker.obs_dim
     action_dim = env.action_space_n
 
-    model = ActorCritic(obs_dim, action_dim, cfg.hidden_sizes).to(device)
+    observation_scale = None
+    if cfg.normalize_observations:
+        if env.game_mode != "classic_100m" or base_obs_np.shape[1] != 68:
+            raise ValueError("Fixed observation scales currently support classic_100m only")
+        body_scale = np.tile([5.0, 15.0, np.pi, 10.0, 10.0], 12)
+        task_scale = [100.0, 120.0, 1000.0, 1000.0, 1.0, 1.0, 1.0, 1.0]
+        observation_scale = np.tile(np.concatenate((body_scale, task_scale)), cfg.frame_stack)
+    model = ActorCritic(obs_dim, action_dim, cfg.hidden_sizes, observation_scale).to(device)
     optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate, eps=1e-5)
     use_rnd = cfg.rnd_beta > 0.0
     rnd_model = RNDModel(obs_dim, cfg.rnd_hidden_size, cfg.rnd_feature_dim).to(device) if use_rnd else None
@@ -625,6 +655,7 @@ def main() -> int:
     parser.add_argument("--save-interval", type=int, default=None)
     parser.add_argument("--hidden-sizes", type=parse_hidden_sizes, default=None)
     parser.add_argument("--frame-stack", type=int, default=None)
+    parser.add_argument("--normalize-observations", action=argparse.BooleanOptionalAction, default=None)
     parser.add_argument("--rnd-beta", type=float, default=None)
     parser.add_argument("--rnd-beta-final", type=float, default=None)
     parser.add_argument("--rnd-beta-decay-updates", type=int, default=None)

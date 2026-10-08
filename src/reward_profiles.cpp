@@ -14,6 +14,14 @@ constexpr float kBodyHeightRewardCap = 5.0f;
 constexpr float kBodyHeightTargetHurdleScale = 0.45f;
 constexpr float kLongJumpLandingDistanceScale = 5.0f;
 constexpr float kLongJumpPostLandingProgressScale = 0.5f;
+// Foot-running reward v3. Knee contacts are not exposed by the backend;
+// sustained low torso height is a posture proxy, including feet-on-ground crawl.
+constexpr float kUprightHeightRatio = 0.8f;
+constexpr float kSupportedProgressBonus = 1.0f;
+constexpr float kLowPostureGraceSeconds = 0.2f;
+constexpr float kLowPosturePenaltyPerSecond = 0.2f;
+constexpr float kMaximumLowPostureFinishFraction = 0.1f;
+constexpr float kPostureRewardPerSecond = 1.0f;
 
 float scoreFromReferenceX(float x) {
     return std::round(x / kReferenceUnitsPerPhysicsUnit) / 10.0f;
@@ -34,6 +42,9 @@ float bodyHeightRewardRatio(float bodyY) {
 void RewardState::reset(const CourseSpec& course) {
     hurdles_.assign(course.hurdleLocations.size(), HurdleRewardState{});
     progressScore_ = 0.0f;
+    previousRewardTime_ = 0.0f;
+    lowPostureTime_ = 0.0f;
+    penalizedLowPostureSeconds_ = 0.0f;
     longJumpLandingSeen_ = false;
     longJumpPostLandingX_ = 0.0f;
 }
@@ -46,12 +57,41 @@ float RewardState::calculate(
     switch (profile) {
     case RewardProfile::Classic100m: {
         const float cappedProgress = std::clamp(frame.score, 0.0f, 100.0f);
-        float reward = std::max(0.0f, cappedProgress - progressScore_);
+        const float progressReward = std::max(0.0f, cappedProgress - progressScore_);
+        float reward = 0.0f;
         progressScore_ = std::max(progressScore_, cappedProgress);
+        const float elapsed = std::max(0.0f, frame.sim_time - previousRewardTime_);
+        previousRewardTime_ = frame.sim_time;
+        const float standingHeight = kTrackY - kStandingBodyY;
+        const float torsoHeight = kTrackY - frame.bodies[kTorsoBodySlot].y;
+        const float heightRatio = std::clamp(torsoHeight / standingHeight, 0.0f, 1.0f);
+        const bool upright = torsoHeight >= kUprightHeightRatio * standingHeight;
+        const bool footSupported = frame.left_foot_grounded || frame.right_foot_grounded;
+        if (upright) {
+            reward = progressReward;
+        }
+        if (upright && footSupported) {
+            reward += kSupportedProgressBonus * progressReward;
+        }
+        // Dense height feedback helps discover balance before forward progress.
+        // Capped at the initial standing height to avoid rewarding excessive jumps.
+        reward += kPostureRewardPerSecond * elapsed * (heightRatio - kUprightHeightRatio);
+        const float previousLowTime = lowPostureTime_;
+        lowPostureTime_ = !upright ? lowPostureTime_ + elapsed : 0.0f;
+        const float penalizedTime = std::max(0.0f, lowPostureTime_ - kLowPostureGraceSeconds)
+            - std::max(0.0f, previousLowTime - kLowPostureGraceSeconds);
+        if (!upright) {
+            reward -= kLowPosturePenaltyPerSecond * penalizedTime;
+            penalizedLowPostureSeconds_ += penalizedTime;
+        }
         if (frame.failed || truncated) {
             reward -= 10.0f;
         } else if (frame.jump_landed) {
-            reward += 120.0f - frame.sim_time;
+            if (penalizedLowPostureSeconds_ <= kMaximumLowPostureFinishFraction * frame.sim_time) {
+                reward += 120.0f - frame.sim_time;
+            } else {
+                reward -= 10.0f;
+            }
         }
         return reward;
     }
