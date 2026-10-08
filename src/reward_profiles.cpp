@@ -14,7 +14,7 @@ constexpr float kBodyHeightRewardCap = 5.0f;
 constexpr float kBodyHeightTargetHurdleScale = 0.45f;
 constexpr float kLongJumpLandingDistanceScale = 5.0f;
 constexpr float kLongJumpPostLandingProgressScale = 0.5f;
-// Foot-running reward v8. Knee contacts are not exposed by the backend;
+// Foot-running reward v12. Knee contacts are not exposed by the backend;
 // sustained low torso height is a posture proxy, including feet-on-ground crawl.
 constexpr float kUprightHeightRatio = 0.8f;
 constexpr float kSupportedProgressBonus = 1.0f;
@@ -39,6 +39,12 @@ constexpr float kClassicFailurePenalty = 30.0f;
 constexpr float kFastFinishReferenceSeconds = 65.0f;
 constexpr float kFastFinishTargetSeconds = 48.0f;
 constexpr float kFastFinishBonus = 80.0f;
+constexpr float kStartMilestoneMeters = 10.0f;
+constexpr float kStartReferenceSeconds = 7.5f;
+constexpr float kStartTargetSeconds = 5.5f;
+constexpr float kFastStartBonus = 40.0f;
+constexpr float kStartProgressBonusPerMeter = 4.0f;
+constexpr float kStartProgressDeadlineSeconds = 9.0f;
 
 float forwardLeanDegrees(const RgFrame& frame) {
     // Calibrate from world geometry: zero is head above torso, positive is
@@ -77,6 +83,7 @@ void RewardState::reset(const CourseSpec& course) {
     paceMeasurementReady_ = false;
     paceAnchorReady_ = false;
     maximumTorsoX_ = 0.0f;
+    startMilestoneSeen_ = false;
     longJumpLandingSeen_ = false;
     longJumpPostLandingX_ = 0.0f;
 }
@@ -89,6 +96,9 @@ float RewardState::calculate(
     switch (profile) {
     case RewardProfile::Classic100m: {
         const float cappedProgress = std::clamp(frame.score, 0.0f, 100.0f);
+        const float startProgress = std::max(0.0f,
+            std::min(cappedProgress, kStartMilestoneMeters)
+                - std::min(progressScore_, kStartMilestoneMeters));
         const float progressReward = std::max(0.0f, cappedProgress - progressScore_);
         float reward = 0.0f;
         progressScore_ = std::max(progressScore_, cappedProgress);
@@ -135,6 +145,14 @@ float RewardState::calculate(
             const float speedQuality = std::clamp(
                 (recentProgressSpeed_ - kSpeedRewardMinimum) / (kTargetProgressSpeed - kSpeedRewardMinimum), 0.0f, 1.0f);
             reward += kSpeedProgressBonus * progressReward * speedQuality;
+            // Give acceleration feedback before crossing 10m. Reward only new
+            // distance, taper with game time, and cap the total at 40 points.
+            if (!frame.failed && !truncated) {
+                const float startProgressQuality = std::clamp(
+                    (kStartProgressDeadlineSeconds - frame.sim_time)
+                        / (kStartProgressDeadlineSeconds - kStartTargetSeconds), 0.0f, 1.0f);
+                reward += kStartProgressBonusPerMeter * startProgress * startProgressQuality;
+            }
         }
         if (paceMeasurementReady_) {
             const float speedDeficit = std::clamp(1.0f - recentProgressSpeed_ / kTargetProgressSpeed, 0.0f, 1.0f);
@@ -159,6 +177,18 @@ float RewardState::calculate(
         if (!upright) {
             reward -= kLowPosturePenaltyPerSecond * penalizedTime;
             penalizedLowPostureSeconds_ += penalizedTime;
+        }
+        // A nearby timed milestone gives the initial acceleration direct credit.
+        // Consume it on the first crossing, including unqualified posture.
+        if (!startMilestoneSeen_ && cappedProgress >= kStartMilestoneMeters) {
+            startMilestoneSeen_ = true;
+            if (upright && !frame.failed && !truncated
+                && leanDegrees >= kBackwardLeanLimitDegrees && leanDegrees <= 30.0f
+                && penalizedLowPostureSeconds_ <= kMaximumLowPostureFinishFraction * frame.sim_time) {
+                const float startQuality = std::clamp(
+                    (kStartReferenceSeconds - frame.sim_time) / (kStartReferenceSeconds - kStartTargetSeconds), 0.0f, 1.0f);
+                reward += kFastStartBonus * startQuality;
+            }
         }
         if (frame.failed || truncated) {
             reward -= kClassicFailurePenalty;

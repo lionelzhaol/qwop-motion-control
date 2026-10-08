@@ -42,6 +42,7 @@ class PPOConfig:
     gae_lambda: float = 0.95
     # clip_coef 是 PPO 的核心保险丝：限制新旧策略概率比变化过大。
     clip_coef: float = 0.2
+    target_kl: float | None = None
     # ent_coef 鼓励策略保持随机性；vf_coef 控制 value loss 在总 loss 中的权重。
     ent_coef: float = 0.01
     vf_coef: float = 0.5
@@ -351,6 +352,8 @@ class TrainingLogger:
 
 
 def train(cfg: PPOConfig) -> None:
+    if cfg.target_kl is not None and (not np.isfinite(cfg.target_kl) or cfg.target_kl <= 0):
+        raise ValueError("target_kl must be finite and positive, or None")
     # 固定随机种子，让同样配置下的结果尽量可复现。
     torch.manual_seed(cfg.seed)
     np.random.seed(cfg.seed)
@@ -518,6 +521,8 @@ def train(cfg: PPOConfig) -> None:
             approx_kl_value = 0.0
             clipfrac_value = 0.0
             rnd_loss_value = 0.0
+            early_stop = False
+            optimization_steps = 0
             # 第二阶段：固定这批 rollout 数据，对策略和价值函数做多轮小批量优化。
             for _ in range(cfg.epochs):
                 indices = torch.randperm(batch_size, device=device)
@@ -529,6 +534,12 @@ def train(cfg: PPOConfig) -> None:
                     ratio = logratio.exp()
                     # approx_kl/clipfrac 是诊断指标：太大通常说明策略更新过猛。
                     approx_kl = ((ratio - 1.0) - logratio).mean()
+                    # The critic also changes shared policy features. Stop this
+                    # batch when their combined updates move the policy too far.
+                    if cfg.target_kl is not None and float(approx_kl.detach().cpu()) > cfg.target_kl:
+                        approx_kl_value = float(approx_kl.detach().cpu())
+                        early_stop = True
+                        break
                     clipfrac = ((ratio - 1.0).abs() > cfg.clip_coef).float().mean()
                     # PPO clipped objective：advantage 为正时希望增大动作概率，为负时希望减小；
                     # clamp 会阻止 ratio 偏离 1 太远，从而避免一次 update 把策略改坏。
@@ -545,6 +556,7 @@ def train(cfg: PPOConfig) -> None:
                     loss.backward()
                     nn.utils.clip_grad_norm_(model.parameters(), 0.5)
                     optimizer.step()
+                    optimization_steps += 1
 
                     policy_loss_value = float(policy_loss.detach().cpu())
                     value_loss_value = float(value_loss.detach().cpu())
@@ -560,6 +572,8 @@ def train(cfg: PPOConfig) -> None:
                         nn.utils.clip_grad_norm_(rnd_model.predictor.parameters(), 0.5)
                         rnd_optimizer.step()
                         rnd_loss_value = float(rnd_loss.detach().cpu())
+                if early_stop:
+                    break
 
             update_elapsed = time.perf_counter() - update_started
             rnd_rewards_buf = intrinsic_rewards_buf * rnd_beta
@@ -581,6 +595,8 @@ def train(cfg: PPOConfig) -> None:
             metrics = {
                 "charts/update_seconds": update_elapsed,
                 "charts/episodes": float(episode_finishes),
+                "charts/optimization_steps": float(optimization_steps),
+                "charts/early_stop": float(early_stop),
                 "losses/policy_loss": policy_loss_value,
                 "losses/value_loss": value_loss_value,
                 "losses/entropy": entropy_value,
@@ -648,6 +664,7 @@ def main() -> int:
     parser.add_argument("--gamma", type=float, default=None)
     parser.add_argument("--gae-lambda", type=float, default=None)
     parser.add_argument("--clip-coef", type=float, default=None)
+    parser.add_argument("--target-kl", type=float, default=None)
     parser.add_argument("--ent-coef", type=float, default=None)
     parser.add_argument("--vf-coef", type=float, default=None)
     parser.add_argument("--learning-rate", type=float, default=None)

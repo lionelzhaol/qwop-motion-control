@@ -29,6 +29,7 @@ private:
     bool paceMeasurementReady_ = false;
     bool paceAnchorReady_ = false;
     float maximumTorsoX_ = 0.0f;
+    bool startMilestoneSeen_ = false;
     bool longJumpLandingSeen_ = false;
     float longJumpPostLandingX_ = 0.0f;
 };
