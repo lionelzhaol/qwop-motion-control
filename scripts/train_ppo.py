@@ -47,6 +47,11 @@ class PPOConfig:
     ent_coef: float = 0.01
     ent_coef_final: float | None = None
     ent_coef_decay_updates: int = 0
+    start_logit_scale: float = 1.0
+    start_logit_scale_decay_updates: int = 0
+    start_explore_meters: float = 3.0
+    effective_action_entropy: bool = False
+    freeze_backbone: bool = False
     vf_coef: float = 0.5
     learning_rate: float = 3e-4
     seed: int = 1
@@ -233,19 +238,47 @@ class ActorCritic(nn.Module):
         hidden = self.features(obs)
         return self.actor(hidden), self.critic(hidden).squeeze(-1)
 
-    def act(self, obs: torch.Tensor):
+    def action_distribution(self, obs, start_logit_scale=1.0, start_explore_meters=3.0):
+        logits, value = self(obs)
+        if start_logit_scale != 1.0:
+            if obs.shape[-1] % 68:
+                raise ValueError("Start exploration requires classic_100m observations")
+            # Score is in the newest raw 68-value frame. A positive scale
+            # broadens sampling without changing the most likely action.
+            early = obs[..., -8] < start_explore_meters
+            scale = torch.where(early, start_logit_scale, 1.0).unsqueeze(-1)
+            logits = logits * scale
+        return torch.distributions.Categorical(logits=logits), value
+
+    @staticmethod
+    def action_entropy(dist, effective_action_entropy=False):
+        if not effective_action_entropy:
+            return dist.entropy()
+        if dist.logits.shape[-1] != 16:
+            raise ValueError("Effective action entropy requires 16 QWOP action masks")
+        # Native paired rollouts verified Q/W and O/P priority aliases:
+        # [0], [1,3], [2], [4,12], [5,7,13,15], [6,14], [8], [9,11], [10].
+        # Aggregate only for entropy; sampling and PPO log probabilities remain
+        # the original 16-action policy. Log-space sums retain stable gradients.
+        masks = dist.logits.reshape(*dist.logits.shape[:-1], 4, 4)
+        calves = torch.stack((masks[..., 0, :],
+            torch.logaddexp(masks[..., 1, :], masks[..., 3, :]), masks[..., 2, :]), dim=-2)
+        groups = torch.stack((calves[..., 0],
+            torch.logaddexp(calves[..., 1], calves[..., 3]), calves[..., 2]), dim=-1)
+        effective = torch.distributions.Categorical(logits=groups.flatten(start_dim=-2))
+        return effective.entropy()
+
+    def act(self, obs: torch.Tensor, start_logit_scale=1.0, start_explore_meters=3.0, effective_action_entropy=False):
         # 采样阶段使用当前策略随机选动作，并记录旧策略 log_prob。
         # 之后 PPO 更新会比较“新 log_prob”和这里保存的“旧 log_prob”。
-        logits, value = self(obs)
-        dist = torch.distributions.Categorical(logits=logits)
+        dist, value = self.action_distribution(obs, start_logit_scale, start_explore_meters)
         action = dist.sample()
-        return action, dist.log_prob(action), dist.entropy(), value
+        return action, dist.log_prob(action), self.action_entropy(dist, effective_action_entropy), value
 
-    def evaluate(self, obs: torch.Tensor, actions: torch.Tensor):
+    def evaluate(self, obs: torch.Tensor, actions: torch.Tensor, start_logit_scale=1.0, start_explore_meters=3.0, effective_action_entropy=False):
         # 训练阶段重新计算同一批动作在“当前新策略”下的 log_prob、entropy 和 value。
-        logits, value = self(obs)
-        dist = torch.distributions.Categorical(logits=logits)
-        return dist.log_prob(actions), dist.entropy(), value
+        dist, value = self.action_distribution(obs, start_logit_scale, start_explore_meters)
+        return dist.log_prob(actions), self.action_entropy(dist, effective_action_entropy), value
 
 
 class RNDModel(nn.Module):
@@ -288,6 +321,13 @@ def entropy_coef_for_update(cfg: PPOConfig, update: int) -> float:
         return cfg.ent_coef
     progress = min(1.0, max(0.0, (update - 1) / float(cfg.ent_coef_decay_updates)))
     return cfg.ent_coef + (cfg.ent_coef_final - cfg.ent_coef) * progress
+
+
+def start_logit_scale_for_update(cfg: PPOConfig, update: int) -> float:
+    if cfg.start_logit_scale_decay_updates <= 0:
+        return cfg.start_logit_scale
+    progress = min(1.0, max(0.0, (update - 1) / float(cfg.start_logit_scale_decay_updates)))
+    return cfg.start_logit_scale + (1.0 - cfg.start_logit_scale) * progress
 
 
 def save_checkpoint(
@@ -405,6 +445,10 @@ class TrainingLogger:
 
 
 def train(cfg: PPOConfig) -> None:
+    if not np.isfinite(cfg.start_logit_scale) or not 0 < cfg.start_logit_scale <= 1:
+        raise ValueError("start_logit_scale must be in (0, 1]")
+    if not np.isfinite(cfg.start_explore_meters) or cfg.start_explore_meters <= 0:
+        raise ValueError("start_explore_meters must be finite and positive")
     if cfg.ent_coef_final is not None and (not np.isfinite(cfg.ent_coef_final) or cfg.ent_coef_final < 0):
         raise ValueError("ent_coef_final must be finite and nonnegative, or None")
     if cfg.target_kl is not None and (not np.isfinite(cfg.target_kl) or cfg.target_kl <= 0):
@@ -422,6 +466,10 @@ def train(cfg: PPOConfig) -> None:
         game_mode=cfg.game_mode,
     )
     cfg.game_mode = env.game_mode
+    if cfg.start_logit_scale != 1.0 and cfg.game_mode != "classic_100m":
+        raise ValueError("Start exploration currently supports classic_100m only")
+    if cfg.effective_action_entropy and cfg.game_mode != "classic_100m":
+        raise ValueError("Effective action entropy currently supports classic_100m only")
     base_obs_np, _ = env.reset()
     stacker = FrameStacker(cfg.num_envs, base_obs_np.shape[1], cfg.frame_stack)
     obs_np = stacker.reset(base_obs_np)
@@ -443,6 +491,11 @@ def train(cfg: PPOConfig) -> None:
         checkpoint_data = torch.load(cfg.resume_from, map_location=device)
         load_model_compatible(model, checkpoint_data["model"])
     cfg.derive_angular_velocity = model.angular_velocity is not None
+    if cfg.freeze_backbone:
+        # Preserve learned gait features while PPO refines the two output heads.
+        model.net.requires_grad_(False)
+        if model.angular_velocity is not None:
+            model.angular_velocity.requires_grad_(False)
     optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate, eps=1e-5)
     use_rnd = cfg.rnd_beta > 0.0
     rnd_model = RNDModel(obs_dim, cfg.rnd_hidden_size, cfg.rnd_feature_dim).to(device) if use_rnd else None
@@ -511,13 +564,15 @@ def train(cfg: PPOConfig) -> None:
             final_distance_samples = []
             rnd_beta = rnd_beta_for_update(cfg, update)
             entropy_coef = entropy_coef_for_update(cfg, update)
+            start_logit_scale = start_logit_scale_for_update(cfg, update)
             # 第一阶段：用当前策略和环境交互，收集一批 on-policy 轨迹。
             for step in range(cfg.rollout_steps):
                 global_step += cfg.num_envs
                 obs_buf[step] = obs
                 with torch.no_grad():
                     # 采样动作时不需要梯度；真正反传发生在 rollout 收集完之后。
-                    actions, logprobs, _, values = model.act(obs)
+                    actions, logprobs, _, values = model.act(
+                        obs, start_logit_scale, cfg.start_explore_meters, cfg.effective_action_entropy)
                 actions_np = actions.cpu().numpy()
                 step_result = env.step_arrays(actions_np)
                 base_next_obs_np = step_result["obs"]
@@ -589,7 +644,9 @@ def train(cfg: PPOConfig) -> None:
                 indices = torch.randperm(batch_size, device=device)
                 for start in range(0, batch_size, minibatch_size):
                     mb = indices[start:start + minibatch_size]
-                    new_logprobs, entropy, new_values = model.evaluate(b_obs[mb], b_actions[mb])
+                    new_logprobs, entropy, new_values = model.evaluate(
+                        b_obs[mb], b_actions[mb], start_logit_scale, cfg.start_explore_meters,
+                        cfg.effective_action_entropy)
                     # ratio = pi_new(a|s) / pi_old(a|s)，衡量新策略对旧动作概率改了多少。
                     logratio = new_logprobs - b_logprobs[mb]
                     ratio = logratio.exp()
@@ -666,7 +723,15 @@ def train(cfg: PPOConfig) -> None:
                 "losses/explained_variance": explained_var_value,
                 "hyperparams/learning_rate": cfg.learning_rate,
                 "hyperparams/entropy_coefficient": entropy_coef,
+                "hyperparams/start_logit_scale": start_logit_scale,
             }
+            if cfg.effective_action_entropy:
+                with torch.no_grad():
+                    diagnostic_dist, _ = model.action_distribution(
+                        b_obs[:minibatch_size], start_logit_scale, cfg.start_explore_meters)
+                    metrics["diagnostics/mask_entropy"] = float(diagnostic_dist.entropy().mean().cpu())
+                    metrics["diagnostics/effective_action_entropy"] = float(
+                        model.action_entropy(diagnostic_dist, True).mean().cpu())
             if final_distance_mean is not None:
                 metrics["charts/final_distance_mean"] = final_distance_mean
             if episode_return_mean is not None:
@@ -730,6 +795,11 @@ def main() -> int:
     parser.add_argument("--ent-coef", type=float, default=None)
     parser.add_argument("--ent-coef-final", type=float, default=None)
     parser.add_argument("--ent-coef-decay-updates", type=int, default=None)
+    parser.add_argument("--start-logit-scale", type=float, default=None)
+    parser.add_argument("--start-logit-scale-decay-updates", type=int, default=None)
+    parser.add_argument("--start-explore-meters", type=float, default=None)
+    parser.add_argument("--effective-action-entropy", action="store_true", default=None)
+    parser.add_argument("--freeze-backbone", action="store_true", default=None)
     parser.add_argument("--vf-coef", type=float, default=None)
     parser.add_argument("--learning-rate", type=float, default=None)
     parser.add_argument("--seed", type=int, default=None)

@@ -30,6 +30,7 @@ private:
     bool paceAnchorReady_ = false;
     float maximumTorsoX_ = 0.0f;
     bool startMilestoneSeen_ = false;
+    bool earlyStartMilestoneSeen_ = false;
     float smoothedTorsoY_ = 0.0f;
     bool torsoHeightAnchorReady_ = false;
     float footAirSeconds_[2] = {0.0f, 0.0f};
@@ -38,6 +39,16 @@ private:
     int lastLandingFoot_ = -1;
     float lastLandingTime_ = 0.0f;
     float lastLandingProgress_ = 0.0f;
+    bool classicHurdleArmed_ = false;
+    bool classicHurdleCrossed_ = false;
+    bool classicHurdleJumpSeen_ = false;
+    bool classicHurdleJumpClosed_ = false;
+    bool classicHurdleLandingConfirmed_ = false;
+    bool classicHurdleRecoverySeen_ = false;
+    float classicHurdleCrossTime_ = 0.0f;
+    float classicHurdleJumpTime_ = 0.0f;
+    float classicHurdleAirTime_ = 0.0f;
+    float classicHurdleGroundTime_ = 0.0f;
     bool longJumpLandingSeen_ = false;
     float longJumpPostLandingX_ = 0.0f;
 };
