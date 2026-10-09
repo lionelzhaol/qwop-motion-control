@@ -45,6 +45,8 @@ class PPOConfig:
     target_kl: float | None = None
     # ent_coef 鼓励策略保持随机性；vf_coef 控制 value loss 在总 loss 中的权重。
     ent_coef: float = 0.01
+    ent_coef_final: float | None = None
+    ent_coef_decay_updates: int = 0
     vf_coef: float = 0.5
     learning_rate: float = 3e-4
     seed: int = 1
@@ -60,6 +62,7 @@ class PPOConfig:
     hidden_sizes: tuple[int, ...] = (128, 128)
     frame_stack: int = 1
     normalize_observations: bool = False
+    derive_angular_velocity: bool = False
     rnd_beta: float = 0.0
     rnd_beta_final: float | None = None
     rnd_beta_decay_updates: int = 0
@@ -154,7 +157,7 @@ class ActorCritic(nn.Module):
     critic 输出当前状态的 value，用来估计“从这个状态往后还能拿多少回报”。
     """
 
-    def __init__(self, obs_dim: int, action_dim: int, hidden_sizes: tuple[int, ...] = (128, 128), observation_scale=None):
+    def __init__(self, obs_dim: int, action_dim: int, hidden_sizes: tuple[int, ...] = (128, 128), observation_scale=None, derive_angular_velocity=False):
         super().__init__()
         # 这里的观测是向量特征，所以用 MLP；如果输入是图像，通常会换成 CNN。
         layers: list[nn.Module] = []
@@ -171,6 +174,41 @@ class ActorCritic(nn.Module):
         self.register_buffer("observation_scale", None)
         if observation_scale is not None:
             self.set_observation_scale(observation_scale)
+        self.angular_velocity = None
+        if derive_angular_velocity:
+            self.enable_angular_velocity()
+
+    def enable_angular_velocity(self):
+        if self.angular_velocity is not None:
+            return
+        if self.net[0].in_features % 68 or self.net[0].in_features < 136:
+            raise ValueError("Angular velocity features require stacked classic_100m observations")
+        self.angular_velocity = nn.Linear(12, self.net[0].out_features, bias=False).to(self.actor.weight.device)
+        # Preserve the existing policy exactly; PPO learns this optional branch.
+        nn.init.zeros_(self.angular_velocity.weight)
+
+    def motion_features(self, obs):
+        frames = obs.reshape(*obs.shape[:-1], -1, 68)
+        delta = frames[..., -1, 2:60:5] - frames[..., -2, 2:60:5]
+        delta = torch.atan2(torch.sin(delta), torch.cos(delta))
+        elapsed = frames[..., -1, 61] - frames[..., -2, 61]
+        omega = delta / elapsed.clamp_min(1e-6).unsqueeze(-1)
+        # Repeated reset frames have no elapsed time, so their velocity is zero.
+        omega = torch.where((elapsed > 1e-6).unsqueeze(-1), omega, 0.0)
+        return omega.clamp(-20.0, 20.0) / 10.0
+
+    def first_hidden(self, obs):
+        normalized = obs / self.observation_scale if self.observation_scale is not None else obs
+        hidden = self.net[0](normalized)
+        if self.angular_velocity is not None:
+            hidden = hidden + self.angular_velocity(self.motion_features(obs))
+        return hidden
+
+    def features(self, obs):
+        hidden = self.first_hidden(obs)
+        for layer in list(self.net)[1:]:
+            hidden = layer(hidden)
+        return hidden
 
     def set_observation_scale(self, scale) -> None:
         scale = torch.as_tensor(scale, dtype=torch.float32, device=self.actor.weight.device)
@@ -181,15 +219,18 @@ class ActorCritic(nn.Module):
         self.observation_scale = scale.detach().clone()
 
     def load_state_dict(self, state_dict, strict=True, assign=False):
+        if "angular_velocity.weight" in state_dict:
+            self.enable_angular_velocity()
+        elif self.angular_velocity is not None:
+            state_dict = dict(state_dict)
+            state_dict["angular_velocity.weight"] = torch.zeros_like(self.angular_velocity.weight)
         if "observation_scale" in state_dict:
             self.set_observation_scale(state_dict["observation_scale"])
         return super().load_state_dict(state_dict, strict=strict, assign=assign)
 
     def forward(self, obs: torch.Tensor):
         # 返回 actor logits 和 critic value。value squeeze 到 [batch]，便于和 reward/return 对齐。
-        if self.observation_scale is not None:
-            obs = obs / self.observation_scale
-        hidden = self.net(obs)
+        hidden = self.features(obs)
         return self.actor(hidden), self.critic(hidden).squeeze(-1)
 
     def act(self, obs: torch.Tensor):
@@ -242,6 +283,13 @@ def rnd_beta_for_update(cfg: PPOConfig, update: int) -> float:
     return cfg.rnd_beta + (cfg.rnd_beta_final - cfg.rnd_beta) * progress
 
 
+def entropy_coef_for_update(cfg: PPOConfig, update: int) -> float:
+    if cfg.ent_coef_final is None or cfg.ent_coef_decay_updates <= 0:
+        return cfg.ent_coef
+    progress = min(1.0, max(0.0, (update - 1) / float(cfg.ent_coef_decay_updates)))
+    return cfg.ent_coef + (cfg.ent_coef_final - cfg.ent_coef) * progress
+
+
 def save_checkpoint(
     path: Path,
     model: nn.Module,
@@ -281,6 +329,11 @@ def copy_linear_prefix(dst: torch.Tensor, src: torch.Tensor) -> None:
 
 
 def load_model_compatible(model: nn.Module, state_dict: dict[str, torch.Tensor]) -> None:
+    if isinstance(model, ActorCritic) and "angular_velocity.weight" in state_dict:
+        model.enable_angular_velocity()
+    elif isinstance(model, ActorCritic) and model.angular_velocity is not None:
+        with torch.no_grad():
+            model.angular_velocity.weight.zero_()
     if isinstance(model, ActorCritic) and "observation_scale" in state_dict:
         source_scale = state_dict["observation_scale"]
         target_scale = model.observation_scale
@@ -305,7 +358,7 @@ def load_model_compatible(model: nn.Module, state_dict: dict[str, torch.Tensor])
             # exactly while keeping the author's right-aligned recent frames.
             dst[:rows].zero_()
             dst[:rows, -src.shape[1]:].copy_(src[:rows])
-        elif name.startswith("net.") or name.startswith("actor.") or name.startswith("critic."):
+        elif name.startswith(("net.", "actor.", "critic.", "angular_velocity.")):
             copy_linear_prefix(dst, src)
     model.load_state_dict(current)
 
@@ -352,6 +405,8 @@ class TrainingLogger:
 
 
 def train(cfg: PPOConfig) -> None:
+    if cfg.ent_coef_final is not None and (not np.isfinite(cfg.ent_coef_final) or cfg.ent_coef_final < 0):
+        raise ValueError("ent_coef_final must be finite and nonnegative, or None")
     if cfg.target_kl is not None and (not np.isfinite(cfg.target_kl) or cfg.target_kl <= 0):
         raise ValueError("target_kl must be finite and positive, or None")
     # 固定随机种子，让同样配置下的结果尽量可复现。
@@ -380,7 +435,14 @@ def train(cfg: PPOConfig) -> None:
         body_scale = np.tile([5.0, 15.0, np.pi, 10.0, 10.0], 12)
         task_scale = [100.0, 120.0, 1000.0, 1000.0, 1.0, 1.0, 1.0, 1.0]
         observation_scale = np.tile(np.concatenate((body_scale, task_scale)), cfg.frame_stack)
-    model = ActorCritic(obs_dim, action_dim, cfg.hidden_sizes, observation_scale).to(device)
+    if cfg.derive_angular_velocity and env.game_mode != "classic_100m":
+        raise ValueError("Angular velocity features currently support classic_100m only")
+    model = ActorCritic(obs_dim, action_dim, cfg.hidden_sizes, observation_scale, cfg.derive_angular_velocity).to(device)
+    checkpoint_data = None
+    if cfg.resume_from:
+        checkpoint_data = torch.load(cfg.resume_from, map_location=device)
+        load_model_compatible(model, checkpoint_data["model"])
+    cfg.derive_angular_velocity = model.angular_velocity is not None
     optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate, eps=1e-5)
     use_rnd = cfg.rnd_beta > 0.0
     rnd_model = RNDModel(obs_dim, cfg.rnd_hidden_size, cfg.rnd_feature_dim).to(device) if use_rnd else None
@@ -389,8 +451,6 @@ def train(cfg: PPOConfig) -> None:
     global_step = 0
     if cfg.resume_from:
         # 续训时恢复模型和优化器状态；随后把学习率改成当前配置里的 learning_rate。
-        checkpoint_data = torch.load(cfg.resume_from, map_location=device)
-        load_model_compatible(model, checkpoint_data["model"])
         if "optimizer" in checkpoint_data and not cfg.reset_optimizer_on_resume:
             try:
                 optimizer.load_state_dict(checkpoint_data["optimizer"])
@@ -450,6 +510,7 @@ def train(cfg: PPOConfig) -> None:
             episode_return_samples = []
             final_distance_samples = []
             rnd_beta = rnd_beta_for_update(cfg, update)
+            entropy_coef = entropy_coef_for_update(cfg, update)
             # 第一阶段：用当前策略和环境交互，收集一批 on-policy 轨迹。
             for step in range(cfg.rollout_steps):
                 global_step += cfg.num_envs
@@ -550,7 +611,7 @@ def train(cfg: PPOConfig) -> None:
                     value_loss = 0.5 * ((new_values - b_returns[mb]) ** 2).mean()
                     # entropy 越大，策略越随机；总 loss 里减去 entropy，相当于奖励探索。
                     entropy_loss = entropy.mean()
-                    loss = policy_loss - cfg.ent_coef * entropy_loss + cfg.vf_coef * value_loss
+                    loss = policy_loss - entropy_coef * entropy_loss + cfg.vf_coef * value_loss
 
                     optimizer.zero_grad()
                     loss.backward()
@@ -604,6 +665,7 @@ def train(cfg: PPOConfig) -> None:
                 "losses/clipfrac": clipfrac_value,
                 "losses/explained_variance": explained_var_value,
                 "hyperparams/learning_rate": cfg.learning_rate,
+                "hyperparams/entropy_coefficient": entropy_coef,
             }
             if final_distance_mean is not None:
                 metrics["charts/final_distance_mean"] = final_distance_mean
@@ -666,6 +728,8 @@ def main() -> int:
     parser.add_argument("--clip-coef", type=float, default=None)
     parser.add_argument("--target-kl", type=float, default=None)
     parser.add_argument("--ent-coef", type=float, default=None)
+    parser.add_argument("--ent-coef-final", type=float, default=None)
+    parser.add_argument("--ent-coef-decay-updates", type=int, default=None)
     parser.add_argument("--vf-coef", type=float, default=None)
     parser.add_argument("--learning-rate", type=float, default=None)
     parser.add_argument("--seed", type=int, default=None)
@@ -685,6 +749,7 @@ def main() -> int:
     parser.add_argument("--hidden-sizes", type=parse_hidden_sizes, default=None)
     parser.add_argument("--frame-stack", type=int, default=None)
     parser.add_argument("--normalize-observations", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--derive-angular-velocity", action=argparse.BooleanOptionalAction, default=None)
     parser.add_argument("--rnd-beta", type=float, default=None)
     parser.add_argument("--rnd-beta-final", type=float, default=None)
     parser.add_argument("--rnd-beta-decay-updates", type=int, default=None)

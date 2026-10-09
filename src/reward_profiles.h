@@ -30,6 +30,14 @@ private:
     bool paceAnchorReady_ = false;
     float maximumTorsoX_ = 0.0f;
     bool startMilestoneSeen_ = false;
+    float smoothedTorsoY_ = 0.0f;
+    bool torsoHeightAnchorReady_ = false;
+    float footAirSeconds_[2] = {0.0f, 0.0f};
+    float footGroundSeconds_[2] = {0.0f, 0.0f};
+    bool footLiftConfirmed_[2] = {false, false};
+    int lastLandingFoot_ = -1;
+    float lastLandingTime_ = 0.0f;
+    float lastLandingProgress_ = 0.0f;
     bool longJumpLandingSeen_ = false;
     float longJumpPostLandingX_ = 0.0f;
 };

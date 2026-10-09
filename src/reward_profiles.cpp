@@ -14,7 +14,7 @@ constexpr float kBodyHeightRewardCap = 5.0f;
 constexpr float kBodyHeightTargetHurdleScale = 0.45f;
 constexpr float kLongJumpLandingDistanceScale = 5.0f;
 constexpr float kLongJumpPostLandingProgressScale = 0.5f;
-// Foot-running reward v12. Knee contacts are not exposed by the backend;
+// Foot-running reward v23. Knee contacts are not exposed by the backend;
 // sustained low torso height is a posture proxy, including feet-on-ground crawl.
 constexpr float kUprightHeightRatio = 0.8f;
 constexpr float kSupportedProgressBonus = 1.0f;
@@ -24,20 +24,23 @@ constexpr float kMaximumLowPostureFinishFraction = 0.1f;
 constexpr float kPostureRewardPerSecond = 1.0f;
 constexpr float kProgressRewardScale = 1.2f;
 constexpr float kLeanTargetMinDegrees = 5.0f;
-constexpr float kLeanTargetMaxDegrees = 10.0f;
-constexpr float kLeanToleranceDegrees = 15.0f;
-constexpr float kForwardLeanProgressBonus = 0.4f;
+constexpr float kLeanTargetMaxDegrees = 5.0f;
+constexpr float kLeanToleranceDegrees = 10.0f;
+constexpr float kForwardLeanProgressBonus = 1.0f;
+constexpr float kLeanPostureGraceDegrees = 3.0f;
+constexpr float kLeanPostureToleranceDegrees = 12.0f;
+constexpr float kLeanPosturePenaltyPerSecond = 2.0f;
 constexpr float kBackwardLeanLimitDegrees = -10.0f;
 constexpr float kBackwardLeanGraceSeconds = 0.15f;
 constexpr float kBackwardLeanPenaltyPerSecond = 0.3f;
 constexpr float kPaceWindowSeconds = 0.2f;
-constexpr float kTargetProgressSpeed = 2.2f;
+constexpr float kTargetProgressSpeed = 2.5f;
 constexpr float kSpeedRewardMinimum = 1.5f;
 constexpr float kSpeedProgressBonus = 6.0f;
 constexpr float kPaceDeficitPenaltyPerSecond = 16.0f;
 constexpr float kClassicFailurePenalty = 30.0f;
 constexpr float kFastFinishReferenceSeconds = 65.0f;
-constexpr float kFastFinishTargetSeconds = 48.0f;
+constexpr float kFastFinishTargetSeconds = 43.0f;
 constexpr float kFastFinishBonus = 80.0f;
 constexpr float kStartMilestoneMeters = 10.0f;
 constexpr float kStartReferenceSeconds = 7.5f;
@@ -45,6 +48,16 @@ constexpr float kStartTargetSeconds = 5.5f;
 constexpr float kFastStartBonus = 40.0f;
 constexpr float kStartProgressBonusPerMeter = 4.0f;
 constexpr float kStartProgressDeadlineSeconds = 9.0f;
+constexpr float kHeightSmoothingSeconds = 0.6f;
+constexpr float kHeightOscillationGrace = 0.02f;
+constexpr float kHeightOscillationTolerance = 0.06f;
+constexpr float kVerticalMotionPenaltyPerSecond = 4.0f;
+constexpr float kFootAirConfirmationSeconds = 0.1f;
+constexpr float kFootGroundConfirmationSeconds = 2.0f / 30.0f;
+constexpr float kMinimumLandingIntervalSeconds = 0.15f;
+constexpr float kCadenceBaseline = 1.0f;
+constexpr float kCadenceTarget = 1.4f;
+constexpr float kCadenceProgressBonus = 2.4f;
 
 float forwardLeanDegrees(const RgFrame& frame) {
     // Calibrate from world geometry: zero is head above torso, positive is
@@ -84,6 +97,16 @@ void RewardState::reset(const CourseSpec& course) {
     paceAnchorReady_ = false;
     maximumTorsoX_ = 0.0f;
     startMilestoneSeen_ = false;
+    smoothedTorsoY_ = 0.0f;
+    torsoHeightAnchorReady_ = false;
+    for (int foot = 0; foot < 2; ++foot) {
+        footAirSeconds_[foot] = 0.0f;
+        footGroundSeconds_[foot] = 0.0f;
+        footLiftConfirmed_[foot] = false;
+    }
+    lastLandingFoot_ = -1;
+    lastLandingTime_ = 0.0f;
+    lastLandingProgress_ = 0.0f;
     longJumpLandingSeen_ = false;
     longJumpPostLandingX_ = 0.0f;
 }
@@ -131,8 +154,61 @@ float RewardState::calculate(
         const bool upright = torsoHeight >= kUprightHeightRatio * standingHeight;
         const bool footSupported = frame.left_foot_grounded || frame.right_foot_grounded;
         const float leanDegrees = forwardLeanDegrees(frame);
+        // Soft posture feedback also applies during flight, not only at the
+        // instants of supported progress. Leave the first 2s for acceleration.
+        if (upright && frame.sim_time >= 2.0f) {
+            const float leanExcess = std::clamp(
+                (std::abs(leanDegrees - kLeanTargetMinDegrees) - kLeanPostureGraceDegrees)
+                    / kLeanPostureToleranceDegrees, 0.0f, 1.0f);
+            reward -= kLeanPosturePenaltyPerSecond * elapsed * leanExcess * leanExcess;
+        }
+        const float torsoY = frame.bodies[kTorsoBodySlot].y;
+        // Torso height is a proxy: the ABI does not expose body masses for COM.
+        if (!torsoHeightAnchorReady_) {
+            smoothedTorsoY_ = torsoY;
+        } else if (elapsed > 0.0f) {
+            smoothedTorsoY_ += (torsoY - smoothedTorsoY_) * elapsed / (kHeightSmoothingSeconds + elapsed);
+            if (upright && frame.sim_time >= 2.0f) {
+                const float oscillation = std::abs(torsoY - smoothedTorsoY_) / standingHeight;
+                const float excess = std::clamp((oscillation - kHeightOscillationGrace) / kHeightOscillationTolerance, 0.0f, 1.0f);
+                reward -= kVerticalMotionPenaltyPerSecond * elapsed * excess * excess;
+            }
+        }
+        torsoHeightAnchorReady_ = true;
+        bool landings[2] = {false, false};
+        const bool contacts[2] = {frame.left_foot_grounded != 0, frame.right_foot_grounded != 0};
+        for (int foot = 0; foot < 2; ++foot) {
+            if (!contacts[foot]) {
+                footAirSeconds_[foot] += elapsed;
+                footGroundSeconds_[foot] = 0.0f;
+                footLiftConfirmed_[foot] |= footAirSeconds_[foot] + 1e-5f >= kFootAirConfirmationSeconds;
+            } else {
+                footAirSeconds_[foot] = 0.0f;
+                footGroundSeconds_[foot] += elapsed;
+                if (footLiftConfirmed_[foot] && footGroundSeconds_[foot] + 1e-5f >= kFootGroundConfirmationSeconds) {
+                    landings[foot] = true;
+                    footLiftConfirmed_[foot] = false;
+                }
+            }
+        }
+        if (landings[0] != landings[1]) {
+            const int foot = landings[0] ? 0 : 1;
+            const float interval = frame.sim_time - lastLandingTime_;
+            if (foot != lastLandingFoot_ && interval + 1e-6f >= kMinimumLandingIntervalSeconds) {
+                const float stepProgress = std::clamp(progressScore_ - lastLandingProgress_, 0.0f, 5.0f);
+                if (lastLandingFoot_ >= 0 && upright && !frame.failed && !truncated
+                    && leanDegrees >= kBackwardLeanLimitDegrees && leanDegrees <= 30.0f
+                    && paceMeasurementReady_ && recentProgressSpeed_ >= kSpeedRewardMinimum && stepProgress >= 0.2f) {
+                    const float cadenceQuality = std::clamp((1.0f / interval - kCadenceBaseline) / (kCadenceTarget - kCadenceBaseline), 0.0f, 1.0f);
+                    reward += kCadenceProgressBonus * stepProgress * cadenceQuality;
+                }
+                lastLandingFoot_ = foot;
+                lastLandingTime_ = frame.sim_time;
+                lastLandingProgress_ = progressScore_;
+            }
+        }
         if (upright) {
-            reward = kProgressRewardScale * progressReward;
+            reward += kProgressRewardScale * progressReward;
         }
         if (upright && footSupported) {
             reward += kProgressRewardScale * kSupportedProgressBonus * progressReward;

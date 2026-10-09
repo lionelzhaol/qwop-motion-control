@@ -85,6 +85,7 @@ def save_student_checkpoint(
     config["frame_stack"] = frame_stack
     config["reward_profile"] = reward_profile
     config["game_mode"] = game_mode
+    config["derive_angular_velocity"] = student.angular_velocity is not None
     config["distilled_from"] = str(teacher_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     torch.save(
@@ -154,10 +155,14 @@ def main() -> int:
         parameter.requires_grad_(False)
 
     student = ActorCritic(obs_dim, action_dim, args.student_hidden_sizes).to(device)
-    optimizer = torch.optim.Adam(student.parameters(), lr=args.learning_rate, eps=1e-5)
     if student_resume_path:
         student_data = torch.load(student_resume_path, map_location=device)
         student.load_state_dict(student_data["model"])
+    else:
+        load_model_compatible(student, teacher_data["model"])
+    # A restored checkpoint may enable derived features; include them in Adam.
+    optimizer = torch.optim.Adam(student.parameters(), lr=args.learning_rate, eps=1e-5)
+    if student_resume_path:
         try:
             optimizer.load_state_dict(student_data["optimizer"])
             for group in optimizer.param_groups:
@@ -165,8 +170,6 @@ def main() -> int:
         except (KeyError, ValueError, RuntimeError):
             print("student_optimizer_state_skipped=1 reason=incompatible_or_missing")
         print(f"student_resumed_from={student_resume_path}")
-    else:
-        load_model_compatible(student, teacher_data["model"])
 
     obs = torch.tensor(obs_np, dtype=torch.float32, device=device)
     for iteration in range(1, args.iterations + 1):
