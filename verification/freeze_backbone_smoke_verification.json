@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "smoke_checkpoint": "checkpoints/ppo_phase_v35_smoke.pt",
+  "source_checkpoint": "checkpoints/ppo_phase_v34_credit_calibrated.pt",
+  "freeze_backbone_config": true,
+  "unchanged_frozen_tensors": [
+    "observation_scale",
+    "net.0.weight",
+    "net.0.bias",
+    "net.2.weight",
+    "net.2.bias",
+    "angular_velocity.weight"
+  ],
+  "updated_head_tensors": [
+    "actor.weight",
+    "actor.bias",
+    "critic.weight",
+    "critic.bias"
+  ],
+  "strict_load_success": true,
+  "default_all_parameters_trainable": true,
+  "frozen_backbone_grad_none": [
+    "net.0.weight",
+    "net.0.bias",
+    "net.2.weight",
+    "net.2.bias",
+    "angular_velocity.weight"
+  ],
+  "head_gradients_finite": [
+    "actor.weight",
+    "actor.bias",
+    "critic.weight",
+    "critic.bias"
+  ],
+  "default_backbone_gradients_restored": true,
+  "optimizer_parameter_count": 9,
+  "old_optimizer_parameter_list_compatible": true,
+  "smoke_optimizer_strict_load_success": true,
+  "all_checkpoint_tensors_finite": true,
+  "head_update_max_abs": {
+    "actor.weight": 0.001484895357862115,
+    "actor.bias": 0.0012102723121643066,
+    "critic.weight": 0.0016028881072998047,
+    "critic.bias": 0.00147247314453125
+  }
+}

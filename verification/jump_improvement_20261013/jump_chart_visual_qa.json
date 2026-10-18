@@ -1,0 +1,31 @@
+{
+  "figures": [
+    {
+      "file": "training_curves.png",
+      "bytes": 340429,
+      "pixels": [
+        1920,
+        1280
+      ],
+      "sha256": "2d206e373bd5926add4573e08a9942aad53d81eae2ee1a29e2f402045bc7413b"
+    },
+    {
+      "file": "greedy_performance.png",
+      "bytes": 91638,
+      "pixels": [
+        1920,
+        1280
+      ],
+      "sha256": "e1e37d3c2106c181f2eade03bc39640a81e3d1d5f97ef1c7fc94bd9932e3afe8"
+    }
+  ],
+  "render_backend": "Standard .NET Charting",
+  "visually_inspected": true,
+  "chinese_titles_axes_and_stage_labels_not_clipped": true,
+  "legends_and_labels_not_overlapping": true,
+  "bc_v3_point_100_epoch_4p101657867m_explicit": true,
+  "bar_axes_start_at_zero": true,
+  "actual_logged_values_only_no_synthetic_smoothing": true,
+  "cross_profile_reward_comparisons": false,
+  "final_distance_mean_not_used_as_official_jump": true
+}

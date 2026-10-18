@@ -1,0 +1,19 @@
+{
+  "release_checkpoint": "E:\\Work\\\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_under50.pt",
+  "checkpoint_sha256": "4c1bd302c0c2d497eb5d4fb9ff798ca3d983d8372da15e86c8454b1cdaf467fc",
+  "strict_load_and_weight_identity": true,
+  "refinement": {
+    "method": "local_actor_bias_search",
+    "source_checkpoint": "checkpoints/ppo_start50_v16_policy_update_005920.pt",
+    "seed": 81601,
+    "candidates": 512,
+    "original_ppo_seconds": 50.16666793823242,
+    "deterministic_seconds": 49.96666717529297,
+    "optimizer_reinitialized": true
+  },
+  "training_metrics_finite": true,
+  "updates_logged": 1024,
+  "value_loss_last": 15.630640983581543,
+  "explained_variance_last": 0.9249187707901001,
+  "early_stop_fraction": 0.0732421875
+}

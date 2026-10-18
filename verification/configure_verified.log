@@ -1,0 +1,7 @@
+-- Found Python3: Q:/QWOP_rl_training_public/.venv/Scripts/python.exe (found version "3.10.11") found components: Interpreter Development.Module
+-- pybind11 v3.0.4 
+-- Performing Test HAS_MSVC_GL_LTCG
+-- Performing Test HAS_MSVC_GL_LTCG - Success
+-- Configuring done (3.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: Q:/QWOP_rl_training_public/build

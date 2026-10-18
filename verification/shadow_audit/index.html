@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#171918">
+    <title>LYiHub - Running man</title>
+    <link rel="preconnect" href="https://imyrs.net" crossorigin>
+    <link rel="stylesheet" href="https://imyrs.net/u/lyi/running-man/v0.4/css/main.css">
+    <script defer src="https://stats.imyrs.cn/script.js" data-website-id="fc92ed67-d5c7-4243-84bd-99b6237aac93"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="LYiHub - Running man 首页">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>LYiHub - Running man</span>
+      </a>
+
+      <div class="mode-switcher" role="tablist" aria-label="游戏模式">
+        <button class="mode-btn is-active" type="button" role="tab" aria-selected="true" data-mode="sprint">100 米</button>
+        <button class="mode-btn" type="button" role="tab" aria-selected="false" data-mode="hurdle">跨栏</button>
+        <button class="mode-btn" type="button" role="tab" aria-selected="false" data-mode="long-jump">跳远</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="play-col">
+        <div class="game-stage" id="game-stage">
+          <canvas class="game-canvas" id="game-canvas" oncontextmenu="event.preventDefault()" tabindex="0" aria-label="LYiHub - Running man 游戏画面"></canvas>
+
+          <div class="game-overlay" id="game-overlay">
+            <div class="load-spinner" id="load-spinner"></div>
+            <div class="load-text" id="load-text">正在加载游戏…</div>
+            <div class="load-progress-wrap">
+              <div class="load-progress" id="load-progress"></div>
+            </div>
+          </div>
+
+          <div class="taunt-card is-hidden" id="taunt-card" role="dialog" aria-modal="true" aria-label="嘲讽卡片，点击任意位置关闭" tabindex="-1">
+            <img class="taunt-img is-hidden" id="taunt-img" alt="">
+          </div>
+
+        </div>
+
+        <div class="game-toolbar">
+          <div class="run-summary">
+            <span class="summary-label" id="mode-title">100 米</span>
+            <strong class="summary-result" id="personal-result">--.---</strong>
+          </div>
+          <div class="game-actions">
+            <button class="text-btn toolbar-btn" id="info-btn" type="button" title="游戏说明" aria-haspopup="dialog">说明</button>
+            <button class="text-btn toolbar-btn" id="ghost-btn" type="button" title="影子：开" aria-label="影子开关">影子</button>
+            <button class="text-btn toolbar-btn" id="upload-btn" type="button" title="上传 Replay" aria-label="上传回放">上传</button>
+            <button class="text-btn toolbar-btn" type="button" data-key-tap="KeyR" title="重新开始 (R)" aria-label="重新开始">重开</button>
+          </div>
+        </div>
+
+        <div class="touch-controls" aria-label="触控按键">
+          <button type="button" data-game-key="KeyQ"><span>Q</span></button>
+          <button type="button" data-game-key="KeyW"><span>W</span></button>
+          <button type="button" data-game-key="KeyO"><span>O</span></button>
+          <button type="button" data-game-key="KeyP"><span>P</span></button>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <section class="player-section">
+          <label class="input-label" for="player-name">玩家名</label>
+          <input id="player-name" name="player_name" type="text" maxlength="20" autocomplete="nickname" placeholder="输入玩家名">
+          <div class="submit-row">
+            <button class="submit-btn" id="submit-btn" type="button" disabled title="完成比赛后才能提交">提交成绩</button>
+          </div>
+        </section>
+
+        <section class="board-section">
+          <div class="section-head board-head">
+            <div>
+              <h2>排行榜</h2>
+              <span class="board-mode" id="board-mode">100 米 · 帧数</span>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">排名</th>
+                  <th scope="col">玩家</th>
+                  <th scope="col" class="col-result">成绩</th>
+                </tr>
+              </thead>
+              <tbody id="board-body"></tbody>
+            </table>
+            <div class="board-empty" id="board-empty">暂无成绩</div>
+          </div>
+
+          <div class="board-footer">
+            <span id="board-status" aria-live="polite">正在加载排行榜…</span>
+            <span>TOP 50</span>
+          </div>
+          <p class="board-disclaimer">感谢 QWOP 作者 Bennett Foddy。游戏官网：<a href="https://www.foddy.net/legacy/Athletics.html" target="_blank" rel="noopener noreferrer">https://www.foddy.net/legacy/Athletics.html</a> 本项目仅供学习、交流和研究使用，与原游戏作者无关联。原游戏名称及相关版权归其权利人所有。本游戏为基于《QWOP》原游戏作品（by Bennett Foddy）的二次创作，如果有版权相关方认为本作品侵犯到了相关权益，请联系 <a href="mailto:office@lyi.ai">office@lyi.ai</a>，核实后我们会对本页面做下线处理</p>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <p>Copyright © 2026 有亦网络｜林亦 LYi｜<a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤 ICP 备 2024250280 号</a></p>
+    </footer>
+
+    <input type="file" id="replay-file" accept=".bin" hidden>
+    <div class="toast-container" id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="info-modal is-hidden" id="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-title">
+      <div class="info-dialog">
+        <div class="info-dialog-head">
+          <h2 id="info-title">游戏说明</h2>
+          <button class="info-close" id="info-close" type="button" title="关闭" aria-label="关闭">&times;</button>
+        </div>
+        <div class="info-content">
+          <p>我们推荐您使用“上传”功能，上传您训练的 AI 的游戏回放，训练和导出回放的具体方法，请参照我们的开源仓库：<a href="https://github.com/LYiHub/QWOP_rl_training_public" target="_blank" rel="noopener noreferrer">LYiHub/QWOP_rl_training_public</a></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.RUNNING_STATIC_BASE = 'https://imyrs.net/u/lyi/running-man/v0.4';
+    </script>
+    <script src="https://imyrs.net/u/lyi/running-man/v0.4/js/game.js"></script>
+    <script src="https://imyrs.net/u/lyi/running-man/v0.4/js/leaderboard.js"></script>
+    <script src="https://imyrs.net/u/lyi/running-man/v0.4/js/ui.js"></script>
+    <script src="https://imyrs.net/u/lyi/running-man/v0.4/js/app.js"></script>
+  </body>
+</html>

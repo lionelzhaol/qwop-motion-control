@@ -1,0 +1,25 @@
+{
+  "source": "https://run.lyihub.com/api/rank/classic_100m/top-replay",
+  "source_player": "XYF",
+  "leaderboard_frames": 991,
+  "frames": 991,
+  "executed_frames": 991,
+  "native_terminal_at_last_action": true,
+  "native_success": true,
+  "native_time_s": 33.03333282470703,
+  "native_score_m": 100.0,
+  "raw_low_torso_fraction": 0.011099899091826439,
+  "foot_contact_fraction": 0.32996972754793136,
+  "crossings_game_seconds": {
+    "10": 6.099999904632568,
+    "30": 12.699999809265137,
+    "50": 18.633333206176758,
+    "60": 21.66666603088379,
+    "90": 30.399999618530273,
+    "100": 33.03333282470703
+  },
+  "replay_crc_verified": true,
+  "replay_sha256": "a5b04f529e6c062e9899d5d8fd2740943a07f1f2a50ecec09c572a4d64f936f3",
+  "current_local_reward": 1450.9540146010695,
+  "posture_note": "Torso-height and foot-contact proxies; knee contact is not exposed."
+}

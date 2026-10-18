@@ -1,0 +1,31 @@
+{
+  "original_reward_cpp_sha256": "5aee5d4afcef9bb71a6ae6236f25dd6333a3f28affca6cdf3240928d87d95f43",
+  "variants": {
+    "Current": {},
+    "NoLeanProgress": {
+      "kForwardLeanProgressBonus": "0.0f"
+    },
+    "NoLeanPenalty": {
+      "kLeanPosturePenaltyPerSecond": "0.0f"
+    },
+    "NoVertical": {
+      "kVerticalMotionPenaltyPerSecond": "0.0f"
+    },
+    "NoCadence": {
+      "kCadenceProgressBonus": "0.0f"
+    },
+    "NoExactLean": {
+      "kForwardLeanProgressBonus": "0.0f",
+      "kLeanPosturePenaltyPerSecond": "0.0f"
+    }
+  },
+  "output_order": [
+    "Current",
+    "NoLeanProgress",
+    "NoLeanPenalty",
+    "NoVertical",
+    "NoCadence",
+    "NoExactLean",
+    "TaskOnly"
+  ]
+}

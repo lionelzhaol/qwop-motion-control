@@ -1,0 +1,16 @@
+{
+  "baseline": {
+    "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_finetuned_best_20261015.pt",
+    "checkpoint_sha256": "9b5ceff459013fa9e08ff64323c3a83ec5a7543bd234e6ea6c34dcdf00884bcc",
+    "expert_frames": 991,
+    "probability_of_canonical_sequence_along_expert_states": 0.893959641456604,
+    "expert_argmax_matches": 991
+  },
+  "selected": {
+    "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_actor_unfreeze_best_20261015.pt",
+    "checkpoint_sha256": "ddb9a6fbbee2cd75e0db994e49082198348e8fdaef481ee9399fd536d673c90a",
+    "expert_frames": 991,
+    "probability_of_canonical_sequence_along_expert_states": 0.9461643099784851,
+    "expert_argmax_matches": 991
+  }
+}

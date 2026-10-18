@@ -1,0 +1,632 @@
+[
+  {
+    "depth": 1,
+    "candidates": 9,
+    "live_candidates": 9,
+    "best_frames": null,
+    "furthest_live_torso_m": 88.78407287597656
+  },
+  {
+    "depth": 2,
+    "candidates": 81,
+    "live_candidates": 81,
+    "best_frames": null,
+    "furthest_live_torso_m": 88.92156219482422
+  },
+  {
+    "depth": 3,
+    "candidates": 576,
+    "live_candidates": 576,
+    "best_frames": null,
+    "furthest_live_torso_m": 89.05487060546875
+  },
+  {
+    "depth": 4,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 89.17676544189453
+  },
+  {
+    "depth": 5,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 89.291748046875
+  },
+  {
+    "depth": 6,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 89.4048843383789
+  },
+  {
+    "depth": 7,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 89.51802062988281
+  },
+  {
+    "depth": 8,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 89.63399505615234
+  },
+  {
+    "depth": 9,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 89.74803924560547
+  },
+  {
+    "depth": 10,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 89.86541748046875
+  },
+  {
+    "depth": 11,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 89.98312377929688
+  },
+  {
+    "depth": 12,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 90.10124206542969
+  },
+  {
+    "depth": 13,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 90.21669006347656
+  },
+  {
+    "depth": 14,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 90.33377075195312
+  },
+  {
+    "depth": 15,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 90.45057678222656
+  },
+  {
+    "depth": 16,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 90.56514739990234
+  },
+  {
+    "depth": 17,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 90.67913055419922
+  },
+  {
+    "depth": 18,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 90.79325103759766
+  },
+  {
+    "depth": 19,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 90.90718841552734
+  },
+  {
+    "depth": 20,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 91.02159881591797
+  },
+  {
+    "depth": 21,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 91.13721466064453
+  },
+  {
+    "depth": 22,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 91.25257873535156
+  },
+  {
+    "depth": 23,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 91.36825561523438
+  },
+  {
+    "depth": 24,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 91.48475646972656
+  },
+  {
+    "depth": 25,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 91.60089874267578
+  },
+  {
+    "depth": 26,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 91.71887969970703
+  },
+  {
+    "depth": 27,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 91.83163452148438
+  },
+  {
+    "depth": 28,
+    "candidates": 576,
+    "live_candidates": 576,
+    "best_frames": null,
+    "furthest_live_torso_m": 91.94751739501953
+  },
+  {
+    "depth": 29,
+    "candidates": 576,
+    "live_candidates": 576,
+    "best_frames": null,
+    "furthest_live_torso_m": 92.06294250488281
+  },
+  {
+    "depth": 30,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 92.17094421386719
+  },
+  {
+    "depth": 31,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 92.30335998535156
+  },
+  {
+    "depth": 32,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 92.43003845214844
+  },
+  {
+    "depth": 33,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 92.5495834350586
+  },
+  {
+    "depth": 34,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 92.66588592529297
+  },
+  {
+    "depth": 35,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 92.78394317626953
+  },
+  {
+    "depth": 36,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 92.90315246582031
+  },
+  {
+    "depth": 37,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 93.02259063720703
+  },
+  {
+    "depth": 38,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 93.14054870605469
+  },
+  {
+    "depth": 39,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 93.25277709960938
+  },
+  {
+    "depth": 40,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 93.3719711303711
+  },
+  {
+    "depth": 41,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 93.49113464355469
+  },
+  {
+    "depth": 42,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 93.60797882080078
+  },
+  {
+    "depth": 43,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 93.7285385131836
+  },
+  {
+    "depth": 44,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 93.8502426147461
+  },
+  {
+    "depth": 45,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 93.97122192382812
+  },
+  {
+    "depth": 46,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 94.09088134765625
+  },
+  {
+    "depth": 47,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 94.20903015136719
+  },
+  {
+    "depth": 48,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 94.32501220703125
+  },
+  {
+    "depth": 49,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 94.44603729248047
+  },
+  {
+    "depth": 50,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 94.56229400634766
+  },
+  {
+    "depth": 51,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 94.68243408203125
+  },
+  {
+    "depth": 52,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 94.7958984375
+  },
+  {
+    "depth": 53,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 94.91309356689453
+  },
+  {
+    "depth": 54,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 95.0322265625
+  },
+  {
+    "depth": 55,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 95.1506576538086
+  },
+  {
+    "depth": 56,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 95.27009582519531
+  },
+  {
+    "depth": 57,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 95.38943481445312
+  },
+  {
+    "depth": 58,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 95.50745391845703
+  },
+  {
+    "depth": 59,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 95.61788940429688
+  },
+  {
+    "depth": 60,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 95.73646545410156
+  },
+  {
+    "depth": 61,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 95.8574447631836
+  },
+  {
+    "depth": 62,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 95.98081970214844
+  },
+  {
+    "depth": 63,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.08436584472656
+  },
+  {
+    "depth": 64,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.18840026855469
+  },
+  {
+    "depth": 65,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.28776550292969
+  },
+  {
+    "depth": 66,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.37181854248047
+  },
+  {
+    "depth": 67,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.45381927490234
+  },
+  {
+    "depth": 68,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.53398132324219
+  },
+  {
+    "depth": 69,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.61882019042969
+  },
+  {
+    "depth": 70,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.731689453125
+  },
+  {
+    "depth": 71,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.8447036743164
+  },
+  {
+    "depth": 72,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 96.96005249023438
+  },
+  {
+    "depth": 73,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 97.07699584960938
+  },
+  {
+    "depth": 74,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 97.19512939453125
+  },
+  {
+    "depth": 75,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 97.31238555908203
+  },
+  {
+    "depth": 76,
+    "candidates": 576,
+    "live_candidates": 576,
+    "best_frames": null,
+    "furthest_live_torso_m": 97.43370056152344
+  },
+  {
+    "depth": 77,
+    "candidates": 576,
+    "live_candidates": 576,
+    "best_frames": null,
+    "furthest_live_torso_m": 97.55750274658203
+  },
+  {
+    "depth": 78,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 97.68346405029297
+  },
+  {
+    "depth": 79,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 97.81343841552734
+  },
+  {
+    "depth": 80,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 97.94522094726562
+  },
+  {
+    "depth": 81,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 98.07785034179688
+  },
+  {
+    "depth": 82,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 98.21216583251953
+  },
+  {
+    "depth": 83,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 98.34815216064453
+  },
+  {
+    "depth": 84,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 98.4892807006836
+  },
+  {
+    "depth": 85,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 98.61723327636719
+  },
+  {
+    "depth": 86,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 98.72681427001953
+  },
+  {
+    "depth": 87,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 98.8427963256836
+  },
+  {
+    "depth": 88,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 98.95479583740234
+  },
+  {
+    "depth": 89,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 99.0698471069336
+  },
+  {
+    "depth": 90,
+    "candidates": 577,
+    "live_candidates": 577,
+    "best_frames": null,
+    "furthest_live_torso_m": 99.18423461914062
+  }
+]

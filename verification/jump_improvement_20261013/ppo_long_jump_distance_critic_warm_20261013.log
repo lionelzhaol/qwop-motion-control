@@ -1,0 +1,22 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_distance_initial_20261013.pt checkpoint_update=0 global_step=0 reset_optimizer=1
+update=1/16 absolute_update=1 steps=32768 episodes=51 policy_loss=-0.0211 value_loss=340.9098 entropy=0.1144 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.375 episode_return_mean=74.463
+update=2/16 absolute_update=2 steps=65536 episodes=45 policy_loss=0.0207 value_loss=288.8479 entropy=0.1941 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.718 episode_return_mean=83.427
+update=3/16 absolute_update=3 steps=98304 episodes=47 policy_loss=-0.0059 value_loss=199.1175 entropy=0.2387 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.312 episode_return_mean=49.985
+update=4/16 absolute_update=4 steps=131072 episodes=48 policy_loss=-0.0056 value_loss=174.6826 entropy=0.2077 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.231 episode_return_mean=48.318
+update=5/16 absolute_update=5 steps=163840 episodes=49 policy_loss=0.0213 value_loss=223.7447 entropy=0.2169 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.101 episode_return_mean=62.788
+update=6/16 absolute_update=6 steps=196608 episodes=50 policy_loss=-0.0056 value_loss=173.5540 entropy=0.1992 kl=-0.00000 clipfrac=0.000 final_distance_mean=30.867 episode_return_mean=51.773
+update=7/16 absolute_update=7 steps=229376 episodes=47 policy_loss=0.0257 value_loss=143.2797 entropy=0.2072 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.273 episode_return_mean=59.157
+update=8/16 absolute_update=8 steps=262144 episodes=42 policy_loss=-0.0028 value_loss=119.2139 entropy=0.2514 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.342 episode_return_mean=60.455
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_distance_critic_warm_20261013_update_000008.pt
+update=9/16 absolute_update=9 steps=294912 episodes=51 policy_loss=0.0100 value_loss=99.0023 entropy=0.2432 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.236 episode_return_mean=48.897
+update=10/16 absolute_update=10 steps=327680 episodes=54 policy_loss=0.0191 value_loss=99.1515 entropy=0.2082 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.049 episode_return_mean=47.868
+update=11/16 absolute_update=11 steps=360448 episodes=55 policy_loss=0.0169 value_loss=118.7775 entropy=0.2312 kl=-0.00000 clipfrac=0.000 final_distance_mean=30.782 episode_return_mean=60.018
+update=12/16 absolute_update=12 steps=393216 episodes=61 policy_loss=-0.0063 value_loss=99.6928 entropy=0.1961 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.343 episode_return_mean=55.019
+update=13/16 absolute_update=13 steps=425984 episodes=61 policy_loss=0.0124 value_loss=108.7843 entropy=0.1789 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.349 episode_return_mean=62.531
+update=14/16 absolute_update=14 steps=458752 episodes=60 policy_loss=0.0122 value_loss=112.1845 entropy=0.1837 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.562 episode_return_mean=70.900
+update=15/16 absolute_update=15 steps=491520 episodes=53 policy_loss=-0.0027 value_loss=84.7102 entropy=0.1928 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.299 episode_return_mean=62.091
+update=16/16 absolute_update=16 steps=524288 episodes=49 policy_loss=-0.0022 value_loss=68.1861 entropy=0.2293 kl=-0.00000 clipfrac=0.000 final_distance_mean=31.320 episode_return_mean=58.351
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_distance_critic_warm_20261013_update_000016.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_distance_critic_warm_20261013.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_long_jump_distance_critic_warm_20261013
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_long_jump_distance_critic_warm_20261013

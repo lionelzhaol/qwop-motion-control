@@ -1,0 +1,203 @@
+{
+  "reward_code_sha256": "fdcfecbe41589c13c3a91852f8837fdd2b7d1055285297a68f400bd3954d1377",
+  "gamma": 0.999,
+  "deterministic": true,
+  "device": "cpu",
+  "elapsed_seconds": 1.6627301999978954,
+  "policies": [
+    {
+      "label": "archived_fast_44p93",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v32_hidden2_baseline.pt",
+      "steps": 1348,
+      "time_s": 44.93333435058594,
+      "distance_m": 100.0999984741211,
+      "success": true,
+      "truncated": false,
+      "return_sum": 919.3927744687535,
+      "discounted_return_gamma_0p999": 432.9891403887416,
+      "terminal_step_reward": 150.69357299804688,
+      "estimated_success_finish_component": 148.03635892001066,
+      "dense_return_excluding_success_finish": 771.3564155487428,
+      "finish_discount_factor": 0.2598439684813459,
+      "discounted_finish_component": 38.466354981304455,
+      "discounted_dense_excluding_finish": 394.52278540743714,
+      "reward_by_10m_segment": [
+        67.85867615137249,
+        74.21697898721322,
+        83.35787457390688,
+        81.04980721417814,
+        79.21376310219057,
+        57.126369001343846,
+        77.07873184396885,
+        86.43470018450171,
+        79.40722749358974,
+        233.64864591648802
+      ],
+      "crossings": {
+        "3": 3.2666666507720947,
+        "10": 6.900000095367432,
+        "50": 23.53333282470703,
+        "58": 27.5,
+        "60": 28.399999618530273,
+        "100": 44.93333435058594
+      },
+      "low_posture_fraction": 0.0,
+      "action_sha256": "30d5123394a544aa06985c48f26911623885312ac5014054e526c4e30e7bd0d2"
+    },
+    {
+      "label": "v36_best_12528",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v36_flat_residual_update_012528.pt",
+      "steps": 1382,
+      "time_s": 46.06666564941406,
+      "distance_m": 100.0999984741211,
+      "success": true,
+      "truncated": false,
+      "return_sum": 878.1777528957464,
+      "discounted_return_gamma_0p999": 408.56647573606296,
+      "terminal_step_reward": 146.15895080566406,
+      "estimated_success_finish_component": 142.78182289817116,
+      "dense_return_excluding_success_finish": 735.3959299975752,
+      "finish_discount_factor": 0.2511535030915596,
+      "discounted_finish_component": 35.860154998674346,
+      "discounted_dense_excluding_finish": 372.70632073738864,
+      "reward_by_10m_segment": [
+        67.85867615137249,
+        70.14169603399932,
+        78.87748241377994,
+        76.7135740770027,
+        76.63647174229845,
+        68.36729891225696,
+        66.7601776260417,
+        71.6304281160701,
+        73.32851791055873,
+        227.86342991236597
+      ],
+      "crossings": {
+        "3": 3.2666666507720947,
+        "10": 6.900000095367432,
+        "50": 24.33333396911621,
+        "58": 28.133333206176758,
+        "60": 29.03333282470703,
+        "100": 46.06666564941406
+      },
+      "low_posture_fraction": 0.0,
+      "action_sha256": "f8b640d094872d5fdae1f105b2e9ea679e38eee5ebf05b5381a6fe6166c0d4b7"
+    },
+    {
+      "label": "v37_best_12640",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v37_actor_features_update_012640.pt",
+      "steps": 1407,
+      "time_s": 46.900001525878906,
+      "distance_m": 100.9000015258789,
+      "success": true,
+      "truncated": false,
+      "return_sum": 880.6298544236924,
+      "discounted_return_gamma_0p999": 410.6661594142639,
+      "terminal_step_reward": 138.8553466796875,
+      "estimated_success_finish_component": 138.91817474365234,
+      "dense_return_excluding_success_finish": 741.7116796800401,
+      "finish_discount_factor": 0.24494943707593334,
+      "discounted_finish_component": 34.02792870307378,
+      "discounted_dense_excluding_finish": 376.63823071119015,
+      "reward_by_10m_segment": [
+        68.98181031551212,
+        66.41041616722941,
+        77.96265285951085,
+        76.41232200129889,
+        78.15414289198816,
+        74.05098910164088,
+        78.19045470072888,
+        76.91898762760684,
+        78.3286263179034,
+        205.21945244027302
+      ],
+      "crossings": {
+        "3": 3.2666666507720947,
+        "10": 6.933333396911621,
+        "50": 24.299999237060547,
+        "58": 28.03333282470703,
+        "60": 28.96666717529297,
+        "100": 46.599998474121094
+      },
+      "low_posture_fraction": 0.0,
+      "action_sha256": "fe5cfe698efb99c66423ce2143a976fe847799132a6b59120f92e79006f07de1"
+    },
+    {
+      "label": "v38_best_10912",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v38_soft_actor_update_010912.pt",
+      "steps": 1394,
+      "time_s": 46.46666717529297,
+      "distance_m": 100.5,
+      "success": true,
+      "truncated": false,
+      "return_sum": 845.6282898965292,
+      "discounted_return_gamma_0p999": 377.7553136171156,
+      "terminal_step_reward": 140.93142700195312,
+      "estimated_success_finish_component": 140.92727036909622,
+      "dense_return_excluding_success_finish": 704.7010195274329,
+      "finish_discount_factor": 0.24815618205601653,
+      "discounted_finish_component": 34.9719733623709,
+      "discounted_dense_excluding_finish": 342.78334025474464,
+      "reward_by_10m_segment": [
+        49.8562635993585,
+        64.27549339784309,
+        64.07211309717968,
+        75.90682879509404,
+        80.46041670115665,
+        78.7048088456504,
+        65.528744623065,
+        68.82090318482369,
+        76.00964121101424,
+        221.99307644134387
+      ],
+      "crossings": {
+        "3": 3.4000000953674316,
+        "10": 7.199999809265137,
+        "50": 24.866666793823242,
+        "58": 28.566667556762695,
+        "60": 29.46666717529297,
+        "100": 46.43333435058594
+      },
+      "low_posture_fraction": 0.0,
+      "action_sha256": "8cfdad2bf28a18a7bd963969385b7385592700a38049ab45bc6049befc7052b7"
+    }
+  ],
+  "speed_order": [
+    "archived_fast_44p93",
+    "v36_best_12528",
+    "v38_best_10912",
+    "v37_best_12640"
+  ],
+  "ordering_conflicts": [
+    {
+      "faster": "v36_best_12528",
+      "slower": "v37_best_12640",
+      "time_gap": 0.8333358764648438,
+      "metric": "return_sum",
+      "slower_reward_advantage": 2.45210152794607
+    },
+    {
+      "faster": "v36_best_12528",
+      "slower": "v37_best_12640",
+      "time_gap": 0.8333358764648438,
+      "metric": "discounted_return_gamma_0p999",
+      "slower_reward_advantage": 2.099683678200961
+    },
+    {
+      "faster": "v38_best_10912",
+      "slower": "v37_best_12640",
+      "time_gap": 0.4333343505859375,
+      "metric": "return_sum",
+      "slower_reward_advantage": 35.00156452716328
+    },
+    {
+      "faster": "v38_best_10912",
+      "slower": "v37_best_12640",
+      "time_gap": 0.4333343505859375,
+      "metric": "discounted_return_gamma_0p999",
+      "slower_reward_advantage": 32.91084579714834
+    }
+  ],
+  "finish_time_reward_slope_points_per_second": 4.636363636363637,
+  "notes": "Actual unchanged native env rewards. Finish component formula applies to qualified success; discount exponents start at the first action. Reset reward is not counted, matching training."
+}

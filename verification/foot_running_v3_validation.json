@@ -1,0 +1,44 @@
+{
+  "checkpoint_load": "strict passed",
+  "finite_weights": true,
+  "raw_obs_shape": [
+    4,
+    68
+  ],
+  "stacked_obs_shape": [
+    4,
+    136
+  ],
+  "policy_logits_shape": [
+    4,
+    16
+  ],
+  "value_shape": [
+    4
+  ],
+  "finite_environment_outputs": true,
+  "replay_readback": "CRC and 4-bit actions passed",
+  "training_updates_checked": 512,
+  "training_metrics_ranges": {
+    "policy_loss": [
+      -0.0416,
+      0.0414
+    ],
+    "value_loss": [
+      0.0007,
+      1.304
+    ],
+    "entropy": [
+      1.3272,
+      2.73
+    ],
+    "kl": [
+      0.00234,
+      0.01258
+    ],
+    "clipfrac": [
+      0.0,
+      0.204
+    ]
+  }
+}

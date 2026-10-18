@@ -1,0 +1,49 @@
+episode=1 new_best steps=461 score=36.400 distance=36.400 time=15.367 success=0
+episode=2 new_best steps=487 score=39.500 distance=39.500 time=16.233 success=0
+episode=3 new_best steps=499 score=40.700 distance=40.700 time=16.633 success=0
+episode=4 new_best steps=533 score=45.600 distance=45.600 time=17.767 success=0
+episode=8 new_best steps=536 score=45.800 distance=45.800 time=17.867 success=0
+episode=9 new_best steps=537 score=46.000 distance=46.000 time=17.900 success=0
+episode=13 new_best steps=541 score=46.200 distance=46.200 time=18.033 success=0
+episode=17 new_best steps=551 score=46.800 distance=46.800 time=18.367 success=0
+episode=18 new_best steps=552 score=47.300 distance=47.300 time=18.400 success=0
+episode=19 new_best steps=553 score=47.700 distance=47.700 time=18.433 success=0
+episode=20 new_best steps=557 score=48.100 distance=48.100 time=18.567 success=0
+episode=22 new_best steps=583 score=50.100 distance=50.100 time=19.433 success=0
+episode=23 new_best steps=584 score=50.700 distance=50.700 time=19.467 success=0
+episode=25 new_best steps=590 score=51.100 distance=51.100 time=19.667 success=0
+episode=29 new_best steps=598 score=51.800 distance=51.800 time=19.933 success=0
+episode=30 new_best steps=598 score=52.100 distance=52.100 time=19.933 success=0
+episode=32 new_best steps=606 score=54.800 distance=54.800 time=20.200 success=0
+episode=37 new_best steps=616 score=55.300 distance=55.300 time=20.533 success=0
+episode=39 new_best steps=623 score=55.400 distance=55.400 time=20.767 success=0
+episode=41 new_best steps=625 score=55.900 distance=55.900 time=20.833 success=0
+episode=44 new_best steps=629 score=56.200 distance=56.200 time=20.967 success=0
+episode=50 new_best steps=633 score=57.100 distance=57.100 time=21.100 success=0
+episode=56 new_best steps=646 score=57.300 distance=57.300 time=21.533 success=0
+episode=58 new_best steps=650 score=57.500 distance=57.500 time=21.667 success=0
+episode=59 new_best steps=650 score=57.600 distance=57.600 time=21.667 success=0
+episode=61 new_best steps=652 score=59.100 distance=59.100 time=21.733 success=0
+episode=62 new_best steps=655 score=59.200 distance=59.200 time=21.833 success=0
+episode=66 new_best steps=657 score=59.600 distance=59.600 time=21.900 success=0
+episode=73 new_best steps=661 score=59.900 distance=59.900 time=22.033 success=0
+episode=76 new_best steps=664 score=60.300 distance=60.300 time=22.133 success=0
+episode=79 new_best steps=670 score=60.400 distance=60.400 time=22.333 success=0
+episode=85 new_best steps=680 score=60.700 distance=60.700 time=22.667 success=0
+episode=89 new_best steps=732 score=62.700 distance=62.700 time=24.400 success=0
+episode=91 new_best steps=828 score=76.700 distance=76.700 time=27.600 success=0
+episode=92 new_best steps=834 score=77.000 distance=77.000 time=27.800 success=0
+episode=93 new_best steps=911 score=86.900 distance=86.900 time=30.367 success=0
+episode=94 new_best steps=943 score=90.900 distance=90.900 time=31.433 success=0
+episode=95 new_best steps=949 score=91.400 distance=91.400 time=31.633 success=0
+episode=96 new_best steps=963 score=94.300 distance=94.300 time=32.100 success=0
+episode=97 new_best steps=974 score=95.300 distance=95.300 time=32.467 success=0
+episode=98 new_best steps=991 score=100.000 distance=100.000 time=33.033 success=1
+progress=512/4096 successes=292
+progress=1024/4096 successes=574
+progress=1537/4096 successes=856
+progress=2049/4096 successes=1142
+progress=2562/4096 successes=1442
+progress=3074/4096 successes=1753
+progress=3586/4096 successes=2051
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\classic_shadow_v3_search_best_20261015.bin episodes=4096 successes=2357 steps=991 score=100.000 distance=100.000 time=33.033 success=1 device=cuda

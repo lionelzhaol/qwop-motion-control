@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "actual_train_clipping_branch_executed": true,
+  "actor_critic_parameter_sets_disjoint_complete": true,
+  "parameter_count": 14,
+  "actor_count": 7,
+  "critic_count": 7,
+  "separate_actor_clipped_grad_bitwise_invariant_to_critic_1e6_scale": true,
+  "separate_actor_clip_norm": 0.5000145435333252,
+  "separate_critic_clip_norm": 0.4999987483024597,
+  "global_actor_norm_original": 0.0701080933213234,
+  "global_actor_norm_huge_critic": 7.080871711195869e-08,
+  "default_global_clip_exactly_legacy": true,
+  "single_step_updates_each_role": [
+    "net.0.weight",
+    "net.0.bias",
+    "net.2.weight",
+    "net.2.bias",
+    "actor.weight",
+    "actor.bias",
+    "critic.weight",
+    "angular_velocity.weight",
+    "critic_net.0.weight",
+    "critic_net.0.bias",
+    "critic_net.2.weight",
+    "critic_net.2.bias",
+    "critic_motion.weight"
+  ],
+  "all_parameters_gradients_finite": true,
+  "source_checkpoint_unchanged": true,
+  "verification_files_only": true
+}

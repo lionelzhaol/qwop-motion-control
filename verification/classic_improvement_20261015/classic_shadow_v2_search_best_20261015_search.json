@@ -1,0 +1,19 @@
+{
+  "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_explore_v2_20261015.pt",
+  "checkpoint_sha256": "6ab0c5b91965172c4306c45dd6ea1ec34cad71d66346ad82083f7ff659b6c33d",
+  "output": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_shadow_v2_search_best_20261015.bin",
+  "replay_sha256": "2541a82549fda334bbb58b4f7d5f40041e82b4bb8767ed7834f81df38f153bcb",
+  "episodes": 4096,
+  "seed": 2026101542,
+  "frames": 991,
+  "time_s": 33.03333282470703,
+  "native_success": true,
+  "low_torso_fraction": 0.010090817356205853,
+  "faster_than_reference": false,
+  "replay_crc_and_native_reexecution": true,
+  "elapsed_seconds": 52.64954080000007,
+  "started_utc": "2026-10-15T03:36:39.438560+00:00",
+  "ended_utc": "2026-10-15T03:37:32.088268+00:00",
+  "author_search_summary": "saved_replay=E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_shadow_v2_search_best_20261015.bin episodes=4096 successes=2167 steps=991 score=100.000 distance=100.000 time=33.033 success=1 device=cuda",
+  "protocol": "Author asynchronous vector search; best-of-completed-episodes, separate from first-episode heldout performance"
+}

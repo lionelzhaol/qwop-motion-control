@@ -1,0 +1,10 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_shadow_explore_warm_20261015.json",
+  "returncode": 0,
+  "elapsed_seconds": 32.99311110000008,
+  "started_utc": "2026-10-15T03:17:53.667331+00:00",
+  "ended_utc": "2026-10-15T03:18:26.660400+00:00",
+  "updates": 8,
+  "new_transitions": 524288,
+  "finite_losses": true
+}

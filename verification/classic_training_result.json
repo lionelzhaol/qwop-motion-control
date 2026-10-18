@@ -1,0 +1,72 @@
+{
+  "training_elapsed_seconds": 164.9619607,
+  "calibration_elapsed_seconds": 6.9781433,
+  "main_elapsed_seconds": 157.9838174,
+  "additional_transitions": 10485760,
+  "global_step": 10487296,
+  "absolute_update": 323,
+  "training_scalars_finite": true,
+  "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_continue_20261008.pt",
+  "deterministic_distance": 0.6,
+  "deterministic_success": false,
+  "evaluation_curve": [
+    {
+      "global_step": 263680,
+      "update": 11,
+      "episodes": 64,
+      "distance_mean": 0.8656250026542693,
+      "distance_max": 2.0999999046325684,
+      "successes": 0,
+      "success_rate": 0.0
+    },
+    {
+      "global_step": 2885120,
+      "update": 91,
+      "episodes": 64,
+      "distance_mean": 26.692187437787652,
+      "distance_max": 32.900001525878906,
+      "successes": 0,
+      "success_rate": 0.0
+    },
+    {
+      "global_step": 5506560,
+      "update": 171,
+      "episodes": 64,
+      "distance_mean": 30.790625005960464,
+      "distance_max": 34.0,
+      "successes": 0,
+      "success_rate": 0.0
+    },
+    {
+      "global_step": 8128000,
+      "update": 251,
+      "episodes": 64,
+      "distance_mean": 32.37499997019768,
+      "distance_max": 37.099998474121094,
+      "successes": 0,
+      "success_rate": 0.0
+    },
+    {
+      "global_step": 10487296,
+      "update": 323,
+      "episodes": 64,
+      "distance_mean": 35.585937440395355,
+      "distance_max": 39.20000076293945,
+      "successes": 0,
+      "success_rate": 0.0
+    }
+  ],
+  "last_metrics": {
+    "charts/update_seconds": 0.4862239956855774,
+    "charts/episodes": 5.0,
+    "losses/policy_loss": -0.017728477716445923,
+    "losses/value_loss": 0.004951812326908112,
+    "losses/entropy": 1.9279454946517944,
+    "losses/approx_kl": 0.004375432152301073,
+    "losses/clipfrac": 0.00537109375,
+    "losses/explained_variance": 0.9954504370689392,
+    "hyperparams/learning_rate": 9.999999747378752e-05,
+    "charts/final_distance_mean": 35.099998474121094,
+    "charts/episode_return_mean": 24.819997787475586
+  }
+}

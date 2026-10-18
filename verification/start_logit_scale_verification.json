@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_under45.pt",
+  "strict_checkpoint_load": true,
+  "obs_dim": 2176,
+  "hidden_sizes": [
+    256,
+    256
+  ],
+  "default_legacy_distribution_exact": true,
+  "default_seeded_sampling_exact": true,
+  "positive_scale_argmax_preserved": true,
+  "outside_3m_distribution_exact": true,
+  "same_scale_ppo_ratio_exactly_one": true,
+  "all_gradients_finite": true,
+  "schedule_start_mid_end": [
+    0.65,
+    0.825,
+    1.0
+  ],
+  "loss": 0.04988435283303261,
+  "early_entropy_original": [
+    7.728654964012094e-06,
+    0.00025906419614329934,
+    0.005906504578888416,
+    0.00011147744226036593
+  ],
+  "early_entropy_scale_065": [
+    0.0008709697285667062,
+    0.007937967777252197,
+    0.05139179900288582,
+    0.004261238966137171
+  ]
+}

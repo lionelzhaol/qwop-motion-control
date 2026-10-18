@@ -1,0 +1,10 @@
+^Q:\QWOP_RL_TRAINING_PUBLIC\CMAKELISTS.TXT
+setlocal
+Q:\.tools\cmake-4.4.4-windows-x86_64\bin\cmake.exe -SQ:/QWOP_rl_training_public -BQ:/QWOP_rl_training_public/build --check-stamp-file Q:/QWOP_rl_training_public/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

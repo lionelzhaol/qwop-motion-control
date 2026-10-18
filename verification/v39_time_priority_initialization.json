@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v38_soft_actor_initial.pt",
+  "output": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v39_time_priority_initial.pt",
+  "gamma": 0.9999,
+  "goal_seconds": 43.0,
+  "cadence_coefficient": 0.3,
+  "fast_finish_bonus": 1200.0,
+  "actor_soft_scale": 0.25,
+  "samples": 1348,
+  "selected_ridge": 10.0,
+  "fit_rmse": 15.3516188025804,
+  "source_value_rmse_on_new_reward_gamma": 1111.6124005355791,
+  "critic_weight_l2": 153.25605880979938,
+  "actor_and_backbone_all_tensors_unchanged": true,
+  "critic_features_copied_exact_unchanged": true,
+  "only_modified_existing_parameters": [
+    "critic.weight",
+    "critic.bias"
+  ],
+  "optimizer": "empty Adam, actor3e-6/critic3e-5, seven parameters per role",
+  "no_new_ppo_training": true,
+  "scope": "One successful native v39 trajectory; copied Critic encoder with ridge value-head pre-calibration",
+  "ridge_trials": [
+    {
+      "ridge": 1.0,
+      "train_rmse": 11.71852792212954,
+      "heldout_rmse": 11.989287856598898,
+      "weight_l2": 249.1565571179662
+    },
+    {
+      "ridge": 10.0,
+      "train_rmse": 15.952675660121692,
+      "heldout_rmse": 15.932957492372166,
+      "weight_l2": 146.02266244166736
+    }
+  ],
+  "terminal": {
+    "time_s": 44.93333435058594,
+    "distance_m": 100.0999984741211,
+    "steps": 1348,
+    "success": true
+  },
+  "native_v39_finish_verified": true,
+  "actual_terminal_step_reward": 1172.269287109375,
+  "success_finish_component": 1169.612064708363,
+  "autoreset_next_step_reward": 0.006626719608902931,
+  "sum_actual_v39_rewards": 1877.4242071039043,
+  "discounted_return_gamma9999": 1680.4995032060813,
+  "return_range": [
+    1172.269287109375,
+    1703.6713232156349
+  ],
+  "fitted_value_range": [
+    1161.1788330078125,
+    1718.0924072265625
+  ],
+  "error_abs_max": 40.56416995602058,
+  "actor_actions_rewards_bitwise_unchanged": true,
+  "strict_reload_success": true,
+  "all_model_tensors_finite": true,
+  "optimizer_parameter_count": 14,
+  "checkpoint_sha256": "6a932055c6548e24a55d9ca8d6fb9cde9a49b671cc44580c655da666fc6f8267",
+  "elapsed_seconds": 2.810935799992876
+}

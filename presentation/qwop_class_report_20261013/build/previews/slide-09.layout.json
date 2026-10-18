@@ -1,0 +1,11 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/fovhqk","index":8,"layout":{"id":"ly/at83qp8z","name":"Blank"},"backgroundColor":"rgba(250,251,252,1)","position":{"left":0,"top":0,"width":1280,"height":720}},
+"elements":[
+{"id":"sh/lkbal0r6","kind":"textbox","name":"slide-title","position":{"left":72,"top":54,"width":1136,"height":88},"text":"公开影子模仿：本地网络复现33.03秒","style":{"fontSize":42,"typeface":"Microsoft YaHei","color":"#16243A","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/yhkbalsf","kind":"textbox","name":"page-number","position":{"left":1185,"top":671,"width":45,"height":26},"text":"09","style":{"fontSize":18,"typeface":"Microsoft YaHei","color":"#556578","alignment":"right"},"geometry":"rect","lineWidth":0},
+{"id":"sh/zitsjq90","kind":"textbox","name":"text-3","position":{"left":72,"top":179,"width":487,"height":105},"text":"33.03 秒","style":{"fontSize":78,"typeface":"Microsoft YaHei","color":"#078578","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/cf2t8ba9","kind":"textbox","name":"text-4","position":{"left":76,"top":296,"width":482,"height":57},"text":"本地网络，固定初态闭环执行","style":{"fontSize":27,"typeface":"Microsoft YaHei","color":"#556578","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/xgbahgru","kind":"textbox","name":"text-5","position":{"left":72,"top":394,"width":465,"height":103},"text":"公开冠军XYF的991帧示范\n状态动作监督，交叉熵训练Actor","style":{"fontSize":27,"typeface":"Microsoft YaHei","color":"#16243A","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/qdkb6lsj","kind":"textbox","name":"text-6","position":{"left":72,"top":547,"width":467,"height":95},"text":"确定性16 / 16成功\n原始随机采样0 / 64成功","style":{"fontSize":29,"typeface":"Microsoft YaHei","color":"#225B85","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"tb/axo7a947","kind":"table","position":{"left":562,"top":211,"width":646,"height":246},"text":"训练轮次\t动作准确率\t闭环结果\n900\t99.899%\t52米失败\n1000\t100%\t33.03秒完成","rows":3,"cols":3},
+{"id":"sh/obit4bad","kind":"textbox","name":"text-7","position":{"left":564,"top":519,"width":633,"height":115},"text":"极小动作偏差也会累积\n偏离轨迹后的恢复仍是瓶颈","style":{"fontSize":30,"typeface":"Microsoft YaHei","color":"#16243A","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0}
+]}

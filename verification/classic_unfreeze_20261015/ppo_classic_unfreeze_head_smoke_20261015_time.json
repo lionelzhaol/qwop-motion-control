@@ -1,0 +1,10 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_unfreeze_head_smoke_20261015.json",
+  "returncode": 0,
+  "elapsed_seconds": 9.287764299999253,
+  "started_utc": "2026-10-15T04:48:58.034870+00:00",
+  "ended_utc": "2026-10-15T04:49:07.322603+00:00",
+  "updates": 2,
+  "new_transitions": 8192,
+  "finite_losses": true
+}

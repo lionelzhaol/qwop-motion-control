@@ -1,0 +1,312 @@
+{
+  "source_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_phase_fast.pt",
+  "source_sha256": "cb5b40fe71f3bdbb58869a5195ae71ba9eb2b5c2e53658179eee56fc1d22cac3",
+  "seed": 94303,
+  "candidate_count": 4,
+  "sampling": "Draw normal(1,.01) Nx2 vx/vy gains clipped [.97,1.03], then normal(1,.001) N decay clipped [.997,1.003]; candidate0 identity",
+  "memory_method": "Original first_hidden plus blockwise first-layer contribution corrections; no per-candidate 256x2176 weight population",
+  "folded_hidden_unit_max_difference": 1.430511474609375e-06,
+  "baseline_complete_action_sequence_exact": true,
+  "baseline": {
+    "candidate_index": 0,
+    "vx_gain": 1.0,
+    "vy_gain": 1.0,
+    "history_decay": 1.0,
+    "success": true,
+    "truncated": false,
+    "time_s": 44.93333435058594,
+    "distance_m": 100.0999984741211,
+    "steps": 1348,
+    "low_posture_fraction": 0.0,
+    "backward_fraction_after5s": 0.009181969949916527,
+    "crossing_times_s": {
+      "10": 6.900000095367432,
+      "40": 19.46666717529297,
+      "50": 23.53333282470703,
+      "60": 28.399999618530273,
+      "70": 32.70000076293945,
+      "100": 44.93333435058594
+    },
+    "splits_s": {
+      "0_10": 6.900000095367432,
+      "40_50": 4.0666656494140625,
+      "50_60": 4.866666793823242,
+      "60_70": 4.30000114440918
+    },
+    "qualified": true
+  },
+  "qualified_count": 4,
+  "best_search": {
+    "candidate_index": 0,
+    "vx_gain": 1.0,
+    "vy_gain": 1.0,
+    "history_decay": 1.0,
+    "success": true,
+    "truncated": false,
+    "time_s": 44.93333435058594,
+    "distance_m": 100.0999984741211,
+    "steps": 1348,
+    "low_posture_fraction": 0.0,
+    "backward_fraction_after5s": 0.009181969949916527,
+    "crossing_times_s": {
+      "10": 6.900000095367432,
+      "40": 19.46666717529297,
+      "50": 23.53333282470703,
+      "60": 28.399999618530273,
+      "70": 32.70000076293945,
+      "100": 44.93333435058594
+    },
+    "splits_s": {
+      "0_10": 6.900000095367432,
+      "40_50": 4.0666656494140625,
+      "50_60": 4.866666793823242,
+      "60_70": 4.30000114440918
+    },
+    "qualified": true
+  },
+  "strict_folded_model_evaluation": {
+    "checkpoint": "E:\\Work\\强化学习小项目\\verification\\target43_structured_history_kinematics_strict_candidate.pt",
+    "update": 10656,
+    "success": true,
+    "truncated": false,
+    "native_failed": false,
+    "time_s": 44.93333435058594,
+    "distance_m": 100.0999984741211,
+    "steps": 1348,
+    "early_seconds": {
+      "2": {
+        "net_torso_progress_m": 1.0952764892578124,
+        "score_m": 1.2999999523162842,
+        "speed02_end_mps": 1.1473594665527336,
+        "height_min_ratio": 0.8422304722429486
+      },
+      "3": {
+        "net_torso_progress_m": 2.369748229980469,
+        "score_m": 2.5999999046325684,
+        "speed02_end_mps": 1.2853401184082047,
+        "height_min_ratio": 0.8422304722429486
+      }
+    },
+    "score_crossing_times_s": {
+      "10": 6.900000095367432,
+      "20": 11.166666984558105,
+      "30": 15.266666412353516,
+      "40": 19.46666717529297,
+      "50": 23.53333282470703,
+      "60": 28.399999618530273,
+      "70": 32.70000076293945,
+      "80": 36.83333206176758,
+      "90": 40.93333435058594,
+      "100": 44.93333435058594
+    },
+    "split_times_s": {
+      "0_10": 6.900000095367432,
+      "40_50": 4.0666656494140625,
+      "50_60": 4.866666793823242,
+      "60_70": 4.30000114440918
+    },
+    "hurdle_flight": {
+      "start_time_s": 23.733333587646484,
+      "end_time_s": 25.133333206176758,
+      "landing_time_s": 25.16666603088379,
+      "duration_s": 1.4333333333333333,
+      "start_score_m": 50.400001525878906,
+      "end_score_m": 52.900001525878906,
+      "height_ratio_peak": 1.2242698251724806,
+      "torso_crosses_hurdle_time_s": 23.566667556762695,
+      "minimum_speed02_mps": 1.6410400390624957,
+      "minimum_speed_time_s": 24.366666793823242,
+      "landing_to_recovered_2p3mps_s": 3.5,
+      "recovered_2p3mps_time_s": 28.66666603088379,
+      "recovered_score_m": 60.599998474121094,
+      "recovery_definition": "First >=2.3 m/game-s over 0.2 s torso displacement, sustained 15 frames (0.5 s), measured from first foot-contact frame after main hurdle flight.",
+      "pre_hurdle_reference_speed05_mps": 2.4800419921874997,
+      "relative_recovery_threshold_mps": 2.23203779296875,
+      "landing_to_recovered_90pct_reference_s": 2.0666675567626953,
+      "recovered_90pct_reference_time_s": 27.233333587646484,
+      "recovered_90pct_reference_score_m": 57.400001525878906,
+      "relative_recovery_definition": "Mean 0.5 s torso-displacement speed over score 40--45 m is the reference; first >=90% of reference on 0.5 s torso-displacement speed sustained 15 frames, from first foot-contact frame after hurdle cycle."
+    },
+    "longest_flight": {
+      "start_time_s": 23.733333587646484,
+      "end_time_s": 25.133333206176758,
+      "landing_time_s": 25.16666603088379,
+      "duration_s": 1.4333333333333333,
+      "start_score_m": 50.400001525878906,
+      "end_score_m": 52.900001525878906,
+      "height_ratio_peak": 1.2242698251724806
+    },
+    "flat_running_posture": {
+      "frames": 747,
+      "height_ratio_mean": 0.9664661080270273,
+      "height_ratio_std": 0.028929193247847245,
+      "height_reference_units_std": 14.662761597671377,
+      "height_ratio_p95_p05": 0.09280028375657767,
+      "lean_mean_degrees": -0.0006003412729483213,
+      "lean_abs_error_from_5_degrees": 5.275514678135981,
+      "lean_within_2_to_8_fraction": 0.30120481927710846,
+      "low_posture_fraction": 0.0,
+      "speed02_mean_mps": 2.4076398407758637
+    },
+    "flat_running_before_hurdle": {
+      "frames": 437,
+      "height_ratio_mean": 0.9620134375170705,
+      "height_ratio_std": 0.02572723739937469,
+      "height_reference_units_std": 13.039850275873063,
+      "height_ratio_p95_p05": 0.08331354221578458,
+      "lean_mean_degrees": -0.19581477205724424,
+      "lean_abs_error_from_5_degrees": 5.329956509212874,
+      "lean_within_2_to_8_fraction": 0.28832951945080093,
+      "low_posture_fraction": 0.0,
+      "speed02_mean_mps": 2.404512697826534
+    },
+    "flat_running_after_recovery": {
+      "frames": 310,
+      "height_ratio_mean": 0.9727429371007404,
+      "height_ratio_std": 0.03187875588327145,
+      "height_reference_units_std": 16.157747419436134,
+      "height_ratio_p95_p05": 0.09873181550333665,
+      "lean_mean_degrees": 0.27458903373588167,
+      "lean_abs_error_from_5_degrees": 5.198769258198556,
+      "lean_within_2_to_8_fraction": 0.3193548387096774,
+      "low_posture_fraction": 0.0,
+      "speed02_mean_mps": 2.4120481035786288
+    },
+    "whole_episode_low_posture_fraction": 0.0,
+    "same_backend_trajectory_verified": true,
+    "measurement_notes": [
+      "Original game clock and original score; 30 frames/game second, 400 world reference units/race meter.",
+      "Flat-running posture mask fixed at score 10--45 m and 65--90 m for every checkpoint.",
+      "Torso height is a proxy, not mass-weighted center of mass. No knee-contact API is available.",
+      "Flight defined by neither foot contacting ground for >=3 frames. Hurdle cycle is highest-torso flight starting by 0.5 s after the torso crosses the obstacle, ending no earlier than 0.2 s before crossing; it need not be a deliberate jump."
+    ],
+    "backward_fraction_after5s": 0.009174311926605505
+  },
+  "search_reload_time_difference_s": 0.0,
+  "saved_checkpoint": null,
+  "beats_baseline_with_strict_saved_model": false,
+  "under43_with_strict_saved_model": false,
+  "diagnostic_replay": "..\\verification\\target43_structured_history_kinematics_smoke.bin",
+  "diagnostic_replay_validation": {
+    "success_on_last_action": true,
+    "steps": 1348,
+    "time_s": 44.93333435058594
+  },
+  "records": [
+    {
+      "candidate_index": 0,
+      "vx_gain": 1.0,
+      "vy_gain": 1.0,
+      "history_decay": 1.0,
+      "success": true,
+      "truncated": false,
+      "time_s": 44.93333435058594,
+      "distance_m": 100.0999984741211,
+      "steps": 1348,
+      "low_posture_fraction": 0.0,
+      "backward_fraction_after5s": 0.009181969949916527,
+      "crossing_times_s": {
+        "10": 6.900000095367432,
+        "40": 19.46666717529297,
+        "50": 23.53333282470703,
+        "60": 28.399999618530273,
+        "70": 32.70000076293945,
+        "100": 44.93333435058594
+      },
+      "splits_s": {
+        "0_10": 6.900000095367432,
+        "40_50": 4.0666656494140625,
+        "50_60": 4.866666793823242,
+        "60_70": 4.30000114440918
+      },
+      "qualified": true
+    },
+    {
+      "candidate_index": 1,
+      "vx_gain": 0.9970219135284424,
+      "vy_gain": 1.0075697898864746,
+      "history_decay": 1.0019960403442383,
+      "success": true,
+      "truncated": false,
+      "time_s": 47.70000076293945,
+      "distance_m": 101.0,
+      "steps": 1431,
+      "low_posture_fraction": 0.0,
+      "backward_fraction_after5s": 0.01092896174863388,
+      "crossing_times_s": {
+        "10": 6.933333396911621,
+        "40": 20.133333206176758,
+        "50": 24.33333396911621,
+        "60": 29.46666717529297,
+        "70": 34.733333587646484,
+        "100": 47.46666717529297
+      },
+      "splits_s": {
+        "0_10": 6.933333396911621,
+        "40_50": 4.200000762939453,
+        "50_60": 5.133333206176758,
+        "60_70": 5.266666412353516
+      },
+      "qualified": true
+    },
+    {
+      "candidate_index": 3,
+      "vx_gain": 1.008347749710083,
+      "vy_gain": 0.9885402321815491,
+      "history_decay": 1.0012167692184448,
+      "success": true,
+      "truncated": false,
+      "time_s": 49.93333435058594,
+      "distance_m": 100.5999984741211,
+      "steps": 1498,
+      "low_posture_fraction": 0.0,
+      "backward_fraction_after5s": 0.011869436201780416,
+      "crossing_times_s": {
+        "10": 6.900000095367432,
+        "40": 19.933332443237305,
+        "50": 24.5,
+        "60": 29.600000381469727,
+        "70": 35.96666717529297,
+        "100": 49.53333282470703
+      },
+      "splits_s": {
+        "0_10": 6.900000095367432,
+        "40_50": 4.566667556762695,
+        "50_60": 5.100000381469727,
+        "60_70": 6.366666793823242
+      },
+      "qualified": true
+    },
+    {
+      "candidate_index": 2,
+      "vx_gain": 1.0053602457046509,
+      "vy_gain": 0.9986982941627502,
+      "history_decay": 1.0005240440368652,
+      "success": true,
+      "truncated": false,
+      "time_s": 50.0,
+      "distance_m": 100.30000305175781,
+      "steps": 1500,
+      "low_posture_fraction": 0.0,
+      "backward_fraction_after5s": 0.011111111111111112,
+      "crossing_times_s": {
+        "10": 6.900000095367432,
+        "40": 20.433332443237305,
+        "50": 24.933332443237305,
+        "60": 30.5,
+        "70": 36.53333282470703,
+        "100": 50.0
+      },
+      "splits_s": {
+        "0_10": 6.900000095367432,
+        "40_50": 4.5,
+        "50_60": 5.566667556762695,
+        "60_70": 6.033332824707031
+      },
+      "qualified": true
+    }
+  ],
+  "started_utc": "2026-10-09T14:41:18.896089+00:00",
+  "finished_utc": "2026-10-09T14:41:24.187956+00:00",
+  "elapsed_seconds": 5.291619100004027
+}

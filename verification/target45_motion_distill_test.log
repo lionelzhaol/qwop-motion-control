@@ -1,0 +1,3 @@
+iteration=1/2 samples=16 policy_kl=0.000001 value_loss=0.000004
+iteration=2/2 samples=16 policy_kl=0.158963 value_loss=1.028458
+saved_student=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\target45_motion_distill_test.pt

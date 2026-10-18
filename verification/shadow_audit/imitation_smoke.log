@@ -1,0 +1,3 @@
+{"epoch": 1, "expert_action_accuracy": 0.43693238496780396, "cross_entropy": 3.5720818042755127, "success": true, "time_s": 63.56666564941406, "distance_m": 100.30000305175781, "low_torso_fraction": 0.005243838489774515}
+{"epoch": 2, "expert_action_accuracy": 0.4742684066295624, "cross_entropy": 2.637122631072998, "success": false, "time_s": 62.53333282470703, "distance_m": 101.0999984741211, "low_torso_fraction": 0.02398720682302772}
+{"output": "checkpoints\\ppo_shadow_imitation_smoke.pt", "selected": {"epoch": 1, "expert_action_accuracy": 0.43693238496780396, "cross_entropy": 3.5720818042755127, "success": true, "time_s": 63.56666564941406, "distance_m": 100.30000305175781, "low_torso_fraction": 0.005243838489774515}, "elapsed_seconds": 4.110268700000233}

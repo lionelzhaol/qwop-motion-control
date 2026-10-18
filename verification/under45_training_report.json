@@ -1,0 +1,18 @@
+{
+  "started_utc": "2026-10-09T02:34:19+00:00",
+  "finished_utc": "2026-10-09T06:27:29.503081+00:00",
+  "elapsed_seconds_including_interruptions": 13990.503081,
+  "speed_target_achieved": true,
+  "posture_targets_fully_achieved": false,
+  "method": "PPO plus local actor-bias parameter search",
+  "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_under45.pt",
+  "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_100m_under45_44p97.bin",
+  "deterministic_seconds": 44.96666717529297,
+  "deterministic_same_initial_state_successes": 16,
+  "deterministic_episodes": 16,
+  "random_successes": 56,
+  "random_episodes": 64,
+  "random_success_time_mean": 48.921428884778706,
+  "random_under45": 0,
+  "git_committed": false
+}

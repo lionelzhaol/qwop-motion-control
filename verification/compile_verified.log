@@ -1,0 +1,17 @@
+适用于 .NET Framework MSBuild 版本 17.14.60+43b635718
+
+  1>Checking Build System
+  Building Custom Rule Q:/QWOP_rl_training_public/CMakeLists.txt
+  course_rules.cpp
+  physics_backend_loader.cpp
+  reward_profiles.cpp
+  training_env.cpp
+  正在生成代码...
+  running_training_core.vcxproj -> Q:\QWOP_rl_training_public\build\Release\running_training_core.lib
+  Building Custom Rule Q:/QWOP_rl_training_public/CMakeLists.txt
+  python_module.cpp
+    正在创建库 Q:/QWOP_rl_training_public/build/Release/_running_env.lib 和对象 Q:/QWOP_rl_training_public/build/Release/_running_env.exp
+  正在生成代码
+  已完成代码的生成
+  _running_env.vcxproj -> Q:\QWOP_rl_training_public\build\Release\_running_env.cp310-win_amd64.pyd
+  Building Custom Rule Q:/QWOP_rl_training_public/CMakeLists.txt

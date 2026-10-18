@@ -1,0 +1,207 @@
+{
+  "runs": [
+    {
+      "checkpoint": "checkpoints\\baseline_smoke_20261008.pt",
+      "global_step": 1024,
+      "update": 2,
+      "device": "cuda",
+      "model_parameters_finite": true,
+      "optimizer_step": 16,
+      "strict_model_load": true,
+      "tensorboard_scalars_finite": true,
+      "metrics": {
+        "charts/update_seconds": [
+          {
+            "step": 512,
+            "value": 0.6370795965194702
+          },
+          {
+            "step": 1024,
+            "value": 0.22706079483032227
+          }
+        ],
+        "charts/episodes": [
+          {
+            "step": 512,
+            "value": 2.0
+          },
+          {
+            "step": 1024,
+            "value": 5.0
+          }
+        ],
+        "losses/policy_loss": [
+          {
+            "step": 512,
+            "value": 0.0014667212963104248
+          },
+          {
+            "step": 1024,
+            "value": 0.1265471875667572
+          }
+        ],
+        "losses/value_loss": [
+          {
+            "step": 512,
+            "value": 1.5375149250030518
+          },
+          {
+            "step": 1024,
+            "value": 3.1942148208618164
+          }
+        ],
+        "losses/entropy": [
+          {
+            "step": 512,
+            "value": 2.74202299118042
+          },
+          {
+            "step": 1024,
+            "value": 2.7207040786743164
+          }
+        ],
+        "losses/approx_kl": [
+          {
+            "step": 512,
+            "value": 0.00883856974542141
+          },
+          {
+            "step": 1024,
+            "value": 0.005090216640383005
+          }
+        ],
+        "losses/clipfrac": [
+          {
+            "step": 512,
+            "value": 0.1484375
+          },
+          {
+            "step": 1024,
+            "value": 0.0
+          }
+        ],
+        "losses/explained_variance": [
+          {
+            "step": 512,
+            "value": 0.0016311407089233398
+          },
+          {
+            "step": 1024,
+            "value": 0.0010391473770141602
+          }
+        ],
+        "hyperparams/learning_rate": [
+          {
+            "step": 512,
+            "value": 0.0003000000142492354
+          },
+          {
+            "step": 1024,
+            "value": 0.0003000000142492354
+          }
+        ],
+        "charts/final_distance_mean": [
+          {
+            "step": 512,
+            "value": 0.6000000238418579
+          },
+          {
+            "step": 1024,
+            "value": 1.0199999809265137
+          }
+        ],
+        "charts/episode_return_mean": [
+          {
+            "step": 512,
+            "value": -9.649999618530273
+          },
+          {
+            "step": 1024,
+            "value": -9.260000228881836
+          }
+        ]
+      }
+    },
+    {
+      "checkpoint": "checkpoints\\baseline_resume_20261008.pt",
+      "global_step": 1536,
+      "update": 3,
+      "device": "cuda",
+      "model_parameters_finite": true,
+      "optimizer_step": 24,
+      "strict_model_load": true,
+      "tensorboard_scalars_finite": true,
+      "metrics": {
+        "charts/update_seconds": [
+          {
+            "step": 1536,
+            "value": 0.6039658188819885
+          }
+        ],
+        "charts/episodes": [
+          {
+            "step": 1536,
+            "value": 1.0
+          }
+        ],
+        "losses/policy_loss": [
+          {
+            "step": 1536,
+            "value": 0.1513674557209015
+          }
+        ],
+        "losses/value_loss": [
+          {
+            "step": 1536,
+            "value": 1.160170316696167
+          }
+        ],
+        "losses/entropy": [
+          {
+            "step": 1536,
+            "value": 2.701969861984253
+          }
+        ],
+        "losses/approx_kl": [
+          {
+            "step": 1536,
+            "value": 0.0027536223642528057
+          }
+        ],
+        "losses/clipfrac": [
+          {
+            "step": 1536,
+            "value": 0.0
+          }
+        ],
+        "losses/explained_variance": [
+          {
+            "step": 1536,
+            "value": 0.0038767457008361816
+          }
+        ],
+        "hyperparams/learning_rate": [
+          {
+            "step": 1536,
+            "value": 0.0003000000142492354
+          }
+        ],
+        "charts/final_distance_mean": [
+          {
+            "step": 1536,
+            "value": -0.5
+          }
+        ],
+        "charts/episode_return_mean": [
+          {
+            "step": 1536,
+            "value": -10.0
+          }
+        ]
+      }
+    }
+  ],
+  "model_changed_after_resume": true,
+  "replay_action_count": 256,
+  "replay_ruleset": 1
+}

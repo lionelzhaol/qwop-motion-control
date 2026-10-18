@@ -1,0 +1,10 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\start50_v13_elite.pt checkpoint_update=5024 global_step=163594240 reset_optimizer=1
+update=1/4 absolute_update=5025 steps=163594752 episodes=0 policy_loss=0.0413 value_loss=0.7278 entropy=0.5030 kl=0.00867 clipfrac=0.109
+update=2/4 absolute_update=5026 steps=163595264 episodes=0 policy_loss=0.1283 value_loss=1.3653 entropy=0.6664 kl=0.00977 clipfrac=0.102
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\start50_v13_elite_smoke_update_005026.pt
+update=3/4 absolute_update=5027 steps=163595776 episodes=0 policy_loss=0.0641 value_loss=0.8332 entropy=0.6017 kl=0.00261 clipfrac=0.031
+update=4/4 absolute_update=5028 steps=163596288 episodes=0 policy_loss=-0.0362 value_loss=0.8377 entropy=0.6595 kl=0.01298 clipfrac=0.180
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\start50_v13_elite_smoke_update_005028.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\start50_v13_elite_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\start50_v13_elite_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\start50_v13_elite_smoke

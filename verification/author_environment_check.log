@@ -1,0 +1,4 @@
+environment=ok
+profile=classic_100m obs=68 reward=0.000 terminated=0 truncated=0 score=0.300
+profile=hurdle_110m obs=66 reward=0.000 terminated=0 truncated=0 score=0.300
+profile=long_jump_30m obs=68 reward=0.000 terminated=0 truncated=0 score=0.300

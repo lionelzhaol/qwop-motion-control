@@ -1,0 +1,6 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\target45_motion_initial.pt checkpoint_update=8928 global_step=291520512 reset_optimizer=1
+update=1/2 absolute_update=8929 steps=291520768 episodes=0 policy_loss=-0.0542 value_loss=1.4962 entropy=0.9143 kl=0.02071 clipfrac=0.062
+update=2/2 absolute_update=8930 steps=291521024 episodes=0 policy_loss=0.0211 value_loss=1.6467 entropy=0.9642 kl=0.01749 clipfrac=0.125
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\target45_motion_minimal_test.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\target45_motion_minimal_test
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\target45_motion_minimal_test

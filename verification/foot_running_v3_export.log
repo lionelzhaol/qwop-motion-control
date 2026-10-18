@@ -1,0 +1,2 @@
+episode=1 steps=2258 score=100.100 distance=100.100 time=75.267 success=1
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\foot_running_v3_deterministic.bin steps=2258 score=100.100 distance=100.100 time=75.267 success=1 device=cuda

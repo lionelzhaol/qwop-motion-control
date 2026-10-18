@@ -1,0 +1,8 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\target45_hidden2_gen3.pt checkpoint_update=8928 global_step=291520512 reset_optimizer=1
+update=1/4 absolute_update=8929 steps=291553280 episodes=0 policy_loss=-0.0262 value_loss=2.7181 entropy=1.0523 kl=0.00280 clipfrac=0.031
+update=2/4 absolute_update=8930 steps=291586048 episodes=0 policy_loss=-0.0152 value_loss=2.7752 entropy=1.1076 kl=0.00226 clipfrac=0.024
+update=3/4 absolute_update=8931 steps=291618816 episodes=0 policy_loss=-0.0179 value_loss=2.3294 entropy=1.0380 kl=0.00302 clipfrac=0.029
+update=4/4 absolute_update=8932 steps=291651584 episodes=3 policy_loss=0.0114 value_loss=29.9711 entropy=0.9500 kl=0.00332 clipfrac=0.038 final_distance_mean=59.633 episode_return_mean=276.404
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\target45_v24_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\target45_v24_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\target45_v24_smoke

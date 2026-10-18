@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "default_false": true,
+  "forward_logits_values_exactly_unchanged": true,
+  "detached_value_loss_only_updates_critic": true,
+  "policy_gradients_shared_motion_actor_finite_nonzero": {
+    "net.0.weight": 387.7525634765625,
+    "net.0.bias": 9.458341598510742,
+    "net.2.weight": 52.67911148071289,
+    "net.2.bias": 4.891343116760254,
+    "actor.weight": 4.259426116943359,
+    "actor.bias": 0.2969745993614197,
+    "angular_velocity.weight": 48.86363220214844
+  },
+  "default_value_shared_gradients_restored": {
+    "net.0.weight": 109087.9765625,
+    "net.0.bias": 4307.2333984375,
+    "net.2.weight": 57289.0234375,
+    "net.2.bias": 8737.658203125,
+    "angular_velocity.weight": 15092.4072265625
+  },
+  "same_policy_ratio_exactly_one": true,
+  "state_dict_and_parameter_order_unchanged": true,
+  "optimizer_parameters": 9,
+  "saved_config_true": true,
+  "export_without_detach_config_forward_exact": true,
+  "verification_files_only": true
+}

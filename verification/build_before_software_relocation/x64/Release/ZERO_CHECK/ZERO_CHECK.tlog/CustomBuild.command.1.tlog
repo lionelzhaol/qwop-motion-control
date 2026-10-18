@@ -1,0 +1,10 @@
+^E:\WORK\强化学习小项目\QWOP_RL_TRAINING_PUBLIC\BUILD\CMAKEFILES\48A8FB42DD26613F7EC1930D5622DDDE\GENERATE.STAMP.RULE
+setlocal
+E:\Work\强化学习小项目\.tools\cmake-4.4.4-windows-x86_64\bin\cmake.exe -SE:/Work/强化学习小项目/QWOP_rl_training_public -BE:/Work/强化学习小项目/QWOP_rl_training_public/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/Work/强化学习小项目/QWOP_rl_training_public/build/running_ai_env.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

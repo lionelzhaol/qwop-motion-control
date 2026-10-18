@@ -1,0 +1,24 @@
++ E:\Work\强化学习小项目\.tools\cmake-3.31.10-windows-x86_64\bin\cmake.EXE -S E:\Work\强化学习小项目\QWOP_rl_training_public -B E:\Work\强化学习小项目\QWOP_rl_training_public\build -DPython3_EXECUTABLE=E:\Work\强化学习小项目\QWOP_rl_training_public\.venv\Scripts\python.exe
+-- Building for: NMake Makefiles
+CMake Error at CMakeLists.txt:3 (project):
+-- Configuring incomplete, errors occurred!
+  Running
+
+   'nmake' '-?'
+
+  failed with:
+
+   no such file or directory
+
+
+CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage
+Traceback (most recent call last):
+  File "E:\Work\强化学习小项目\QWOP_rl_training_public\scripts\build.py", line 84, in <module>
+    raise SystemExit(main())
+  File "E:\Work\强化学习小项目\QWOP_rl_training_public\scripts\build.py", line 58, in main
+    run(
+  File "E:\Work\强化学习小项目\QWOP_rl_training_public\scripts\build.py", line 46, in run
+    subprocess.run(command, cwd=ROOT, check=True)
+  File "E:\Work\强化学习小项目\.tools\python310\tools\lib\subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['E:\\Work\\强化学习小项目\\.tools\\cmake-3.31.10-windows-x86_64\\bin\\cmake.EXE', '-S', 'E:\\Work\\强化学习小项目\\QWOP_rl_training_public', '-B', 'E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\build', '-DPython3_EXECUTABLE=E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\.venv\\Scripts\\python.exe']' returned non-zero exit status 1.

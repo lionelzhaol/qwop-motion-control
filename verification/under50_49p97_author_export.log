@@ -1,0 +1,2 @@
+episode=1 steps=1499 score=101.100 distance=101.100 time=49.967 success=1
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\classic_100m_under50_49p97.bin steps=1499 score=101.100 distance=101.100 time=49.967 success=1 device=cuda

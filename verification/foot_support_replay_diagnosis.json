@@ -1,0 +1,12 @@
+{
+  "steps": 3600,
+  "distance": 39.20000076293945,
+  "time": 120.0,
+  "any_foot_grounded_fraction": 0.2275,
+  "new_forward_progress_steps": 389,
+  "foot_grounded_fraction_during_new_progress": 0.16452442159383032,
+  "torso_initial_reference_y": -77.05000400543213,
+  "torso_reference_y_mean": 70.15371658895165,
+  "torso_reference_y_min": -76.50650978088379,
+  "torso_reference_y_max": 101.57438278198242
+}

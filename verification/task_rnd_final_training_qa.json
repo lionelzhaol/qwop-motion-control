@@ -1,0 +1,64 @@
+{
+  "v40_task_control": {
+    "updates": 256,
+    "new_transitions": 16777216,
+    "all_logged_losses_finite": true,
+    "all_model_tensors_finite": true,
+    "metrics_ranges": {
+      "policy_loss": [
+        -0.0288,
+        0.036
+      ],
+      "value_loss": [
+        1.5298,
+        40433.2109
+      ],
+      "entropy": [
+        0.1333,
+        0.1921
+      ],
+      "kl": [
+        0.00073,
+        0.00384
+      ],
+      "clipfrac": [
+        0.007,
+        0.04
+      ]
+    }
+  },
+  "v41_task_rnd": {
+    "updates": 256,
+    "new_transitions": 16777216,
+    "all_logged_losses_finite": true,
+    "all_model_tensors_finite": true,
+    "metrics_ranges": {
+      "policy_loss": [
+        -0.0286,
+        0.0296
+      ],
+      "value_loss": [
+        1.3607,
+        39140.5977
+      ],
+      "entropy": [
+        0.1341,
+        0.193
+      ],
+      "kl": [
+        0.00086,
+        0.0067
+      ],
+      "clipfrac": [
+        0.008,
+        0.043
+      ],
+      "rnd_loss": [
+        0.0002,
+        0.0422
+      ]
+    },
+    "rnd_valid_sample_count": 16765580,
+    "rnd_end_beta": 0.0
+  }
+}

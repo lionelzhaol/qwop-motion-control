@@ -1,0 +1,27 @@
+{
+  "device": "cpu",
+  "ppo_updates": 0,
+  "bc_epochs": 0,
+  "default_state_keys_unchanged": true,
+  "default_legacy_logits_and_values_exact": true,
+  "zero_branch_teacher_frames": 529,
+  "zero_branch_native_trajectory_frames": 472,
+  "native_final_jump_m": 2.588183641433716,
+  "native_success": true,
+  "runup_frames": 334,
+  "jump_frames": 195,
+  "nonzero_branch_runup_logits_exact": true,
+  "critic_values_exact": true,
+  "latest_68_normalization_plus_12_motion_exact": true,
+  "gradient_norms": {
+    "jump_state_net.0.weight": 0.1433483362197876,
+    "jump_state_net.0.bias": 0.030495179817080498,
+    "jump_state_net.2.weight": 0.09314072132110596,
+    "jump_state_net.2.bias": 0.03151501342654228
+  },
+  "zero_gradients_outside_gate": true,
+  "strict_and_compatible_reload_exact": true,
+  "invalid_config_or_checkpoint_cases_rejected": 14,
+  "actual_saved_config_hidden_size": 128,
+  "original_checkpoint_sha256_unchanged": true
+}

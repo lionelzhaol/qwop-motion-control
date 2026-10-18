@@ -1,0 +1,52 @@
+{
+  "steps": 512,
+  "initial_task_features": [
+    0.30000001192092896,
+    0.0,
+    497.4750061035156,
+    997.4749755859375,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "body_feature_absolute_max": 14.345904350280762,
+  "task_feature_absolute_max": 1002.8469848632812,
+  "first_layer_saturation_fraction_mean": 0.9892425537109375,
+  "first_layer_saturation_fraction_initial": 0.9765625,
+  "max_policy_probability_change_from_initial": 0.01974332332611084,
+  "initial_first_layer_absolute_contribution_mean_by_feature": [
+    {
+      "feature_index": 63,
+      "value": 56.42194366455078
+    },
+    {
+      "feature_index": 62,
+      "value": 28.857479095458984
+    },
+    {
+      "feature_index": 16,
+      "value": 0.47086986899375916
+    },
+    {
+      "feature_index": 56,
+      "value": 0.4473596215248108
+    },
+    {
+      "feature_index": 51,
+      "value": 0.35182228684425354
+    },
+    {
+      "feature_index": 11,
+      "value": 0.33966559171676636
+    },
+    {
+      "feature_index": 36,
+      "value": 0.3230655789375305
+    },
+    {
+      "feature_index": 31,
+      "value": 0.2199954092502594
+    }
+  ]
+}

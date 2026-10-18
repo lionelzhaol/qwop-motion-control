@@ -1,0 +1,22 @@
+# Full copies of these machine-local and bulk artifacts are in the Release snapshot.
+/.cache/
+/.tmp/
+/.tools/
+/downloads/
+/QWOP_rl_training_public/.venv/
+/QWOP_rl_training_public/build/
+/QWOP_rl_training_public/checkpoints/*
+!/QWOP_rl_training_public/checkpoints/ppo_classic100m_phase_ppo.pt
+!/QWOP_rl_training_public/checkpoints/ppo_classic100m_phase_fast.pt
+!/QWOP_rl_training_public/checkpoints/bc_classic100m_shadow.pt
+!/QWOP_rl_training_public/checkpoints/ppo_classic_actor_unfreeze_best_20261015.pt
+!/QWOP_rl_training_public/checkpoints/long_jump_distance_elite_best_20261013.pt
+!/QWOP_rl_training_public/checkpoints/ppo_foot_running_v1_update_000580.pt
+!/QWOP_rl_training_public/checkpoints/ppo_foot_running_v3.pt
+/handoff_20261018/archive/
+/handoff_20261018/pack_progress.json
+/handoff_20261018/upload_progress.json
+/handoff_20261018/remote_release.json
+**/node_modules/
+**/__pycache__/
+*.pyc

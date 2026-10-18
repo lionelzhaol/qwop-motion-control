@@ -1,0 +1,10 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_shadow_calibrated_smoke_20261015.json",
+  "returncode": 0,
+  "elapsed_seconds": 9.93869500000028,
+  "started_utc": "2026-10-15T03:27:12.524771+00:00",
+  "ended_utc": "2026-10-15T03:27:22.463242+00:00",
+  "updates": 2,
+  "new_transitions": 8192,
+  "finite_losses": true
+}

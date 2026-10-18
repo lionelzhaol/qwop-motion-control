@@ -1,0 +1,22 @@
+{
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_phase_fast.pt",
+  "output": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_task_reward_initial.pt",
+  "terminal": {
+    "time_s": 44.93333435058594,
+    "distance_m": 100.0999984741211,
+    "steps": 1348
+  },
+  "gamma": 0.9999,
+  "total_reward": 2055.7998946905136,
+  "discounted_return": 1805.3966786633625,
+  "fit_rmse": 2.076925498874091,
+  "actor_unchanged": true,
+  "no_ppo_training": true,
+  "calibrated_parameters": [
+    "critic.weight",
+    "critic.bias"
+  ],
+  "strict_reload_actions_identical": true,
+  "sha256": "857ae4d86eee25ebaa8e4709d25b880d8c76abb6c9b991417b5b418d7e08d103",
+  "elapsed_seconds": 0.8828037999992375
+}

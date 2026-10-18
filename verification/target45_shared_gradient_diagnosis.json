@@ -1,0 +1,12 @@
+{
+  "source": "target45_hidden2_gen3.pt",
+  "reward": "v23",
+  "samples": 32768,
+  "minibatch_samples": 4096,
+  "policy_shared_gradient_norm": 1.327399492263794,
+  "unweighted_value_shared_gradient_norm": 96.04195404052734,
+  "value_to_policy_gradient_ratio_at_vf_005": 3.6176733003240047,
+  "value_to_policy_gradient_ratio_at_vf_001": 0.7235346600648009,
+  "gradient_cosine": -0.0010083814020378718,
+  "value_loss": 2.7413690090179443
+}

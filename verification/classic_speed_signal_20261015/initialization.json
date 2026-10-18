@@ -1,0 +1,75 @@
+{
+  "started_utc": "2026-10-15T05:33:27.741485+00:00",
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_actor_unfreeze_best_20261015.pt",
+  "source_sha256": "ddb9a6fbbee2cd75e0db994e49082198348e8fdaef481ee9399fd536d673c90a",
+  "physics_sha256": "7e4efccb76fd157321bb9e41bbf643ad501e37c205aed0198fb60b89159964be",
+  "bc_sha256": "a605b173ec7befe1024538f2e4a728be5ae22ffb7b6d9ae4dd2f22c73b914491",
+  "configs": {
+    "control_smoke": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_control_smoke_20261015.json",
+    "control_warm": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_control_warm_20261015.json",
+    "control_train": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_control_train_20261015.json",
+    "speed1200_smoke": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_speed1200_smoke_20261015.json",
+    "speed1200_warm": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_speed1200_warm_20261015.json",
+    "speed1200_train": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_speed1200_train_20261015.json",
+    "speed3600_smoke": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_speed3600_smoke_20261015.json",
+    "speed3600_warm": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_speed3600_warm_20261015.json",
+    "speed3600_train": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_speed3600_train_20261015.json"
+  },
+  "reward_checks": {
+    "control": {
+      "qualifying_bonus_faster_one_frame": 0.0,
+      "bonus_at_reference": 0.0,
+      "qualifying_bonus_slower_one_frame": 0.0,
+      "extra_reward_for_one_frame_saved": 0.0,
+      "all_failure_unqualified_timeout_nonterminal_bonuses_zero": true,
+      "input_unmodified": true
+    },
+    "speed1200": {
+      "qualifying_bonus_faster_one_frame": 639.9408569335938,
+      "bonus_at_reference": 600.0,
+      "qualifying_bonus_slower_one_frame": 560.0591430664062,
+      "extra_reward_for_one_frame_saved": 39.94085693359375,
+      "all_failure_unqualified_timeout_nonterminal_bonuses_zero": true,
+      "input_unmodified": true
+    },
+    "speed3600": {
+      "qualifying_bonus_faster_one_frame": 1919.822509765625,
+      "bonus_at_reference": 1800.0,
+      "qualifying_bonus_slower_one_frame": 1680.177490234375,
+      "extra_reward_for_one_frame_saved": 119.822509765625,
+      "all_failure_unqualified_timeout_nonterminal_bonuses_zero": true,
+      "input_unmodified": true
+    }
+  },
+  "critic_calibrations": {
+    "control": {
+      "initial": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_control_initial_20261015.pt",
+      "rmse_scaled": 0.008167846108176554,
+      "native_terminal_bonus": 0.0,
+      "original_return": 2300.666887655854,
+      "shaped_return": 2300.666887655854,
+      "scaled_mc_target_min": 20.903829237074728,
+      "scaled_mc_target_max": 21.39133544921875
+    },
+    "speed1200": {
+      "initial": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed1200_initial_20261015.pt",
+      "rmse_scaled": 0.021816123485420662,
+      "native_terminal_bonus": 600.0006103515625,
+      "original_return": 2300.666887655854,
+      "shaped_return": 2900.6674980074167,
+      "scaled_mc_target_min": 26.338264111118043,
+      "scaled_mc_target_max": 27.391341552734374
+    },
+    "speed3600": {
+      "initial": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed3600_initial_20261015.pt",
+      "rmse_scaled": 0.050203746140504095,
+      "native_terminal_bonus": 1800.0018310546875,
+      "original_return": 2300.666887655854,
+      "shaped_return": 4100.668718710542,
+      "scaled_mc_target_min": 37.20713385920477,
+      "scaled_mc_target_max": 39.39135375976563
+    }
+  },
+  "default_off_logits_values_identical_on_991_states": true,
+  "limitations": "Same initial policy, sharp sampling and original completion rules; conditional Critic calibration applied equally to all arms. No new demonstration or exploration modification."
+}

@@ -1,0 +1,25 @@
+{
+  "native_struct_size": 284,
+  "same_backend_trajectory_verified": true,
+  "completion_seconds": 49.06666564941406,
+  "windows": {
+    "0.2": {
+      "speed_percentiles_10_50_90": [
+        1.9298388296553597,
+        2.1718691173600524,
+        2.331946561875991
+      ],
+      "progress_fraction_at_measured_speed_above_2p5": 0.0009210723571079016,
+      "speed_std": 0.16359232962642029
+    },
+    "1.0": {
+      "speed_percentiles_10_50_90": [
+        1.933010009765622,
+        2.189411621093754,
+        2.282260253906253
+      ],
+      "progress_fraction_at_measured_speed_above_2p5": 0.0,
+      "speed_std": 0.14346290812776272
+    }
+  }
+}

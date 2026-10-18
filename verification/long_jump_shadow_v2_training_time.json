@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-10-10T11:18:53.761677+00:00",
+  "ended_utc": "2026-10-10T11:24:52.977012+00:00",
+  "elapsed_seconds": 359.2154128999973,
+  "config": "configs\\ppo_long_jump_shadow_v2.json",
+  "returncode": 0,
+  "updates_logged": 256,
+  "transitions": 8388608
+}

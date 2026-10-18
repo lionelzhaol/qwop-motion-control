@@ -1,0 +1,405 @@
+{
+  "gamma": 0.9999,
+  "compiled_manifest": {
+    "original_reward_cpp_sha256": "5aee5d4afcef9bb71a6ae6236f25dd6333a3f28affca6cdf3240928d87d95f43",
+    "variants": {
+      "Current": {},
+      "NoLeanProgress": {
+        "kForwardLeanProgressBonus": "0.0f"
+      },
+      "NoLeanPenalty": {
+        "kLeanPosturePenaltyPerSecond": "0.0f"
+      },
+      "NoVertical": {
+        "kVerticalMotionPenaltyPerSecond": "0.0f"
+      },
+      "NoCadence": {
+        "kCadenceProgressBonus": "0.0f"
+      },
+      "NoExactLean": {
+        "kForwardLeanProgressBonus": "0.0f",
+        "kLeanPosturePenaltyPerSecond": "0.0f"
+      }
+    },
+    "output_order": [
+      "Current",
+      "NoLeanProgress",
+      "NoLeanPenalty",
+      "NoVertical",
+      "NoCadence",
+      "NoExactLean",
+      "TaskOnly"
+    ]
+  },
+  "policies": [
+    {
+      "label": "fast44p93",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_phase_fast.pt",
+      "checkpoint_sha256": "cb5b40fe71f3bdbb58869a5195ae71ba9eb2b5c2e53658179eee56fc1d22cac3",
+      "time_s": 44.93333435058594,
+      "distance_m": 100.0999984741211,
+      "success": true,
+      "steps": 1348,
+      "current_reward_matches_live_native_every_frame": true,
+      "max_native_reward_error": 0.0,
+      "current_return": 1877.4242071039043,
+      "current_discounted_return": 1680.4995032060779,
+      "component_returns": {
+        "lean_progress_bonus": 15.180020272731781,
+        "lean_target_penalty": -8.816130488878116,
+        "vertical_motion_penalty": -8.231161644449458,
+        "cadence_bonus": 9.077754321042448,
+        "net_exact_lean_shaping": 6.363889754051343
+      },
+      "component_discounted_returns": {
+        "lean_progress_bonus": 14.202806019847685,
+        "lean_target_penalty": -8.224170175427844,
+        "vertical_motion_penalty": -7.673731104479884,
+        "cadence_bonus": 8.401434750870976,
+        "net_exact_lean_shaping": 5.97863582827631
+      },
+      "counterfactual_returns": {
+        "Current": 1877.4242071039043,
+        "NoLeanProgress": 1862.2441868311726,
+        "NoLeanPenalty": 1886.2403375927825,
+        "NoVertical": 1885.6553687483538,
+        "NoCadence": 1868.346452782862,
+        "NoExactLean": 1871.060317349853,
+        "TaskOnly": 2055.7998946905136
+      },
+      "counterfactual_discounted_returns": {
+        "Current": 1680.4995032060779,
+        "NoLeanProgress": 1666.2966971862302,
+        "NoLeanPenalty": 1688.7236733815057,
+        "NoVertical": 1688.1732343105577,
+        "NoCadence": 1672.0980684552069,
+        "NoExactLean": 1674.5208673778016,
+        "TaskOnly": 1805.3966786633648
+      },
+      "cadence_reward_paid_events": 38,
+      "flat_height_ratio_std": 0.028929193247847245,
+      "flat_lean_mean_degrees": -0.0006003412729483213,
+      "flat_lean_absolute_error_from5": 5.275514678135981,
+      "whole_low_posture_fraction": 0.0,
+      "discarded_initial_rewards": {
+        "Current": 2.1600000858306885,
+        "NoLeanProgress": 2.1600000858306885,
+        "NoLeanPenalty": 2.1600000858306885,
+        "NoVertical": 2.1600000858306885,
+        "NoCadence": 2.1600000858306885,
+        "NoExactLean": 2.1600000858306885,
+        "TaskOnly": 0.6000000238418579
+      },
+      "action_sha256": "30d5123394a544aa06985c48f26911623885312ac5014054e526c4e30e7bd0d2"
+    },
+    {
+      "label": "ppo45p40",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_phase_ppo.pt",
+      "checkpoint_sha256": "8bcb17c61b6224be604a2855787ed66b90744e504d6842a8c28512269f710ad7",
+      "time_s": 45.400001525878906,
+      "distance_m": 100.30000305175781,
+      "success": true,
+      "steps": 1362,
+      "current_reward_matches_live_native_every_frame": true,
+      "max_native_reward_error": 0.0,
+      "current_return": 1857.612667587353,
+      "current_discounted_return": 1661.630559823099,
+      "component_returns": {
+        "lean_progress_bonus": 17.03778550028801,
+        "lean_target_penalty": -10.141444958047941,
+        "vertical_motion_penalty": -7.793213314842433,
+        "cadence_bonus": 10.859040674753487,
+        "net_exact_lean_shaping": 6.896342002553865
+      },
+      "component_discounted_returns": {
+        "lean_progress_bonus": 15.870525602584166,
+        "lean_target_penalty": -9.452808788362518,
+        "vertical_motion_penalty": -7.338845359488232,
+        "cadence_bonus": 10.0629866419863,
+        "net_exact_lean_shaping": 6.4177182063515374
+      },
+      "counterfactual_returns": {
+        "Current": 1857.612667587353,
+        "NoLeanProgress": 1840.574882087065,
+        "NoLeanPenalty": 1867.7541125454009,
+        "NoVertical": 1865.4058809021953,
+        "NoCadence": 1846.7536269125994,
+        "NoExactLean": 1850.716325584799,
+        "TaskOnly": 2046.000009894371
+      },
+      "counterfactual_discounted_returns": {
+        "Current": 1661.630559823099,
+        "NoLeanProgress": 1645.7600342205149,
+        "NoLeanPenalty": 1671.0833686114615,
+        "NoVertical": 1668.9694051825873,
+        "NoCadence": 1651.5675731811127,
+        "NoExactLean": 1655.2128416167475,
+        "TaskOnly": 1794.462304437372
+      },
+      "cadence_reward_paid_events": 40,
+      "flat_height_ratio_std": 0.02869073796326145,
+      "flat_lean_mean_degrees": -0.0520030465466143,
+      "flat_lean_absolute_error_from5": 5.521195070092947,
+      "whole_low_posture_fraction": 0.0,
+      "discarded_initial_rewards": {
+        "Current": 2.1600000858306885,
+        "NoLeanProgress": 2.1600000858306885,
+        "NoLeanPenalty": 2.1600000858306885,
+        "NoVertical": 2.1600000858306885,
+        "NoCadence": 2.1600000858306885,
+        "NoExactLean": 2.1600000858306885,
+        "TaskOnly": 0.6000000238418579
+      },
+      "action_sha256": "1e1dc44a6b0cd7e5691d11de97f95ec948b825db4f799c9fedd22088447dec2d"
+    },
+    {
+      "label": "pose47p83",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_target45_pose.pt",
+      "checkpoint_sha256": "c7c2d72578d3f2115152b014f9460700c21e195f1090cb5ed3753d43e4ac1ff3",
+      "time_s": 47.83333206176758,
+      "distance_m": 100.19999694824219,
+      "success": true,
+      "steps": 1435,
+      "current_reward_matches_live_native_every_frame": true,
+      "max_native_reward_error": 0.0,
+      "current_return": 1629.7063374524005,
+      "current_discounted_return": 1450.3247179222817,
+      "component_returns": {
+        "lean_progress_bonus": 24.94158908724785,
+        "lean_target_penalty": -5.863939974689856,
+        "vertical_motion_penalty": -6.161097170319408,
+        "cadence_bonus": 12.156209958251566,
+        "net_exact_lean_shaping": 19.077648516511545
+      },
+      "component_discounted_returns": {
+        "lean_progress_bonus": 23.212382364873065,
+        "lean_target_penalty": -5.443576395621221,
+        "vertical_motion_penalty": -5.719285229559773,
+        "cadence_bonus": 11.215433420484942,
+        "net_exact_lean_shaping": 17.768805441395443
+      },
+      "counterfactual_returns": {
+        "Current": 1629.7063374524005,
+        "NoLeanProgress": 1604.7647483651526,
+        "NoLeanPenalty": 1635.5702774270903,
+        "NoVertical": 1635.8674346227199,
+        "NoCadence": 1617.550127494149,
+        "NoExactLean": 1610.628688935889,
+        "TaskOnly": 1994.9000037908554
+      },
+      "counterfactual_discounted_returns": {
+        "Current": 1450.3247179222817,
+        "NoLeanProgress": 1427.1123355574086,
+        "NoLeanPenalty": 1455.768294317903,
+        "NoVertical": 1456.0440031518415,
+        "NoCadence": 1439.1092845017968,
+        "NoExactLean": 1432.5559124808863,
+        "TaskOnly": 1737.573717190156
+      },
+      "cadence_reward_paid_events": 42,
+      "flat_height_ratio_std": 0.026929137921360216,
+      "flat_lean_mean_degrees": 1.3958682647796405,
+      "flat_lean_absolute_error_from5": 4.7840199728833195,
+      "whole_low_posture_fraction": 0.0,
+      "discarded_initial_rewards": {
+        "Current": 2.1600000858306885,
+        "NoLeanProgress": 2.1600000858306885,
+        "NoLeanPenalty": 2.1600000858306885,
+        "NoVertical": 2.1600000858306885,
+        "NoCadence": 2.1600000858306885,
+        "NoExactLean": 2.1600000858306885,
+        "TaskOnly": 0.6000000238418579
+      },
+      "action_sha256": "b5ff1d045c4c5d71729b604164935d7a4545ff425692a684f44e607cd31ff7f0"
+    },
+    {
+      "label": "v36_best46p07",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v36_flat_residual_update_012528.pt",
+      "checkpoint_sha256": "26a1a950cf21ad805043e62ce2057bf0c489ec0c2b96726eb85559b30b36a58f",
+      "time_s": 46.06666564941406,
+      "distance_m": 100.0999984741211,
+      "success": true,
+      "steps": 1382,
+      "current_reward_matches_live_native_every_frame": true,
+      "max_native_reward_error": 0.0,
+      "current_return": 1779.0569930053316,
+      "current_discounted_return": 1587.9598521130106,
+      "component_returns": {
+        "lean_progress_bonus": 16.733072698116302,
+        "lean_target_penalty": -8.945518429391086,
+        "vertical_motion_penalty": -7.873994777910411,
+        "cadence_bonus": 8.99995000846684,
+        "net_exact_lean_shaping": 7.787555729039013
+      },
+      "component_discounted_returns": {
+        "lean_progress_bonus": 15.670390981991886,
+        "lean_target_penalty": -8.271734545396384,
+        "vertical_motion_penalty": -7.391626617554721,
+        "cadence_bonus": 8.38982512657185,
+        "net_exact_lean_shaping": 7.3986578699741585
+      },
+      "counterfactual_returns": {
+        "Current": 1779.0569930053316,
+        "NoLeanProgress": 1762.3239203072153,
+        "NoLeanPenalty": 1788.0025114347227,
+        "NoVertical": 1786.930987783242,
+        "NoCadence": 1770.0570429968648,
+        "NoExactLean": 1771.2694372762926,
+        "TaskOnly": 2032.0001357793808
+      },
+      "counterfactual_discounted_returns": {
+        "Current": 1587.9598521130106,
+        "NoLeanProgress": 1572.2894611310187,
+        "NoLeanPenalty": 1596.231586658407,
+        "NoVertical": 1595.3514787305653,
+        "NoCadence": 1579.5700269864387,
+        "NoExactLean": 1580.5611942430364,
+        "TaskOnly": 1778.6723467210143
+      },
+      "cadence_reward_paid_events": 39,
+      "flat_height_ratio_std": 0.027325671556015608,
+      "flat_lean_mean_degrees": -0.018489704326402307,
+      "flat_lean_absolute_error_from5": 5.438913262363083,
+      "whole_low_posture_fraction": 0.0,
+      "discarded_initial_rewards": {
+        "Current": 2.1600000858306885,
+        "NoLeanProgress": 2.1600000858306885,
+        "NoLeanPenalty": 2.1600000858306885,
+        "NoVertical": 2.1600000858306885,
+        "NoCadence": 2.1600000858306885,
+        "NoExactLean": 2.1600000858306885,
+        "TaskOnly": 0.6000000238418579
+      },
+      "action_sha256": "f8b640d094872d5fdae1f105b2e9ea679e38eee5ebf05b5381a6fe6166c0d4b7"
+    },
+    {
+      "label": "v37_best46p90",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v37_actor_features_update_012640.pt",
+      "checkpoint_sha256": "0df99020d669425e6d691571fab69eda10cf871b8e6059552c083a2f25f816cb",
+      "time_s": 46.900001525878906,
+      "distance_m": 100.9000015258789,
+      "success": true,
+      "steps": 1407,
+      "current_reward_matches_live_native_every_frame": true,
+      "max_native_reward_error": 0.0,
+      "current_return": 1724.9547621475067,
+      "current_discounted_return": 1538.9788755131956,
+      "component_returns": {
+        "lean_progress_bonus": 21.386125415563583,
+        "lean_target_penalty": -9.43374100793153,
+        "vertical_motion_penalty": -8.243641293840483,
+        "cadence_bonus": 11.018509147455916,
+        "net_exact_lean_shaping": 11.952384884469211
+      },
+      "component_discounted_returns": {
+        "lean_progress_bonus": 19.91127008234662,
+        "lean_target_penalty": -8.753987598543745,
+        "vertical_motion_penalty": -7.604116073516252,
+        "cadence_bonus": 10.19943622532378,
+        "net_exact_lean_shaping": 11.157282964049045
+      },
+      "counterfactual_returns": {
+        "Current": 1724.9547621475067,
+        "NoLeanProgress": 1703.5686367319431,
+        "NoLeanPenalty": 1734.3885031554382,
+        "NoVertical": 1733.1984034413472,
+        "NoCadence": 1713.9362530000508,
+        "NoExactLean": 1713.0023772630375,
+        "TaskOnly": 2014.500009894371
+      },
+      "counterfactual_discounted_returns": {
+        "Current": 1538.9788755131956,
+        "NoLeanProgress": 1519.067605430849,
+        "NoLeanPenalty": 1547.7328631117393,
+        "NoVertical": 1546.5829915867118,
+        "NoCadence": 1528.7794392878718,
+        "NoExactLean": 1527.8215925491465,
+        "TaskOnly": 1759.4156171372574
+      },
+      "cadence_reward_paid_events": 44,
+      "flat_height_ratio_std": 0.029218706363239567,
+      "flat_lean_mean_degrees": 1.0916018343009277,
+      "flat_lean_absolute_error_from5": 4.6534868424617475,
+      "whole_low_posture_fraction": 0.0,
+      "discarded_initial_rewards": {
+        "Current": 2.1600000858306885,
+        "NoLeanProgress": 2.1600000858306885,
+        "NoLeanPenalty": 2.1600000858306885,
+        "NoVertical": 2.1600000858306885,
+        "NoCadence": 2.1600000858306885,
+        "NoExactLean": 2.1600000858306885,
+        "TaskOnly": 0.6000000238418579
+      },
+      "action_sha256": "fe5cfe698efb99c66423ce2143a976fe847799132a6b59120f92e79006f07de1"
+    },
+    {
+      "label": "v38_best46p47",
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v38_soft_actor_update_010912.pt",
+      "checkpoint_sha256": "c26c7b192ebcb2cc72eca1d4a73464e80d59e0400b02cb2411091b2b7a440fd9",
+      "time_s": 46.46666717529297,
+      "distance_m": 100.5,
+      "success": true,
+      "steps": 1394,
+      "current_reward_matches_live_native_every_frame": true,
+      "max_native_reward_error": 0.0,
+      "current_return": 1734.3797090291046,
+      "current_discounted_return": 1544.1770385129662,
+      "component_returns": {
+        "lean_progress_bonus": 16.018511563539505,
+        "lean_target_penalty": -13.972782829543576,
+        "vertical_motion_penalty": -7.928664065198973,
+        "cadence_bonus": 7.823383439797908,
+        "net_exact_lean_shaping": 2.045728853205219
+      },
+      "component_discounted_returns": {
+        "lean_progress_bonus": 14.959418915965216,
+        "lean_target_penalty": -13.013310550605638,
+        "vertical_motion_penalty": -7.533060935179037,
+        "cadence_bonus": 7.304949335125912,
+        "net_exact_lean_shaping": 1.9461084770357502
+      },
+      "counterfactual_returns": {
+        "Current": 1734.3797090291046,
+        "NoLeanProgress": 1718.361197465565,
+        "NoLeanPenalty": 1748.3524918586481,
+        "NoVertical": 1742.3083730943035,
+        "NoCadence": 1726.5563255893067,
+        "NoExactLean": 1732.3339801758993,
+        "TaskOnly": 2023.5999664068222
+      },
+      "counterfactual_discounted_returns": {
+        "Current": 1544.1770385129662,
+        "NoLeanProgress": 1529.217619597001,
+        "NoLeanPenalty": 1557.1903490635718,
+        "NoVertical": 1551.7100994481452,
+        "NoCadence": 1536.8720891778403,
+        "NoExactLean": 1542.2309300359304,
+        "TaskOnly": 1769.1793737805704
+      },
+      "cadence_reward_paid_events": 32,
+      "flat_height_ratio_std": 0.029092091629507818,
+      "flat_lean_mean_degrees": -0.8484560682984204,
+      "flat_lean_absolute_error_from5": 6.410944771296814,
+      "whole_low_posture_fraction": 0.0,
+      "discarded_initial_rewards": {
+        "Current": 2.1600000858306885,
+        "NoLeanProgress": 2.1600000858306885,
+        "NoLeanPenalty": 2.1600000858306885,
+        "NoVertical": 2.1600000858306885,
+        "NoCadence": 2.1600000858306885,
+        "NoExactLean": 2.1600000858306885,
+        "TaskOnly": 0.6000000238418579
+      },
+      "action_sha256": "8cfdad2bf28a18a7bd963969385b7385592700a38049ab45bc6049befc7052b7"
+    }
+  ],
+  "fixed_trajectory_ordering_conflicts": [],
+  "elapsed_seconds": 3.1675470000045607,
+  "notes": [
+    "Actual source C++ compiled into a separate verification DLL; no production source edit or live pyd rebuild.",
+    "Every original classic reward verified against the live compiled native environment on identical duplicated native frames.",
+    "Single coefficient changes preserve state transitions; differences isolate reward contributions, not consequences of retraining.",
+    "TaskOnly includes the new full task-profile objective; it is not an isolated single-coefficient ablation.",
+    "Counterfactual reward ranking is evidence about the objective, not proof that removing a term will improve learned performance."
+  ]
+}

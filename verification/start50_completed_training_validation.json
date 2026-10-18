@@ -1,0 +1,47 @@
+[
+  {
+    "run": "ppo_start50_v11_value",
+    "finite_metrics_and_weights": true,
+    "value_loss_last": 5.671754360198975,
+    "value_loss_max": 29.809734344482422,
+    "explained_variance_last": 0.9716853499412537,
+    "early_stop_fraction": null,
+    "optimization_steps_mean": null
+  },
+  {
+    "run": "ppo_start50_v12_dense",
+    "finite_metrics_and_weights": true,
+    "value_loss_last": 5.9353485107421875,
+    "value_loss_max": 12.191710472106934,
+    "explained_variance_last": 0.9575821757316589,
+    "early_stop_fraction": null,
+    "optimization_steps_mean": null
+  },
+  {
+    "run": "ppo_start50_v13_confidence",
+    "finite_metrics_and_weights": true,
+    "value_loss_last": 3.2087042331695557,
+    "value_loss_max": 11.722990036010742,
+    "explained_variance_last": 0.9738142490386963,
+    "early_stop_fraction": null,
+    "optimization_steps_mean": null
+  },
+  {
+    "run": "ppo_start50_v14_kl",
+    "finite_metrics_and_weights": true,
+    "value_loss_last": 7.868570327758789,
+    "value_loss_max": 15.742925643920898,
+    "explained_variance_last": 0.9674263000488281,
+    "early_stop_fraction": 0.71875,
+    "optimization_steps_mean": 18.966796875
+  },
+  {
+    "run": "ppo_start50_v15_gae",
+    "finite_metrics_and_weights": true,
+    "value_loss_last": 18.814542770385742,
+    "value_loss_max": 27.338777542114258,
+    "explained_variance_last": 0.9269680380821228,
+    "early_stop_fraction": 0.865234375,
+    "optimization_steps_mean": 14.37109375
+  }
+]

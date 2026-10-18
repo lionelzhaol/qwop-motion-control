@@ -1,0 +1,77 @@
+{
+  "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\bc_classic100m_shadow.pt",
+  "checkpoint_sha256": "a605b173ec7befe1024538f2e4a728be5ae22ffb7b6d9ae4dd2f22c73b914491",
+  "model_weights_changed": false,
+  "method": "Observation-conditioned unchanged policy, Categorical(logits / temperature); search first successful 33-34s finish differing from 991 frames",
+  "selected": {
+    "temperature": 0.4,
+    "seed": 202610115,
+    "batch_episodes": 256,
+    "episode_index": 54,
+    "frames": 994,
+    "time_s": 33.13333511352539,
+    "distance_m": 100.0999984741211
+  },
+  "search_batches": [
+    {
+      "batch": 0,
+      "temperature": 0.1,
+      "seed": 202610110,
+      "successes_observed": 253,
+      "max_distance_m": 100.0,
+      "stopped_on_candidate": false
+    },
+    {
+      "batch": 1,
+      "temperature": 0.15,
+      "seed": 202610111,
+      "successes_observed": 232,
+      "max_distance_m": 100.0,
+      "stopped_on_candidate": false
+    },
+    {
+      "batch": 2,
+      "temperature": 0.2,
+      "seed": 202610112,
+      "successes_observed": 203,
+      "max_distance_m": 101.5,
+      "stopped_on_candidate": false
+    },
+    {
+      "batch": 3,
+      "temperature": 0.25,
+      "seed": 202610113,
+      "successes_observed": 167,
+      "max_distance_m": 100.69999694824219,
+      "stopped_on_candidate": false
+    },
+    {
+      "batch": 4,
+      "temperature": 0.3,
+      "seed": 202610114,
+      "successes_observed": 103,
+      "max_distance_m": 100.0,
+      "stopped_on_candidate": false
+    },
+    {
+      "batch": 5,
+      "temperature": 0.4,
+      "seed": 202610115,
+      "successes_observed": 56,
+      "max_distance_m": 100.0999984741211,
+      "stopped_on_candidate": true
+    }
+  ],
+  "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic100m_shadow_bc_random_33p13s.bin",
+  "replay_sha256": "c8b6eb1bac1a1d4580a28399b5912568c5937fc563bd71134090a980aa4261c6",
+  "replay_crc_valid": true,
+  "native_reexecution": {
+    "score": 100.0999984741211,
+    "distance": 100.0999984741211,
+    "time": 33.13333511352539,
+    "success": true
+  },
+  "elapsed_seconds": 20.730654799997865,
+  "provenance": "Behavior-cloning model trained from public XYF 991-frame expert; selected stochastic rollout, not an independent PPO discovery",
+  "selection_note": "This is a selected successful trial; no claim of success rate or typical stochastic performance."
+}

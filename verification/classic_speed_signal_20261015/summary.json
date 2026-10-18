@@ -1,0 +1,237 @@
+{
+  "best_frames": 991,
+  "best_time_s": 33.03333333333333,
+  "broke_reference": false,
+  "best_sampled_replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\control_ppo_classic_actor_unfreeze_best_20261015_selection64.bin",
+  "best_sampled_model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_actor_unfreeze_best_20261015.pt",
+  "greedy_best": {
+    "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_actor_unfreeze_best_20261015.pt",
+    "native_success": true,
+    "frames": 991,
+    "time_s": 33.03333282470703,
+    "distance_m": 100.0,
+    "qualified_finishes": 56,
+    "unique_qualified_action_sequences": 1,
+    "qualified_under_991": 0,
+    "qualified_mean_time_s": 33.03333282470703
+  },
+  "ppo_new_transitions": 28336128,
+  "ppo_training_seconds": 1171.8998852000022,
+  "elapsed_seconds": 1869.6923146247864,
+  "random_search_episodes": 16384,
+  "selected_arm": "speed3600",
+  "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_signal_candidate_20261015.pt",
+  "greedy_replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_speed_signal_greedy_20261015.bin",
+  "retained_checkpoint_global_step": 42991616,
+  "novel_qualified_replays": [
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\control_heldout64_seed2026101603_novel001_1021f.bin",
+      "frames": 1021,
+      "time_s": 34.03333282470703,
+      "effective_action_sha256": "f30e82cfad33f9a5bd7bf1cda39286722fcb0a2e7c643d8c99c08c4969cb92ba",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\control_search4096_novel001_1033f.bin",
+      "frames": 1033,
+      "time_s": 34.43333435058594,
+      "effective_action_sha256": "2a3a8804898a8e3119e622c6bb2a503d180ffce6a89558916419bda3a33f0882",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\control_search4096_novel002_1035f.bin",
+      "frames": 1035,
+      "time_s": 34.5,
+      "effective_action_sha256": "b0069d9f56039be164f9acd088cf8f4e9b570c8f75d2774d6d94c445f841fb6e",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\control_search4096_novel003_1042f.bin",
+      "frames": 1042,
+      "time_s": 34.733333587646484,
+      "effective_action_sha256": "867d30110dc7f9fd8a6529a337665eda87fe1d5366cc40d6eaaaebfa6aa52c28",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\control_search4096_novel004_1039f.bin",
+      "frames": 1039,
+      "time_s": 34.63333511352539,
+      "effective_action_sha256": "3899849ba373396462a305a687c1873c6b1ba3fc5995ab5ada543cd46c07e606",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\speed3600_search4096_novel001_991f.bin",
+      "frames": 991,
+      "time_s": 33.03333282470703,
+      "effective_action_sha256": "b269de539313f5eb8a7f3c207de55ae095e089e66afdc0b116c717f8d8ee5d74",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\speed3600_search4096_novel003_991f.bin",
+      "frames": 991,
+      "time_s": 33.03333282470703,
+      "effective_action_sha256": "16a4a86df9bb8992d342efa421d5eb784057d0b482fa357a13b52d003106dab5",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\selected_search4096_novel001_1045f.bin",
+      "frames": 1045,
+      "time_s": 34.83333206176758,
+      "effective_action_sha256": "a09055df8efba1120a9bab9962d649c17031580118f92747d215844f65d42f47",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\selected_search4096_novel003_1009f.bin",
+      "frames": 1009,
+      "time_s": 33.63333511352539,
+      "effective_action_sha256": "9ff3343c16f93b869df31ab2f955626863b847bb8215325fe5d38cf108004ed4",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\selected_search4096_novel004_1031f.bin",
+      "frames": 1031,
+      "time_s": 34.36666488647461,
+      "effective_action_sha256": "e6145e99b60f00641501bb4dc6c7f648f7e2a960164e5b3d7e8e06db91d67ee9",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\selected_search4096_novel005_1039f.bin",
+      "frames": 1039,
+      "time_s": 34.63333511352539,
+      "effective_action_sha256": "cf1950958cdf16a81099bc0fccbeac1f4bfb5dba8990657d38360b3d2617ddfc",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\selected_search4096_novel006_1018f.bin",
+      "frames": 1018,
+      "time_s": 33.93333435058594,
+      "effective_action_sha256": "b8f71b79fca48d83ce506cd89f8c3bfa6d14b6b3a05c45e494cdc0d367a4b386",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\speed1200_search4096_novel001_1036f.bin",
+      "frames": 1036,
+      "time_s": 34.53333282470703,
+      "effective_action_sha256": "8400c89037ce30e9fb2110318ebc5bc592e938292896886e6e0331da104b4504",
+      "native_qualified_reexecution": true
+    },
+    {
+      "path": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\speed3600_search4096_novel002_1021f.bin",
+      "frames": 1021,
+      "time_s": 34.03333282470703,
+      "effective_action_sha256": "1296c17b46be8e9e6797dfcd2c6ad72226a6c6be709d1c6ca0cb83a4c1bc5aaf",
+      "native_qualified_reexecution": true
+    }
+  ],
+  "heldout": {
+    "baseline": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_actor_unfreeze_best_20261015.pt",
+      "checkpoint_sha256": "ddb9a6fbbee2cd75e0db994e49082198348e8fdaef481ee9399fd536d673c90a",
+      "episodes": 192,
+      "native_successes": 179,
+      "qualified_finishes": 179,
+      "qualified_rate": 0.9322916666666666,
+      "best_frames": 991,
+      "mean_qualified_time_s": 33.03333282470703,
+      "qualified_under_991": 0,
+      "unique_qualified_action_sequences": 1,
+      "unique_qualified_effective_sequences": 1,
+      "qualified_reference_sequences": 179,
+      "qualified_frame_distribution": {
+        "991": 179
+      }
+    },
+    "control": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_control_train_20261015.pt",
+      "checkpoint_sha256": "518d1af25cf231baf5c771e22a10117051f911497f09c536b8eebd469fd0bf66",
+      "episodes": 192,
+      "native_successes": 180,
+      "qualified_finishes": 180,
+      "qualified_rate": 0.9375,
+      "best_frames": 991,
+      "mean_qualified_time_s": 33.038888380262584,
+      "qualified_under_991": 0,
+      "unique_qualified_action_sequences": 2,
+      "unique_qualified_effective_sequences": 2,
+      "qualified_reference_sequences": 179,
+      "qualified_frame_distribution": {
+        "991": 179,
+        "1021": 1
+      }
+    },
+    "speed1200": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed1200_train_20261015.pt",
+      "checkpoint_sha256": "ecb6b1d8e617a75bd865c77dfed904a67e0b40de664cb5804fe4ad0ac139e4a9",
+      "episodes": 192,
+      "native_successes": 179,
+      "qualified_finishes": 179,
+      "qualified_rate": 0.9322916666666666,
+      "best_frames": 991,
+      "mean_qualified_time_s": 33.03333282470703,
+      "qualified_under_991": 0,
+      "unique_qualified_action_sequences": 1,
+      "unique_qualified_effective_sequences": 1,
+      "qualified_reference_sequences": 179,
+      "qualified_frame_distribution": {
+        "991": 179
+      }
+    },
+    "speed3600": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed3600_train_20261015.pt",
+      "checkpoint_sha256": "b07aa4773f777bca40180b941c0fcd7aa2f189b0f49a348554db7c3656b011e7",
+      "episodes": 192,
+      "native_successes": 178,
+      "qualified_finishes": 178,
+      "qualified_rate": 0.9270833333333334,
+      "best_frames": 991,
+      "mean_qualified_time_s": 33.03333282470703,
+      "qualified_under_991": 0,
+      "unique_qualified_action_sequences": 1,
+      "unique_qualified_effective_sequences": 1,
+      "qualified_reference_sequences": 178,
+      "qualified_frame_distribution": {
+        "991": 178
+      }
+    },
+    "selected": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_signal_candidate_20261015.pt",
+      "checkpoint_sha256": "43d21a1618ae215cd721651276ad28ae08c7dec346bcf4dc6aea7bb4c26572df",
+      "episodes": 192,
+      "native_successes": 175,
+      "qualified_finishes": 175,
+      "qualified_rate": 0.9114583333333334,
+      "best_frames": 991,
+      "mean_qualified_time_s": 33.03333282470703,
+      "qualified_under_991": 0,
+      "unique_qualified_action_sequences": 1,
+      "unique_qualified_effective_sequences": 1,
+      "qualified_reference_sequences": 175,
+      "qualified_frame_distribution": {
+        "991": 175
+      }
+    }
+  },
+  "training_time_outcomes": {
+    "control": {
+      "qualified_finishes": 8135,
+      "faster_than_reference_count": 0,
+      "best_time_s": 33.033333,
+      "updates_with_nonconstant_qualified_times": 10,
+      "weighted_qualified_mean_time_s": 33.03503346687156
+    },
+    "speed1200": {
+      "qualified_finishes": 8097,
+      "faster_than_reference_count": 0,
+      "best_time_s": 33.033333,
+      "updates_with_nonconstant_qualified_times": 5,
+      "weighted_qualified_mean_time_s": 33.03412750216132
+    },
+    "speed3600": {
+      "qualified_finishes": 8097,
+      "faster_than_reference_count": 0,
+      "best_time_s": 33.033333,
+      "updates_with_nonconstant_qualified_times": 4,
+      "weighted_qualified_mean_time_s": 33.034156339384985
+    }
+  }
+}

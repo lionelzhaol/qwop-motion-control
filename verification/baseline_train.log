@@ -1,0 +1,7 @@
+update=1/2 absolute_update=1 steps=512 episodes=2 policy_loss=0.0015 value_loss=1.5375 entropy=2.7420 kl=0.00884 clipfrac=0.148 final_distance_mean=0.600 episode_return_mean=-9.650
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\baseline_smoke_20261008_update_000001.pt
+update=2/2 absolute_update=2 steps=1024 episodes=5 policy_loss=0.1265 value_loss=3.1942 entropy=2.7207 kl=0.00509 clipfrac=0.000 final_distance_mean=1.020 episode_return_mean=-9.260
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\baseline_smoke_20261008_update_000002.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\baseline_smoke_20261008.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\baseline_smoke_20261008
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\baseline_smoke_20261008

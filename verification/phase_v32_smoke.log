@@ -1,0 +1,8 @@
+resumed_from=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\checkpoints\ppo_classic100m_under45.pt checkpoint_update=10656 global_step=348143616 reset_optimizer=1
+update=1/4 absolute_update=10657 steps=348144128 episodes=0 policy_loss=-0.0656 value_loss=3.6833 entropy=0.6600 kl=0.01010 clipfrac=0.051
+update=2/4 absolute_update=10658 steps=348144640 episodes=0 policy_loss=-0.0173 value_loss=20.1716 entropy=0.5929 kl=0.00408 clipfrac=0.035
+update=3/4 absolute_update=10659 steps=348145152 episodes=0 policy_loss=0.0013 value_loss=4.5974 entropy=0.5622 kl=0.00077 clipfrac=0.008
+update=4/4 absolute_update=10660 steps=348145664 episodes=0 policy_loss=0.0250 value_loss=3.8609 entropy=0.5521 kl=0.00047 clipfrac=0.000
+saved_checkpoint=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\checkpoints\ppo_phase_v32_smoke.pt
+logdir=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\runs\ppo_phase_v32_smoke
+tensorboard_logdir=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\runs\ppo_phase_v32_smoke

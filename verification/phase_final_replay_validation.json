@@ -1,0 +1,18 @@
+[
+  {
+    "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_100m_phase_fast_44p93.bin",
+    "frames": 1348,
+    "time_s": 44.93333435058594,
+    "success": true,
+    "distance_m": 100.0999984741211,
+    "crc_and_terminal_verified": true
+  },
+  {
+    "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_100m_phase_ppo_45p40.bin",
+    "frames": 1362,
+    "time_s": 45.400001525878906,
+    "success": true,
+    "distance_m": 100.30000305175781,
+    "crc_and_terminal_verified": true
+  }
+]

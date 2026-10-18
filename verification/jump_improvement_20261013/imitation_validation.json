@@ -1,0 +1,24 @@
+{
+  "device": "cpu",
+  "collected_jump_frames": 529,
+  "training_phase_frames": 195,
+  "finite_loss": 0.28414371609687805,
+  "finite_nonzero_gradient_norms": {
+    "jump_actor_weight": 0.40685582160949707,
+    "jump_actor_bias": 0.03215840458869934
+  },
+  "only_trainable_parameters": [
+    "jump_actor_weight",
+    "jump_actor_bias"
+  ],
+  "all_runup_and_critic_weights_unchanged": true,
+  "prefix_logits_exact": true,
+  "prefix_greedy_actions_equal_frames": 334,
+  "strict_checkpoint_reload": true,
+  "smoke_native_success": true,
+  "smoke_final_jump_m": 2.588183641433716,
+  "default_classic_collector_frames": 991,
+  "default_classic_native_time_s": 33.03333282470703,
+  "replay_ruleset_mismatch_rejected": true,
+  "source_model_and_replay_sha256_unchanged": true
+}

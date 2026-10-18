@@ -1,0 +1,58 @@
+{
+  "strict_load": "passed",
+  "finite_weights": true,
+  "raw_obs_shape": [
+    4,
+    68
+  ],
+  "stacked_obs_shape": [
+    4,
+    136
+  ],
+  "actor_logits_shape": [
+    4,
+    16
+  ],
+  "critic_shape": [
+    4
+  ],
+  "finite_environment_outputs": true,
+  "replay_CRC_and_actions": "passed",
+  "replays": {
+    "foot_running_v4_deterministic.bin": {
+      "actions": 1969,
+      "game_seconds": 65.63333333333334
+    },
+    "foot_running_v4_stochastic.bin": {
+      "actions": 1960,
+      "game_seconds": 65.33333333333333
+    }
+  },
+  "checked_updates": 512,
+  "finite_training_metrics": {
+    "policy_loss": [
+      -0.0442,
+      0.0431
+    ],
+    "value_loss": [
+      0.1106,
+      1.6539
+    ],
+    "entropy": [
+      1.397,
+      1.6298
+    ],
+    "kl": [
+      0.00148,
+      0.01108
+    ],
+    "clipfrac": [
+      0.001,
+      0.156
+    ]
+  },
+  "checkpoint_global_step": 33562624,
+  "optimizer_learning_rates": [
+    0.0001
+  ]
+}

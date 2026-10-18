@@ -1,0 +1,13 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\baseline_resume_20261008.pt checkpoint_update=3 global_step=1536 reset_optimizer=0
+update=1/8 absolute_update=4 steps=34304 episodes=159 policy_loss=0.0245 value_loss=1.2321 entropy=2.6943 kl=0.00136 clipfrac=0.000 final_distance_mean=0.833 episode_return_mean=-9.251
+update=2/8 absolute_update=5 steps=67072 episodes=182 policy_loss=-0.0058 value_loss=1.0933 entropy=2.6841 kl=0.00162 clipfrac=0.000 final_distance_mean=0.731 episode_return_mean=-9.296
+update=3/8 absolute_update=6 steps=99840 episodes=129 policy_loss=0.0065 value_loss=0.7502 entropy=2.6754 kl=0.00312 clipfrac=0.003 final_distance_mean=0.849 episode_return_mean=-9.209
+update=4/8 absolute_update=7 steps=132608 episodes=133 policy_loss=-0.0208 value_loss=0.6399 entropy=2.6401 kl=0.00485 clipfrac=0.021 final_distance_mean=0.694 episode_return_mean=-9.238
+update=5/8 absolute_update=8 steps=165376 episodes=121 policy_loss=0.0034 value_loss=0.5453 entropy=2.6838 kl=0.00671 clipfrac=0.024 final_distance_mean=0.714 episode_return_mean=-9.236
+update=6/8 absolute_update=9 steps=198144 episodes=145 policy_loss=-0.0135 value_loss=0.5867 entropy=2.6902 kl=0.00120 clipfrac=0.000 final_distance_mean=0.995 episode_return_mean=-9.044
+update=7/8 absolute_update=10 steps=230912 episodes=172 policy_loss=0.0137 value_loss=0.7027 entropy=2.6917 kl=0.00080 clipfrac=0.000 final_distance_mean=0.989 episode_return_mean=-9.099
+update=8/8 absolute_update=11 steps=263680 episodes=163 policy_loss=-0.0024 value_loss=0.5478 entropy=2.6816 kl=0.00196 clipfrac=0.000 final_distance_mean=1.021 episode_return_mean=-9.049
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_calibration_20261008_update_000011.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_calibration_20261008.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_calibration_20261008
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_calibration_20261008

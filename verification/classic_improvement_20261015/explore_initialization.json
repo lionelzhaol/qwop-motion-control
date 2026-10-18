@@ -1,0 +1,10 @@
+{
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_local_v1_20261015.pt",
+  "initial": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_explore_initial_20261015.pt",
+  "frames": 991,
+  "greedy_actions_preserved": true,
+  "configs": {
+    "warm": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_shadow_explore_warm_20261015.json",
+    "v2": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_shadow_explore_v2_20261015.json"
+  }
+}

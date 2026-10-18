@@ -1,0 +1,110 @@
+{
+  "evaluated": 3,
+  "captured_available_snapshots": 7,
+  "sample_interval_updates": 64,
+  "beats44p9667": [],
+  "results": [
+    {
+      "checkpoint": "ppo_phase_v32_start_explore_update_010672.pt",
+      "update": 10672,
+      "success": true,
+      "native_failed": false,
+      "time_s": 48.900001525878906,
+      "distance_m": 100.69999694824219,
+      "torso_progress_2s_m": 1.0952764892578124,
+      "torso_progress_3s_m": 2.369748229980469,
+      "splits_s": {
+        "0_10": 6.933333396911621,
+        "40_50": 4.333333969116211,
+        "50_60": 5.733333587646484,
+        "60_70": 5.166666030883789
+      },
+      "hurdle_air_s": 0.36666666666666664,
+      "hurdle_min_speed_mps": 1.377441406249993,
+      "recovery_2p3_s": 12.566667556762695,
+      "pre_hurdle_speed_mps": 2.2667824519230777,
+      "recovery_90pct_s": 9.266668319702148,
+      "flat_height_std": 0.033373657842029475,
+      "flat_lean_mean_deg": 2.0217056710858157,
+      "flat_lean_abs_error5_deg": 4.372558824850994,
+      "low_posture_fraction": 0.0,
+      "startup_action_comparison": {
+        "reference": "ppo_classic100m_under45.pt",
+        "measured_frames": 90,
+        "different_argmax_actions_first90": 3,
+        "first_different_action_frame": 54,
+        "different_actions_0_to_1s": 0,
+        "different_actions_1_to_2s": 1,
+        "different_actions_2_to_3s": 2
+      }
+    },
+    {
+      "checkpoint": "ppo_phase_v32_start_explore_update_010720.pt",
+      "update": 10720,
+      "success": true,
+      "native_failed": false,
+      "time_s": 47.0,
+      "distance_m": 101.30000305175781,
+      "torso_progress_2s_m": 1.0952764892578124,
+      "torso_progress_3s_m": 2.369748229980469,
+      "splits_s": {
+        "0_10": 6.900000095367432,
+        "40_50": 4.299999237060547,
+        "50_60": 5.900001525878906,
+        "60_70": 4.5
+      },
+      "hurdle_air_s": 0.5,
+      "hurdle_min_speed_mps": 1.2367675781250043,
+      "recovery_2p3_s": 9.30000114440918,
+      "pre_hurdle_speed_mps": 2.3855099826388884,
+      "recovery_90pct_s": 7.733333587646484,
+      "flat_height_std": 0.03181503182744532,
+      "flat_lean_mean_deg": -0.5106151041599067,
+      "flat_lean_abs_error5_deg": 5.759862171577408,
+      "low_posture_fraction": 0.0,
+      "startup_action_comparison": {
+        "reference": "ppo_classic100m_under45.pt",
+        "measured_frames": 90,
+        "different_argmax_actions_first90": 3,
+        "first_different_action_frame": 62,
+        "different_actions_0_to_1s": 0,
+        "different_actions_1_to_2s": 0,
+        "different_actions_2_to_3s": 3
+      }
+    },
+    {
+      "checkpoint": "ppo_phase_v32_start_explore_update_010768.pt",
+      "update": 10768,
+      "success": true,
+      "native_failed": false,
+      "time_s": 48.66666793823242,
+      "distance_m": 100.9000015258789,
+      "torso_progress_2s_m": 1.0952764892578124,
+      "torso_progress_3s_m": 2.369748229980469,
+      "splits_s": {
+        "0_10": 6.933333396911621,
+        "40_50": 4.566667556762695,
+        "50_60": 4.633333206176758,
+        "60_70": 5.533334732055664
+      },
+      "hurdle_air_s": 0.3333333333333333,
+      "hurdle_min_speed_mps": 1.689453125,
+      "recovery_2p3_s": 2.9333324432373047,
+      "pre_hurdle_speed_mps": 2.2408960325326497,
+      "recovery_90pct_s": 1.1999988555908203,
+      "flat_height_std": 0.03016172450275748,
+      "flat_lean_mean_deg": -0.9580534052303177,
+      "flat_lean_abs_error5_deg": 6.4844381880447015,
+      "low_posture_fraction": 0.0,
+      "startup_action_comparison": {
+        "reference": "ppo_classic100m_under45.pt",
+        "measured_frames": 90,
+        "different_argmax_actions_first90": 2,
+        "first_different_action_frame": 62,
+        "different_actions_0_to_1s": 0,
+        "different_actions_1_to_2s": 0,
+        "different_actions_2_to_3s": 2
+      }
+    }
+  ]
+}

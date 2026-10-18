@@ -1,0 +1,22 @@
+{
+  "replay": "E:\\Work\\\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee\\QWOP_rl_training_public\\replays\\long_jump_shadow_v4_probe_sampled.bin",
+  "ruleset": 3,
+  "frames": 529,
+  "final_info": {
+    "score": 3.1607298851013184,
+    "distance": 33.160728454589844,
+    "time": 17.633333206176758,
+    "success": true
+  },
+  "crc_valid": true,
+  "native_reexecution_verified": true,
+  "first_25m_time_s": 11.133333206176758,
+  "events": [
+    {
+      "event": "jumped",
+      "time_s": 12.533333778381348
+    }
+  ],
+  "replay_sha256": "12e7e95b1d5f302e6c81f6968bf992a87c7822b72c4cce348ff6eb41fe73d05a",
+  "selection": "Best of 2048 sampled episodes from v4 update256; 1663 native successes; not deterministic score"
+}

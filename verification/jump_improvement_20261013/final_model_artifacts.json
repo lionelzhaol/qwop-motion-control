@@ -1,0 +1,22 @@
+{
+  "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\long_jump_distance_elite_best_20261013.pt",
+  "model_sha256": "4a7178d6c97e26c8674f52ccf0d8aa7d31e845915267deced2dedf7f9498cd37",
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000096.pt",
+  "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\long_jump_distance_elite_deterministic_4p10m_20261013.bin",
+  "replay_sha256": "9f62e8102c54c0a083dbc74f825333596b49218e4ce5d561ced73b4703a35759",
+  "greedy_jump_m": 4.099179744720459,
+  "original_greedy_jump_m": 2.588183641433716,
+  "native_success": true,
+  "strict_reload_reproduces_actions": true,
+  "replay_crc_and_full_native_execution_verified": true,
+  "old_physics_and_baseline_unchanged": true,
+  "frozen_runup_weights_unchanged": true,
+  "first25m334greedy_actions_unchanged": true,
+  "selection": {
+    "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000096.pt",
+    "greedy_m": 4.099179744720459,
+    "successes": 56,
+    "successful_mean_m": 3.2427101840398143,
+    "success_weighted_mean_m": 2.8373714110348374
+  }
+}

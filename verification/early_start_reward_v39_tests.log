@@ -1,0 +1,10 @@
+test_early_start_reward.cpp
+early_start_baseline_reward.cpp
+reward_profiles.cpp
+course_rules.cpp
+正在生成代码...
+early_start_reward_behavior_checks=passed
+fast_2s_increment=15
+slow_3s_increment=7.5
+segmented_dense_reward=4.48333
+segmented_total_increment=16.4833

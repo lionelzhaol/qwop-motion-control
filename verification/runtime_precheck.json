@@ -1,0 +1,15 @@
+{
+  "python": "3.10.11",
+  "bits": 64,
+  "platform": "Windows-10-10.0.26100-SP0",
+  "physics_dll_loaded": true,
+  "physics_exports": {
+    "rg_create": true,
+    "rg_destroy": true,
+    "rg_reset": true,
+    "rg_step": true,
+    "rg_read_frame": true,
+    "rg_last_error": true
+  },
+  "installed_ram_gib": 48.0
+}

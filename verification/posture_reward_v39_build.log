@@ -1,0 +1,10 @@
+posture_audit_wrapper.cpp
+audit_current.cpp
+audit_noleanprogress.cpp
+audit_noleanpenalty.cpp
+audit_novertical.cpp
+audit_nocadence.cpp
+audit_noexactlean.cpp
+audit_course_rules.cpp
+正在生成代码...
+  正在创建库 posture_audit_v39.lib 和对象 posture_audit_v39.exp

@@ -1,0 +1,10 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_scaled_smoke.pt checkpoint_update=4 global_step=2048 reset_optimizer=1
+update=1/4 absolute_update=5 steps=2560 episodes=3 policy_loss=-0.0953 value_loss=1.1736 entropy=2.7534 kl=0.00166 clipfrac=0.000 final_distance_mean=0.933 episode_return_mean=-9.680
+update=2/4 absolute_update=6 steps=3072 episodes=4 policy_loss=0.1290 value_loss=2.5155 entropy=2.7486 kl=0.00101 clipfrac=0.000 final_distance_mean=0.825 episode_return_mean=-9.753
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_running_v2_smoke_update_000006.pt
+update=3/4 absolute_update=7 steps=3584 episodes=3 policy_loss=0.0373 value_loss=1.0833 entropy=2.7475 kl=0.00058 clipfrac=0.000 final_distance_mean=1.100 episode_return_mean=-9.709
+update=4/4 absolute_update=8 steps=4096 episodes=2 policy_loss=-0.1553 value_loss=0.6774 entropy=2.7570 kl=0.00042 clipfrac=0.000 final_distance_mean=0.250 episode_return_mean=-10.027
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_running_v2_smoke_update_000008.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_running_v2_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\foot_running_v2_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\foot_running_v2_smoke

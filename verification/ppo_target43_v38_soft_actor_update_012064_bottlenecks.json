@@ -1,0 +1,117 @@
+{
+  "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v38_soft_actor_update_012064.pt",
+  "update": 12064,
+  "success": true,
+  "truncated": false,
+  "native_failed": false,
+  "time_s": 52.0,
+  "distance_m": 100.19999694824219,
+  "steps": 1560,
+  "early_seconds": {
+    "2": {
+      "net_torso_progress_m": 1.0512240600585938,
+      "score_m": 1.2999999523162842,
+      "speed02_end_mps": 1.087078475952149,
+      "height_min_ratio": 0.8540187048067693
+    },
+    "3": {
+      "net_torso_progress_m": 2.238486328125,
+      "score_m": 2.5,
+      "speed02_end_mps": 1.2055305480957035,
+      "height_min_ratio": 0.8540187048067693
+    }
+  },
+  "score_crossing_times_s": {
+    "10": 7.4666666984558105,
+    "20": 12.199999809265137,
+    "30": 16.566667556762695,
+    "40": 21.03333282470703,
+    "50": 25.299999237060547,
+    "60": 30.299999237060547,
+    "70": 35.83333206176758,
+    "80": 41.266666412353516,
+    "90": 46.36666488647461,
+    "100": 52.0
+  },
+  "split_times_s": {
+    "0_10": 7.4666666984558105,
+    "40_50": 4.266666412353516,
+    "50_60": 5.0,
+    "60_70": 5.533332824707031
+  },
+  "hurdle_flight": {
+    "start_time_s": 24.600000381469727,
+    "end_time_s": 25.200000762939453,
+    "landing_time_s": 25.233333587646484,
+    "duration_s": 0.6333333333333333,
+    "start_score_m": 48.400001525878906,
+    "end_score_m": 49.70000076293945,
+    "height_ratio_peak": 1.0148818336013412,
+    "torso_crosses_hurdle_time_s": 25.33333396911621,
+    "minimum_speed02_mps": 1.5308593749999844,
+    "minimum_speed_time_s": 31.100000381469727,
+    "landing_to_recovered_2p3mps_s": null,
+    "recovered_2p3mps_time_s": null,
+    "recovered_score_m": null,
+    "recovery_definition": "First >=2.3 m/game-s over 0.2 s torso displacement, sustained 15 frames (0.5 s), measured from first foot-contact frame after main hurdle flight.",
+    "pre_hurdle_reference_speed05_mps": 2.30772979266827,
+    "relative_recovery_threshold_mps": 2.076956813401443,
+    "landing_to_recovered_90pct_reference_s": 0.0,
+    "recovered_90pct_reference_time_s": 25.233333587646484,
+    "recovered_90pct_reference_score_m": 49.79999923706055,
+    "relative_recovery_definition": "Mean 0.5 s torso-displacement speed over score 40--45 m is the reference; first >=90% of reference on 0.5 s torso-displacement speed sustained 15 frames, from first foot-contact frame after hurdle cycle."
+  },
+  "longest_flight": {
+    "start_time_s": 23.5,
+    "end_time_s": 24.200000762939453,
+    "landing_time_s": 24.233333587646484,
+    "duration_s": 0.7333333333333333,
+    "start_score_m": 45.79999923706055,
+    "end_score_m": 47.400001525878906,
+    "height_ratio_peak": 1.0236384096472082
+  },
+  "flat_running_posture": {
+    "frames": 870,
+    "height_ratio_mean": 0.974103791091885,
+    "height_ratio_std": 0.03879972446762526,
+    "height_reference_units_std": 19.665640346415863,
+    "height_ratio_p95_p05": 0.1261290837830077,
+    "lean_mean_degrees": 0.7961429966032588,
+    "lean_abs_error_from_5_degrees": 6.0356520911836355,
+    "lean_within_2_to_8_fraction": 0.27586206896551724,
+    "low_posture_fraction": 0.0,
+    "speed02_mean_mps": 2.0701756865402747
+  },
+  "flat_running_before_hurdle": {
+    "frames": 472,
+    "height_ratio_mean": 0.9772254806276106,
+    "height_ratio_std": 0.031375795248885625,
+    "height_reference_units_std": 15.90282182189768,
+    "height_ratio_p95_p05": 0.10055562012104091,
+    "lean_mean_degrees": -0.2995999935917493,
+    "lean_abs_error_from_5_degrees": 5.897460790786341,
+    "lean_within_2_to_8_fraction": 0.2605932203389831,
+    "low_posture_fraction": 0.0,
+    "speed02_mean_mps": 2.22665480920824
+  },
+  "flat_running_after_recovery": {
+    "frames": 398,
+    "height_ratio_mean": 0.9704016869188637,
+    "height_ratio_std": 0.04580392546619034,
+    "height_reference_units_std": 23.215719622538575,
+    "height_ratio_p95_p05": 0.15149526849140615,
+    "lean_mean_degrees": 2.095617095527992,
+    "lean_abs_error_from_5_degrees": 6.199537251453797,
+    "lean_within_2_to_8_fraction": 0.29396984924623115,
+    "low_posture_fraction": 0.0,
+    "speed02_mean_mps": 1.884602455637563
+  },
+  "whole_episode_low_posture_fraction": 0.0,
+  "same_backend_trajectory_verified": true,
+  "measurement_notes": [
+    "Original game clock and original score; 30 frames/game second, 400 world reference units/race meter.",
+    "Flat-running posture mask fixed at score 10--45 m and 65--90 m for every checkpoint.",
+    "Torso height is a proxy, not mass-weighted center of mass. No knee-contact API is available.",
+    "Flight defined by neither foot contacting ground for >=3 frames. Hurdle cycle is highest-torso flight starting by 0.5 s after the torso crosses the obstacle, ending no earlier than 0.2 s before crossing; it need not be a deliberate jump."
+  ]
+}

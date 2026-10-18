@@ -1,0 +1,10 @@
+{
+  "replay": "E:\\Work\\\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee\\QWOP_rl_training_public\\replays\\classic_100m_under50_49p97.bin",
+  "actions": 1499,
+  "time": 49.96666717529297,
+  "distance": 101.0999984741211,
+  "success": true,
+  "low_posture_fraction": 0.0,
+  "crc_valid": true,
+  "same_original_backend": true
+}

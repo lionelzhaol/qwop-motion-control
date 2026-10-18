@@ -1,0 +1,32 @@
+[
+  {
+    "run": "start50_v9_smoke",
+    "input_dim": 544,
+    "action_count": 16,
+    "all_parameters_and_metrics_finite": true,
+    "updates_logged": 4,
+    "value_loss_max": 0.8346527814865112,
+    "value_loss_last": 0.44059431552886963,
+    "explained_variance_last": 0.5587696433067322
+  },
+  {
+    "run": "start50_v10_smoke",
+    "input_dim": 544,
+    "action_count": 16,
+    "all_parameters_and_metrics_finite": true,
+    "updates_logged": 4,
+    "value_loss_max": 2.247786521911621,
+    "value_loss_last": 1.3538153171539307,
+    "explained_variance_last": 0.7037534713745117
+  },
+  {
+    "run": "ppo_start50_v9",
+    "input_dim": 544,
+    "action_count": 16,
+    "all_parameters_and_metrics_finite": true,
+    "updates_logged": 512,
+    "value_loss_max": 9.97738265991211,
+    "value_loss_last": 3.267054557800293,
+    "explained_variance_last": 0.9726173281669617
+  }
+]

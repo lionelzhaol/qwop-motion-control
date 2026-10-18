@@ -1,0 +1,10 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_unfreeze_full_smoke_retry_20261015.json",
+  "returncode": 0,
+  "elapsed_seconds": 9.637671700000283,
+  "started_utc": "2026-10-15T05:01:59.454147+00:00",
+  "ended_utc": "2026-10-15T05:02:09.091946+00:00",
+  "updates": 2,
+  "new_transitions": 8192,
+  "finite_losses": true
+}

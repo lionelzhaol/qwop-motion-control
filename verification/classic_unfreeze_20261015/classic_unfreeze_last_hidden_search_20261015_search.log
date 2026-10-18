@@ -1,0 +1,20 @@
+episode=1 new_best steps=536 score=45.400 distance=45.400 time=17.867 success=0
+episode=2 new_best steps=540 score=45.600 distance=45.600 time=18.000 success=0
+episode=3 new_best steps=596 score=52.500 distance=52.500 time=19.867 success=0
+episode=4 new_best steps=597 score=52.800 distance=52.800 time=19.900 success=0
+episode=5 new_best steps=621 score=55.300 distance=55.300 time=20.700 success=0
+episode=6 new_best steps=625 score=55.500 distance=55.500 time=20.833 success=0
+episode=7 new_best steps=639 score=56.700 distance=56.700 time=21.300 success=0
+episode=8 new_best steps=663 score=59.900 distance=59.900 time=22.100 success=0
+episode=9 new_best steps=938 score=90.300 distance=90.300 time=31.267 success=0
+episode=10 new_best steps=962 score=94.400 distance=94.400 time=32.067 success=0
+episode=11 new_best steps=965 score=94.500 distance=94.500 time=32.167 success=0
+episode=12 new_best steps=991 score=100.000 distance=100.000 time=33.033 success=1
+progress=512/4096 successes=477
+progress=1024/4096 successes=956
+progress=1537/4096 successes=1420
+progress=2049/4096 successes=1891
+progress=2563/4096 successes=2366
+progress=3076/4096 successes=2853
+progress=3596/4096 successes=3339
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\classic_unfreeze_last_hidden_search_20261015.bin episodes=4096 successes=3805 steps=991 score=100.000 distance=100.000 time=33.033 success=1 device=cuda

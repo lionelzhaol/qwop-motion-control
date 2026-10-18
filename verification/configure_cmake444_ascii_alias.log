@@ -1,0 +1,17 @@
+-- The CXX compiler identification is MSVC 19.44.35229.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPackageHandleStandardArgs.cmake:290 (message):
+  Could NOT find Python3 (missing: Python3_LIBRARIES Python3_INCLUDE_DIRS
+  Development.Module) (found version "3.10.11")
+Call Stack (most recent call first):
+  Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPackageHandleStandardArgs.cmake:654 (_FPHSA_FAILURE_MESSAGE)
+  Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:4429 (find_package_handle_standard_args)
+  Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython3.cmake:699 (include)
+  CMakeLists.txt:9 (find_package)
+
+
+-- Configuring incomplete, errors occurred!

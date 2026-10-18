@@ -1,0 +1,22 @@
+{
+  "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\bc_classic100m_shadow.pt",
+  "model_sha256": "a605b173ec7befe1024538f2e4a728be5ae22ffb7b6d9ae4dd2f22c73b914491",
+  "checkpoint_safe_load_verified": true,
+  "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_shadow_bc_33p03.bin",
+  "crc_verified": true,
+  "native_success": true,
+  "frames": 991,
+  "native_time_s": 33.03333282470703,
+  "reference_canonical_actions_identical": true,
+  "training_method": "Behavior cloning from XYF public shadow record; no PPO updates yet",
+  "deterministic16": {
+    "successes": 16,
+    "time_s": 33.03333282470703
+  },
+  "stochastic64": {
+    "successes": 0,
+    "limitation": "Single-trajectory imitation; no robust recovery learned"
+  },
+  "critic_ready_for_ppo": false,
+  "reference_url": "https://run.lyihub.com/api/rank/classic_100m/top-replay"
+}

@@ -1,0 +1,7 @@
+update=1/4 absolute_update=1 steps=1024 episodes=7 policy_loss=-0.0404 value_loss=2.0925 entropy=2.7102 kl=0.01076 clipfrac=0.207 final_distance_mean=1.143 episode_return_mean=-9.429
+update=2/4 absolute_update=2 steps=2048 episodes=2 policy_loss=-0.0119 value_loss=0.6354 entropy=2.6650 kl=0.01221 clipfrac=0.180 final_distance_mean=1.300 episode_return_mean=-9.200
+update=3/4 absolute_update=3 steps=3072 episodes=0 policy_loss=-0.0083 value_loss=0.0092 entropy=2.6580 kl=0.01426 clipfrac=0.359
+update=4/4 absolute_update=4 steps=4096 episodes=0 policy_loss=0.0235 value_loss=0.0063 entropy=2.6318 kl=0.01481 clipfrac=0.406
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_original_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_long_jump_original_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_long_jump_original_smoke

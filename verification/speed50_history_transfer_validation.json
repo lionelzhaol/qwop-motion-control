@@ -1,0 +1,9 @@
+{
+  "history_expansion": "2 to 8 frames",
+  "old_policy_and_value_preserved": true,
+  "new_history_columns_initially_zero": true,
+  "strict_checkpoint_reload": "passed",
+  "mismatched_units_rejected": true,
+  "legacy_plain_checkpoint_load": "passed",
+  "input_dim": 544
+}

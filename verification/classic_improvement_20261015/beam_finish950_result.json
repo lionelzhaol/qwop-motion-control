@@ -1,0 +1,293 @@
+{
+  "method": "Finite-horizon beam search of recorded action continuations; not autonomous neural-policy inference",
+  "source": "QWOP_rl_training_public\\replays\\classic_shadow_bc_33p03.bin",
+  "prefix_frames": 950,
+  "beam_width": 64,
+  "limit_frames": 990,
+  "candidate_prefixes_evaluated": 22014,
+  "native_transitions": 22399140,
+  "best": null,
+  "history": [
+    {
+      "depth": 1,
+      "candidates": 9,
+      "live_candidates": 9,
+      "best_frames": null,
+      "furthest_live_torso_m": 94.57919311523438
+    },
+    {
+      "depth": 2,
+      "candidates": 81,
+      "live_candidates": 81,
+      "best_frames": null,
+      "furthest_live_torso_m": 94.71546936035156
+    },
+    {
+      "depth": 3,
+      "candidates": 576,
+      "live_candidates": 576,
+      "best_frames": null,
+      "furthest_live_torso_m": 94.85002136230469
+    },
+    {
+      "depth": 4,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 94.98370361328125
+    },
+    {
+      "depth": 5,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 95.11641693115234
+    },
+    {
+      "depth": 6,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 95.24162292480469
+    },
+    {
+      "depth": 7,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 95.35699462890625
+    },
+    {
+      "depth": 8,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 95.47146606445312
+    },
+    {
+      "depth": 9,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 95.58812713623047
+    },
+    {
+      "depth": 10,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 95.70269775390625
+    },
+    {
+      "depth": 11,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 95.8160171508789
+    },
+    {
+      "depth": 12,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 95.93081665039062
+    },
+    {
+      "depth": 13,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 96.04894256591797
+    },
+    {
+      "depth": 14,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 96.16983032226562
+    },
+    {
+      "depth": 15,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 96.28811645507812
+    },
+    {
+      "depth": 16,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 96.40365600585938
+    },
+    {
+      "depth": 17,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 96.5194320678711
+    },
+    {
+      "depth": 18,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 96.6347885131836
+    },
+    {
+      "depth": 19,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 96.75103759765625
+    },
+    {
+      "depth": 20,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 96.86614990234375
+    },
+    {
+      "depth": 21,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 96.98231506347656
+    },
+    {
+      "depth": 22,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 97.0986328125
+    },
+    {
+      "depth": 23,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 97.21589660644531
+    },
+    {
+      "depth": 24,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 97.33263397216797
+    },
+    {
+      "depth": 25,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 97.4492416381836
+    },
+    {
+      "depth": 26,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 97.56739044189453
+    },
+    {
+      "depth": 27,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 97.68478393554688
+    },
+    {
+      "depth": 28,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 97.80248260498047
+    },
+    {
+      "depth": 29,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 97.92017364501953
+    },
+    {
+      "depth": 30,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 98.03807830810547
+    },
+    {
+      "depth": 31,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 98.15194702148438
+    },
+    {
+      "depth": 32,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 98.26656341552734
+    },
+    {
+      "depth": 33,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 98.38003540039062
+    },
+    {
+      "depth": 34,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 98.48914337158203
+    },
+    {
+      "depth": 35,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 98.5976333618164
+    },
+    {
+      "depth": 36,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 98.7055892944336
+    },
+    {
+      "depth": 37,
+      "candidates": 576,
+      "live_candidates": 576,
+      "best_frames": null,
+      "furthest_live_torso_m": 98.81509399414062
+    },
+    {
+      "depth": 38,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 98.92208862304688
+    },
+    {
+      "depth": 39,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 99.02246856689453
+    },
+    {
+      "depth": 40,
+      "candidates": 577,
+      "live_candidates": 577,
+      "best_frames": null,
+      "furthest_live_torso_m": 99.11676025390625
+    }
+  ],
+  "elapsed_seconds": 49.710571399999935
+}

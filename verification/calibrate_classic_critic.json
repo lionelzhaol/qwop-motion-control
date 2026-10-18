@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v32_hidden2_baseline.pt",
+  "output": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v34_credit_calibrated.pt",
+  "gamma": 0.999,
+  "gae_lambda": 0.995,
+  "samples": 1348,
+  "regression_dimensions_with_intercept": 257,
+  "ridge_trials": [
+    {
+      "ridge": 0.01,
+      "train_rmse": 3.6871448019242234,
+      "heldout_rmse": 4.312874873611082,
+      "weight_l2": 439.06168777934323,
+      "bias": 250.63042646124126
+    },
+    {
+      "ridge": 1.0,
+      "train_rmse": 5.504113003253325,
+      "heldout_rmse": 5.725315976188168,
+      "weight_l2": 131.19963891812174,
+      "bias": 77.80421740283771
+    },
+    {
+      "ridge": 10.0,
+      "train_rmse": 7.932432103699298,
+      "heldout_rmse": 7.943331976612954,
+      "weight_l2": 77.1102376445082,
+      "bias": 104.74016651573504
+    }
+  ],
+  "method": "ridge least squares on frozen original actor/shared features; unregularized intercept",
+  "selected_ridge": 1.0,
+  "full_trajectory_rmse": 5.378343887236034,
+  "ridge_selection": "smallest weight norm among candidates whose interleaved heldout RMSE is within 1.5x the minimum",
+  "calibrated_critic_weight_l2": 138.20583015594937,
+  "source_critic_rmse_on_new_gamma": 268.7344313671349,
+  "only_modified_parameters": [
+    "critic.weight",
+    "critic.bias"
+  ],
+  "actor_logits_bitwise_unchanged": true,
+  "optimizer": "fresh empty Adam; constructed after strict model loading",
+  "scope": "value pre-calibration on one deterministic successful trajectory; not PPO training or proof of generalization",
+  "error_absolute_max": 19.46914885642184,
+  "error_absolute_p95": 10.24491785914748,
+  "return_range": [
+    150.64981079101562,
+    473.8022164090957
+  ],
+  "fitted_value_range": [
+    142.49807739257812,
+    480.4384460449219
+  ],
+  "before": {
+    "time_s": 44.93333435058594,
+    "distance_m": 100.0999984741211,
+    "steps": 1348,
+    "success": true
+  },
+  "after_strict_reload": {
+    "time_s": 44.93333435058594,
+    "distance_m": 100.0999984741211,
+    "steps": 1348,
+    "success": true
+  },
+  "all_parameters_finite": true,
+  "actions_rewards_bitwise_unchanged": true,
+  "checkpoint_sha256": "01c5fedfb7e5b9b23fe8c49bc1c7e1cbd3243dd3e761b3e5a8ff43d5bc50312b",
+  "elapsed_seconds": 1.9131610000004002
+}

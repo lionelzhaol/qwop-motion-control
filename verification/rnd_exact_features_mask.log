@@ -1,0 +1,4 @@
+update=1/1 absolute_update=1 steps=16 episodes=2 policy_loss=0.2182 value_loss=0.0368 entropy=2.7653 kl=0.00011 clipfrac=0.000 final_distance_mean=0.200 episode_return_mean=0.200 rnd_reward_abs_ratio=0.1750 rnd_beta=0.0200 rnd_loss=0.0129
+saved_checkpoint=E:\Work\强化学习小项目\verification\rnd_exact_features_mask.pt
+logdir=E:\Work\强化学习小项目\verification\rnd_verification_logs\features_mask
+tensorboard_logdir=E:\Work\强化学习小项目\verification\rnd_verification_logs\features_mask

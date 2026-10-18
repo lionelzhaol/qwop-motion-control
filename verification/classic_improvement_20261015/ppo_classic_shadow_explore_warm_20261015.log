@@ -1,0 +1,13 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_explore_initial_20261015.pt checkpoint_update=0 global_step=0 reset_optimizer=1
+update=1/8 absolute_update=1 steps=65536 episodes=65 policy_loss=0.0029 value_loss=58652.3672 entropy=0.0093 kl=0.00000 clipfrac=0.000 final_distance_mean=68.091 episode_return_mean=587.336
+update=2/8 absolute_update=2 steps=131072 episodes=75 policy_loss=-0.0161 value_loss=76848.7969 entropy=0.0113 kl=0.00000 clipfrac=0.000 final_distance_mean=69.135 episode_return_mean=652.969
+update=3/8 absolute_update=3 steps=196608 episodes=86 policy_loss=0.0005 value_loss=95455.0938 entropy=0.0130 kl=0.00000 clipfrac=0.000 final_distance_mean=73.010 episode_return_mean=837.265
+update=4/8 absolute_update=4 steps=262144 episodes=80 policy_loss=0.0060 value_loss=84811.4688 entropy=0.0117 kl=0.00000 clipfrac=0.000 final_distance_mean=72.588 episode_return_mean=788.786
+update=5/8 absolute_update=5 steps=327680 episodes=88 policy_loss=-0.0093 value_loss=89051.0156 entropy=0.0103 kl=0.00000 clipfrac=0.000 final_distance_mean=69.082 episode_return_mean=729.393
+update=6/8 absolute_update=6 steps=393216 episodes=85 policy_loss=-0.0078 value_loss=66548.0078 entropy=0.0135 kl=0.00000 clipfrac=0.000 final_distance_mean=73.186 episode_return_mean=655.345
+update=7/8 absolute_update=7 steps=458752 episodes=81 policy_loss=0.0046 value_loss=103649.7812 entropy=0.0095 kl=0.00000 clipfrac=0.000 final_distance_mean=78.581 episode_return_mean=1049.532
+update=8/8 absolute_update=8 steps=524288 episodes=85 policy_loss=0.0103 value_loss=93446.2422 entropy=0.0114 kl=0.00000 clipfrac=0.000 final_distance_mean=73.158 episode_return_mean=903.443
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_explore_warm_20261015_update_000008.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_explore_warm_20261015.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_shadow_explore_warm_20261015
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_shadow_explore_warm_20261015

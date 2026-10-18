@@ -1,0 +1,9 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/y8gphv","index":0,"layout":{"id":"ly/at83qp8z","name":"Blank"},"backgroundColor":"rgba(250,251,252,1)","position":{"left":0,"top":0,"width":1280,"height":720}},
+"elements":[
+{"id":"sh/ax0j29c7","kind":"textbox","name":"page-number","position":{"left":1185,"top":671,"width":45,"height":26},"text":"01","style":{"fontSize":18,"typeface":"Microsoft YaHei","color":"#556578","alignment":"right"},"geometry":"rect","lineWidth":0},
+{"id":"sh/x0r2x4vi","kind":"textbox","name":"text-2","position":{"left":72,"top":152,"width":1136,"height":75},"text":"基于深度强化学习的","style":{"fontSize":58,"typeface":"Microsoft YaHei","color":"#225B85","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/wzi14jux","kind":"textbox","name":"text-3","position":{"left":72,"top":247,"width":1136,"height":91},"text":"QWOP 运动控制","style":{"fontSize":68,"typeface":"Microsoft YaHei","color":"#16243A","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/nap0rudg","kind":"textbox","name":"text-4","position":{"left":72,"top":344,"width":1136,"height":91},"text":"与策略优化研究","style":{"fontSize":68,"typeface":"Microsoft YaHei","color":"#16243A","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/m9gjypcv","kind":"textbox","name":"text-5","position":{"left":75,"top":475,"width":1040,"height":54},"text":"百米提速与跳远迁移","style":{"fontSize":30,"typeface":"Microsoft YaHei","color":"#556578","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/9cr2t4vm","kind":"textbox","name":"text-6","position":{"left":75,"top":596,"width":950,"height":42},"text":"Lionel_Zhao  ·  课堂项目汇报","style":{"fontSize":26,"typeface":"Microsoft YaHei","color":"#225B85","alignment":"left"},"geometry":"rect","lineWidth":0}
+]}

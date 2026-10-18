@@ -1,0 +1,9 @@
+{
+  "phase": "calibration",
+  "start_shanghai": "2026-10-08T14:13:50.2479643+08:00",
+  "end_shanghai": "2026-10-08T14:13:57.2316110+08:00",
+  "elapsed_seconds": 6.9781433,
+  "exit_code": 0,
+  "updates": 8,
+  "additional_transitions": 262144
+}

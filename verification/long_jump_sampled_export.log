@@ -1,0 +1,13 @@
+episode=1 new_best steps=604 score=1.587 distance=31.587 time=20.133 success=1
+episode=5 new_best steps=613 score=1.590 distance=31.590 time=20.433 success=1
+episode=10 new_best steps=614 score=2.090 distance=32.090 time=20.467 success=1
+episode=21 new_best steps=625 score=2.447 distance=32.447 time=20.833 success=1
+episode=26 new_best steps=630 score=2.564 distance=32.564 time=21.000 success=1
+episode=137 new_best steps=626 score=2.782 distance=32.782 time=20.867 success=1
+progress=256/1024 successes=251
+episode=397 new_best steps=613 score=2.802 distance=32.802 time=20.433 success=1
+progress=512/1024 successes=502
+progress=768/1024 successes=748
+episode=811 new_best steps=611 score=2.802 distance=32.802 time=20.367 success=1
+progress=1024/1024 successes=992
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\long_jump_ppo_sampled_best.bin episodes=1024 successes=992 steps=611 score=2.802 distance=32.802 time=20.367 success=1 device=cpu

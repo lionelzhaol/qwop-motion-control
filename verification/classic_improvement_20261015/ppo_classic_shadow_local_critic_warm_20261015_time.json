@@ -1,0 +1,10 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_shadow_local_critic_warm_20261015.json",
+  "returncode": 0,
+  "elapsed_seconds": 122.23218270000007,
+  "started_utc": "2026-10-15T03:03:49.912600+00:00",
+  "ended_utc": "2026-10-15T03:05:52.144915+00:00",
+  "updates": 32,
+  "new_transitions": 2097152,
+  "finite_losses": true
+}

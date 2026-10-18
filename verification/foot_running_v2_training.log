@@ -1,0 +1,335 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_running_v2_smoke.pt checkpoint_update=8 global_step=4096 reset_optimizer=0
+update=1/512 absolute_update=9 steps=36864 episodes=158 policy_loss=-0.0339 value_loss=0.3879 entropy=2.7389 kl=0.00382 clipfrac=0.054 final_distance_mean=1.129 episode_return_mean=-9.749
+update=2/512 absolute_update=10 steps=69632 episodes=60 policy_loss=-0.0150 value_loss=0.1544 entropy=2.7544 kl=0.00321 clipfrac=0.012 final_distance_mean=1.108 episode_return_mean=-9.851
+update=3/512 absolute_update=11 steps=102400 episodes=19 policy_loss=-0.0080 value_loss=0.0983 entropy=2.7589 kl=0.00510 clipfrac=0.051 final_distance_mean=1.105 episode_return_mean=-9.819
+update=4/512 absolute_update=12 steps=135168 episodes=5 policy_loss=-0.0281 value_loss=0.0269 entropy=2.7479 kl=0.00660 clipfrac=0.033 final_distance_mean=1.180 episode_return_mean=-9.937
+update=5/512 absolute_update=13 steps=167936 episodes=0 policy_loss=-0.0059 value_loss=0.0106 entropy=2.7279 kl=0.00604 clipfrac=0.041
+update=6/512 absolute_update=14 steps=200704 episodes=0 policy_loss=-0.0179 value_loss=0.0064 entropy=2.7004 kl=0.00624 clipfrac=0.021
+update=7/512 absolute_update=15 steps=233472 episodes=0 policy_loss=0.0160 value_loss=0.0044 entropy=2.6718 kl=0.00545 clipfrac=0.043
+update=8/512 absolute_update=16 steps=266240 episodes=0 policy_loss=-0.0397 value_loss=0.0031 entropy=2.6198 kl=0.01249 clipfrac=0.096
+update=9/512 absolute_update=17 steps=299008 episodes=0 policy_loss=0.0212 value_loss=0.0020 entropy=2.5748 kl=0.00652 clipfrac=0.000
+update=10/512 absolute_update=18 steps=331776 episodes=0 policy_loss=-0.0162 value_loss=0.0015 entropy=2.5239 kl=0.00801 clipfrac=0.001
+update=11/512 absolute_update=19 steps=364544 episodes=0 policy_loss=0.0035 value_loss=0.0012 entropy=2.5252 kl=0.00779 clipfrac=0.000
+update=12/512 absolute_update=20 steps=397312 episodes=0 policy_loss=-0.0022 value_loss=0.0010 entropy=2.5032 kl=0.00269 clipfrac=0.000
+update=13/512 absolute_update=21 steps=430080 episodes=0 policy_loss=-0.0124 value_loss=0.0008 entropy=2.4587 kl=0.00769 clipfrac=0.021
+update=14/512 absolute_update=22 steps=462848 episodes=0 policy_loss=-0.0190 value_loss=0.0008 entropy=2.4590 kl=0.00786 clipfrac=0.019
+update=15/512 absolute_update=23 steps=495616 episodes=233 policy_loss=-0.0040 value_loss=0.9065 entropy=2.5223 kl=0.00407 clipfrac=0.022 final_distance_mean=6.855 episode_return_mean=-19.520
+update=16/512 absolute_update=24 steps=528384 episodes=176 policy_loss=0.0093 value_loss=0.2289 entropy=2.4841 kl=0.00747 clipfrac=0.071 final_distance_mean=2.604 episode_return_mean=-12.671
+update=17/512 absolute_update=25 steps=561152 episodes=83 policy_loss=-0.0171 value_loss=0.1257 entropy=2.4065 kl=0.01167 clipfrac=0.104 final_distance_mean=2.360 episode_return_mean=-12.433
+update=18/512 absolute_update=26 steps=593920 episodes=20 policy_loss=0.0014 value_loss=0.0516 entropy=2.3340 kl=0.01258 clipfrac=0.133 final_distance_mean=1.995 episode_return_mean=-12.284
+update=19/512 absolute_update=27 steps=626688 episodes=11 policy_loss=0.0040 value_loss=0.0152 entropy=2.3167 kl=0.01148 clipfrac=0.080 final_distance_mean=1.064 episode_return_mean=-10.036
+update=20/512 absolute_update=28 steps=659456 episodes=3 policy_loss=-0.0194 value_loss=0.0082 entropy=2.3043 kl=0.00434 clipfrac=0.028 final_distance_mean=0.533 episode_return_mean=-9.829
+update=21/512 absolute_update=29 steps=692224 episodes=0 policy_loss=-0.0151 value_loss=0.0024 entropy=2.2575 kl=0.00825 clipfrac=0.015
+update=22/512 absolute_update=30 steps=724992 episodes=0 policy_loss=-0.0069 value_loss=0.0018 entropy=2.2718 kl=0.01181 clipfrac=0.005
+update=23/512 absolute_update=31 steps=757760 episodes=0 policy_loss=0.0436 value_loss=0.0015 entropy=2.2749 kl=0.00877 clipfrac=0.070
+update=24/512 absolute_update=32 steps=790528 episodes=0 policy_loss=-0.0099 value_loss=0.0015 entropy=2.2483 kl=0.00775 clipfrac=0.028
+update=25/512 absolute_update=33 steps=823296 episodes=0 policy_loss=0.0224 value_loss=0.0012 entropy=2.2496 kl=0.00860 clipfrac=0.000
+update=26/512 absolute_update=34 steps=856064 episodes=0 policy_loss=-0.0208 value_loss=0.0011 entropy=2.2591 kl=0.01023 clipfrac=0.000
+update=27/512 absolute_update=35 steps=888832 episodes=0 policy_loss=-0.0120 value_loss=0.0011 entropy=2.2600 kl=0.00447 clipfrac=0.000
+update=28/512 absolute_update=36 steps=921600 episodes=0 policy_loss=0.0097 value_loss=0.0010 entropy=2.2719 kl=0.00562 clipfrac=0.000
+update=29/512 absolute_update=37 steps=954368 episodes=73 policy_loss=0.0087 value_loss=0.4141 entropy=2.3085 kl=0.00781 clipfrac=0.015 final_distance_mean=3.668 episode_return_mean=-23.402
+update=30/512 absolute_update=38 steps=987136 episodes=94 policy_loss=0.0171 value_loss=0.4075 entropy=2.3327 kl=0.00405 clipfrac=0.011 final_distance_mean=3.051 episode_return_mean=-20.234
+update=31/512 absolute_update=39 steps=1019904 episodes=79 policy_loss=0.0081 value_loss=0.2976 entropy=2.3582 kl=0.00528 clipfrac=0.015 final_distance_mean=2.800 episode_return_mean=-20.033
+update=32/512 absolute_update=40 steps=1052672 episodes=28 policy_loss=-0.0001 value_loss=0.0987 entropy=2.3358 kl=0.00899 clipfrac=0.049 final_distance_mean=2.307 episode_return_mean=-16.696
+update=33/512 absolute_update=41 steps=1085440 episodes=2 policy_loss=0.0241 value_loss=0.0092 entropy=2.2906 kl=0.00590 clipfrac=0.010 final_distance_mean=1.350 episode_return_mean=-9.887
+update=34/512 absolute_update=42 steps=1118208 episodes=5 policy_loss=-0.0141 value_loss=0.0162 entropy=2.2965 kl=0.00683 clipfrac=0.000 final_distance_mean=3.560 episode_return_mean=-24.146
+update=35/512 absolute_update=43 steps=1150976 episodes=1 policy_loss=0.0087 value_loss=0.0021 entropy=2.2924 kl=0.00622 clipfrac=0.005 final_distance_mean=0.900 episode_return_mean=-10.267
+update=36/512 absolute_update=44 steps=1183744 episodes=0 policy_loss=0.0029 value_loss=0.0018 entropy=2.2937 kl=0.00591 clipfrac=0.011
+update=37/512 absolute_update=45 steps=1216512 episodes=0 policy_loss=0.0031 value_loss=0.0015 entropy=2.3329 kl=0.00931 clipfrac=0.049
+update=38/512 absolute_update=46 steps=1249280 episodes=0 policy_loss=-0.0016 value_loss=0.0018 entropy=2.3190 kl=0.00838 clipfrac=0.000
+update=39/512 absolute_update=47 steps=1282048 episodes=0 policy_loss=-0.0212 value_loss=0.0016 entropy=2.3312 kl=0.00643 clipfrac=0.085
+update=40/512 absolute_update=48 steps=1314816 episodes=0 policy_loss=0.0079 value_loss=0.0015 entropy=2.3352 kl=0.01040 clipfrac=0.058
+update=41/512 absolute_update=49 steps=1347584 episodes=0 policy_loss=0.0138 value_loss=0.0017 entropy=2.3755 kl=0.00855 clipfrac=0.000
+update=42/512 absolute_update=50 steps=1380352 episodes=0 policy_loss=-0.0030 value_loss=0.0017 entropy=2.3510 kl=0.00976 clipfrac=0.000
+update=43/512 absolute_update=51 steps=1413120 episodes=22 policy_loss=-0.0205 value_loss=0.1454 entropy=2.3809 kl=0.01040 clipfrac=0.003 final_distance_mean=4.755 episode_return_mean=-29.238
+update=44/512 absolute_update=52 steps=1445888 episodes=55 policy_loss=0.0137 value_loss=0.3991 entropy=2.4057 kl=0.00681 clipfrac=0.117 final_distance_mean=4.960 episode_return_mean=-28.778
+update=45/512 absolute_update=53 steps=1478656 episodes=50 policy_loss=0.0044 value_loss=0.3515 entropy=2.4302 kl=0.00755 clipfrac=0.077 final_distance_mean=4.800 episode_return_mean=-28.302
+update=46/512 absolute_update=54 steps=1511424 episodes=27 policy_loss=0.0080 value_loss=0.1574 entropy=2.4370 kl=0.00294 clipfrac=0.005 final_distance_mean=5.381 episode_return_mean=-29.169
+update=47/512 absolute_update=55 steps=1544192 episodes=2 policy_loss=-0.0068 value_loss=0.0120 entropy=2.4488 kl=0.01096 clipfrac=0.059 final_distance_mean=5.900 episode_return_mean=-33.269
+update=48/512 absolute_update=56 steps=1576960 episodes=2 policy_loss=0.0183 value_loss=0.0187 entropy=2.4510 kl=0.00389 clipfrac=0.031 final_distance_mean=7.450 episode_return_mean=-33.486
+update=49/512 absolute_update=57 steps=1609728 episodes=1 policy_loss=0.0050 value_loss=0.0105 entropy=2.4387 kl=0.00746 clipfrac=0.008 final_distance_mean=8.300 episode_return_mean=-33.773
+update=50/512 absolute_update=58 steps=1642496 episodes=2 policy_loss=-0.0039 value_loss=0.0140 entropy=2.4296 kl=0.00553 clipfrac=0.009 final_distance_mean=1.800 episode_return_mean=-14.343
+update=51/512 absolute_update=59 steps=1675264 episodes=0 policy_loss=-0.0102 value_loss=0.0020 entropy=2.4246 kl=0.00549 clipfrac=0.032
+update=52/512 absolute_update=60 steps=1708032 episodes=0 policy_loss=-0.0157 value_loss=0.0016 entropy=2.3829 kl=0.00513 clipfrac=0.000
+update=53/512 absolute_update=61 steps=1740800 episodes=0 policy_loss=-0.0219 value_loss=0.0013 entropy=2.3901 kl=0.00647 clipfrac=0.012
+update=54/512 absolute_update=62 steps=1773568 episodes=0 policy_loss=0.0088 value_loss=0.0011 entropy=2.3435 kl=0.00603 clipfrac=0.011
+update=55/512 absolute_update=63 steps=1806336 episodes=0 policy_loss=0.0031 value_loss=0.0011 entropy=2.3527 kl=0.00582 clipfrac=0.024
+update=56/512 absolute_update=64 steps=1839104 episodes=0 policy_loss=-0.0134 value_loss=0.0010 entropy=2.3650 kl=0.00654 clipfrac=0.009
+update=57/512 absolute_update=65 steps=1871872 episodes=14 policy_loss=-0.0242 value_loss=0.0763 entropy=2.4187 kl=0.00943 clipfrac=0.083 final_distance_mean=10.343 episode_return_mean=-31.826
+update=58/512 absolute_update=66 steps=1904640 episodes=47 policy_loss=-0.0048 value_loss=0.3458 entropy=2.4435 kl=0.00968 clipfrac=0.046 final_distance_mean=9.353 episode_return_mean=-31.028
+update=59/512 absolute_update=67 steps=1937408 episodes=51 policy_loss=0.0225 value_loss=0.3879 entropy=2.4395 kl=0.00612 clipfrac=0.009 final_distance_mean=8.439 episode_return_mean=-28.999
+update=60/512 absolute_update=68 steps=1970176 episodes=29 policy_loss=0.0162 value_loss=0.1865 entropy=2.4213 kl=0.00633 clipfrac=0.005 final_distance_mean=9.662 episode_return_mean=-31.142
+update=61/512 absolute_update=69 steps=2002944 episodes=3 policy_loss=-0.0225 value_loss=0.0165 entropy=2.3848 kl=0.00895 clipfrac=0.017 final_distance_mean=7.267 episode_return_mean=-25.688
+update=62/512 absolute_update=70 steps=2035712 episodes=2 policy_loss=-0.0266 value_loss=0.0062 entropy=2.3595 kl=0.00941 clipfrac=0.084 final_distance_mean=10.900 episode_return_mean=-33.136
+update=63/512 absolute_update=71 steps=2068480 episodes=1 policy_loss=-0.0075 value_loss=0.0020 entropy=2.2947 kl=0.00956 clipfrac=0.057 final_distance_mean=9.800 episode_return_mean=-33.473
+update=64/512 absolute_update=72 steps=2101248 episodes=1 policy_loss=0.0017 value_loss=0.0097 entropy=2.2602 kl=0.00786 clipfrac=0.015 final_distance_mean=9.600 episode_return_mean=-33.746
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_foot_running_v2_update_000072.pt
+update=65/512 absolute_update=73 steps=2134016 episodes=0 policy_loss=-0.0358 value_loss=0.0007 entropy=2.2163 kl=0.00796 clipfrac=0.037
+update=66/512 absolute_update=74 steps=2166784 episodes=0 policy_loss=0.0157 value_loss=0.0006 entropy=2.1960 kl=0.00297 clipfrac=0.012
+update=67/512 absolute_update=75 steps=2199552 episodes=0 policy_loss=-0.0133 value_loss=0.0006 entropy=2.1437 kl=0.00570 clipfrac=0.000
+update=68/512 absolute_update=76 steps=2232320 episodes=0 policy_loss=-0.0069 value_loss=0.0006 entropy=2.1728 kl=0.00709 clipfrac=0.079
+update=69/512 absolute_update=77 steps=2265088 episodes=0 policy_loss=-0.0060 value_loss=0.0006 entropy=2.1379 kl=0.00408 clipfrac=0.035
+update=70/512 absolute_update=78 steps=2297856 episodes=0 policy_loss=-0.0189 value_loss=0.0007 entropy=2.1444 kl=0.00932 clipfrac=0.006
+update=71/512 absolute_update=79 steps=2330624 episodes=10 policy_loss=-0.0069 value_loss=0.0681 entropy=2.1791 kl=0.00743 clipfrac=0.135 final_distance_mean=6.990 episode_return_mean=-31.196
+update=72/512 absolute_update=80 steps=2363392 episodes=43 policy_loss=-0.0320 value_loss=0.2498 entropy=2.2218 kl=0.00527 clipfrac=0.007 final_distance_mean=7.307 episode_return_mean=-31.914
+update=73/512 absolute_update=81 steps=2396160 episodes=52 policy_loss=-0.0092 value_loss=0.3385 entropy=2.2572 kl=0.00613 clipfrac=0.030 final_distance_mean=6.365 episode_return_mean=-30.415
+update=74/512 absolute_update=82 steps=2428928 episodes=30 policy_loss=0.0110 value_loss=0.1882 entropy=2.3250 kl=0.00971 clipfrac=0.024 final_distance_mean=6.373 episode_return_mean=-30.427
+update=75/512 absolute_update=83 steps=2461696 episodes=6 policy_loss=0.0027 value_loss=0.0353 entropy=2.3318 kl=0.00445 clipfrac=0.037 final_distance_mean=5.100 episode_return_mean=-25.854
+update=76/512 absolute_update=84 steps=2494464 episodes=2 policy_loss=-0.0092 value_loss=0.0153 entropy=2.3450 kl=0.00543 clipfrac=0.047 final_distance_mean=7.950 episode_return_mean=-33.723
+update=77/512 absolute_update=85 steps=2527232 episodes=1 policy_loss=-0.0136 value_loss=0.0062 entropy=2.3557 kl=0.00388 clipfrac=0.051 final_distance_mean=5.800 episode_return_mean=-33.746
+update=78/512 absolute_update=86 steps=2560000 episodes=1 policy_loss=0.0169 value_loss=0.0093 entropy=2.3675 kl=0.00378 clipfrac=0.012 final_distance_mean=6.200 episode_return_mean=-33.566
+update=79/512 absolute_update=87 steps=2592768 episodes=0 policy_loss=0.0123 value_loss=0.0007 entropy=2.3752 kl=0.00588 clipfrac=0.010
+update=80/512 absolute_update=88 steps=2625536 episodes=0 policy_loss=-0.0003 value_loss=0.0009 entropy=2.3962 kl=0.00928 clipfrac=0.039
+update=81/512 absolute_update=89 steps=2658304 episodes=0 policy_loss=0.0055 value_loss=0.0008 entropy=2.4150 kl=0.00719 clipfrac=0.001
+update=82/512 absolute_update=90 steps=2691072 episodes=0 policy_loss=-0.0085 value_loss=0.0008 entropy=2.4075 kl=0.00650 clipfrac=0.113
+update=83/512 absolute_update=91 steps=2723840 episodes=0 policy_loss=0.0172 value_loss=0.0007 entropy=2.3844 kl=0.00390 clipfrac=0.020
+update=84/512 absolute_update=92 steps=2756608 episodes=0 policy_loss=-0.0198 value_loss=0.0008 entropy=2.3821 kl=0.00821 clipfrac=0.049
+update=85/512 absolute_update=93 steps=2789376 episodes=4 policy_loss=-0.0076 value_loss=0.0205 entropy=2.4383 kl=0.00406 clipfrac=0.089 final_distance_mean=8.050 episode_return_mean=-33.614
+update=86/512 absolute_update=94 steps=2822144 episodes=51 policy_loss=-0.0278 value_loss=0.2827 entropy=2.4851 kl=0.00941 clipfrac=0.029 final_distance_mean=7.390 episode_return_mean=-29.382
+update=87/512 absolute_update=95 steps=2854912 episodes=52 policy_loss=-0.0158 value_loss=0.2981 entropy=2.4760 kl=0.00848 clipfrac=0.108 final_distance_mean=8.571 episode_return_mean=-31.788
+update=88/512 absolute_update=96 steps=2887680 episodes=35 policy_loss=-0.0136 value_loss=0.2153 entropy=2.5076 kl=0.00970 clipfrac=0.062 final_distance_mean=7.229 episode_return_mean=-26.870
+update=89/512 absolute_update=97 steps=2920448 episodes=6 policy_loss=-0.0189 value_loss=0.0181 entropy=2.4786 kl=0.00528 clipfrac=0.001 final_distance_mean=8.617 episode_return_mean=-29.586
+update=90/512 absolute_update=98 steps=2953216 episodes=2 policy_loss=0.0077 value_loss=0.0132 entropy=2.5147 kl=0.00817 clipfrac=0.093 final_distance_mean=9.550 episode_return_mean=-33.586
+update=91/512 absolute_update=99 steps=2985984 episodes=2 policy_loss=-0.0006 value_loss=0.0098 entropy=2.5311 kl=0.00404 clipfrac=0.017 final_distance_mean=4.900 episode_return_mean=-21.820
+update=92/512 absolute_update=100 steps=3018752 episodes=1 policy_loss=-0.0101 value_loss=0.0023 entropy=2.5105 kl=0.00592 clipfrac=0.078 final_distance_mean=11.000 episode_return_mean=-33.433
+update=93/512 absolute_update=101 steps=3051520 episodes=0 policy_loss=0.0226 value_loss=0.0009 entropy=2.5272 kl=0.00389 clipfrac=0.002
+update=94/512 absolute_update=102 steps=3084288 episodes=0 policy_loss=-0.0219 value_loss=0.0006 entropy=2.5412 kl=0.00382 clipfrac=0.006
+update=95/512 absolute_update=103 steps=3117056 episodes=0 policy_loss=-0.0103 value_loss=0.0007 entropy=2.5291 kl=0.00933 clipfrac=0.024
+update=96/512 absolute_update=104 steps=3149824 episodes=0 policy_loss=0.0030 value_loss=0.0007 entropy=2.5053 kl=0.00428 clipfrac=0.019
+update=97/512 absolute_update=105 steps=3182592 episodes=0 policy_loss=-0.0511 value_loss=0.0007 entropy=2.5027 kl=0.00960 clipfrac=0.022
+update=98/512 absolute_update=106 steps=3215360 episodes=0 policy_loss=0.0103 value_loss=0.0007 entropy=2.5691 kl=0.01125 clipfrac=0.041
+update=99/512 absolute_update=107 steps=3248128 episodes=4 policy_loss=-0.0084 value_loss=0.0298 entropy=2.5651 kl=0.00592 clipfrac=0.074 final_distance_mean=10.475 episode_return_mean=-27.643
+update=100/512 absolute_update=108 steps=3280896 episodes=54 policy_loss=0.0035 value_loss=0.3628 entropy=2.5408 kl=0.00651 clipfrac=0.062 final_distance_mean=9.633 episode_return_mean=-27.463
+update=101/512 absolute_update=109 steps=3313664 episodes=51 policy_loss=-0.0023 value_loss=0.3177 entropy=2.5647 kl=0.00675 clipfrac=0.028 final_distance_mean=10.994 episode_return_mean=-29.858
+update=102/512 absolute_update=110 steps=3346432 episodes=38 policy_loss=-0.0037 value_loss=0.2272 entropy=2.5523 kl=0.00407 clipfrac=0.004 final_distance_mean=11.037 episode_return_mean=-29.863
+update=103/512 absolute_update=111 steps=3379200 episodes=9 policy_loss=-0.0026 value_loss=0.0412 entropy=2.5759 kl=0.01052 clipfrac=0.092 final_distance_mean=8.778 episode_return_mean=-25.670
+update=104/512 absolute_update=112 steps=3411968 episodes=4 policy_loss=-0.0062 value_loss=0.0177 entropy=2.5791 kl=0.00773 clipfrac=0.046 final_distance_mean=7.650 episode_return_mean=-21.746
+update=105/512 absolute_update=113 steps=3444736 episodes=3 policy_loss=0.0093 value_loss=0.0126 entropy=2.5809 kl=0.00505 clipfrac=0.028 final_distance_mean=4.833 episode_return_mean=-17.722
+update=106/512 absolute_update=114 steps=3477504 episodes=2 policy_loss=-0.0210 value_loss=0.0037 entropy=2.5768 kl=0.00763 clipfrac=0.066 final_distance_mean=7.300 episode_return_mean=-21.463
+update=107/512 absolute_update=115 steps=3510272 episodes=0 policy_loss=-0.0020 value_loss=0.0010 entropy=2.5671 kl=0.00799 clipfrac=0.060
+update=108/512 absolute_update=116 steps=3543040 episodes=0 policy_loss=-0.0166 value_loss=0.0009 entropy=2.5955 kl=0.00872 clipfrac=0.040
+update=109/512 absolute_update=117 steps=3575808 episodes=0 policy_loss=0.0033 value_loss=0.0010 entropy=2.5817 kl=0.01012 clipfrac=0.090
+update=110/512 absolute_update=118 steps=3608576 episodes=0 policy_loss=0.0043 value_loss=0.0009 entropy=2.5955 kl=0.00713 clipfrac=0.076
+update=111/512 absolute_update=119 steps=3641344 episodes=0 policy_loss=-0.0096 value_loss=0.0008 entropy=2.5856 kl=0.01142 clipfrac=0.051
+update=112/512 absolute_update=120 steps=3674112 episodes=0 policy_loss=-0.0087 value_loss=0.0009 entropy=2.5711 kl=0.00705 clipfrac=0.009
+update=113/512 absolute_update=121 steps=3706880 episodes=2 policy_loss=-0.0132 value_loss=0.0095 entropy=2.5965 kl=0.00753 clipfrac=0.000 final_distance_mean=13.150 episode_return_mean=-33.409
+update=114/512 absolute_update=122 steps=3739648 episodes=39 policy_loss=-0.0086 value_loss=0.2552 entropy=2.6164 kl=0.00954 clipfrac=0.085 final_distance_mean=12.185 episode_return_mean=-31.784
+update=115/512 absolute_update=123 steps=3772416 episodes=51 policy_loss=-0.0022 value_loss=0.2805 entropy=2.5744 kl=0.00436 clipfrac=0.001 final_distance_mean=11.402 episode_return_mean=-30.344
+update=116/512 absolute_update=124 steps=3805184 episodes=40 policy_loss=-0.0040 value_loss=0.2208 entropy=2.5805 kl=0.00339 clipfrac=0.003 final_distance_mean=11.040 episode_return_mean=-29.994
+update=117/512 absolute_update=125 steps=3837952 episodes=11 policy_loss=-0.0285 value_loss=0.0279 entropy=2.5692 kl=0.00727 clipfrac=0.056 final_distance_mean=8.709 episode_return_mean=-25.039
+update=118/512 absolute_update=126 steps=3870720 episodes=4 policy_loss=0.0043 value_loss=0.0305 entropy=2.5809 kl=0.00865 clipfrac=0.094 final_distance_mean=7.150 episode_return_mean=-21.850
+update=119/512 absolute_update=127 steps=3903488 episodes=2 policy_loss=0.0109 value_loss=0.0096 entropy=2.5704 kl=0.00801 clipfrac=0.007 final_distance_mean=7.300 episode_return_mean=-21.716
+update=120/512 absolute_update=128 steps=3936256 episodes=2 policy_loss=-0.0291 value_loss=0.0039 entropy=2.5623 kl=0.00746 clipfrac=0.076 final_distance_mean=13.200 episode_return_mean=-33.553
+update=121/512 absolute_update=129 steps=3969024 episodes=0 policy_loss=0.0110 value_loss=0.0009 entropy=2.5426 kl=0.00636 clipfrac=0.004
+update=122/512 absolute_update=130 steps=4001792 episodes=0 policy_loss=-0.0006 value_loss=0.0008 entropy=2.5516 kl=0.00778 clipfrac=0.072
+update=123/512 absolute_update=131 steps=4034560 episodes=0 policy_loss=0.0069 value_loss=0.0007 entropy=2.5246 kl=0.00910 clipfrac=0.047
+update=124/512 absolute_update=132 steps=4067328 episodes=0 policy_loss=-0.0233 value_loss=0.0007 entropy=2.5196 kl=0.00698 clipfrac=0.052
+update=125/512 absolute_update=133 steps=4100096 episodes=0 policy_loss=0.0095 value_loss=0.0008 entropy=2.4849 kl=0.01039 clipfrac=0.010
+update=126/512 absolute_update=134 steps=4132864 episodes=0 policy_loss=0.0043 value_loss=0.0009 entropy=2.5248 kl=0.00546 clipfrac=0.000
+update=127/512 absolute_update=135 steps=4165632 episodes=0 policy_loss=0.0055 value_loss=0.0010 entropy=2.5274 kl=0.00805 clipfrac=0.003
+update=128/512 absolute_update=136 steps=4198400 episodes=36 policy_loss=-0.0167 value_loss=0.1925 entropy=2.5353 kl=0.00416 clipfrac=0.009 final_distance_mean=11.769 episode_return_mean=-30.937
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_foot_running_v2_update_000136.pt
+update=129/512 absolute_update=137 steps=4231168 episodes=59 policy_loss=-0.0140 value_loss=0.3362 entropy=2.5002 kl=0.00716 clipfrac=0.027 final_distance_mean=10.612 episode_return_mean=-29.167
+update=130/512 absolute_update=138 steps=4263936 episodes=35 policy_loss=0.0030 value_loss=0.1917 entropy=2.4457 kl=0.00758 clipfrac=0.011 final_distance_mean=11.566 episode_return_mean=-30.903
+update=131/512 absolute_update=139 steps=4296704 episodes=16 policy_loss=-0.0051 value_loss=0.0842 entropy=2.4835 kl=0.00968 clipfrac=0.144 final_distance_mean=9.944 episode_return_mean=-27.687
+update=132/512 absolute_update=140 steps=4329472 episodes=0 policy_loss=-0.0139 value_loss=0.0007 entropy=2.4530 kl=0.00676 clipfrac=0.013
+update=133/512 absolute_update=141 steps=4362240 episodes=3 policy_loss=0.0105 value_loss=0.0227 entropy=2.4865 kl=0.00808 clipfrac=0.010 final_distance_mean=13.100 episode_return_mean=-33.608
+update=134/512 absolute_update=142 steps=4395008 episodes=2 policy_loss=0.0072 value_loss=0.0086 entropy=2.5281 kl=0.00629 clipfrac=0.003 final_distance_mean=12.250 episode_return_mean=-33.626
+update=135/512 absolute_update=143 steps=4427776 episodes=0 policy_loss=-0.0021 value_loss=0.0008 entropy=2.5150 kl=0.00744 clipfrac=0.083
+update=136/512 absolute_update=144 steps=4460544 episodes=0 policy_loss=0.0273 value_loss=0.0006 entropy=2.4826 kl=0.01069 clipfrac=0.158
+update=137/512 absolute_update=145 steps=4493312 episodes=0 policy_loss=0.0124 value_loss=0.0006 entropy=2.4885 kl=0.00913 clipfrac=0.033
+update=138/512 absolute_update=146 steps=4526080 episodes=0 policy_loss=-0.0083 value_loss=0.0006 entropy=2.4788 kl=0.00521 clipfrac=0.007
+update=139/512 absolute_update=147 steps=4558848 episodes=0 policy_loss=-0.0161 value_loss=0.0006 entropy=2.4484 kl=0.00623 clipfrac=0.019
+update=140/512 absolute_update=148 steps=4591616 episodes=0 policy_loss=-0.0138 value_loss=0.0006 entropy=2.4501 kl=0.00889 clipfrac=0.010
+update=141/512 absolute_update=149 steps=4624384 episodes=0 policy_loss=-0.0153 value_loss=0.0007 entropy=2.4462 kl=0.00820 clipfrac=0.029
+update=142/512 absolute_update=150 steps=4657152 episodes=25 policy_loss=-0.0004 value_loss=0.1772 entropy=2.4974 kl=0.01208 clipfrac=0.126 final_distance_mean=13.048 episode_return_mean=-33.560
+update=143/512 absolute_update=151 steps=4689920 episodes=60 policy_loss=0.0256 value_loss=0.4078 entropy=2.4887 kl=0.00561 clipfrac=0.001 final_distance_mean=11.318 episode_return_mean=-30.051
+update=144/512 absolute_update=152 steps=4722688 episodes=42 policy_loss=-0.0059 value_loss=0.2163 entropy=2.4726 kl=0.00613 clipfrac=0.021 final_distance_mean=10.102 episode_return_mean=-27.955
+update=145/512 absolute_update=153 steps=4755456 episodes=17 policy_loss=0.0053 value_loss=0.0839 entropy=2.4486 kl=0.00829 clipfrac=0.033 final_distance_mean=10.659 episode_return_mean=-29.396
+update=146/512 absolute_update=154 steps=4788224 episodes=1 policy_loss=-0.0019 value_loss=0.0025 entropy=2.4199 kl=0.01097 clipfrac=0.057 final_distance_mean=11.900 episode_return_mean=-33.746
+update=147/512 absolute_update=155 steps=4820992 episodes=4 policy_loss=-0.0166 value_loss=0.0168 entropy=2.4731 kl=0.01114 clipfrac=0.108 final_distance_mean=10.250 episode_return_mean=-27.509
+update=148/512 absolute_update=156 steps=4853760 episodes=4 policy_loss=-0.0129 value_loss=0.0151 entropy=2.4740 kl=0.00634 clipfrac=0.030 final_distance_mean=7.500 episode_return_mean=-21.786
+update=149/512 absolute_update=157 steps=4886528 episodes=0 policy_loss=-0.0105 value_loss=0.0008 entropy=2.4172 kl=0.00933 clipfrac=0.018
+update=150/512 absolute_update=158 steps=4919296 episodes=0 policy_loss=-0.0179 value_loss=0.0007 entropy=2.4270 kl=0.01062 clipfrac=0.080
+update=151/512 absolute_update=159 steps=4952064 episodes=0 policy_loss=-0.0205 value_loss=0.0007 entropy=2.3865 kl=0.00512 clipfrac=0.010
+update=152/512 absolute_update=160 steps=4984832 episodes=0 policy_loss=-0.0263 value_loss=0.0007 entropy=2.3501 kl=0.00862 clipfrac=0.017
+update=153/512 absolute_update=161 steps=5017600 episodes=0 policy_loss=-0.0009 value_loss=0.0006 entropy=2.4135 kl=0.01028 clipfrac=0.016
+update=154/512 absolute_update=162 steps=5050368 episodes=0 policy_loss=0.0090 value_loss=0.0010 entropy=2.4578 kl=0.01136 clipfrac=0.031
+update=155/512 absolute_update=163 steps=5083136 episodes=0 policy_loss=-0.0139 value_loss=0.0009 entropy=2.5047 kl=0.00780 clipfrac=0.007
+update=156/512 absolute_update=164 steps=5115904 episodes=20 policy_loss=0.0009 value_loss=0.1218 entropy=2.5387 kl=0.00718 clipfrac=0.075 final_distance_mean=11.750 episode_return_mean=-33.578
+update=157/512 absolute_update=165 steps=5148672 episodes=57 policy_loss=0.0216 value_loss=0.3877 entropy=2.5269 kl=0.00283 clipfrac=0.006 final_distance_mean=10.874 episode_return_mean=-31.516
+update=158/512 absolute_update=166 steps=5181440 episodes=36 policy_loss=-0.0084 value_loss=0.1963 entropy=2.5305 kl=0.00888 clipfrac=0.089 final_distance_mean=9.894 episode_return_mean=-28.953
+update=159/512 absolute_update=167 steps=5214208 episodes=23 policy_loss=-0.0064 value_loss=0.0993 entropy=2.5467 kl=0.00435 clipfrac=0.022 final_distance_mean=10.113 episode_return_mean=-30.532
+update=160/512 absolute_update=168 steps=5246976 episodes=2 policy_loss=-0.0079 value_loss=0.0070 entropy=2.5585 kl=0.00578 clipfrac=0.003 final_distance_mean=9.300 episode_return_mean=-33.683
+update=161/512 absolute_update=169 steps=5279744 episodes=3 policy_loss=-0.0164 value_loss=0.0106 entropy=2.5880 kl=0.00769 clipfrac=0.053 final_distance_mean=11.633 episode_return_mean=-33.719
+update=162/512 absolute_update=170 steps=5312512 episodes=2 policy_loss=-0.0276 value_loss=0.0038 entropy=2.5858 kl=0.00613 clipfrac=0.018 final_distance_mean=11.650 episode_return_mean=-33.523
+update=163/512 absolute_update=171 steps=5345280 episodes=0 policy_loss=-0.0183 value_loss=0.0006 entropy=2.5845 kl=0.00980 clipfrac=0.079
+update=164/512 absolute_update=172 steps=5378048 episodes=0 policy_loss=-0.0474 value_loss=0.0006 entropy=2.5673 kl=0.01143 clipfrac=0.043
+update=165/512 absolute_update=173 steps=5410816 episodes=0 policy_loss=-0.0124 value_loss=0.0008 entropy=2.5533 kl=0.00804 clipfrac=0.055
+update=166/512 absolute_update=174 steps=5443584 episodes=0 policy_loss=0.0110 value_loss=0.0005 entropy=2.5495 kl=0.00830 clipfrac=0.005
+update=167/512 absolute_update=175 steps=5476352 episodes=0 policy_loss=0.0006 value_loss=0.0008 entropy=2.5351 kl=0.00866 clipfrac=0.019
+update=168/512 absolute_update=176 steps=5509120 episodes=0 policy_loss=0.0038 value_loss=0.0009 entropy=2.5485 kl=0.00987 clipfrac=0.008
+update=169/512 absolute_update=177 steps=5541888 episodes=0 policy_loss=-0.0072 value_loss=0.0009 entropy=2.5276 kl=0.00810 clipfrac=0.036
+update=170/512 absolute_update=178 steps=5574656 episodes=18 policy_loss=0.0044 value_loss=0.1194 entropy=2.5251 kl=0.00565 clipfrac=0.021 final_distance_mean=12.111 episode_return_mean=-33.667
+update=171/512 absolute_update=179 steps=5607424 episodes=50 policy_loss=0.0074 value_loss=0.3211 entropy=2.4849 kl=0.00769 clipfrac=0.036 final_distance_mean=11.354 episode_return_mean=-32.190
+update=172/512 absolute_update=180 steps=5640192 episodes=34 policy_loss=-0.0050 value_loss=0.2069 entropy=2.4982 kl=0.00930 clipfrac=0.178 final_distance_mean=11.035 episode_return_mean=-30.781
+update=173/512 absolute_update=181 steps=5672960 episodes=28 policy_loss=0.0139 value_loss=0.1556 entropy=2.4902 kl=0.00830 clipfrac=0.131 final_distance_mean=11.475 episode_return_mean=-31.918
+update=174/512 absolute_update=182 steps=5705728 episodes=2 policy_loss=0.0009 value_loss=0.0116 entropy=2.4513 kl=0.00695 clipfrac=0.027 final_distance_mean=12.400 episode_return_mean=-33.603
+update=175/512 absolute_update=183 steps=5738496 episodes=3 policy_loss=-0.0324 value_loss=0.0062 entropy=2.4607 kl=0.00558 clipfrac=0.001 final_distance_mean=11.867 episode_return_mean=-33.673
+update=176/512 absolute_update=184 steps=5771264 episodes=2 policy_loss=-0.0130 value_loss=0.0064 entropy=2.5126 kl=0.00828 clipfrac=0.057 final_distance_mean=12.000 episode_return_mean=-33.539
+update=177/512 absolute_update=185 steps=5804032 episodes=0 policy_loss=0.0048 value_loss=0.0004 entropy=2.5297 kl=0.00937 clipfrac=0.016
+update=178/512 absolute_update=186 steps=5836800 episodes=0 policy_loss=-0.0126 value_loss=0.0004 entropy=2.5232 kl=0.00769 clipfrac=0.002
+update=179/512 absolute_update=187 steps=5869568 episodes=0 policy_loss=-0.0224 value_loss=0.0004 entropy=2.4944 kl=0.00592 clipfrac=0.006
+update=180/512 absolute_update=188 steps=5902336 episodes=0 policy_loss=0.0137 value_loss=0.0005 entropy=2.5113 kl=0.00796 clipfrac=0.019
+update=181/512 absolute_update=189 steps=5935104 episodes=1 policy_loss=-0.0045 value_loss=0.0039 entropy=2.5135 kl=0.00723 clipfrac=0.043 final_distance_mean=7.200 episode_return_mean=-26.173
+update=182/512 absolute_update=190 steps=5967872 episodes=0 policy_loss=-0.0183 value_loss=0.0009 entropy=2.5139 kl=0.00917 clipfrac=0.029
+update=183/512 absolute_update=191 steps=6000640 episodes=0 policy_loss=-0.0160 value_loss=0.0011 entropy=2.5448 kl=0.00914 clipfrac=0.038
+update=184/512 absolute_update=192 steps=6033408 episodes=16 policy_loss=-0.0184 value_loss=0.0847 entropy=2.5635 kl=0.00590 clipfrac=0.061 final_distance_mean=11.581 episode_return_mean=-33.575
+update=185/512 absolute_update=193 steps=6066176 episodes=49 policy_loss=-0.0091 value_loss=0.2826 entropy=2.5439 kl=0.00604 clipfrac=0.010 final_distance_mean=10.561 episode_return_mean=-31.691
+update=186/512 absolute_update=194 steps=6098944 episodes=40 policy_loss=-0.0010 value_loss=0.2022 entropy=2.5004 kl=0.00891 clipfrac=0.120 final_distance_mean=8.990 episode_return_mean=-28.329
+update=187/512 absolute_update=195 steps=6131712 episodes=30 policy_loss=-0.0225 value_loss=0.1216 entropy=2.5000 kl=0.00551 clipfrac=0.011 final_distance_mean=10.520 episode_return_mean=-31.251
+update=188/512 absolute_update=196 steps=6164480 episodes=4 policy_loss=-0.0098 value_loss=0.0090 entropy=2.5391 kl=0.01228 clipfrac=0.050 final_distance_mean=8.375 episode_return_mean=-27.651
+update=189/512 absolute_update=197 steps=6197248 episodes=3 policy_loss=0.0097 value_loss=0.0238 entropy=2.5596 kl=0.00551 clipfrac=0.019 final_distance_mean=11.000 episode_return_mean=-33.628
+update=190/512 absolute_update=198 steps=6230016 episodes=2 policy_loss=0.0139 value_loss=0.0136 entropy=2.5875 kl=0.01027 clipfrac=0.099 final_distance_mean=10.750 episode_return_mean=-33.726
+update=191/512 absolute_update=199 steps=6262784 episodes=0 policy_loss=0.0121 value_loss=0.0006 entropy=2.6005 kl=0.01174 clipfrac=0.132
+update=192/512 absolute_update=200 steps=6295552 episodes=0 policy_loss=-0.0049 value_loss=0.0005 entropy=2.5917 kl=0.00935 clipfrac=0.039
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_foot_running_v2_update_000200.pt
+update=193/512 absolute_update=201 steps=6328320 episodes=0 policy_loss=-0.0086 value_loss=0.0005 entropy=2.5947 kl=0.00612 clipfrac=0.014
+update=194/512 absolute_update=202 steps=6361088 episodes=0 policy_loss=-0.0104 value_loss=0.0008 entropy=2.5864 kl=0.01193 clipfrac=0.097
+update=195/512 absolute_update=203 steps=6393856 episodes=1 policy_loss=0.0068 value_loss=0.0059 entropy=2.5895 kl=0.00739 clipfrac=0.031 final_distance_mean=8.100 episode_return_mean=-32.893
+update=196/512 absolute_update=204 steps=6426624 episodes=1 policy_loss=-0.0117 value_loss=0.0087 entropy=2.6029 kl=0.00919 clipfrac=0.002 final_distance_mean=0.700 episode_return_mean=-9.860
+update=197/512 absolute_update=205 steps=6459392 episodes=0 policy_loss=-0.0179 value_loss=0.0008 entropy=2.6104 kl=0.00761 clipfrac=0.011
+update=198/512 absolute_update=206 steps=6492160 episodes=16 policy_loss=-0.0165 value_loss=0.0837 entropy=2.6076 kl=0.00783 clipfrac=0.008 final_distance_mean=12.219 episode_return_mean=-33.703
+update=199/512 absolute_update=207 steps=6524928 episodes=40 policy_loss=0.0039 value_loss=0.2353 entropy=2.5827 kl=0.00673 clipfrac=0.043 final_distance_mean=11.690 episode_return_mean=-32.425
+update=200/512 absolute_update=208 steps=6557696 episodes=42 policy_loss=0.0024 value_loss=0.2122 entropy=2.5283 kl=0.00564 clipfrac=0.076 final_distance_mean=11.243 episode_return_mean=-31.327
+update=201/512 absolute_update=209 steps=6590464 episodes=28 policy_loss=0.0176 value_loss=0.1482 entropy=2.5139 kl=0.01069 clipfrac=0.044 final_distance_mean=11.104 episode_return_mean=-31.110
+update=202/512 absolute_update=210 steps=6623232 episodes=11 policy_loss=-0.0449 value_loss=0.0354 entropy=2.4636 kl=0.01370 clipfrac=0.146 final_distance_mean=5.664 episode_return_mean=-20.825
+update=203/512 absolute_update=211 steps=6656000 episodes=4 policy_loss=-0.0322 value_loss=0.0128 entropy=2.5010 kl=0.01083 clipfrac=0.054 final_distance_mean=10.325 episode_return_mean=-29.321
+update=204/512 absolute_update=212 steps=6688768 episodes=2 policy_loss=-0.0216 value_loss=0.0051 entropy=2.5063 kl=0.00799 clipfrac=0.068 final_distance_mean=13.750 episode_return_mean=-33.746
+update=205/512 absolute_update=213 steps=6721536 episodes=0 policy_loss=-0.0065 value_loss=0.0008 entropy=2.5606 kl=0.01209 clipfrac=0.040
+update=206/512 absolute_update=214 steps=6754304 episodes=0 policy_loss=0.0079 value_loss=0.0008 entropy=2.5565 kl=0.01019 clipfrac=0.042
+update=207/512 absolute_update=215 steps=6787072 episodes=0 policy_loss=-0.0015 value_loss=0.0009 entropy=2.5736 kl=0.00576 clipfrac=0.011
+update=208/512 absolute_update=216 steps=6819840 episodes=0 policy_loss=-0.0087 value_loss=0.0009 entropy=2.5570 kl=0.00561 clipfrac=0.014
+update=209/512 absolute_update=217 steps=6852608 episodes=0 policy_loss=-0.0183 value_loss=0.0008 entropy=2.5730 kl=0.00760 clipfrac=0.056
+update=210/512 absolute_update=218 steps=6885376 episodes=1 policy_loss=0.0014 value_loss=0.0034 entropy=2.5767 kl=0.00738 clipfrac=0.074 final_distance_mean=12.600 episode_return_mean=-33.626
+update=211/512 absolute_update=219 steps=6918144 episodes=0 policy_loss=0.0011 value_loss=0.0012 entropy=2.5794 kl=0.00744 clipfrac=0.046
+update=212/512 absolute_update=220 steps=6950912 episodes=15 policy_loss=-0.0200 value_loss=0.0665 entropy=2.5536 kl=0.00905 clipfrac=0.096 final_distance_mean=11.613 episode_return_mean=-32.017
+update=213/512 absolute_update=221 steps=6983680 episodes=39 policy_loss=-0.0019 value_loss=0.2332 entropy=2.5025 kl=0.01069 clipfrac=0.126 final_distance_mean=11.238 episode_return_mean=-30.574
+update=214/512 absolute_update=222 steps=7016448 episodes=56 policy_loss=0.0190 value_loss=0.2809 entropy=2.5189 kl=0.00839 clipfrac=0.054 final_distance_mean=9.307 episode_return_mean=-27.373
+update=215/512 absolute_update=223 steps=7049216 episodes=33 policy_loss=0.0204 value_loss=0.1694 entropy=2.5203 kl=0.01241 clipfrac=0.252 final_distance_mean=9.673 episode_return_mean=-27.199
+update=216/512 absolute_update=224 steps=7081984 episodes=14 policy_loss=-0.0220 value_loss=0.0364 entropy=2.5304 kl=0.00938 clipfrac=0.113 final_distance_mean=7.807 episode_return_mean=-23.501
+update=217/512 absolute_update=225 steps=7114752 episodes=4 policy_loss=0.0250 value_loss=0.0273 entropy=2.5433 kl=0.00721 clipfrac=0.004 final_distance_mean=13.275 episode_return_mean=-33.584
+update=218/512 absolute_update=226 steps=7147520 episodes=2 policy_loss=-0.0085 value_loss=0.0078 entropy=2.5659 kl=0.00513 clipfrac=0.006 final_distance_mean=11.600 episode_return_mean=-33.593
+update=219/512 absolute_update=227 steps=7180288 episodes=0 policy_loss=-0.0074 value_loss=0.0021 entropy=2.6069 kl=0.00995 clipfrac=0.073
+update=220/512 absolute_update=228 steps=7213056 episodes=0 policy_loss=-0.0067 value_loss=0.0011 entropy=2.6052 kl=0.00845 clipfrac=0.031
+update=221/512 absolute_update=229 steps=7245824 episodes=0 policy_loss=-0.0101 value_loss=0.0011 entropy=2.6285 kl=0.00907 clipfrac=0.046
+update=222/512 absolute_update=230 steps=7278592 episodes=0 policy_loss=0.0101 value_loss=0.0015 entropy=2.6267 kl=0.00835 clipfrac=0.083
+update=223/512 absolute_update=231 steps=7311360 episodes=0 policy_loss=0.0043 value_loss=0.0015 entropy=2.6353 kl=0.00499 clipfrac=0.030
+update=224/512 absolute_update=232 steps=7344128 episodes=2 policy_loss=0.0003 value_loss=0.0094 entropy=2.6381 kl=0.00828 clipfrac=0.036 final_distance_mean=6.650 episode_return_mean=-22.053
+update=225/512 absolute_update=233 steps=7376896 episodes=0 policy_loss=0.0039 value_loss=0.0025 entropy=2.6464 kl=0.00663 clipfrac=0.004
+update=226/512 absolute_update=234 steps=7409664 episodes=8 policy_loss=-0.0017 value_loss=0.0428 entropy=2.6357 kl=0.00626 clipfrac=0.094 final_distance_mean=13.462 episode_return_mean=-33.607
+update=227/512 absolute_update=235 steps=7442432 episodes=34 policy_loss=-0.0139 value_loss=0.1657 entropy=2.6393 kl=0.00866 clipfrac=0.143 final_distance_mean=12.774 episode_return_mean=-32.233
+update=228/512 absolute_update=236 steps=7475200 episodes=42 policy_loss=-0.0054 value_loss=0.2249 entropy=2.6258 kl=0.00656 clipfrac=0.008 final_distance_mean=13.017 episode_return_mean=-31.950
+update=229/512 absolute_update=237 steps=7507968 episodes=29 policy_loss=0.0048 value_loss=0.1393 entropy=2.6318 kl=0.00754 clipfrac=0.023 final_distance_mean=13.569 episode_return_mean=-32.013
+update=230/512 absolute_update=238 steps=7540736 episodes=17 policy_loss=-0.0025 value_loss=0.0670 entropy=2.6387 kl=0.00460 clipfrac=0.042 final_distance_mean=13.406 episode_return_mean=-30.911
+update=231/512 absolute_update=239 steps=7573504 episodes=7 policy_loss=-0.0155 value_loss=0.0256 entropy=2.6619 kl=0.00644 clipfrac=0.083 final_distance_mean=8.614 episode_return_mean=-23.678
+update=232/512 absolute_update=240 steps=7606272 episodes=1 policy_loss=-0.0009 value_loss=0.0022 entropy=2.6673 kl=0.00999 clipfrac=0.072 final_distance_mean=-0.200 episode_return_mean=-10.773
+update=233/512 absolute_update=241 steps=7639040 episodes=2 policy_loss=-0.0117 value_loss=0.0044 entropy=2.6649 kl=0.00703 clipfrac=0.021 final_distance_mean=16.450 episode_return_mean=-33.533
+update=234/512 absolute_update=242 steps=7671808 episodes=0 policy_loss=-0.0087 value_loss=0.0008 entropy=2.6520 kl=0.01090 clipfrac=0.040
+update=235/512 absolute_update=243 steps=7704576 episodes=0 policy_loss=0.0019 value_loss=0.0012 entropy=2.6496 kl=0.01091 clipfrac=0.022
+update=236/512 absolute_update=244 steps=7737344 episodes=0 policy_loss=-0.0078 value_loss=0.0015 entropy=2.6286 kl=0.00947 clipfrac=0.125
+update=237/512 absolute_update=245 steps=7770112 episodes=0 policy_loss=-0.0115 value_loss=0.0020 entropy=2.5919 kl=0.00879 clipfrac=0.045
+update=238/512 absolute_update=246 steps=7802880 episodes=1 policy_loss=0.0033 value_loss=0.0056 entropy=2.6214 kl=0.00935 clipfrac=0.036 final_distance_mean=20.000 episode_return_mean=-33.553
+update=239/512 absolute_update=247 steps=7835648 episodes=0 policy_loss=0.0032 value_loss=0.0039 entropy=2.6488 kl=0.01045 clipfrac=0.045
+update=240/512 absolute_update=248 steps=7868416 episodes=8 policy_loss=0.0228 value_loss=0.0688 entropy=2.6508 kl=0.00570 clipfrac=0.022 final_distance_mean=19.337 episode_return_mean=-33.578
+update=241/512 absolute_update=249 steps=7901184 episodes=29 policy_loss=-0.0076 value_loss=0.1429 entropy=2.6566 kl=0.00980 clipfrac=0.062 final_distance_mean=19.983 episode_return_mean=-33.572
+update=242/512 absolute_update=250 steps=7933952 episodes=41 policy_loss=-0.0282 value_loss=0.1726 entropy=2.6417 kl=0.00813 clipfrac=0.080 final_distance_mean=19.710 episode_return_mean=-32.311
+update=243/512 absolute_update=251 steps=7966720 episodes=30 policy_loss=-0.0153 value_loss=0.1213 entropy=2.6467 kl=0.00506 clipfrac=0.038 final_distance_mean=20.927 episode_return_mean=-32.753
+update=244/512 absolute_update=252 steps=7999488 episodes=17 policy_loss=-0.0275 value_loss=0.0545 entropy=2.6637 kl=0.01019 clipfrac=0.056 final_distance_mean=19.671 episode_return_mean=-30.770
+update=245/512 absolute_update=253 steps=8032256 episodes=4 policy_loss=0.0119 value_loss=0.0205 entropy=2.6751 kl=0.01145 clipfrac=0.156 final_distance_mean=23.525 episode_return_mean=-33.578
+update=246/512 absolute_update=254 steps=8065024 episodes=1 policy_loss=-0.0021 value_loss=0.0049 entropy=2.6613 kl=0.00624 clipfrac=0.032 final_distance_mean=23.300 episode_return_mean=-33.646
+update=247/512 absolute_update=255 steps=8097792 episodes=2 policy_loss=0.0101 value_loss=0.0074 entropy=2.6657 kl=0.00496 clipfrac=0.000 final_distance_mean=22.250 episode_return_mean=-33.616
+update=248/512 absolute_update=256 steps=8130560 episodes=0 policy_loss=-0.0163 value_loss=0.0005 entropy=2.6508 kl=0.00533 clipfrac=0.000
+update=249/512 absolute_update=257 steps=8163328 episodes=0 policy_loss=-0.0218 value_loss=0.0008 entropy=2.6662 kl=0.00855 clipfrac=0.037
+update=250/512 absolute_update=258 steps=8196096 episodes=0 policy_loss=0.0001 value_loss=0.0010 entropy=2.6468 kl=0.00926 clipfrac=0.059
+update=251/512 absolute_update=259 steps=8228864 episodes=0 policy_loss=0.0033 value_loss=0.0012 entropy=2.6364 kl=0.00572 clipfrac=0.066
+update=252/512 absolute_update=260 steps=8261632 episodes=1 policy_loss=-0.0138 value_loss=0.0025 entropy=2.6447 kl=0.01038 clipfrac=0.041 final_distance_mean=23.200 episode_return_mean=-33.446
+update=253/512 absolute_update=261 steps=8294400 episodes=0 policy_loss=0.0043 value_loss=0.0029 entropy=2.6433 kl=0.00645 clipfrac=0.019
+update=254/512 absolute_update=262 steps=8327168 episodes=5 policy_loss=-0.0120 value_loss=0.0190 entropy=2.6183 kl=0.00795 clipfrac=0.073 final_distance_mean=23.080 episode_return_mean=-33.518
+update=255/512 absolute_update=263 steps=8359936 episodes=30 policy_loss=0.0052 value_loss=0.1257 entropy=2.6072 kl=0.00857 clipfrac=0.013 final_distance_mean=20.497 episode_return_mean=-31.093
+update=256/512 absolute_update=264 steps=8392704 episodes=44 policy_loss=-0.0052 value_loss=0.1491 entropy=2.6001 kl=0.00494 clipfrac=0.011 final_distance_mean=21.005 episode_return_mean=-31.283
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_foot_running_v2_update_000264.pt
+update=257/512 absolute_update=265 steps=8425472 episodes=35 policy_loss=0.0088 value_loss=0.1385 entropy=2.6180 kl=0.00502 clipfrac=0.038 final_distance_mean=20.883 episode_return_mean=-31.323
+update=258/512 absolute_update=266 steps=8458240 episodes=16 policy_loss=0.0233 value_loss=0.0622 entropy=2.6301 kl=0.00571 clipfrac=0.021 final_distance_mean=21.800 episode_return_mean=-31.871
+update=259/512 absolute_update=267 steps=8491008 episodes=5 policy_loss=0.0145 value_loss=0.0177 entropy=2.6453 kl=0.00596 clipfrac=0.013 final_distance_mean=17.940 episode_return_mean=-28.641
+update=260/512 absolute_update=268 steps=8523776 episodes=2 policy_loss=0.0124 value_loss=0.0083 entropy=2.6726 kl=0.01039 clipfrac=0.108 final_distance_mean=23.350 episode_return_mean=-33.406
+update=261/512 absolute_update=269 steps=8556544 episodes=3 policy_loss=0.0108 value_loss=0.0107 entropy=2.6758 kl=0.00794 clipfrac=0.062 final_distance_mean=14.967 episode_return_mean=-25.742
+update=262/512 absolute_update=270 steps=8589312 episodes=0 policy_loss=-0.0179 value_loss=0.0004 entropy=2.6677 kl=0.01070 clipfrac=0.039
+update=263/512 absolute_update=271 steps=8622080 episodes=0 policy_loss=-0.0140 value_loss=0.0005 entropy=2.6561 kl=0.01077 clipfrac=0.057
+update=264/512 absolute_update=272 steps=8654848 episodes=0 policy_loss=-0.0088 value_loss=0.0007 entropy=2.6631 kl=0.00843 clipfrac=0.020
+update=265/512 absolute_update=273 steps=8687616 episodes=0 policy_loss=0.0104 value_loss=0.0009 entropy=2.6490 kl=0.00626 clipfrac=0.000
+update=266/512 absolute_update=274 steps=8720384 episodes=1 policy_loss=-0.0036 value_loss=0.0047 entropy=2.6033 kl=0.00891 clipfrac=0.041 final_distance_mean=21.600 episode_return_mean=-33.379
+update=267/512 absolute_update=275 steps=8753152 episodes=0 policy_loss=0.0024 value_loss=0.0017 entropy=2.5674 kl=0.00950 clipfrac=0.040
+update=268/512 absolute_update=276 steps=8785920 episodes=4 policy_loss=-0.0266 value_loss=0.0088 entropy=2.5256 kl=0.01172 clipfrac=0.068 final_distance_mean=20.175 episode_return_mean=-33.308
+update=269/512 absolute_update=277 steps=8818688 episodes=24 policy_loss=0.0095 value_loss=0.1005 entropy=2.5516 kl=0.00777 clipfrac=0.051 final_distance_mean=19.125 episode_return_mean=-32.312
+update=270/512 absolute_update=278 steps=8851456 episodes=43 policy_loss=-0.0084 value_loss=0.1428 entropy=2.5668 kl=0.00572 clipfrac=0.021 final_distance_mean=18.465 episode_return_mean=-32.690
+update=271/512 absolute_update=279 steps=8884224 episodes=36 policy_loss=0.0029 value_loss=0.1278 entropy=2.6099 kl=0.00678 clipfrac=0.042 final_distance_mean=17.900 episode_return_mean=-32.643
+update=272/512 absolute_update=280 steps=8916992 episodes=15 policy_loss=0.0004 value_loss=0.0438 entropy=2.6542 kl=0.00728 clipfrac=0.100 final_distance_mean=16.653 episode_return_mean=-31.682
+update=273/512 absolute_update=281 steps=8949760 episodes=5 policy_loss=0.0157 value_loss=0.0173 entropy=2.6754 kl=0.00725 clipfrac=0.045 final_distance_mean=17.360 episode_return_mean=-33.378
+update=274/512 absolute_update=282 steps=8982528 episodes=2 policy_loss=0.0147 value_loss=0.0098 entropy=2.6812 kl=0.00762 clipfrac=0.099 final_distance_mean=16.750 episode_return_mean=-33.179
+update=275/512 absolute_update=283 steps=9015296 episodes=2 policy_loss=-0.0138 value_loss=0.0020 entropy=2.6729 kl=0.00537 clipfrac=0.002 final_distance_mean=17.800 episode_return_mean=-33.429
+update=276/512 absolute_update=284 steps=9048064 episodes=0 policy_loss=-0.0162 value_loss=0.0002 entropy=2.6410 kl=0.01076 clipfrac=0.054
+update=277/512 absolute_update=285 steps=9080832 episodes=0 policy_loss=0.0122 value_loss=0.0004 entropy=2.6124 kl=0.00680 clipfrac=0.021
+update=278/512 absolute_update=286 steps=9113600 episodes=0 policy_loss=-0.0051 value_loss=0.0005 entropy=2.5927 kl=0.00981 clipfrac=0.041
+update=279/512 absolute_update=287 steps=9146368 episodes=0 policy_loss=0.0037 value_loss=0.0006 entropy=2.5447 kl=0.00963 clipfrac=0.074
+update=280/512 absolute_update=288 steps=9179136 episodes=1 policy_loss=0.0105 value_loss=0.0071 entropy=2.5416 kl=0.00494 clipfrac=0.038 final_distance_mean=16.400 episode_return_mean=-33.526
+update=281/512 absolute_update=289 steps=9211904 episodes=0 policy_loss=-0.0143 value_loss=0.0010 entropy=2.5094 kl=0.00614 clipfrac=0.059
+update=282/512 absolute_update=290 steps=9244672 episodes=2 policy_loss=0.0008 value_loss=0.0071 entropy=2.5295 kl=0.00933 clipfrac=0.069 final_distance_mean=16.500 episode_return_mean=-33.316
+update=283/512 absolute_update=291 steps=9277440 episodes=23 policy_loss=0.0079 value_loss=0.0906 entropy=2.5479 kl=0.01030 clipfrac=0.116 final_distance_mean=17.422 episode_return_mean=-33.532
+update=284/512 absolute_update=292 steps=9310208 episodes=43 policy_loss=-0.0291 value_loss=0.1230 entropy=2.5966 kl=0.00714 clipfrac=0.045 final_distance_mean=16.695 episode_return_mean=-32.947
+update=285/512 absolute_update=293 steps=9342976 episodes=35 policy_loss=0.0099 value_loss=0.1088 entropy=2.6321 kl=0.00391 clipfrac=0.000 final_distance_mean=16.800 episode_return_mean=-32.786
+update=286/512 absolute_update=294 steps=9375744 episodes=17 policy_loss=-0.0218 value_loss=0.0320 entropy=2.6736 kl=0.00958 clipfrac=0.041 final_distance_mean=17.682 episode_return_mean=-33.444
+update=287/512 absolute_update=295 steps=9408512 episodes=6 policy_loss=-0.0131 value_loss=0.0245 entropy=2.6759 kl=0.01029 clipfrac=0.167 final_distance_mean=14.817 episode_return_mean=-29.446
+update=288/512 absolute_update=296 steps=9441280 episodes=2 policy_loss=-0.0187 value_loss=0.0021 entropy=2.6799 kl=0.00725 clipfrac=0.070 final_distance_mean=17.350 episode_return_mean=-33.053
+update=289/512 absolute_update=297 steps=9474048 episodes=2 policy_loss=0.0229 value_loss=0.0073 entropy=2.6728 kl=0.00606 clipfrac=0.026 final_distance_mean=15.250 episode_return_mean=-33.399
+update=290/512 absolute_update=298 steps=9506816 episodes=0 policy_loss=-0.0143 value_loss=0.0002 entropy=2.6578 kl=0.01021 clipfrac=0.103
+update=291/512 absolute_update=299 steps=9539584 episodes=0 policy_loss=-0.0116 value_loss=0.0003 entropy=2.6362 kl=0.00897 clipfrac=0.052
+update=292/512 absolute_update=300 steps=9572352 episodes=0 policy_loss=0.0216 value_loss=0.0005 entropy=2.6454 kl=0.00833 clipfrac=0.055
+update=293/512 absolute_update=301 steps=9605120 episodes=0 policy_loss=-0.0427 value_loss=0.0007 entropy=2.6069 kl=0.00743 clipfrac=0.032
+update=294/512 absolute_update=302 steps=9637888 episodes=1 policy_loss=-0.0017 value_loss=0.0049 entropy=2.5827 kl=0.00345 clipfrac=0.003 final_distance_mean=16.500 episode_return_mean=-33.739
+update=295/512 absolute_update=303 steps=9670656 episodes=0 policy_loss=-0.0101 value_loss=0.0015 entropy=2.5538 kl=0.01154 clipfrac=0.090
+update=296/512 absolute_update=304 steps=9703424 episodes=1 policy_loss=-0.0127 value_loss=0.0033 entropy=2.5303 kl=0.00765 clipfrac=0.014 final_distance_mean=17.700 episode_return_mean=-33.333
+update=297/512 absolute_update=305 steps=9736192 episodes=20 policy_loss=-0.0065 value_loss=0.0489 entropy=2.5620 kl=0.01176 clipfrac=0.171 final_distance_mean=18.350 episode_return_mean=-33.438
+update=298/512 absolute_update=306 steps=9768960 episodes=44 policy_loss=-0.0032 value_loss=0.1262 entropy=2.5909 kl=0.00488 clipfrac=0.009 final_distance_mean=17.632 episode_return_mean=-32.339
+update=299/512 absolute_update=307 steps=9801728 episodes=37 policy_loss=0.0065 value_loss=0.0982 entropy=2.6198 kl=0.00735 clipfrac=0.096 final_distance_mean=18.168 episode_return_mean=-32.727
+update=300/512 absolute_update=308 steps=9834496 episodes=17 policy_loss=-0.0200 value_loss=0.0351 entropy=2.6354 kl=0.00779 clipfrac=0.051 final_distance_mean=18.235 episode_return_mean=-33.495
+update=301/512 absolute_update=309 steps=9867264 episodes=7 policy_loss=0.0030 value_loss=0.0213 entropy=2.6200 kl=0.00859 clipfrac=0.117 final_distance_mean=15.729 episode_return_mean=-30.172
+update=302/512 absolute_update=310 steps=9900032 episodes=3 policy_loss=-0.0066 value_loss=0.0079 entropy=2.6178 kl=0.01061 clipfrac=0.154 final_distance_mean=19.000 episode_return_mean=-33.508
+update=303/512 absolute_update=311 steps=9932800 episodes=2 policy_loss=0.0025 value_loss=0.0043 entropy=2.6040 kl=0.00743 clipfrac=0.041 final_distance_mean=17.700 episode_return_mean=-33.326
+update=304/512 absolute_update=312 steps=9965568 episodes=0 policy_loss=-0.0158 value_loss=0.0004 entropy=2.6320 kl=0.00933 clipfrac=0.029
+update=305/512 absolute_update=313 steps=9998336 episodes=0 policy_loss=0.0057 value_loss=0.0003 entropy=2.6488 kl=0.00844 clipfrac=0.035
+update=306/512 absolute_update=314 steps=10031104 episodes=0 policy_loss=-0.0345 value_loss=0.0005 entropy=2.6590 kl=0.00975 clipfrac=0.069
+update=307/512 absolute_update=315 steps=10063872 episodes=0 policy_loss=-0.0033 value_loss=0.0007 entropy=2.6485 kl=0.00912 clipfrac=0.104
+update=308/512 absolute_update=316 steps=10096640 episodes=1 policy_loss=-0.0086 value_loss=0.0038 entropy=2.6116 kl=0.01088 clipfrac=0.079 final_distance_mean=18.300 episode_return_mean=-33.259
+update=309/512 absolute_update=317 steps=10129408 episodes=0 policy_loss=0.0120 value_loss=0.0012 entropy=2.5869 kl=0.00871 clipfrac=0.049
+update=310/512 absolute_update=318 steps=10162176 episodes=1 policy_loss=0.0016 value_loss=0.0041 entropy=2.5371 kl=0.00505 clipfrac=0.007 final_distance_mean=17.500 episode_return_mean=-33.313
+update=311/512 absolute_update=319 steps=10194944 episodes=18 policy_loss=0.0012 value_loss=0.0475 entropy=2.5417 kl=0.00587 clipfrac=0.030 final_distance_mean=17.406 episode_return_mean=-32.124
+update=312/512 absolute_update=320 steps=10227712 episodes=43 policy_loss=-0.0071 value_loss=0.0943 entropy=2.5615 kl=0.00679 clipfrac=0.064 final_distance_mean=17.563 episode_return_mean=-32.897
+update=313/512 absolute_update=321 steps=10260480 episodes=40 policy_loss=-0.0018 value_loss=0.0939 entropy=2.5920 kl=0.00594 clipfrac=0.023 final_distance_mean=16.075 episode_return_mean=-31.644
+update=314/512 absolute_update=322 steps=10293248 episodes=21 policy_loss=0.0122 value_loss=0.0367 entropy=2.6188 kl=0.00519 clipfrac=0.049 final_distance_mean=15.400 episode_return_mean=-31.168
+update=315/512 absolute_update=323 steps=10326016 episodes=5 policy_loss=-0.0311 value_loss=0.0048 entropy=2.6249 kl=0.00985 clipfrac=0.136 final_distance_mean=16.340 episode_return_mean=-33.199
+update=316/512 absolute_update=324 steps=10358784 episodes=4 policy_loss=-0.0343 value_loss=0.0041 entropy=2.6138 kl=0.00976 clipfrac=0.105 final_distance_mean=16.525 episode_return_mean=-33.526
+update=317/512 absolute_update=325 steps=10391552 episodes=2 policy_loss=-0.0207 value_loss=0.0022 entropy=2.6060 kl=0.00790 clipfrac=0.037 final_distance_mean=14.600 episode_return_mean=-33.406
+update=318/512 absolute_update=326 steps=10424320 episodes=0 policy_loss=-0.0120 value_loss=0.0002 entropy=2.5771 kl=0.01100 clipfrac=0.091
+update=319/512 absolute_update=327 steps=10457088 episodes=0 policy_loss=-0.0143 value_loss=0.0006 entropy=2.6172 kl=0.00863 clipfrac=0.043
+update=320/512 absolute_update=328 steps=10489856 episodes=0 policy_loss=0.0021 value_loss=0.0005 entropy=2.6304 kl=0.01241 clipfrac=0.133
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_foot_running_v2_update_000328.pt
+update=321/512 absolute_update=329 steps=10522624 episodes=0 policy_loss=-0.0348 value_loss=0.0007 entropy=2.6171 kl=0.00670 clipfrac=0.018
+update=322/512 absolute_update=330 steps=10555392 episodes=0 policy_loss=0.0046 value_loss=0.0011 entropy=2.5945 kl=0.00753 clipfrac=0.048
+update=323/512 absolute_update=331 steps=10588160 episodes=1 policy_loss=-0.0046 value_loss=0.0020 entropy=2.5599 kl=0.00602 clipfrac=0.060 final_distance_mean=17.000 episode_return_mean=-33.193
+update=324/512 absolute_update=332 steps=10620928 episodes=1 policy_loss=-0.0238 value_loss=0.0031 entropy=2.5170 kl=0.00913 clipfrac=0.122 final_distance_mean=18.300 episode_return_mean=-33.779
+update=325/512 absolute_update=333 steps=10653696 episodes=17 policy_loss=-0.0250 value_loss=0.0270 entropy=2.5118 kl=0.00581 clipfrac=0.035 final_distance_mean=18.312 episode_return_mean=-33.504
+update=326/512 absolute_update=334 steps=10686464 episodes=39 policy_loss=0.0230 value_loss=0.0920 entropy=2.5200 kl=0.00382 clipfrac=0.002 final_distance_mean=18.277 episode_return_mean=-33.458
+update=327/512 absolute_update=335 steps=10719232 episodes=37 policy_loss=-0.0231 value_loss=0.0634 entropy=2.5331 kl=0.00665 clipfrac=0.036 final_distance_mean=18.500 episode_return_mean=-33.401
+update=328/512 absolute_update=336 steps=10752000 episodes=20 policy_loss=-0.0179 value_loss=0.0263 entropy=2.5453 kl=0.00427 clipfrac=0.006 final_distance_mean=18.455 episode_return_mean=-33.385
+update=329/512 absolute_update=337 steps=10784768 episodes=7 policy_loss=-0.0186 value_loss=0.0077 entropy=2.5972 kl=0.00620 clipfrac=0.014 final_distance_mean=18.214 episode_return_mean=-33.424

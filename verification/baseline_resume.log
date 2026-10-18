@@ -1,0 +1,6 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\baseline_smoke_20261008.pt checkpoint_update=2 global_step=1024 reset_optimizer=0
+update=1/1 absolute_update=3 steps=1536 episodes=1 policy_loss=0.1514 value_loss=1.1602 entropy=2.7020 kl=0.00275 clipfrac=0.000 final_distance_mean=-0.500 episode_return_mean=-10.000
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\baseline_resume_20261008_update_000003.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\baseline_resume_20261008.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\baseline_resume_20261008
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\baseline_resume_20261008

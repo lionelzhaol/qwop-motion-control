@@ -1,0 +1,38 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_local_initial_20261015.pt checkpoint_update=0 global_step=0 reset_optimizer=1
+update=1/32 absolute_update=1 steps=65536 episodes=64 policy_loss=-0.0014 value_loss=187161.0938 entropy=0.0023 kl=0.00000 clipfrac=0.000 final_distance_mean=92.458 episode_return_mean=1885.012
+update=2/32 absolute_update=2 steps=131072 episodes=64 policy_loss=0.0115 value_loss=173120.7812 entropy=0.0017 kl=0.00000 clipfrac=0.000 final_distance_mean=91.097 episode_return_mean=1809.830
+update=3/32 absolute_update=3 steps=196608 episodes=65 policy_loss=-0.0012 value_loss=178183.0938 entropy=0.0020 kl=0.00000 clipfrac=0.000 final_distance_mean=92.046 episode_return_mean=1818.626
+update=4/32 absolute_update=4 steps=262144 episodes=66 policy_loss=-0.0125 value_loss=165302.7969 entropy=0.0027 kl=0.00000 clipfrac=0.000 final_distance_mean=89.139 episode_return_mean=1607.892
+update=5/32 absolute_update=5 steps=327680 episodes=65 policy_loss=-0.0097 value_loss=188650.8750 entropy=0.0020 kl=0.00000 clipfrac=0.000 final_distance_mean=93.491 episode_return_mean=1965.116
+update=6/32 absolute_update=6 steps=393216 episodes=71 policy_loss=0.0051 value_loss=168123.7500 entropy=0.0032 kl=0.00000 clipfrac=0.000 final_distance_mean=90.276 episode_return_mean=1722.687
+update=7/32 absolute_update=7 steps=458752 episodes=65 policy_loss=0.0059 value_loss=163175.2969 entropy=0.0026 kl=0.00000 clipfrac=0.000 final_distance_mean=92.188 episode_return_mean=1818.743
+update=8/32 absolute_update=8 steps=524288 episodes=75 policy_loss=-0.0251 value_loss=189692.5781 entropy=0.0024 kl=0.00000 clipfrac=0.000 final_distance_mean=91.437 episode_return_mean=1786.573
+update=9/32 absolute_update=9 steps=589824 episodes=73 policy_loss=0.0011 value_loss=164224.1719 entropy=0.0030 kl=0.00000 clipfrac=0.000 final_distance_mean=88.545 episode_return_mean=1607.617
+update=10/32 absolute_update=10 steps=655360 episodes=76 policy_loss=0.0059 value_loss=159510.2031 entropy=0.0024 kl=0.00000 clipfrac=0.000 final_distance_mean=87.659 episode_return_mean=1571.011
+update=11/32 absolute_update=11 steps=720896 episodes=70 policy_loss=-0.0022 value_loss=183310.1719 entropy=0.0026 kl=0.00000 clipfrac=0.000 final_distance_mean=94.054 episode_return_mean=1889.014
+update=12/32 absolute_update=12 steps=786432 episodes=73 policy_loss=0.0186 value_loss=163295.9844 entropy=0.0027 kl=0.00000 clipfrac=0.000 final_distance_mean=88.747 episode_return_mean=1639.952
+update=13/32 absolute_update=13 steps=851968 episodes=70 policy_loss=-0.0030 value_loss=167805.7188 entropy=0.0028 kl=0.00000 clipfrac=0.000 final_distance_mean=88.177 episode_return_mean=1677.977
+update=14/32 absolute_update=14 steps=917504 episodes=72 policy_loss=-0.0064 value_loss=164166.0000 entropy=0.0022 kl=0.00000 clipfrac=0.000 final_distance_mean=88.029 episode_return_mean=1597.213
+update=15/32 absolute_update=15 steps=983040 episodes=75 policy_loss=0.0238 value_loss=174118.5469 entropy=0.0017 kl=0.00000 clipfrac=0.000 final_distance_mean=91.121 episode_return_mean=1785.847
+update=16/32 absolute_update=16 steps=1048576 episodes=72 policy_loss=0.0140 value_loss=171528.6875 entropy=0.0029 kl=0.00000 clipfrac=0.000 final_distance_mean=89.858 episode_return_mean=1730.244
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_local_critic_warm_20261015_update_000016.pt
+update=17/32 absolute_update=17 steps=1114112 episodes=66 policy_loss=0.0053 value_loss=158488.7188 entropy=0.0025 kl=0.00000 clipfrac=0.000 final_distance_mean=89.102 episode_return_mean=1714.170
+update=18/32 absolute_update=18 steps=1179648 episodes=66 policy_loss=0.0045 value_loss=178950.4375 entropy=0.0020 kl=0.00000 clipfrac=0.000 final_distance_mean=96.794 episode_return_mean=2117.559
+update=19/32 absolute_update=19 steps=1245184 episodes=75 policy_loss=0.0031 value_loss=180437.9375 entropy=0.0019 kl=0.00000 clipfrac=0.000 final_distance_mean=92.720 episode_return_mean=1851.413
+update=20/32 absolute_update=20 steps=1310720 episodes=72 policy_loss=-0.0042 value_loss=186482.6562 entropy=0.0018 kl=0.00000 clipfrac=0.000 final_distance_mean=94.329 episode_return_mean=1965.956
+update=21/32 absolute_update=21 steps=1376256 episodes=71 policy_loss=0.0161 value_loss=177701.1250 entropy=0.0023 kl=0.00000 clipfrac=0.000 final_distance_mean=94.177 episode_return_mean=1961.158
+update=22/32 absolute_update=22 steps=1441792 episodes=67 policy_loss=-0.0098 value_loss=158568.3906 entropy=0.0018 kl=0.00000 clipfrac=0.000 final_distance_mean=91.846 episode_return_mean=1727.459
+update=23/32 absolute_update=23 steps=1507328 episodes=71 policy_loss=-0.0035 value_loss=171617.3125 entropy=0.0017 kl=0.00000 clipfrac=0.000 final_distance_mean=92.411 episode_return_mean=1892.148
+update=24/32 absolute_update=24 steps=1572864 episodes=68 policy_loss=-0.0042 value_loss=167942.3281 entropy=0.0017 kl=0.00000 clipfrac=0.000 final_distance_mean=93.350 episode_return_mean=1875.582
+update=25/32 absolute_update=25 steps=1638400 episodes=69 policy_loss=-0.0199 value_loss=172116.7656 entropy=0.0019 kl=0.00000 clipfrac=0.000 final_distance_mean=92.781 episode_return_mean=1881.081
+update=26/32 absolute_update=26 steps=1703936 episodes=76 policy_loss=-0.0062 value_loss=178266.6406 entropy=0.0020 kl=0.00000 clipfrac=0.000 final_distance_mean=91.400 episode_return_mean=1823.798
+update=27/32 absolute_update=27 steps=1769472 episodes=68 policy_loss=-0.0006 value_loss=179983.8750 entropy=0.0020 kl=0.00000 clipfrac=0.000 final_distance_mean=95.296 episode_return_mean=1981.829
+update=28/32 absolute_update=28 steps=1835008 episodes=74 policy_loss=-0.0061 value_loss=176353.7500 entropy=0.0024 kl=0.00000 clipfrac=0.000 final_distance_mean=91.473 episode_return_mean=1779.930
+update=29/32 absolute_update=29 steps=1900544 episodes=71 policy_loss=0.0029 value_loss=176878.7188 entropy=0.0020 kl=0.00000 clipfrac=0.000 final_distance_mean=91.672 episode_return_mean=1857.826
+update=30/32 absolute_update=30 steps=1966080 episodes=70 policy_loss=-0.0115 value_loss=184227.2344 entropy=0.0021 kl=0.00000 clipfrac=0.000 final_distance_mean=91.496 episode_return_mean=1851.530
+update=31/32 absolute_update=31 steps=2031616 episodes=73 policy_loss=0.0034 value_loss=171535.9688 entropy=0.0019 kl=0.00000 clipfrac=0.000 final_distance_mean=88.808 episode_return_mean=1704.003
+update=32/32 absolute_update=32 steps=2097152 episodes=66 policy_loss=0.0092 value_loss=170866.7500 entropy=0.0018 kl=0.00000 clipfrac=0.000 final_distance_mean=94.618 episode_return_mean=1972.045
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_local_critic_warm_20261015_update_000032.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_local_critic_warm_20261015.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_shadow_local_critic_warm_20261015
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_shadow_local_critic_warm_20261015

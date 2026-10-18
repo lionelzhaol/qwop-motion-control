@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "zero_enable_logits_values_exact": true,
+  "outside_logits_exact": true,
+  "inside_state_residual_matches_linear": true,
+  "strict_compatible_full_restore": true,
+  "legacy_and_bias_only_upgrade_zero_weights": true,
+  "missing_bias_bounds_and_wrong_weight_shapes_rejected": true,
+  "outside_residual_gradients_zero": true,
+  "inside_residual_gradients_finite_nonzero": true,
+  "only_updated_parameters": [
+    "flat_actor_bias",
+    "flat_actor_weight",
+    "critic.weight",
+    "critic.bias"
+  ],
+  "optimizer_parameters": 11,
+  "saved_config_auto_detect_both_flags": true,
+  "verification_files_only": true
+}

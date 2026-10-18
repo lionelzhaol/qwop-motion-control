@@ -1,0 +1,12 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_target43_v38_soft_actor_initial.pt checkpoint_update=10656 global_step=348143616 reset_optimizer=1
+update=1/8 absolute_update=10657 steps=348145664 episodes=0 policy_loss=-0.0105 value_loss=247.8814 entropy=0.5142 kl=0.00066 clipfrac=0.002
+update=2/8 absolute_update=10658 steps=348147712 episodes=0 policy_loss=-0.0011 value_loss=106.3790 entropy=0.5179 kl=0.00033 clipfrac=0.000
+update=3/8 absolute_update=10659 steps=348149760 episodes=0 policy_loss=-0.0210 value_loss=146.7621 entropy=0.4650 kl=0.00074 clipfrac=0.000
+update=4/8 absolute_update=10660 steps=348151808 episodes=0 policy_loss=-0.0088 value_loss=1073.5637 entropy=0.4738 kl=0.00112 clipfrac=0.011
+update=5/8 absolute_update=10661 steps=348153856 episodes=0 policy_loss=-0.0049 value_loss=333.8477 entropy=0.5113 kl=0.00029 clipfrac=0.000
+update=6/8 absolute_update=10662 steps=348155904 episodes=5 policy_loss=0.0290 value_loss=138.0751 entropy=0.4923 kl=0.00030 clipfrac=0.000 final_distance_mean=100.400 episode_return_mean=749.534
+update=7/8 absolute_update=10663 steps=348157952 episodes=3 policy_loss=-0.0115 value_loss=294.6958 entropy=0.5240 kl=0.00068 clipfrac=0.001 final_distance_mean=100.633 episode_return_mean=652.002
+update=8/8 absolute_update=10664 steps=348160000 episodes=0 policy_loss=0.0015 value_loss=32.3547 entropy=0.5391 kl=0.00060 clipfrac=0.001
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_target43_v38_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_target43_v38_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_target43_v38_smoke

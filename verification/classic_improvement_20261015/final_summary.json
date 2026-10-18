@@ -1,0 +1,42 @@
+{
+  "best_native_time_s": 33.03333282470703,
+  "best_frames": 991,
+  "broke_reference": false,
+  "retained_checkpoint_global_step": 18874368,
+  "ppo_training_seconds": 1311.3350351000006,
+  "ppo_new_transitions": 36192256,
+  "task_elapsed_seconds": 2762.984542,
+  "random_search_episodes": 12288,
+  "bounded_trajectory_trials": 54768,
+  "parameter_search_candidates": 8192,
+  "beam_prefix_candidates": 72875,
+  "greedy_native_candidate_files": 35,
+  "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_finetuned_best_20261015.pt",
+  "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_shadow_finetuned_33p03s_20261015.bin",
+  "heldout": {
+    "baseline": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_local_critic_warm_20261015.pt",
+      "checkpoint_sha256": "4a5ba4c4d96aee8f4ea8ba4d1c387151f29bd98023b83816ffb0d71abc8b8ca3",
+      "episodes": 192,
+      "successes": 146,
+      "success_rate": 0.7604166666666666,
+      "successful_mean_time_s": 33.03333282470703,
+      "successful_median_time_s": 33.03333282470703,
+      "best_time_s": 33.03333282470703,
+      "faster_than_reference": 0
+    },
+    "final": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_finetuned_best_20261015.pt",
+      "checkpoint_sha256": "9b5ceff459013fa9e08ff64323c3a83ec5a7543bd234e6ea6c34dcdf00884bcc",
+      "episodes": 192,
+      "successes": 171,
+      "success_rate": 0.890625,
+      "successful_mean_time_s": 33.03333282470703,
+      "successful_median_time_s": 33.03333282470703,
+      "best_time_s": 33.03333282470703,
+      "faster_than_reference": 0
+    }
+  },
+  "reference": "XYF external demonstration, 991 frames",
+  "ended_utc": "2026-10-15T03:43:18.984542+00:00"
+}

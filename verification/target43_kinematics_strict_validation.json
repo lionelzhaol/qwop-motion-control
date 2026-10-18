@@ -1,0 +1,131 @@
+{
+  "records": [
+    {
+      "name": "fast",
+      "evaluation": {
+        "checkpoint": "ppo_target43_kinematics_fast.pt",
+        "update": 10656,
+        "success": true,
+        "native_failed": false,
+        "time_s": 44.93333435058594,
+        "distance_m": 100.0999984741211,
+        "torso_progress_2s_m": 1.0952764892578124,
+        "torso_progress_3s_m": 2.369748229980469,
+        "splits_s": {
+          "0_10": 6.900000095367432,
+          "40_50": 4.0666656494140625,
+          "50_60": 4.866666793823242,
+          "60_70": 4.30000114440918
+        },
+        "hurdle_air_s": 1.4333333333333333,
+        "hurdle_min_speed_mps": 1.6410400390624957,
+        "recovery_2p3_s": 3.5,
+        "pre_hurdle_speed_mps": 2.4800419921874997,
+        "recovery_90pct_s": 2.0666675567626953,
+        "flat_height_std": 0.028929193247847245,
+        "flat_lean_mean_deg": -0.0006003412729483213,
+        "flat_lean_abs_error5_deg": 5.275514678135981,
+        "low_posture_fraction": 0.0
+      },
+      "source_model_unchanged": true,
+      "best_nonidentity_candidate": {
+        "candidate_index": 3,
+        "steps": 1417,
+        "start_action": null,
+        "start_frames": 0,
+        "start_first_frames": 0,
+        "start_second_action": null,
+        "factor": 1.0,
+        "vertical_factor": 1.100000023841858,
+        "bias_delta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "success": true,
+        "time": 47.233333587646484,
+        "distance": 100.0999984741211,
+        "low_posture_fraction": 0.0,
+        "backward_fraction": 0.004735595895816891
+      },
+      "optimizer_state_count": 0
+    },
+    {
+      "name": "ppo",
+      "evaluation": {
+        "checkpoint": "ppo_target43_kinematics_ppo.pt",
+        "update": 11472,
+        "success": true,
+        "native_failed": false,
+        "time_s": 45.400001525878906,
+        "distance_m": 100.30000305175781,
+        "torso_progress_2s_m": 1.0952764892578124,
+        "torso_progress_3s_m": 2.369748229980469,
+        "splits_s": {
+          "0_10": 6.933333396911621,
+          "40_50": 4.166667938232422,
+          "50_60": 4.533332824707031,
+          "60_70": 4.166667938232422
+        },
+        "hurdle_air_s": 0.5,
+        "hurdle_min_speed_mps": 1.8931640625000057,
+        "recovery_2p3_s": 0.20000076293945312,
+        "pre_hurdle_speed_mps": 2.396760292658732,
+        "recovery_90pct_s": 0.0,
+        "flat_height_std": 0.02869073796326145,
+        "flat_lean_mean_deg": -0.0520030465466143,
+        "flat_lean_abs_error5_deg": 5.521195070092947,
+        "low_posture_fraction": 0.0
+      },
+      "source_model_unchanged": true,
+      "best_nonidentity_candidate": {
+        "candidate_index": 2,
+        "steps": 1478,
+        "start_action": null,
+        "start_frames": 0,
+        "start_first_frames": 0,
+        "start_second_action": null,
+        "factor": 1.0,
+        "vertical_factor": 0.8500000238418579,
+        "bias_delta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "success": true,
+        "time": 49.266666412353516,
+        "distance": 100.5,
+        "low_posture_fraction": 0.0,
+        "backward_fraction": 0.0
+      },
+      "optimizer_state_count": 0
+    }
+  ],
+  "validation_elapsed_seconds": 3.6647512999988976
+}

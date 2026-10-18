@@ -1,0 +1,2 @@
+episode=1 steps=1421 score=100.400 distance=100.400 time=47.367 success=1
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\classic_100m_target45_47p37.bin steps=1421 score=100.400 distance=100.400 time=47.367 success=1 device=cuda

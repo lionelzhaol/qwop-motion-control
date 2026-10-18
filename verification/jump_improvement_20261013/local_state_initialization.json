@@ -1,0 +1,10 @@
+{
+  "initial": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_local_state_initial_20261013.pt",
+  "configs": {
+    "smoke": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_long_jump_local_state_smoke_20261013.json",
+    "critic_warm": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_long_jump_local_state_critic_warm_20261013.json",
+    "v6": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_long_jump_local_state_v6_20261013.json"
+  },
+  "native_distance_m": 2.588183641433716,
+  "source_preserved": true
+}

@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "replay": "long_jump_shadow_ppo_deterministic_2p59m.bin",
+      "final_jump_m": 2.588183641433716,
+      "frames": 472,
+      "old_reward": 46.097361670807004,
+      "new_reward": 118.01804679073393,
+      "discounted_shaping_sum": -5.5067062021407764e-14,
+      "native_discounted_shaping_sum": 5.432500482172031e-05,
+      "score_drop_frames": 0,
+      "native_trajectory_identical": true,
+      "reset_state_verified": true
+    },
+    {
+      "replay": "long_jump_shadow_ppo_sampled_best_3p16m.bin",
+      "final_jump_m": 3.1607298851013184,
+      "frames": 529,
+      "old_reward": 48.6435083700344,
+      "new_reward": 139.30962317623198,
+      "discounted_shaping_sum": -1.2789769243681803e-13,
+      "native_discounted_shaping_sum": 8.968629183314647e-06,
+      "score_drop_frames": 0,
+      "native_trajectory_identical": true,
+      "reset_state_verified": true
+    },
+    {
+      "replay": "long_jump_ppo_sampled_best.bin",
+      "final_jump_m": 2.802299737930298,
+      "frames": 611,
+      "old_reward": 46.97506087273359,
+      "new_reward": 126.12341254390776,
+      "discounted_shaping_sum": -5.1514348342607263e-14,
+      "native_discounted_shaping_sum": -2.624872870349293e-05,
+      "score_drop_frames": 1,
+      "native_trajectory_identical": true,
+      "reset_state_verified": true
+    },
+    {
+      "constant_action": 0,
+      "success": false,
+      "truncated": true,
+      "total_reward": -30.0
+    },
+    {
+      "constant_action": 1,
+      "success": false,
+      "truncated": true,
+      "total_reward": -29.85999999754131
+    },
+    {
+      "constant_action": 5,
+      "success": false,
+      "truncated": true,
+      "total_reward": -30.0
+    },
+    {
+      "constant_action": 10,
+      "success": false,
+      "truncated": true,
+      "total_reward": -29.980000000447035
+    }
+  ],
+  "formula": "F=.999*Phi(next)-Phi(previous), Phi=8*official jump; terminal Phi=0",
+  "discount": 0.999,
+  "original_rules_unchanged": true
+}

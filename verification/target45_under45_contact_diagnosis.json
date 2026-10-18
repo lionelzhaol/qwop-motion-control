@@ -1,0 +1,18 @@
+{
+  "time": 44.96666717529297,
+  "airborne_confirmation_frames": 3,
+  "thresholds": {
+    "1": {
+      "alternating_landings": 35,
+      "per_second_after5": 0.8757297636675765
+    },
+    "2": {
+      "alternating_landings": 39,
+      "per_second_after5": 0.9758131652295853
+    },
+    "3": {
+      "alternating_landings": 39,
+      "per_second_after5": 0.9758131652295853
+    }
+  }
+}

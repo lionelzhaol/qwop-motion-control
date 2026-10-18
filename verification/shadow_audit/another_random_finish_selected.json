@@ -1,0 +1,411 @@
+{
+  "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\bc_classic100m_shadow.pt",
+  "checkpoint_sha256": "a605b173ec7befe1024538f2e4a728be5ae22ffb7b6d9ae4dd2f22c73b914491",
+  "model_weights_changed": false,
+  "method": "Observation-conditioned unchanged policy, Categorical(logits / temperature); bounded search excluding 991 and 994 frame finishes",
+  "selected": {
+    "temperature": 0.5,
+    "seed": 202610204,
+    "batch_episodes": 512,
+    "episode_index": 30,
+    "frames": 995,
+    "time_s": 33.16666793823242,
+    "distance_m": 100.19999694824219,
+    "low_torso_fraction": 0.012060301507537688
+  },
+  "search_batches": [
+    {
+      "batch": 0,
+      "temperature": 0.25,
+      "seed": 202610200,
+      "episodes": 512,
+      "successes": 324,
+      "nonduplicate_successes": 2,
+      "qualified_nonduplicate_successes": 2,
+      "nonduplicate_times_s": [
+        34.33333206176758,
+        36.56666564941406
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.25,
+        "seed": 202610200,
+        "batch_episodes": 512,
+        "episode_index": 285,
+        "frames": 1030,
+        "time_s": 34.33333206176758,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.0
+      }
+    },
+    {
+      "batch": 1,
+      "temperature": 0.35,
+      "seed": 202610201,
+      "episodes": 512,
+      "successes": 170,
+      "nonduplicate_successes": 5,
+      "qualified_nonduplicate_successes": 5,
+      "nonduplicate_times_s": [
+        33.233333587646484,
+        33.33333206176758,
+        33.733333587646484,
+        34.233333587646484,
+        34.46666717529297
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.35,
+        "seed": 202610201,
+        "batch_episodes": 512,
+        "episode_index": 70,
+        "frames": 997,
+        "time_s": 33.233333587646484,
+        "distance_m": 100.30000305175781,
+        "low_torso_fraction": 0.017051153460381142
+      }
+    },
+    {
+      "batch": 2,
+      "temperature": 0.4,
+      "seed": 202610202,
+      "episodes": 512,
+      "successes": 107,
+      "nonduplicate_successes": 2,
+      "qualified_nonduplicate_successes": 2,
+      "nonduplicate_times_s": [
+        33.33333206176758,
+        34.63333511352539
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.35,
+        "seed": 202610201,
+        "batch_episodes": 512,
+        "episode_index": 70,
+        "frames": 997,
+        "time_s": 33.233333587646484,
+        "distance_m": 100.30000305175781,
+        "low_torso_fraction": 0.017051153460381142
+      }
+    },
+    {
+      "batch": 3,
+      "temperature": 0.45,
+      "seed": 202610203,
+      "episodes": 512,
+      "successes": 84,
+      "nonduplicate_successes": 6,
+      "qualified_nonduplicate_successes": 6,
+      "nonduplicate_times_s": [
+        33.33333206176758,
+        33.599998474121094,
+        34.16666793823242,
+        34.29999923706055,
+        34.66666793823242,
+        38.93333435058594
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.35,
+        "seed": 202610201,
+        "batch_episodes": 512,
+        "episode_index": 70,
+        "frames": 997,
+        "time_s": 33.233333587646484,
+        "distance_m": 100.30000305175781,
+        "low_torso_fraction": 0.017051153460381142
+      }
+    },
+    {
+      "batch": 4,
+      "temperature": 0.5,
+      "seed": 202610204,
+      "episodes": 512,
+      "successes": 47,
+      "nonduplicate_successes": 3,
+      "qualified_nonduplicate_successes": 3,
+      "nonduplicate_times_s": [
+        33.16666793823242,
+        33.79999923706055,
+        34.13333511352539
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 5,
+      "temperature": 0.6,
+      "seed": 202610205,
+      "episodes": 512,
+      "successes": 4,
+      "nonduplicate_successes": 1,
+      "qualified_nonduplicate_successes": 1,
+      "nonduplicate_times_s": [
+        33.46666717529297
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 6,
+      "temperature": 0.65,
+      "seed": 202610206,
+      "episodes": 512,
+      "successes": 1,
+      "nonduplicate_successes": 0,
+      "qualified_nonduplicate_successes": 0,
+      "nonduplicate_times_s": [],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 7,
+      "temperature": 0.3,
+      "seed": 202610207,
+      "episodes": 512,
+      "successes": 238,
+      "nonduplicate_successes": 2,
+      "qualified_nonduplicate_successes": 2,
+      "nonduplicate_times_s": [
+        34.233333587646484,
+        35.233333587646484
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 8,
+      "temperature": 0.375,
+      "seed": 202610208,
+      "episodes": 512,
+      "successes": 141,
+      "nonduplicate_successes": 6,
+      "qualified_nonduplicate_successes": 6,
+      "nonduplicate_times_s": [
+        33.86666488647461,
+        33.93333435058594,
+        33.96666717529297,
+        34.13333511352539,
+        34.29999923706055,
+        34.5
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 9,
+      "temperature": 0.425,
+      "seed": 202610209,
+      "episodes": 512,
+      "successes": 71,
+      "nonduplicate_successes": 3,
+      "qualified_nonduplicate_successes": 3,
+      "nonduplicate_times_s": [
+        33.233333587646484,
+        33.33333206176758,
+        34.16666793823242
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 10,
+      "temperature": 0.475,
+      "seed": 202610210,
+      "episodes": 512,
+      "successes": 47,
+      "nonduplicate_successes": 3,
+      "qualified_nonduplicate_successes": 3,
+      "nonduplicate_times_s": [
+        33.266666412353516,
+        34.400001525878906,
+        34.56666564941406
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 11,
+      "temperature": 0.55,
+      "seed": 202610211,
+      "episodes": 512,
+      "successes": 19,
+      "nonduplicate_successes": 1,
+      "qualified_nonduplicate_successes": 1,
+      "nonduplicate_times_s": [
+        35.233333587646484
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 12,
+      "temperature": 0.25,
+      "seed": 202610212,
+      "episodes": 512,
+      "successes": 323,
+      "nonduplicate_successes": 0,
+      "qualified_nonduplicate_successes": 0,
+      "nonduplicate_times_s": [],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 13,
+      "temperature": 0.35,
+      "seed": 202610213,
+      "episodes": 512,
+      "successes": 167,
+      "nonduplicate_successes": 5,
+      "qualified_nonduplicate_successes": 5,
+      "nonduplicate_times_s": [
+        33.53333282470703,
+        33.56666564941406,
+        33.66666793823242,
+        34.53333282470703,
+        34.79999923706055
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 14,
+      "temperature": 0.4,
+      "seed": 202610214,
+      "episodes": 512,
+      "successes": 113,
+      "nonduplicate_successes": 4,
+      "qualified_nonduplicate_successes": 4,
+      "nonduplicate_times_s": [
+        33.16666793823242,
+        33.5,
+        34.56666564941406,
+        34.599998474121094
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    },
+    {
+      "batch": 15,
+      "temperature": 0.45,
+      "seed": 202610215,
+      "episodes": 512,
+      "successes": 58,
+      "nonduplicate_successes": 2,
+      "qualified_nonduplicate_successes": 2,
+      "nonduplicate_times_s": [
+        34.099998474121094,
+        36.53333282470703
+      ],
+      "selected_best_so_far": {
+        "temperature": 0.5,
+        "seed": 202610204,
+        "batch_episodes": 512,
+        "episode_index": 30,
+        "frames": 995,
+        "time_s": 33.16666793823242,
+        "distance_m": 100.19999694824219,
+        "low_torso_fraction": 0.012060301507537688
+      }
+    }
+  ],
+  "episodes_tested": 8192,
+  "faster_than_33p03": false,
+  "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic100m_shadow_bc_random_33p17s.bin",
+  "replay_sha256": "1cc2896d01a80235f598c37d63d0764b737b7b09f536192549641de075562706",
+  "replay_crc_valid": true,
+  "native_reexecution": {
+    "score": 100.19999694824219,
+    "distance": 100.19999694824219,
+    "time": 33.16666793823242,
+    "success": true
+  },
+  "elapsed_seconds": 113.87941569999748,
+  "provenance": "Behavior-cloning model trained from public XYF 991-frame expert; selected stochastic rollout, not an independent PPO discovery",
+  "selection_note": "Selected successful trial; not typical performance. Low torso is a proxy, not direct knee contact."
+}

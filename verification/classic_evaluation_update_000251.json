@@ -1,0 +1,594 @@
+{
+  "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_continue_20261008_update_000251.pt",
+  "global_step": 8128000,
+  "update": 251,
+  "seed": 20261008,
+  "device": "cuda",
+  "deterministic": false,
+  "episodes": 64,
+  "successes": 0,
+  "success_rate": 0.0,
+  "distance_mean": 32.37499997019768,
+  "distance_median": 32.35000038146973,
+  "distance_max": 37.099998474121094,
+  "episode_return_mean": 22.076562464237213,
+  "evaluation_seconds": 3.3201110000009066,
+  "episodes_detail": [
+    {
+      "env_index": 0,
+      "steps": 3600,
+      "distance": 35.5,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 25.19999998807907
+    },
+    {
+      "env_index": 1,
+      "steps": 3600,
+      "distance": 34.70000076293945,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 24.400000751018524
+    },
+    {
+      "env_index": 2,
+      "steps": 3600,
+      "distance": 31.5,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.19999998807907
+    },
+    {
+      "env_index": 3,
+      "steps": 3600,
+      "distance": 32.599998474121094,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.299998462200165
+    },
+    {
+      "env_index": 4,
+      "steps": 3600,
+      "distance": 37.099998474121094,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 26.799998462200165
+    },
+    {
+      "env_index": 5,
+      "steps": 3600,
+      "distance": 31.600000381469727,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.300000369548798
+    },
+    {
+      "env_index": 6,
+      "steps": 3600,
+      "distance": 32.099998474121094,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.799998462200165
+    },
+    {
+      "env_index": 7,
+      "steps": 3600,
+      "distance": 31.799999237060547,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.499999225139618
+    },
+    {
+      "env_index": 8,
+      "steps": 3600,
+      "distance": 32.70000076293945,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.400000751018524
+    },
+    {
+      "env_index": 9,
+      "steps": 3600,
+      "distance": 35.900001525878906,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 25.600001513957977
+    },
+    {
+      "env_index": 10,
+      "steps": 3600,
+      "distance": 34.0,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.69999998807907
+    },
+    {
+      "env_index": 11,
+      "steps": 3600,
+      "distance": 30.899999618530273,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.599999606609344
+    },
+    {
+      "env_index": 12,
+      "steps": 3600,
+      "distance": 31.700000762939453,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.400000751018524
+    },
+    {
+      "env_index": 13,
+      "steps": 3600,
+      "distance": 31.399999618530273,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.099999606609344
+    },
+    {
+      "env_index": 14,
+      "steps": 3600,
+      "distance": 32.79999923706055,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.499999225139618
+    },
+    {
+      "env_index": 15,
+      "steps": 3600,
+      "distance": 30.100000381469727,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 19.800000369548798
+    },
+    {
+      "env_index": 16,
+      "steps": 3600,
+      "distance": 32.900001525878906,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.600001513957977
+    },
+    {
+      "env_index": 17,
+      "steps": 3600,
+      "distance": 30.799999237060547,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.499999225139618
+    },
+    {
+      "env_index": 18,
+      "steps": 3600,
+      "distance": 29.200000762939453,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 18.900000751018524
+    },
+    {
+      "env_index": 19,
+      "steps": 3600,
+      "distance": 30.899999618530273,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.599999606609344
+    },
+    {
+      "env_index": 20,
+      "steps": 3600,
+      "distance": 32.400001525878906,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.100001513957977
+    },
+    {
+      "env_index": 21,
+      "steps": 3600,
+      "distance": 32.5,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.19999998807907
+    },
+    {
+      "env_index": 22,
+      "steps": 3600,
+      "distance": 32.5,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.19999998807907
+    },
+    {
+      "env_index": 23,
+      "steps": 3600,
+      "distance": 33.70000076293945,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.400000751018524
+    },
+    {
+      "env_index": 24,
+      "steps": 3600,
+      "distance": 28.100000381469727,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 17.800000369548798
+    },
+    {
+      "env_index": 25,
+      "steps": 3600,
+      "distance": 32.20000076293945,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.900000751018524
+    },
+    {
+      "env_index": 26,
+      "steps": 3600,
+      "distance": 31.200000762939453,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.900000751018524
+    },
+    {
+      "env_index": 27,
+      "steps": 3600,
+      "distance": 31.600000381469727,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.300000369548798
+    },
+    {
+      "env_index": 28,
+      "steps": 3600,
+      "distance": 34.29999923706055,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.999999225139618
+    },
+    {
+      "env_index": 29,
+      "steps": 3600,
+      "distance": 29.5,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 19.19999998807907
+    },
+    {
+      "env_index": 30,
+      "steps": 3600,
+      "distance": 33.400001525878906,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.100001513957977
+    },
+    {
+      "env_index": 31,
+      "steps": 3600,
+      "distance": 33.099998474121094,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.799998462200165
+    },
+    {
+      "env_index": 32,
+      "steps": 3600,
+      "distance": 32.400001525878906,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.100001513957977
+    },
+    {
+      "env_index": 33,
+      "steps": 3600,
+      "distance": 31.700000762939453,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.400000751018524
+    },
+    {
+      "env_index": 34,
+      "steps": 3600,
+      "distance": 33.599998474121094,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.299998462200165
+    },
+    {
+      "env_index": 35,
+      "steps": 3600,
+      "distance": 33.79999923706055,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.499999225139618
+    },
+    {
+      "env_index": 36,
+      "steps": 3600,
+      "distance": 34.599998474121094,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 24.299998462200165
+    },
+    {
+      "env_index": 37,
+      "steps": 3600,
+      "distance": 32.29999923706055,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.999999225139618
+    },
+    {
+      "env_index": 38,
+      "steps": 3600,
+      "distance": 32.79999923706055,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.499999225139618
+    },
+    {
+      "env_index": 39,
+      "steps": 3600,
+      "distance": 31.600000381469727,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.300000369548798
+    },
+    {
+      "env_index": 40,
+      "steps": 3600,
+      "distance": 31.100000381469727,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.800000369548798
+    },
+    {
+      "env_index": 41,
+      "steps": 3600,
+      "distance": 33.400001525878906,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.100001513957977
+    },
+    {
+      "env_index": 42,
+      "steps": 3600,
+      "distance": 31.299999237060547,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.999999225139618
+    },
+    {
+      "env_index": 43,
+      "steps": 3600,
+      "distance": 33.79999923706055,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.499999225139618
+    },
+    {
+      "env_index": 44,
+      "steps": 3600,
+      "distance": 32.5,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.19999998807907
+    },
+    {
+      "env_index": 45,
+      "steps": 3600,
+      "distance": 32.5,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.19999998807907
+    },
+    {
+      "env_index": 46,
+      "steps": 3600,
+      "distance": 34.0,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.69999998807907
+    },
+    {
+      "env_index": 47,
+      "steps": 3600,
+      "distance": 36.400001525878906,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 26.100001513957977
+    },
+    {
+      "env_index": 48,
+      "steps": 3600,
+      "distance": 31.799999237060547,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.499999225139618
+    },
+    {
+      "env_index": 49,
+      "steps": 3600,
+      "distance": 31.200000762939453,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.900000751018524
+    },
+    {
+      "env_index": 50,
+      "steps": 3600,
+      "distance": 31.200000762939453,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.900000751018524
+    },
+    {
+      "env_index": 51,
+      "steps": 3600,
+      "distance": 31.799999237060547,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.499999225139618
+    },
+    {
+      "env_index": 52,
+      "steps": 3600,
+      "distance": 31.100000381469727,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.800000369548798
+    },
+    {
+      "env_index": 53,
+      "steps": 3600,
+      "distance": 32.20000076293945,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.900000751018524
+    },
+    {
+      "env_index": 54,
+      "steps": 3600,
+      "distance": 33.099998474121094,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.799998462200165
+    },
+    {
+      "env_index": 55,
+      "steps": 3600,
+      "distance": 33.5,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 23.19999998807907
+    },
+    {
+      "env_index": 56,
+      "steps": 3600,
+      "distance": 29.399999618530273,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 19.099999606609344
+    },
+    {
+      "env_index": 57,
+      "steps": 3600,
+      "distance": 31.0,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.69999998807907
+    },
+    {
+      "env_index": 58,
+      "steps": 3600,
+      "distance": 31.799999237060547,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 21.599999606609344
+    },
+    {
+      "env_index": 59,
+      "steps": 3600,
+      "distance": 30.799999237060547,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 20.499999225139618
+    },
+    {
+      "env_index": 60,
+      "steps": 3600,
+      "distance": 34.79999923706055,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 24.499999225139618
+    },
+    {
+      "env_index": 61,
+      "steps": 3600,
+      "distance": 29.799999237060547,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 19.499999225139618
+    },
+    {
+      "env_index": 62,
+      "steps": 3600,
+      "distance": 32.79999923706055,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.499999225139618
+    },
+    {
+      "env_index": 63,
+      "steps": 3600,
+      "distance": 33.20000076293945,
+      "time": 120.0,
+      "success": false,
+      "truncated": true,
+      "episode_return": 22.900000751018524
+    }
+  ]
+}

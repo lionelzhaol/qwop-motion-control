@@ -1,0 +1,42 @@
+{
+  "reference": {
+    "classic_100m": {
+      "reward": 1450.9540146010695,
+      "native_success": true,
+      "time_s": 33.03333282470703,
+      "speed_bonus_eligible_fraction": 0.18970736629667004,
+      "lean_mean_degrees": -14.642222603194709,
+      "lean_min": -32.93506622314453,
+      "lean_max": 28.466415405273438
+    },
+    "classic_100m_task": {
+      "reward": 2300.666887655854,
+      "native_success": true,
+      "time_s": 33.03333282470703,
+      "speed_bonus_eligible_fraction": 0.18970736629667004,
+      "lean_mean_degrees": -14.642222603194709,
+      "lean_min": -32.93506622314453,
+      "lean_max": 28.466415405273438
+    }
+  },
+  "baseline": {
+    "classic_100m": {
+      "reward": 1877.4242071039043,
+      "native_success": true,
+      "time_s": 44.93333435058594,
+      "speed_bonus_eligible_fraction": 0.9918397626112759,
+      "lean_mean_degrees": 1.2818646693603242,
+      "lean_min": -22.628511428833008,
+      "lean_max": 20.044435501098633
+    },
+    "classic_100m_task": {
+      "reward": 2055.7998946905136,
+      "native_success": true,
+      "time_s": 44.93333435058594,
+      "speed_bonus_eligible_fraction": 0.9918397626112759,
+      "lean_mean_degrees": 1.2818646693603242,
+      "lean_min": -22.628511428833008,
+      "lean_max": 20.044435501098633
+    }
+  }
+}

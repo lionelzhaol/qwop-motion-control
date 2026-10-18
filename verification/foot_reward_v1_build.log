@@ -1,0 +1,25 @@
++ "E:\Program Files\CMake\bin\cmake.EXE" -S E:\Work\强化学习小项目\QWOP_rl_training_public -B E:\Work\强化学习小项目\QWOP_rl_training_public\build -DPython3_EXECUTABLE=E:\Work\强化学习小项目\QWOP_rl_training_public\.venv\Scripts\python.exe
+-- pybind11 v3.0.4 
+-- Configuring done (0.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: E:/Work/强化学习小项目/QWOP_rl_training_public/build
++ "E:\Program Files\CMake\bin\cmake.EXE" --build E:\Work\强化学习小项目\QWOP_rl_training_public\build --config Release
+适用于 .NET Framework MSBuild 版本 17.14.60+43b635718
+
+  1>Checking Build System
+  Building Custom Rule E:/Work/强化学习小项目/QWOP_rl_training_public/CMakeLists.txt
+  reward_profiles.cpp
+  training_env.cpp
+  正在生成代码...
+  running_training_core.vcxproj -> E:\Work\强化学习小项目\QWOP_rl_training_public\build\Release\running_training_core.lib
+  Building Custom Rule E:/Work/强化学习小项目/QWOP_rl_training_public/CMakeLists.txt
+  python_module.cpp
+    正在创建库 E:/Work/强化学习小项目/QWOP_rl_training_public/build/Release/_running_env.lib 和对象 E:/Work/强化学习小项目/QWOP_rl_training_public/build/Release/_running_env.exp
+  正在生成代码
+  已完成代码的生成
+  _running_env.vcxproj -> E:\Work\强化学习小项目\QWOP_rl_training_public\build\Release\_running_env.cp310-win_amd64.pyd
+  Building Custom Rule E:/Work/强化学习小项目/QWOP_rl_training_public/CMakeLists.txt
++ "E:\Program Files\CMake\bin\cmake.EXE" --install E:\Work\强化学习小项目\QWOP_rl_training_public\build --config Release --prefix E:\Work\强化学习小项目\QWOP_rl_training_public
+-- Installing: E:\Work\强化学习小项目\QWOP_rl_training_public/bin/_running_env.cp310-win_amd64.pyd
+
+Built bin\_running_env.cp310-win_amd64.pyd

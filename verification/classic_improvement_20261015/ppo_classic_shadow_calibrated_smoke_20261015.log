@@ -1,0 +1,8 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_calibrated_initial_20261015.pt checkpoint_update=0 global_step=0 reset_optimizer=1
+update=1/2 absolute_update=1 steps=4096 episodes=4 policy_loss=0.0158 value_loss=7.7084 entropy=0.0097 kl=0.00018 clipfrac=0.002 final_distance_mean=74.225 episode_return_mean=1086.517 imitation_loss=0.00127 imitation_coef=0.00200
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_calibrated_smoke_20261015_update_000001.pt
+update=2/2 absolute_update=2 steps=8192 episodes=4 policy_loss=0.0440 value_loss=6.6943 entropy=0.0041 kl=0.00001 clipfrac=0.000 final_distance_mean=75.600 episode_return_mean=1087.025 imitation_loss=0.00033 imitation_coef=0.00020
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_calibrated_smoke_20261015_update_000002.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_shadow_calibrated_smoke_20261015.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_shadow_calibrated_smoke_20261015
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_shadow_calibrated_smoke_20261015

@@ -1,0 +1,23 @@
+episode=1 new_best steps=386 score=29.300 distance=29.300 time=12.867 success=0
+episode=2 new_best steps=405 score=29.500 distance=29.500 time=13.500 success=0
+episode=3 new_best steps=466 score=2.579 distance=32.579 time=15.533 success=1
+episode=9 new_best steps=468 score=2.676 distance=32.676 time=15.600 success=1
+episode=20 new_best steps=475 score=2.802 distance=32.802 time=15.833 success=1
+episode=30 new_best steps=484 score=3.627 distance=33.627 time=16.133 success=1
+episode=31 new_best steps=487 score=3.892 distance=33.892 time=16.233 success=1
+episode=32 new_best steps=491 score=4.078 distance=34.078 time=16.367 success=1
+episode=35 new_best steps=492 score=4.081 distance=34.081 time=16.400 success=1
+episode=36 new_best steps=493 score=4.118 distance=34.118 time=16.433 success=1
+episode=43 new_best steps=495 score=4.127 distance=34.127 time=16.500 success=1
+episode=245 new_best steps=489 score=4.127 distance=34.127 time=16.300 success=1
+progress=256/2048 successes=233
+progress=513/2048 successes=431
+episode=672 new_best steps=493 score=4.130 distance=34.130 time=16.433 success=1
+progress=769/2048 successes=655
+progress=1025/2048 successes=853
+progress=1281/2048 successes=1057
+episode=1342 new_best steps=492 score=4.130 distance=34.130 time=16.400 success=1
+progress=1537/2048 successes=1262
+episode=1657 new_best steps=494 score=4.130 distance=34.130 time=16.467 success=1
+progress=1793/2048 successes=1465
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\long_jump_distance_elite_sampled_best_20261013.bin episodes=2048 successes=1675 steps=494 score=4.130 distance=34.130 time=16.467 success=1 device=cpu

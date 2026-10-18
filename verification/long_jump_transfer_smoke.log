@@ -1,0 +1,8 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_transfer_initial.pt checkpoint_update=0 global_step=0 reset_optimizer=1
+update=1/4 absolute_update=1 steps=2048 episodes=0 policy_loss=-0.0006 value_loss=22.9445 entropy=0.7178 kl=0.08457 clipfrac=0.000
+update=2/4 absolute_update=2 steps=4096 episodes=0 policy_loss=-0.0367 value_loss=0.8663 entropy=0.2064 kl=0.01657 clipfrac=0.000
+update=3/4 absolute_update=3 steps=6144 episodes=4 policy_loss=0.0257 value_loss=1.4646 entropy=0.3068 kl=0.02063 clipfrac=0.074 final_distance_mean=30.123 episode_return_mean=31.771
+update=4/4 absolute_update=4 steps=8192 episodes=0 policy_loss=0.0023 value_loss=17.0521 entropy=0.6749 kl=0.01751 clipfrac=0.084
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_transfer_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_long_jump_transfer_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_long_jump_transfer_smoke

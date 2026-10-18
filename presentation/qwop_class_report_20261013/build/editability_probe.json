@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "method": "copy PPTX -> mutate one native a:t text object -> reopen ZIP/XML -> verify replacement",
+  "search": "系统架构与训练闭环",
+  "replacement": "系统架构与训练闭环（校验副本）",
+  "changed_slide_part": "ppt/slides/slide3.xml",
+  "replacement_count": 1,
+  "probe_package_valid": true,
+  "probe_file_retained": false,
+  "original_unchanged": true,
+  "original_sha256": "8d07f05eec550b5598ffd8c70be679538ad8610a8b66051d95731294fe3e1043",
+  "probe_sha256": "dbd1b23ebf2f79c7a13ff32b546f2912553709fca9fdcc8f34f9dd62ec826922"
+}

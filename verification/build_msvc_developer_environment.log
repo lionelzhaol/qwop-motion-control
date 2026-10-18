@@ -1,0 +1,51 @@
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.41
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+-- The CXX compiler identification is MSVC 19.44.35229.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - failed
+-- Check for working CXX compiler: E:/Work/强化学习小项目/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe
+-- Check for working CXX compiler: E:/Work/强化学习小项目/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - broken
+CMake Error at E:/Work/强化学习小项目/.tools/cmake-3.31.10-windows-x86_64/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:73 (message):
+  The C++ compiler
+
+    "E:/Work/强化学习小项目/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: 'E:/Work/强化学习小项目/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-4rkf4j'
+    
+    Run Build Command(s): E:/Work/强化学习小项目/.tools/cmake-3.31.10-windows-x86_64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_7e9f1\fast
+    	E:\Work\强化学习小项目\.tools\BuildTools2022\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64\nmake.exe  -f CMakeFiles\cmTC_7e9f1.dir\build.make /nologo -L                  CMakeFiles\cmTC_7e9f1.dir\build
+    Building CXX object CMakeFiles/cmTC_7e9f1.dir/testCXXCompiler.cxx.obj
+    	E:\Work\强化学习小项目\.tools\cmake-3.31.10-windows-x86_64\bin\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_7e9f1.dir\testCXXCompiler.cxx.obj.d --working-dir=E:\Work\强化学习小项目\QWOP_rl_training_public\build\CMakeFiles\CMakeScratch\TryCompile-4rkf4j --filter-prefix="娉ㄦ剰: 鍖呭惈鏂囦欢:  " -- E:\Work\强化学习小项目\.tools\BuildTools2022\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe @E:\Work\强化学习小项目\.tmp\nmE75F.tmp
+    testCXXCompiler.cxx
+    Linking CXX executable cmTC_7e9f1.exe
+    	E:\Work\强化学习小项目\.tools\cmake-3.31.10-windows-x86_64\bin\cmake.exe -E vs_link_exe --msvc-ver=1944 --intdir=CMakeFiles\cmTC_7e9f1.dir --rc="C:\PROGRA~2\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="C:\PROGRA~2\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests -- E:\Work\强化学习小项目\.tools\BuildTools2022\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_7e9f1.dir\objects1.rsp @E:\Work\强化学习小项目\.tmp\nmE7AE.tmp
+    Visual Studio Incremental Link with embedded manifests
+    Create CMakeFiles\cmTC_7e9f1.dir/manifest.rc
+    Create empty: CMakeFiles\cmTC_7e9f1.dir/embed.manifest
+    RC Pass 1:
+    C:\PROGRA~2\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe /fo CMakeFiles\cmTC_7e9f1.dir/manifest.res CMakeFiles\cmTC_7e9f1.dir/manifest.rc
+    LINK Pass 1:
+    E:\Work\强化学习小项目\.tools\BuildTools2022\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_7e9f1.dir\objects1.rsp /out:cmTC_7e9f1.exe /implib:cmTC_7e9f1.lib /pdb:E:\Work\?????С???\QWOP_rl_training_public\build\CMakeFiles\CMakeScratch\TryCompile-4rkf4j\cmTC_7e9f1.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_7e9f1.dir/intermediate.manifest CMakeFiles\cmTC_7e9f1.dir/manifest.res
+    LINK Pass 1: command "E:\Work\强化学习小项目\.tools\BuildTools2022\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_7e9f1.dir\objects1.rsp /out:cmTC_7e9f1.exe /implib:cmTC_7e9f1.lib /pdb:E:\Work\?????С???\QWOP_rl_training_public\build\CMakeFiles\CMakeScratch\TryCompile-4rkf4j\cmTC_7e9f1.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_7e9f1.dir/intermediate.manifest CMakeFiles\cmTC_7e9f1.dir/manifest.res" failed (exit code 1201) with the following output:
+    LINK : fatal error LNK1201: 鍐欏叆绋嬪簭鏁版嵁搴撯€淓:\Work\强锟斤拷学习小锟斤拷目\QWOP_rl_training_public\build\CMakeFiles\CMakeScratch\TryCompile-4rkf4j\cmTC_7e9f1.pdb鈥濇椂鍑洪敊锛涜妫€鏌ユ槸鍚︽槸纾佺洏绌洪棿涓嶈冻銆佽矾寰勬棤鏁堟垨鏉冮檺涓嶅
+    NMAKE : fatal error U1077: “E:\Work\强化学习小项目\.tools\cmake-3.31.10-windows-x86_64\bin\cmake.exe -E vs_link_exe --msvc-ver=1944 --intdir=CMakeFiles\cmTC_7e9f1.dir --rc="C:\PROGRA~2\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="C:\PROGRA~2\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests -- E:\Work\强化学习小项目\.tools\BuildTools2022\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_7e9f1.dir\objects1.rsp @E:\Work\强化学习小项目\.tmp\nmE7AE.tmp”: 返回代码“0xffffffff”
+    Stop.
+    NMAKE : fatal error U1077: “E:\Work\强化学习小项目\.tools\BuildTools2022\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64\nmake.exe  -f CMakeFiles\cmTC_7e9f1.dir\build.make /nologo -L                  CMakeFiles\cmTC_7e9f1.dir\build”: 返回代码“0x2”
+    Stop.
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:3 (project)
+
+

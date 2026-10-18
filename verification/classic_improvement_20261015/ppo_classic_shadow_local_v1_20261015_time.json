@@ -1,0 +1,10 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_shadow_local_v1_20261015.json",
+  "returncode": 0,
+  "elapsed_seconds": 571.8363592000001,
+  "started_utc": "2026-10-15T03:07:33.497828+00:00",
+  "ended_utc": "2026-10-15T03:17:05.334337+00:00",
+  "updates": 128,
+  "new_transitions": 16777216,
+  "finite_losses": true
+}

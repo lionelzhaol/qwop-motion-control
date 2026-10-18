@@ -1,0 +1,12 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/x14gpg","index":4,"layout":{"id":"ly/at83qp8z","name":"Blank"},"backgroundColor":"rgba(250,251,252,1)","position":{"left":0,"top":0,"width":1280,"height":720}},
+"elements":[
+{"id":"sh/bqxw3e5w","kind":"textbox","name":"slide-title","position":{"left":72,"top":54,"width":1136,"height":88},"text":"基线：链路跑通，运动策略仍低效","style":{"fontSize":42,"typeface":"Microsoft YaHei","color":"#16243A","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/cr6xcjmh","kind":"textbox","name":"page-number","position":{"left":1185,"top":671,"width":45,"height":26},"text":"05","style":{"fontSize":18,"typeface":"Microsoft YaHei","color":"#556578","alignment":"right"},"geometry":"rect","lineWidth":0},
+{"id":"sh/xsze5onm","kind":"textbox","name":"text-3","position":{"left":72,"top":181,"width":400,"height":100},"text":"0 / 64","style":{"fontSize":76,"typeface":"Microsoft YaHei","color":"#225B85","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/yt8fet47","kind":"textbox","name":"text-4","position":{"left":74,"top":286,"width":405,"height":50},"text":"原奖励随机评测通关数","style":{"fontSize":25,"typeface":"Microsoft YaHei","color":"#556578","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/zuhw7y5s","kind":"textbox","name":"text-5","position":{"left":72,"top":386,"width":419,"height":91},"text":"低姿态前进、输入尺度失效\n促使我们调整奖励与观测","style":{"fontSize":27,"typeface":"Microsoft YaHei","color":"#16243A","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/kvqxg3md","kind":"textbox","name":"text-6","position":{"left":72,"top":520,"width":419,"height":90},"text":"v3：38 / 64 通关\n确定性用时 75.27 秒","style":{"fontSize":28,"typeface":"Microsoft YaHei","color":"#078578","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/lwzy98ny","kind":"textbox","name":"text-7","position":{"left":533,"top":175,"width":663,"height":43},"text":"v3 单版本回合回报曲线","style":{"fontSize":27,"typeface":"Microsoft YaHei","color":"#16243A","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"ch/e18761w7","kind":"chart","position":{"left":520,"top":242,"width":692,"height":350},"chartType":"scatter"},
+{"id":"sh/7ihgby54","kind":"textbox","name":"text-8","position":{"left":533,"top":623,"width":675,"height":32},"text":"同一奖励版本，20点滚动均值；跨版本回报不可直接比较","style":{"fontSize":18,"typeface":"Microsoft YaHei","color":"#556578","alignment":"left"},"geometry":"rect","lineWidth":0}
+]}

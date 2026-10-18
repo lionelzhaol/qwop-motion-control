@@ -1,0 +1,19 @@
+{
+  "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\long_jump_distance_elite_best_20261013.pt",
+  "checkpoint_sha256": "4a7178d6c97e26c8674f52ccf0d8aa7d31e845915267deced2dedf7f9498cd37",
+  "output": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\long_jump_distance_elite_sampled_best_20261013.bin",
+  "replay_sha256": "33f1339219862dda53f81e77ae6c73f0cd195e612455ba602784aa646078f732",
+  "seed": 2026101331,
+  "episodes_searched": 2048,
+  "device": "cpu",
+  "elapsed_seconds": 47.33230670000012,
+  "started_utc": "2026-10-13T07:25:40.980819+00:00",
+  "ended_utc": "2026-10-13T07:26:28.359757+00:00",
+  "log": "E:\\Work\\强化学习小项目\\verification\\jump_improvement_20261013\\long_jump_distance_elite_sampled_best_20261013_search.log",
+  "frames": 494,
+  "official_jump_m": 4.130292892456055,
+  "native_success": true,
+  "final_time_s": 16.46666717529297,
+  "native_rules": "long_jump_30m",
+  "replay_reexecution_verified": true
+}

@@ -1,0 +1,45 @@
+{
+  "distance": 100.19999694824219,
+  "time": 65.63333129882812,
+  "speed_after_5_seconds_percentiles_10_50_90": [
+    1.4999713898796467,
+    1.500004768398867,
+    2.0
+  ],
+  "torso_velocity_raw_percentiles_10_50_90": [
+    11.249225234985351,
+    13.398510932922363,
+    15.03066177368164
+  ],
+  "segments": [
+    {
+      "game_seconds": [
+        0,
+        10
+      ],
+      "speed_m_per_second": 1.2140468374834594
+    },
+    {
+      "game_seconds": [
+        10,
+        30
+      ],
+      "speed_m_per_second": 1.6627711858027543
+    },
+    {
+      "game_seconds": [
+        30,
+        50
+      ],
+      "speed_m_per_second": 1.4874793232587118
+    },
+    {
+      "game_seconds": [
+        50,
+        80
+      ],
+      "speed_m_per_second": 1.6217947369888244
+    }
+  ],
+  "measurement": "distance change over 6 frames (0.2 game seconds); avoids undocumented velocity units"
+}

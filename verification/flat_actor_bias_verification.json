@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "default_no_new_state_keys": true,
+  "default_and_zero_enable_logits_exact": true,
+  "gate_scores": [
+    0.0,
+    9.989999771118164,
+    10.0,
+    44.9900016784668,
+    45.0,
+    64.98999786376953,
+    65.0,
+    99.98999786376953,
+    100.0,
+    100.01000213623047
+  ],
+  "gate_results": [
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    false
+  ],
+  "newest_raw_score_used": true,
+  "outside_logits_exact": true,
+  "inside_logits_add_bias_exact": true,
+  "critic_values_unchanged_by_bias": true,
+  "legacy_strict_and_compatible_zero_mapping": true,
+  "new_strict_and_compatible_restore_bias_bounds": true,
+  "missing_bounds_wrong_bias_shape_invalid_bounds_rejected": true,
+  "optimizer_parameter_count": 10,
+  "only_updated_parameters": [
+    "flat_actor_bias",
+    "critic.weight",
+    "critic.bias"
+  ],
+  "saved_config_auto_sync": true,
+  "existing_export_choose_action_works": true,
+  "verification_files_only": true
+}

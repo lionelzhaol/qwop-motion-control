@@ -1,0 +1,11 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_long_jump_local_state_smoke_20261013.json",
+  "returncode": 0,
+  "started_utc": "2026-10-13T07:05:37.575686+00:00",
+  "ended_utc": "2026-10-13T07:05:45.231167+00:00",
+  "elapsed_seconds": 7.655919500000891,
+  "updates_logged": 4,
+  "transitions": 8192,
+  "all_logged_losses_finite": true,
+  "log": "E:\\Work\\强化学习小项目\\verification\\jump_improvement_20261013\\ppo_long_jump_local_state_smoke_20261013.log"
+}

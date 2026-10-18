@@ -1,0 +1,4 @@
+resumed_from=E:\Work\强化学习小项目\verification\separate_critic_probe.pt checkpoint_update=10656 global_step=348143616 reset_optimizer=0
+saved_checkpoint=E:\Work\强化学习小项目\verification\separate_critic_role_resume.pt
+logdir=E:\Work\强化学习小项目\verification\separate_critic_probe_logs\role_resume_zero_updates
+tensorboard_logdir=E:\Work\强化学习小项目\verification\separate_critic_probe_logs\role_resume_zero_updates

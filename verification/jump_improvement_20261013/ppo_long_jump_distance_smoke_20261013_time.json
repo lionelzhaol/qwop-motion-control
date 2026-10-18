@@ -1,0 +1,11 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_long_jump_distance_smoke_20261013.json",
+  "returncode": 0,
+  "started_utc": "2026-10-13T06:45:44.364837+00:00",
+  "ended_utc": "2026-10-13T06:45:52.392505+00:00",
+  "elapsed_seconds": 8.02761989999999,
+  "updates_logged": 4,
+  "transitions": 8192,
+  "all_logged_losses_finite": true,
+  "log": "E:\\Work\\强化学习小项目\\verification\\jump_improvement_20261013\\ppo_long_jump_distance_smoke_20261013.log"
+}

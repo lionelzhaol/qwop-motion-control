@@ -1,0 +1,46 @@
+{
+  "reference_replay": "..\\verification\\shadow_audit\\classic_top_reference.bin",
+  "reference_sha256": "a5b04f529e6c062e9899d5d8fd2740943a07f1f2a50ecec09c572a4d64f936f3",
+  "source_checkpoint": "checkpoints\\ppo_classic100m_phase_fast.pt",
+  "expert_frames": 991,
+  "expert_native_time_s": 33.03333282470703,
+  "labels": "Physically equivalent canonical Q/W/O/P masks, verified on every expert frame",
+  "training": "Observation-conditioned behavioral cloning; no replay controller at inference",
+  "critic_note": "Copied source critic kept separate; recalibrate before PPO fine-tuning",
+  "output": "checkpoints\\ppo_shadow_imitation_smoke.pt",
+  "dataset_shape": [
+    991,
+    2176
+  ],
+  "selected": {
+    "epoch": 1,
+    "expert_action_accuracy": 0.43693238496780396,
+    "cross_entropy": 3.5720818042755127,
+    "success": true,
+    "time_s": 63.56666564941406,
+    "distance_m": 100.30000305175781,
+    "low_torso_fraction": 0.005243838489774515
+  },
+  "evaluations": [
+    {
+      "epoch": 1,
+      "expert_action_accuracy": 0.43693238496780396,
+      "cross_entropy": 3.5720818042755127,
+      "success": true,
+      "time_s": 63.56666564941406,
+      "distance_m": 100.30000305175781,
+      "low_torso_fraction": 0.005243838489774515
+    },
+    {
+      "epoch": 2,
+      "expert_action_accuracy": 0.4742684066295624,
+      "cross_entropy": 2.637122631072998,
+      "success": false,
+      "time_s": 62.53333282470703,
+      "distance_m": 101.0999984741211,
+      "low_torso_fraction": 0.02398720682302772
+    }
+  ],
+  "elapsed_seconds": 4.110268700000233,
+  "seed": 20261010
+}

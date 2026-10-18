@@ -1,0 +1,281 @@
+{
+  "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_self_imitation_v3_20261013.pt",
+  "model_sha256": "05d0dd6182672eddbb564a967f70172b21c6e10e7de826616ad9f498df741904",
+  "cpu_only": true,
+  "exact_canonical_demonstration_actions": true,
+  "all_expert_frames_native_body_positions_equal": true,
+  "forward_observation_calls": 519,
+  "strict_load": true,
+  "all_runup_and_critic_weights_unchanged_from_v2": true,
+  "first25_334_actions_and_positions_equal_old_baseline": true,
+  "closed_loop_model_inference": true,
+  "duplicate_inputs_equal_logits": true,
+  "permuted_batch_equal_actions": true,
+  "reordered_batch_max_fp32_logit_error": 1.5020370483398438e-05,
+  "comparison": {
+    "new_v3": {
+      "official_jump_m": 4.101657867431641,
+      "success": true,
+      "frames": 519,
+      "game_time_s": 17.299999237060547,
+      "first25_s": 11.133333206176758,
+      "first30_s": 12.699999809265137,
+      "feet_off_step": 383,
+      "feet_off_s": 12.766666412353516,
+      "feet_off_vx_mps": 3.417898832684782,
+      "feet_off_vy_up_mps": 0.2842898832684825,
+      "feet_no_contact_s": 1.1,
+      "peak_torso_height_ratio": 1.0957627030675834,
+      "torso_rise_from_feet_off_m": 0.22847259521484373,
+      "torso_airborne_dx_m": 3.3156860351562507,
+      "first_landing_s": 13.866666793823242,
+      "first_landing_torso_x_m": 33.70061279296875,
+      "first_landing_score_m": 4.101657867431641,
+      "landing_score_loss_m": 0.0,
+      "landing_to_exit_s": 3.4333324432373047,
+      "post_landing_low_height_fraction": 0.9038461538461539
+    },
+    "previous_v2": {
+      "official_jump_m": 3.1607298851013184,
+      "success": true,
+      "frames": 529,
+      "game_time_s": 17.633333206176758,
+      "first25_s": 11.133333206176758,
+      "first30_s": 12.699999809265137,
+      "feet_off_step": 383,
+      "feet_off_s": 12.766666412353516,
+      "feet_off_vx_mps": 3.417898832684782,
+      "feet_off_vy_up_mps": 0.2842898832684825,
+      "feet_no_contact_s": 0.8333333333333334,
+      "peak_torso_height_ratio": 1.1126644800221341,
+      "torso_rise_from_feet_off_m": 0.24988925933837883,
+      "torso_airborne_dx_m": 2.4397314453125,
+      "first_landing_s": 13.600000381469727,
+      "first_landing_torso_x_m": 32.8265185546875,
+      "first_landing_score_m": 3.1607298851013184,
+      "landing_score_loss_m": 0.0,
+      "landing_to_exit_s": 4.033332824707031,
+      "post_landing_low_height_fraction": 0.6229508196721312
+    },
+    "baseline_shadow": {
+      "official_jump_m": 2.588183641433716,
+      "success": true,
+      "frames": 472,
+      "game_time_s": 15.733333587646484,
+      "first25_s": 11.133333206176758,
+      "first30_s": 12.699999809265137,
+      "feet_off_step": 383,
+      "feet_off_s": 12.766666412353516,
+      "feet_off_vx_mps": 3.4064728770886594,
+      "feet_off_vy_up_mps": 0.11264033531700611,
+      "feet_no_contact_s": 0.6333333333333333,
+      "peak_torso_height_ratio": 1.0011878192830488,
+      "torso_rise_from_feet_off_m": 0.14740139484405523,
+      "torso_airborne_dx_m": 1.8041821289062483,
+      "first_landing_s": 13.399999618530273,
+      "first_landing_torso_x_m": 32.20294921875,
+      "first_landing_score_m": 2.588183641433716,
+      "landing_score_loss_m": 0.0,
+      "landing_to_exit_s": 2.333333969116211,
+      "post_landing_low_height_fraction": 0.16901408450704225
+    },
+    "sampled_expert": {
+      "official_jump_m": 4.101657867431641,
+      "success": true,
+      "frames": 519,
+      "game_time_s": 17.299999237060547,
+      "first25_s": 11.133333206176758,
+      "first30_s": 12.699999809265137,
+      "feet_off_step": 383,
+      "feet_off_s": 12.766666412353516,
+      "feet_off_vx_mps": 3.417898832684782,
+      "feet_off_vy_up_mps": 0.2842898832684825,
+      "feet_no_contact_s": 1.1,
+      "peak_torso_height_ratio": 1.0957627030675834,
+      "torso_rise_from_feet_off_m": 0.22847259521484373,
+      "torso_airborne_dx_m": 3.3156860351562507,
+      "first_landing_s": 13.866666793823242,
+      "first_landing_torso_x_m": 33.70061279296875,
+      "first_landing_score_m": 4.101657867431641,
+      "landing_score_loss_m": 0.0,
+      "landing_to_exit_s": 3.4333324432373047,
+      "post_landing_low_height_fraction": 0.9038461538461539
+    }
+  },
+  "first_different_action_index": 391,
+  "first_different_native_step": 392,
+  "first_difference": {
+    "v3": {
+      "step": 392,
+      "game_time_s": 13.066666603088379,
+      "action": 5,
+      "torso_x_m": 31.18763671875,
+      "torso_height_ratio": 1.0374066481825936,
+      "left_foot": false,
+      "right_foot": false,
+      "left_foot_xy_m": [
+        31.0712060546875,
+        0.4811585998535156
+      ],
+      "right_foot_xy_m": [
+        32.030068359375,
+        0.18917802810668946
+      ],
+      "long_jump_m": 0.0
+    },
+    "v2": {
+      "step": 392,
+      "game_time_s": 13.066666603088379,
+      "action": 10,
+      "torso_x_m": 31.18173583984375,
+      "torso_height_ratio": 1.043635837705081,
+      "left_foot": false,
+      "right_foot": false,
+      "left_foot_xy_m": [
+        31.089423828125,
+        0.4890764617919922
+      ],
+      "right_foot_xy_m": [
+        32.02153564453125,
+        0.20190439224243165
+      ],
+      "long_jump_m": 0.0
+    }
+  },
+  "action_changes_until_new_landing": [
+    {
+      "step": 392,
+      "game_time_s": 13.066666603088379,
+      "v3_action": 5,
+      "v2_action": 10
+    },
+    {
+      "step": 407,
+      "game_time_s": 13.566666603088379,
+      "v3_action": 0,
+      "v2_action": 8
+    },
+    {
+      "step": 410,
+      "game_time_s": 13.666666984558105,
+      "v3_action": 8,
+      "v2_action": 5
+    },
+    {
+      "step": 411,
+      "game_time_s": 13.699999809265137,
+      "v3_action": 0,
+      "v2_action": 5
+    },
+    {
+      "step": 412,
+      "game_time_s": 13.733333587646484,
+      "v3_action": 0,
+      "v2_action": 5
+    },
+    {
+      "step": 413,
+      "game_time_s": 13.766666412353516,
+      "v3_action": 8,
+      "v2_action": 5
+    },
+    {
+      "step": 414,
+      "game_time_s": 13.800000190734863,
+      "v3_action": 10,
+      "v2_action": 5
+    },
+    {
+      "step": 415,
+      "game_time_s": 13.833333015441895,
+      "v3_action": 10,
+      "v2_action": 1
+    },
+    {
+      "step": 416,
+      "game_time_s": 13.866666793823242,
+      "v3_action": 10,
+      "v2_action": 5
+    }
+  ],
+  "landing_pose": {
+    "v3": {
+      "step": 416,
+      "game_time_s": 13.866666793823242,
+      "action": 10,
+      "torso_x_m": 33.70061279296875,
+      "torso_height_ratio": 0.8647514705276,
+      "left_foot": true,
+      "right_foot": false,
+      "left_foot_xy_m": [
+        34.047666015625,
+        0.8341774749755859
+      ],
+      "right_foot_xy_m": [
+        34.232255859375,
+        0.7885562133789062
+      ],
+      "long_jump_m": 4.101657867431641
+    },
+    "v2": {
+      "step": 408,
+      "game_time_s": 13.600000381469727,
+      "action": 0,
+      "torso_x_m": 32.8265185546875,
+      "torso_height_ratio": 1.024481684660387,
+      "left_foot": false,
+      "right_foot": true,
+      "left_foot_xy_m": [
+        33.5692626953125,
+        0.42240562438964846
+      ],
+      "right_foot_xy_m": [
+        33.147705078125,
+        0.7622726440429688
+      ],
+      "long_jump_m": 3.1607298851013184
+    }
+  },
+  "pose_when_v2_lands": {
+    "v3": {
+      "step": 408,
+      "game_time_s": 13.600000381469727,
+      "action": 0,
+      "torso_x_m": 32.842158203125,
+      "torso_height_ratio": 1.015622856514193,
+      "left_foot": false,
+      "right_foot": false,
+      "left_foot_xy_m": [
+        33.19951416015625,
+        0.6244260787963867
+      ],
+      "right_foot_xy_m": [
+        33.474765625,
+        0.6182535552978515
+      ],
+      "long_jump_m": 0.0
+    },
+    "v2": {
+      "step": 408,
+      "game_time_s": 13.600000381469727,
+      "action": 0,
+      "torso_x_m": 32.8265185546875,
+      "torso_height_ratio": 1.024481684660387,
+      "left_foot": false,
+      "right_foot": true,
+      "left_foot_xy_m": [
+        33.5692626953125,
+        0.42240562438964846
+      ],
+      "right_foot_xy_m": [
+        33.147705078125,
+        0.7622726440429688
+      ],
+      "long_jump_m": 3.1607298851013184
+    }
+  },
+  "score_improvement_m": 0.9409279823303223,
+  "score_improvement_pct": 29.769325963776883,
+  "evaluation_scope": "One original initial state deterministic rollout, not varied-state robustness",
+  "source_checkpoints_and_replay_unchanged": true
+}

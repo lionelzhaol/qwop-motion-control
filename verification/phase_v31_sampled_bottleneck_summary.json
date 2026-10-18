@@ -1,0 +1,81 @@
+{
+  "evaluated": 11,
+  "available_snapshots": 40,
+  "sample_interval_updates": 64,
+  "beat44p9667": [],
+  "best_race": {
+    "checkpoint": "ppo_phase_v31_start_update_010912.pt",
+    "update": 10912,
+    "success": true,
+    "native_failed": false,
+    "time_s": 47.0,
+    "distance_m": 100.5,
+    "torso_progress_2s_m": 1.0952764892578124,
+    "torso_progress_3s_m": 2.369748229980469,
+    "splits_s": {
+      "0_10": 6.933333396911621,
+      "40_50": 4.166666030883789,
+      "50_60": 5.266666412353516,
+      "60_70": 4.766666412353516
+    },
+    "hurdle_air_s": 0.36666666666666664,
+    "hurdle_min_speed_mps": 1.6568115234375114,
+    "recovery_2p3_s": 10.566665649414062,
+    "pre_hurdle_speed_mps": 2.4078399067540324,
+    "recovery_90pct_s": 0.0,
+    "flat_height_std": 0.027636628445210788,
+    "flat_lean_mean_deg": 0.8967610921202306,
+    "flat_lean_abs_error5_deg": 4.703489250266462,
+    "low_posture_fraction": 0.0
+  },
+  "best_start": {
+    "checkpoint": "ppo_phase_v31_start_update_010672.pt",
+    "update": 10672,
+    "success": true,
+    "native_failed": false,
+    "time_s": 48.53333282470703,
+    "distance_m": 100.19999694824219,
+    "torso_progress_2s_m": 1.0952764892578124,
+    "torso_progress_3s_m": 2.369748229980469,
+    "splits_s": {
+      "0_10": 6.900000095367432,
+      "40_50": 4.400001525878906,
+      "50_60": 5.233333587646484,
+      "60_70": 4.69999885559082
+    },
+    "hurdle_air_s": 0.7666666666666667,
+    "hurdle_min_speed_mps": 1.5515869140624972,
+    "recovery_2p3_s": 12.533334732055664,
+    "pre_hurdle_speed_mps": 2.2937040264423083,
+    "recovery_90pct_s": 0.1333332061767578,
+    "flat_height_std": 0.027834319363792458,
+    "flat_lean_mean_deg": 1.5907278166077619,
+    "flat_lean_abs_error5_deg": 4.528288674224503,
+    "low_posture_fraction": 0.0
+  },
+  "best_hurdle_split": {
+    "checkpoint": "ppo_phase_v31_start_update_011104.pt",
+    "update": 11104,
+    "success": true,
+    "native_failed": false,
+    "time_s": 47.46666717529297,
+    "distance_m": 101.69999694824219,
+    "torso_progress_2s_m": 1.0952764892578124,
+    "torso_progress_3s_m": 2.369748229980469,
+    "splits_s": {
+      "0_10": 6.933333396911621,
+      "40_50": 4.233333587646484,
+      "50_60": 4.533332824707031,
+      "60_70": 5.166666030883789
+    },
+    "hurdle_air_s": 0.36666666666666664,
+    "hurdle_min_speed_mps": 1.4753417968749716,
+    "recovery_2p3_s": 2.633333206176758,
+    "pre_hurdle_speed_mps": 2.450639648437499,
+    "recovery_90pct_s": 2.6999988555908203,
+    "flat_height_std": 0.030041350672044102,
+    "flat_lean_mean_deg": -0.35096788067766604,
+    "flat_lean_abs_error5_deg": 5.521337680414189,
+    "low_posture_fraction": 0.0
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v34_credit_calibrated.pt",
+  "checkpoint_sha256_unchanged": "01c5fedfb7e5b9b23fe8c49bc1c7e1cbd3243dd3e761b3e5a8ff43d5bc50312b",
+  "device": "cpu",
+  "seed": 445,
+  "num_envs": 8,
+  "rollout_steps": 512,
+  "gamma": 0.999,
+  "gae_lambda": 0.995,
+  "start_logit_scale": 0.125,
+  "ent_coef": 0.005,
+  "vf_coef": 0.001,
+  "effective_action_entropy": true,
+  "parameters_never_updated": true,
+  "completed_episodes": [
+    {
+      "step": 120,
+      "env": 1,
+      "success": false,
+      "distance": 3.700000047683716,
+      "time": 4.0
+    }
+  ],
+  "raw_advantage_mean": -21.275117874145508,
+  "raw_advantage_std": 57.3267936706543,
+  "gae_return_range": [
+    -30.366317749023438,
+    448.1552429199219
+  ],
+  "rollout_value_range": [
+    208.50132751464844,
+    475.1978454589844
+  ],
+  "full_batch": {
+    "samples": 4096,
+    "policy_loss_including_entropy": -0.0014378674095496535,
+    "weighted_value_loss": 1.8690948486328125,
+    "shared_policy_grad_l2": 1.304365873336792,
+    "shared_value_grad_l2": 15.16476058959961,
+    "shared_value_to_policy_norm_ratio": 11.626155853271484,
+    "shared_policy_value_cosine": -0.0045233522541821,
+    "shared_total_to_policy_cosine": 0.08123716711997986,
+    "shared_total_to_policy_angle_degrees": 85.34031832441002,
+    "shared_total_grad_l2": 15.214888572692871,
+    "actor_head_policy_grad_l2": 0.033135246485471725,
+    "critic_head_weighted_value_grad_l2": 0.24140501022338867,
+    "ratio_max_absolute_error": 0.0,
+    "stored_rollout_ratio_rounding_max_error": 9.1552734375e-05,
+    "all_gradients_finite": true
+  },
+  "random_512_sample_minibatches": [
+    {
+      "samples": 512,
+      "policy_loss_including_entropy": -0.058894671499729156,
+      "weighted_value_loss": 1.3457398414611816,
+      "shared_policy_grad_l2": 2.935459852218628,
+      "shared_value_grad_l2": 13.275372505187988,
+      "shared_value_to_policy_norm_ratio": 4.522416591644287,
+      "shared_policy_value_cosine": -0.06492985785007477,
+      "shared_total_to_policy_cosine": 0.1546701043844223,
+      "shared_total_to_policy_angle_degrees": 81.10233610335341,
+      "shared_total_grad_l2": 13.408671379089355,
+      "actor_head_policy_grad_l2": 0.08490310609340668,
+      "critic_head_weighted_value_grad_l2": 0.21648506820201874,
+      "ratio_max_absolute_error": 0.0,
+      "stored_rollout_ratio_rounding_max_error": 6.866455078125e-05,
+      "all_gradients_finite": true
+    },
+    {
+      "samples": 512,
+      "policy_loss_including_entropy": -0.009412401355803013,
+      "weighted_value_loss": 1.7099812030792236,
+      "shared_policy_grad_l2": 2.6673290729522705,
+      "shared_value_grad_l2": 15.067110061645508,
+      "shared_value_to_policy_norm_ratio": 5.648763179779053,
+      "shared_policy_value_cosine": 0.015961673110723495,
+      "shared_total_to_policy_cosine": 0.1895403414964676,
+      "shared_total_to_policy_angle_degrees": 79.07403972347377,
+      "shared_total_grad_l2": 15.343279838562012,
+      "actor_head_policy_grad_l2": 0.07289710640907288,
+      "critic_head_weighted_value_grad_l2": 0.23834578692913055,
+      "ratio_max_absolute_error": 0.0,
+      "stored_rollout_ratio_rounding_max_error": 6.103515625e-05,
+      "all_gradients_finite": true
+    },
+    {
+      "samples": 512,
+      "policy_loss_including_entropy": 0.005846867337822914,
+      "weighted_value_loss": 1.9872578382492065,
+      "shared_policy_grad_l2": 6.991559982299805,
+      "shared_value_grad_l2": 15.359009742736816,
+      "shared_value_to_policy_norm_ratio": 2.1967928409576416,
+      "shared_policy_value_cosine": 0.015513195656239986,
+      "shared_total_to_policy_cosine": 0.42598071694374084,
+      "shared_total_to_policy_angle_degrees": 64.78724460251135,
+      "shared_total_grad_l2": 16.97392463684082,
+      "actor_head_policy_grad_l2": 0.1155303344130516,
+      "critic_head_weighted_value_grad_l2": 0.24555343389511108,
+      "ratio_max_absolute_error": 0.0,
+      "stored_rollout_ratio_rounding_max_error": 8.392333984375e-05,
+      "all_gradients_finite": true
+    },
+    {
+      "samples": 512,
+      "policy_loss_including_entropy": 0.059500522911548615,
+      "weighted_value_loss": 2.539154291152954,
+      "shared_policy_grad_l2": 4.537271499633789,
+      "shared_value_grad_l2": 17.58860969543457,
+      "shared_value_to_policy_norm_ratio": 3.8764729499816895,
+      "shared_policy_value_cosine": -0.020785829052329063,
+      "shared_total_to_policy_cosine": 0.23085615038871765,
+      "shared_total_to_policy_angle_degrees": 76.65251787140492,
+      "shared_total_grad_l2": 18.072912216186523,
+      "actor_head_policy_grad_l2": 0.0901527926325798,
+      "critic_head_weighted_value_grad_l2": 0.2799845337867737,
+      "ratio_max_absolute_error": 0.0,
+      "stored_rollout_ratio_rounding_max_error": 4.1961669921875e-05,
+      "all_gradients_finite": true
+    }
+  ],
+  "elapsed_seconds": 0.8832015999978466,
+  "interpretation_limit": "Gradient balance on one 8-env CPU rollout; not actual optimizer updates or proof of performance after freezing."
+}

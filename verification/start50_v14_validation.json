@@ -1,0 +1,17 @@
+{
+  "invalid_kl_rejected": true,
+  "metrics_and_weights_finite": true,
+  "early_stop_flags": [
+    1.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "optimization_steps": [
+    6.0,
+    8.0,
+    8.0,
+    6.0
+  ],
+  "limit": 0.015
+}

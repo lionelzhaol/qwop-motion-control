@@ -1,0 +1,1158 @@
+from __future__ import annotations
+
+import argparse
+from copy import deepcopy
+from dataclasses import dataclass
+from dataclasses import fields
+from datetime import datetime
+import json
+from pathlib import Path
+import time
+
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+from running_env import VectorRunningGameEnv
+
+
+try:
+    import torch
+    import torch.nn as nn
+    import torch.optim as optim
+    from torch.utils.tensorboard import SummaryWriter
+except ImportError as exc:
+    raise SystemExit(
+        "PyTorch and TensorBoard must be installed in this Python environment. "
+        "Install them, then rerun: python scripts\\train_ppo.py"
+    ) from exc
+
+
+@dataclass
+class PPOConfig:
+    # PPO 的采样规模：每次 update 会收集 num_envs * rollout_steps 条转移样本。
+    num_envs: int = 32
+    rollout_steps: int = 128
+    # updates 是训练外层循环次数；epochs/minibatches 控制同一批 rollout 数据被重复优化多少遍。
+    updates: int = 10
+    epochs: int = 4
+    minibatches: int = 4
+    # gamma 越接近 1，越重视远期奖励；gae_lambda 控制 advantage 估计的偏差/方差折中。
+    gamma: float = 0.99
+    gae_lambda: float = 0.95
+    # clip_coef 是 PPO 的核心保险丝：限制新旧策略概率比变化过大。
+    clip_coef: float = 0.2
+    target_kl: float | None = None
+    # ent_coef 鼓励策略保持随机性；vf_coef 控制 value loss 在总 loss 中的权重。
+    ent_coef: float = 0.01
+    ent_coef_final: float | None = None
+    ent_coef_decay_updates: int = 0
+    start_logit_scale: float = 1.0
+    start_logit_scale_decay_updates: int = 0
+    start_explore_meters: float = 3.0
+    jump_explore_logit_scale: float = 1.0
+    jump_explore_meters: float = 5.0
+    enable_jump_actor_residual: bool = False
+    effective_action_entropy: bool = False
+    freeze_backbone: bool = False
+    enable_flat_actor_bias: bool = False
+    enable_flat_actor_residual: bool = False
+    detach_critic_features: bool = False
+    separate_critic_features: bool = False
+    critic_learning_rate: float | None = None
+    vf_coef: float = 0.5
+    learning_rate: float = 3e-4
+    seed: int = 1
+    num_threads: int = 1
+    checkpoint: Path = ROOT / "checkpoints" / "ppo_running.pt"
+    resume_from: Path | None = None
+    reset_optimizer_on_resume: bool = False
+    reward_profile: str = "classic_100m"
+    game_mode: str = "auto"
+    run_dir: Path = ROOT / "runs"
+    run_name: str = ""
+    save_interval: int = 100
+    hidden_sizes: tuple[int, ...] = (128, 128)
+    frame_stack: int = 1
+    normalize_observations: bool = False
+    derive_angular_velocity: bool = False
+    rnd_beta: float = 0.0
+    rnd_beta_final: float | None = None
+    rnd_beta_decay_updates: int = 0
+    rnd_learning_rate: float = 1e-4
+    rnd_hidden_size: int = 128
+    rnd_feature_dim: int = 64
+
+
+def resolve_path(value: Path | str) -> Path:
+    # 允许配置文件里写相对路径；统一解析到项目根目录下，避免运行目录改变后找不到文件。
+    path = value if isinstance(value, Path) else Path(value)
+    return path if path.is_absolute() else ROOT / path
+
+
+def load_config(path: Path) -> dict:
+    with path.open("r", encoding="utf-8") as file:
+        data = json.load(file)
+    if not isinstance(data, dict):
+        raise ValueError(f"Config must be a JSON object: {path}")
+    if "hidden_sizes" in data:
+        data["hidden_sizes"] = tuple(int(value) for value in data["hidden_sizes"])
+    return data
+
+
+def make_config(args: argparse.Namespace) -> PPOConfig:
+    # 配置优先级：PPOConfig 默认值 < JSON 配置文件 < 命令行参数。
+    config_values = {}
+    if args.config:
+        config_values.update(load_config(resolve_path(args.config)))
+
+    valid_fields = {field.name: field for field in fields(PPOConfig)}
+    unknown = sorted(set(config_values) - set(valid_fields))
+    if unknown:
+        raise ValueError(f"Unknown config keys: {', '.join(unknown)}")
+
+    for key, value in vars(args).items():
+        if key == "config" or value is None:
+            continue
+        config_values[key] = value
+
+    for path_key in ("checkpoint", "resume_from", "run_dir"):
+        if path_key in config_values:
+            config_values[path_key] = None if config_values[path_key] is None else resolve_path(config_values[path_key])
+
+    return PPOConfig(**config_values)
+
+
+def parse_hidden_sizes(value: str) -> tuple[int, ...]:
+    sizes = tuple(int(part.strip()) for part in value.split(",") if part.strip())
+    if not sizes:
+        raise argparse.ArgumentTypeError("hidden sizes must contain at least one layer")
+    if any(size <= 0 for size in sizes):
+        raise argparse.ArgumentTypeError("hidden sizes must be positive")
+    return sizes
+
+
+class FrameStacker:
+    def __init__(self, num_envs: int, base_obs_dim: int, frame_stack: int):
+        if frame_stack <= 0:
+            raise ValueError("frame_stack must be positive")
+        self.num_envs = num_envs
+        self.base_obs_dim = base_obs_dim
+        self.frame_stack = frame_stack
+        self.frames = np.zeros((num_envs, frame_stack, base_obs_dim), dtype=np.float32)
+
+    @property
+    def obs_dim(self) -> int:
+        return self.base_obs_dim * self.frame_stack
+
+    def reset(self, obs: np.ndarray) -> np.ndarray:
+        obs = np.asarray(obs, dtype=np.float32)
+        self.frames[...] = obs[:, None, :]
+        return self.stacked()
+
+    def update(self, obs: np.ndarray, done: np.ndarray) -> np.ndarray:
+        obs = np.asarray(obs, dtype=np.float32)
+        done = np.asarray(done, dtype=bool)
+        self.frames = np.roll(self.frames, shift=-1, axis=1)
+        self.frames[:, -1, :] = obs
+        if np.any(done):
+            self.frames[done, :, :] = obs[done, None, :]
+        return self.stacked()
+
+    def stacked(self) -> np.ndarray:
+        return self.frames.reshape(self.num_envs, self.obs_dim)
+
+
+class ActorCritic(nn.Module):
+    """共享前几层的 actor-critic 网络。
+
+    actor 输出每个离散动作的 logits，用来形成策略 pi(a|s)；
+    critic 输出当前状态的 value，用来估计“从这个状态往后还能拿多少回报”。
+    """
+
+    def __init__(self, obs_dim: int, action_dim: int, hidden_sizes: tuple[int, ...] = (128, 128), observation_scale=None, derive_angular_velocity=False):
+        super().__init__()
+        # 这里的观测是向量特征，所以用 MLP；如果输入是图像，通常会换成 CNN。
+        layers: list[nn.Module] = []
+        in_dim = obs_dim
+        for hidden_size in hidden_sizes:
+            layers.append(nn.Linear(in_dim, hidden_size))
+            layers.append(nn.Tanh())
+            in_dim = hidden_size
+        self.net = nn.Sequential(*layers)
+        self.actor = nn.Linear(in_dim, action_dim)
+        self.critic = nn.Linear(in_dim, 1)
+        self.detach_critic_features = False
+        self.critic_net = None
+        self.critic_motion = None
+        # Fixed preprocessing belongs to the checkpoint, so replay/export paths
+        # use exactly the same scales without changing the raw environment API.
+        self.register_buffer("observation_scale", None)
+        if observation_scale is not None:
+            self.set_observation_scale(observation_scale)
+        self.angular_velocity = None
+        self.register_parameter("flat_actor_bias", None)
+        self.register_parameter("flat_actor_weight", None)
+        self.register_buffer("flat_actor_bounds", None)
+        self.register_buffer("jump_sampling", None)
+        self.register_parameter("jump_actor_weight", None)
+        self.register_parameter("jump_actor_bias", None)
+        if derive_angular_velocity:
+            self.enable_angular_velocity()
+
+    def enable_flat_bias(self, bounds=None):
+        if self.net[0].in_features % 68 or self.actor.out_features != 16:
+            raise ValueError("Flat actor bias requires classic_100m observations and 16 actions")
+        if bounds is None and self.flat_actor_bias is not None:
+            return
+        bounds = (10.0, 45.0, 65.0, 100.0) if bounds is None else bounds
+        bounds = torch.as_tensor(bounds, device=self.actor.weight.device, dtype=self.actor.weight.dtype)
+        if bounds.shape != (4,) or not torch.isfinite(bounds).all() or not (bounds[1:] > bounds[:-1]).all():
+            raise ValueError("Flat actor bounds must contain four finite increasing distances")
+        if self.flat_actor_bias is None:
+            self.flat_actor_bias = nn.Parameter(torch.zeros_like(self.actor.bias))
+        self.flat_actor_bounds = bounds.detach().clone()
+
+    def enable_jump_sampling(self, settings):
+        settings = torch.as_tensor(settings, device=self.actor.weight.device, dtype=self.actor.weight.dtype)
+        if self.net[0].in_features % 68 or self.actor.out_features != 16:
+            raise ValueError("Jump sampling requires stacked 68-value observations and 16 actions")
+        if settings.shape != (2,) or not torch.isfinite(settings).all() or not (0 < settings[0] <= 1) or settings[1] <= 0:
+            raise ValueError("Jump sampling requires scale in (0,1] and a positive takeoff distance")
+        self.jump_sampling = settings.detach().clone()
+
+    def enable_jump_residual(self):
+        if self.jump_sampling is None:
+            self.enable_jump_sampling([1.0, 50.0])
+        if self.jump_actor_weight is None:
+            self.jump_actor_weight = nn.Parameter(torch.zeros_like(self.actor.weight))
+            self.jump_actor_bias = nn.Parameter(torch.zeros_like(self.actor.bias))
+
+    def enable_flat_residual(self, bounds=None):
+        self.enable_flat_bias(bounds)
+        if self.flat_actor_weight is None:
+            self.flat_actor_weight = nn.Parameter(torch.zeros_like(self.actor.weight))
+
+    def enable_separate_critic(self):
+        if self.critic_net is None:
+            self.critic_net = deepcopy(self.net).requires_grad_(True)
+        if self.angular_velocity is not None and self.critic_motion is None:
+            self.critic_motion = deepcopy(self.angular_velocity).requires_grad_(True)
+
+    def critic_features(self, obs):
+        normalized = obs / self.observation_scale if self.observation_scale is not None else obs
+        hidden = self.critic_net[0](normalized)
+        if self.critic_motion is not None:
+            hidden = hidden + self.critic_motion(self.motion_features(obs))
+        for layer in list(self.critic_net)[1:]:
+            hidden = layer(hidden)
+        return hidden
+
+    def enable_angular_velocity(self):
+        if self.angular_velocity is not None:
+            return
+        if self.net[0].in_features % 68 or self.net[0].in_features < 136:
+            raise ValueError("Angular velocity features require stacked 68-value body observations")
+        self.angular_velocity = nn.Linear(12, self.net[0].out_features, bias=False).to(self.actor.weight.device)
+        # Preserve the existing policy exactly; PPO learns this optional branch.
+        nn.init.zeros_(self.angular_velocity.weight)
+
+    def motion_features(self, obs):
+        frames = obs.reshape(*obs.shape[:-1], -1, 68)
+        delta = frames[..., -1, 2:60:5] - frames[..., -2, 2:60:5]
+        delta = torch.atan2(torch.sin(delta), torch.cos(delta))
+        elapsed = frames[..., -1, 61] - frames[..., -2, 61]
+        omega = delta / elapsed.clamp_min(1e-6).unsqueeze(-1)
+        # Repeated reset frames have no elapsed time, so their velocity is zero.
+        omega = torch.where((elapsed > 1e-6).unsqueeze(-1), omega, 0.0)
+        return omega.clamp(-20.0, 20.0) / 10.0
+
+    def first_hidden(self, obs):
+        normalized = obs / self.observation_scale if self.observation_scale is not None else obs
+        hidden = self.net[0](normalized)
+        if self.angular_velocity is not None:
+            hidden = hidden + self.angular_velocity(self.motion_features(obs))
+        return hidden
+
+    def features(self, obs):
+        hidden = self.first_hidden(obs)
+        for layer in list(self.net)[1:]:
+            hidden = layer(hidden)
+        return hidden
+
+    def set_observation_scale(self, scale) -> None:
+        scale = torch.as_tensor(scale, dtype=torch.float32, device=self.actor.weight.device)
+        if scale.shape != (self.net[0].in_features,):
+            raise ValueError("Observation scale must match the model input dimension")
+        if not torch.isfinite(scale).all() or not (scale > 0).all():
+            raise ValueError("Observation scales must be finite and positive")
+        self.observation_scale = scale.detach().clone()
+
+    def load_state_dict(self, state_dict, strict=True, assign=False):
+        if "jump_sampling" in state_dict:
+            self.enable_jump_sampling(state_dict["jump_sampling"])
+        elif self.jump_sampling is not None:
+            state_dict = dict(state_dict, jump_sampling=self.jump_sampling)
+        if "jump_actor_weight" in state_dict:
+            if "jump_actor_bias" not in state_dict or "jump_sampling" not in state_dict:
+                raise ValueError("Jump residual checkpoint is missing bias or sampling settings")
+            self.enable_jump_residual()
+        if "flat_actor_weight" in state_dict and "flat_actor_bias" not in state_dict:
+            raise ValueError("Flat residual checkpoint is missing its bias")
+        if "flat_actor_bias" in state_dict:
+            if "flat_actor_bounds" not in state_dict:
+                raise ValueError("Flat actor checkpoint is missing its distance bounds")
+            self.enable_flat_bias(state_dict["flat_actor_bounds"])
+        elif self.flat_actor_bias is not None:
+            state_dict = dict(state_dict)
+            state_dict["flat_actor_bias"] = torch.zeros_like(self.flat_actor_bias)
+            state_dict["flat_actor_bounds"] = self.flat_actor_bounds
+        if "flat_actor_weight" in state_dict:
+            self.enable_flat_residual(state_dict["flat_actor_bounds"])
+        elif self.flat_actor_weight is not None:
+            state_dict = dict(state_dict)
+            state_dict["flat_actor_weight"] = torch.zeros_like(self.flat_actor_weight)
+        if "angular_velocity.weight" in state_dict:
+            self.enable_angular_velocity()
+        elif self.angular_velocity is not None:
+            state_dict = dict(state_dict)
+            state_dict["angular_velocity.weight"] = torch.zeros_like(self.angular_velocity.weight)
+        if "observation_scale" in state_dict:
+            self.set_observation_scale(state_dict["observation_scale"])
+        if any(name.startswith("critic_net.") for name in state_dict):
+            self.enable_separate_critic()
+        elif self.critic_net is not None:
+            self.enable_separate_critic()
+            state_dict = dict(state_dict)
+            for name in self.critic_net.state_dict():
+                state_dict["critic_net." + name] = state_dict["net." + name]
+            if self.critic_motion is not None:
+                state_dict["critic_motion.weight"] = state_dict.get(
+                    "angular_velocity.weight", torch.zeros_like(self.critic_motion.weight))
+        return super().load_state_dict(state_dict, strict=strict, assign=assign)
+
+    def forward(self, obs: torch.Tensor):
+        # 返回 actor logits 和 critic value。value squeeze 到 [batch]，便于和 reward/return 对齐。
+        hidden = self.features(obs)
+        logits = self.actor(hidden)
+        if self.flat_actor_bias is not None:
+            score = obs[..., -8]
+            lower1, upper1, lower2, upper2 = self.flat_actor_bounds
+            flat = ((score >= lower1) & (score < upper1)) | ((score >= lower2) & (score <= upper2))
+            residual = self.flat_actor_bias if self.flat_actor_weight is None else nn.functional.linear(
+                hidden, self.flat_actor_weight, self.flat_actor_bias)
+            logits = torch.where(flat.unsqueeze(-1), logits + residual, logits)
+        if self.jump_sampling is not None:
+            # Long-jump index 62 is continuous takeoff-line distance in physics
+            # units (10 units/metre), unlike score which changes on landing.
+            scale, takeoff_dx = self.jump_sampling
+            near_jump = obs[..., -6] <= takeoff_dx
+            if self.jump_actor_weight is not None:
+                residual = nn.functional.linear(hidden, self.jump_actor_weight, self.jump_actor_bias)
+                logits = logits + torch.where(near_jump.unsqueeze(-1), residual, 0.0)
+            logits = logits * torch.where(near_jump, scale, 1.0).unsqueeze(-1)
+        critic_hidden = self.critic_features(obs) if self.critic_net is not None else (
+            hidden.detach() if self.detach_critic_features else hidden)
+        return logits, self.critic(critic_hidden).squeeze(-1)
+
+    def action_distribution(self, obs, start_logit_scale=1.0, start_explore_meters=3.0):
+        logits, value = self(obs)
+        if start_logit_scale != 1.0:
+            if obs.shape[-1] % 68:
+                raise ValueError("Start exploration requires classic_100m observations")
+            # Score is in the newest raw 68-value frame. A positive scale
+            # broadens sampling without changing the most likely action.
+            early = obs[..., -8] < start_explore_meters
+            scale = torch.where(early, start_logit_scale, 1.0).unsqueeze(-1)
+            logits = logits * scale
+        return torch.distributions.Categorical(logits=logits), value
+
+    @staticmethod
+    def action_entropy(dist, effective_action_entropy=False):
+        if not effective_action_entropy:
+            return dist.entropy()
+        if dist.logits.shape[-1] != 16:
+            raise ValueError("Effective action entropy requires 16 QWOP action masks")
+        # Native paired rollouts verified Q/W and O/P priority aliases:
+        # [0], [1,3], [2], [4,12], [5,7,13,15], [6,14], [8], [9,11], [10].
+        # Aggregate only for entropy; sampling and PPO log probabilities remain
+        # the original 16-action policy. Log-space sums retain stable gradients.
+        masks = dist.logits.reshape(*dist.logits.shape[:-1], 4, 4)
+        calves = torch.stack((masks[..., 0, :],
+            torch.logaddexp(masks[..., 1, :], masks[..., 3, :]), masks[..., 2, :]), dim=-2)
+        groups = torch.stack((calves[..., 0],
+            torch.logaddexp(calves[..., 1], calves[..., 3]), calves[..., 2]), dim=-1)
+        effective = torch.distributions.Categorical(logits=groups.flatten(start_dim=-2))
+        return effective.entropy()
+
+    def act(self, obs: torch.Tensor, start_logit_scale=1.0, start_explore_meters=3.0, effective_action_entropy=False):
+        # 采样阶段使用当前策略随机选动作，并记录旧策略 log_prob。
+        # 之后 PPO 更新会比较“新 log_prob”和这里保存的“旧 log_prob”。
+        dist, value = self.action_distribution(obs, start_logit_scale, start_explore_meters)
+        action = dist.sample()
+        return action, dist.log_prob(action), self.action_entropy(dist, effective_action_entropy), value
+
+    def evaluate(self, obs: torch.Tensor, actions: torch.Tensor, start_logit_scale=1.0, start_explore_meters=3.0, effective_action_entropy=False):
+        # 训练阶段重新计算同一批动作在“当前新策略”下的 log_prob、entropy 和 value。
+        dist, value = self.action_distribution(obs, start_logit_scale, start_explore_meters)
+        return dist.log_prob(actions), self.action_entropy(dist, effective_action_entropy), value
+
+
+class RNDModel(nn.Module):
+    def __init__(self, obs_dim: int, hidden_size: int = 128, feature_dim: int = 64):
+        super().__init__()
+        if obs_dim != 62:
+            raise ValueError("RND requires 60 classic body features and two foot contacts")
+        scale = np.concatenate((np.tile([5.0, 15.0, np.pi, 10.0, 10.0], 12), [1.0, 1.0]))
+        self.register_buffer("input_scale", torch.tensor(scale, dtype=torch.float32))
+        self.register_buffer("schema_version", torch.tensor(1, dtype=torch.int64))
+        self.register_buffer("error_second_moment", torch.tensor(0.0, dtype=torch.float64))
+        self.register_buffer("error_count", torch.tensor(0, dtype=torch.int64))
+        self.target = nn.Sequential(
+            nn.Linear(obs_dim, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, feature_dim),
+        )
+        self.predictor = nn.Sequential(
+            nn.Linear(obs_dim, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, feature_dim),
+        )
+        for parameter in self.target.parameters():
+            parameter.requires_grad_(False)
+
+    def observation_features(self, obs: torch.Tensor) -> torch.Tensor:
+        if obs.shape[-1] < 68 or obs.shape[-1] % 68:
+            raise ValueError("RND physical features require classic_100m observations")
+        newest = obs[..., -68:]
+        physical = torch.cat((newest[..., :60], newest[..., 66:68]), dim=-1)
+        return (physical / self.input_scale).clamp(-5.0, 5.0)
+
+    def forward(self, obs: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        if obs.shape[-1] != 62:
+            raise ValueError("RND forward requires normalized 62-value physical features")
+        target = self.target(obs)
+        prediction = self.predictor(obs)
+        return prediction, target
+
+    def prediction_error(self, obs: torch.Tensor) -> torch.Tensor:
+        prediction, target = self(obs)
+        return ((prediction - target) ** 2).mean(dim=-1)
+
+    @torch.no_grad()
+    def intrinsic_bonus(self, features: torch.Tensor, valid: torch.Tensor) -> torch.Tensor:
+        error = self.prediction_error(features)
+        if valid.shape != error.shape or valid.dtype != torch.bool:
+            raise ValueError("RND valid mask must match the feature batch")
+        if not torch.isfinite(error).all():
+            raise ValueError("Non-finite RND prediction error")
+        samples = error[valid].double()
+        if samples.numel():
+            old_count = self.error_count.clone()
+            self.error_count.add_(samples.numel())
+            self.error_second_moment.mul_(old_count.double() / self.error_count.double())
+            self.error_second_moment.add_(samples.square().sum() / self.error_count)
+        scale = self.error_second_moment.sqrt().to(error.dtype).clamp_min(1e-8)
+        bonus = (error / scale).clamp(0.0, 5.0)
+        return torch.where(valid, bonus, torch.zeros_like(bonus))
+
+    def checkpoint_compatible(self, state_dict) -> bool:
+        current = self.state_dict()
+        if not isinstance(state_dict, dict) or set(state_dict) != set(current):
+            return False
+        if any(not isinstance(value, torch.Tensor) or value.shape != current[name].shape
+               or not torch.isfinite(value).all() for name, value in state_dict.items()):
+            return False
+        return (int(state_dict["schema_version"]) == 1
+                and int(state_dict["error_count"]) >= 0
+                and float(state_dict["error_second_moment"]) >= 0.0
+                and torch.equal(state_dict["input_scale"].cpu(), self.input_scale.cpu()))
+
+
+def make_rnd(cfg: PPOConfig, device: torch.device):
+    # Only the CPU initialization generator is touched, then restored. Using
+    # torch.manual_seed here would also reseed CUDA and spoil A/B sampling.
+    with torch.random.fork_rng(devices=[]):
+        torch.random.default_generator.manual_seed(cfg.seed + 910007)
+        rnd_model = RNDModel(62, cfg.rnd_hidden_size, cfg.rnd_feature_dim)
+    rnd_model = rnd_model.to(device)
+    optimizer = optim.Adam(rnd_model.predictor.parameters(), lr=cfg.rnd_learning_rate, eps=1e-5)
+    return rnd_model, optimizer
+
+
+def rnd_optimizer_compatible(rnd_model, state_dict) -> bool:
+    if not isinstance(state_dict, dict) or not isinstance(state_dict.get("state"), dict):
+        return False
+    groups = state_dict.get("param_groups", [])
+    if len(groups) != 1:
+        return False
+    identifiers = groups[0].get("params", [])
+    params = list(rnd_model.predictor.parameters())
+    if len(identifiers) != len(params) or len(set(identifiers)) != len(identifiers):
+        return False
+    for identifier, param in zip(identifiers, params):
+        values = state_dict["state"].get(identifier, {})
+        if not isinstance(values, dict):
+            return False
+        if values and not {"step", "exp_avg", "exp_avg_sq"}.issubset(values):
+            return False
+        if "step" in values and (not isinstance(values["step"], torch.Tensor)
+                                  or values["step"].numel() != 1 or not torch.isfinite(values["step"]).all()):
+            return False
+        for key in ("exp_avg", "exp_avg_sq"):
+            if key in values and (not isinstance(values[key], torch.Tensor)
+                                  or values[key].shape != param.shape or not torch.isfinite(values[key]).all()):
+                return False
+    return True
+
+
+def rnd_beta_for_update(cfg: PPOConfig, update: int) -> float:
+    if cfg.rnd_beta <= 0.0:
+        return 0.0
+    if cfg.rnd_beta_final is None or cfg.rnd_beta_decay_updates <= 0:
+        return cfg.rnd_beta
+    progress = min(1.0, max(0.0, update / float(cfg.rnd_beta_decay_updates)))
+    return cfg.rnd_beta + (cfg.rnd_beta_final - cfg.rnd_beta) * progress
+
+
+def entropy_coef_for_update(cfg: PPOConfig, update: int) -> float:
+    if cfg.ent_coef_final is None or cfg.ent_coef_decay_updates <= 0:
+        return cfg.ent_coef
+    progress = min(1.0, max(0.0, (update - 1) / float(cfg.ent_coef_decay_updates)))
+    return cfg.ent_coef + (cfg.ent_coef_final - cfg.ent_coef) * progress
+
+
+def start_logit_scale_for_update(cfg: PPOConfig, update: int) -> float:
+    if cfg.start_logit_scale_decay_updates <= 0:
+        return cfg.start_logit_scale
+    progress = min(1.0, max(0.0, (update - 1) / float(cfg.start_logit_scale_decay_updates)))
+    return cfg.start_logit_scale + (1.0 - cfg.start_logit_scale) * progress
+
+
+def save_checkpoint(
+    path: Path,
+    model: nn.Module,
+    optimizer: optim.Optimizer,
+    cfg: PPOConfig,
+    update: int,
+    global_step: int,
+    rnd_model: RNDModel | None = None,
+    rnd_optimizer: optim.Optimizer | None = None,
+) -> None:
+    # checkpoint 同时保存模型、优化器、配置和训练进度，方便断点续训。
+    path.parent.mkdir(parents=True, exist_ok=True)
+    checkpoint = {
+        "model": model.state_dict(),
+        "optimizer": optimizer.state_dict(),
+        "config": {
+            key: str(value) if isinstance(value, Path) else value
+            for key, value in cfg.__dict__.items()
+        },
+        "update": update,
+        "global_step": global_step,
+    }
+    if rnd_model is not None:
+        checkpoint["rnd_model"] = rnd_model.state_dict()
+    if rnd_optimizer is not None:
+        checkpoint["rnd_optimizer"] = rnd_optimizer.state_dict()
+    torch.save(checkpoint, path)
+
+
+def copy_linear_prefix(dst: torch.Tensor, src: torch.Tensor) -> None:
+    rows = min(dst.shape[0], src.shape[0])
+    if dst.ndim == 1:
+        dst[:rows].copy_(src[:rows])
+        return
+    cols = min(dst.shape[1], src.shape[1])
+    dst[:rows, :cols].copy_(src[:rows, :cols])
+
+
+def load_model_compatible(model: nn.Module, state_dict: dict[str, torch.Tensor]) -> None:
+    if isinstance(model, ActorCritic) and "jump_sampling" in state_dict:
+        model.enable_jump_sampling(state_dict["jump_sampling"])
+    if isinstance(model, ActorCritic) and "jump_actor_weight" in state_dict:
+        if "jump_actor_bias" not in state_dict or "jump_sampling" not in state_dict:
+            raise ValueError("Jump residual checkpoint is missing bias or sampling settings")
+        model.enable_jump_residual()
+    if isinstance(model, ActorCritic) and "flat_actor_weight" in state_dict:
+        if "flat_actor_bias" not in state_dict or "flat_actor_bounds" not in state_dict or state_dict["flat_actor_weight"].shape != model.actor.weight.shape:
+            raise ValueError("Flat residual checkpoint has incompatible or missing weight/bias/bounds")
+        model.enable_flat_residual(state_dict["flat_actor_bounds"])
+    elif isinstance(model, ActorCritic) and model.flat_actor_weight is not None:
+        with torch.no_grad():
+            model.flat_actor_weight.zero_()
+    if isinstance(model, ActorCritic) and "flat_actor_bias" in state_dict:
+        if "flat_actor_bounds" not in state_dict or state_dict["flat_actor_bias"].shape != model.actor.bias.shape:
+            raise ValueError("Flat actor checkpoint has incompatible or missing bias/bounds")
+        model.enable_flat_bias(state_dict["flat_actor_bounds"])
+    elif isinstance(model, ActorCritic) and model.flat_actor_bias is not None:
+        with torch.no_grad():
+            model.flat_actor_bias.zero_()
+    if isinstance(model, ActorCritic) and "angular_velocity.weight" in state_dict:
+        model.enable_angular_velocity()
+    elif isinstance(model, ActorCritic) and model.angular_velocity is not None:
+        with torch.no_grad():
+            model.angular_velocity.weight.zero_()
+    if isinstance(model, ActorCritic) and "observation_scale" in state_dict:
+        source_scale = state_dict["observation_scale"]
+        target_scale = model.observation_scale
+        if target_scale is not None and target_scale.numel() > source_scale.numel():
+            source_scale = source_scale.to(device=target_scale.device, dtype=target_scale.dtype)
+            if not torch.allclose(target_scale[-source_scale.numel():], source_scale):
+                raise ValueError("Expanded history must preserve the checkpoint's observation units")
+            state_dict = dict(state_dict)
+            state_dict["observation_scale"] = target_scale
+        else:
+            model.set_observation_scale(source_scale)
+    has_critic_net = any(name.startswith("critic_net.") for name in state_dict)
+    if isinstance(model, ActorCritic) and has_critic_net:
+        model.enable_separate_critic()
+    elif isinstance(model, ActorCritic) and model.critic_net is not None:
+        model.enable_separate_critic()
+    current = model.state_dict()
+    for name, src in state_dict.items():
+        if name not in current:
+            continue
+        dst = current[name]
+        if dst.shape == src.shape:
+            dst.copy_(src)
+        elif name in ("net.0.weight", "critic_net.0.weight") and dst.ndim == 2 and src.ndim == 2 and dst.shape[1] > src.shape[1]:
+            rows = min(dst.shape[0], src.shape[0])
+            # Start new history features at zero, preserving the old policy
+            # exactly while keeping the author's right-aligned recent frames.
+            dst[:rows].zero_()
+            dst[:rows, -src.shape[1]:].copy_(src[:rows])
+        elif name.startswith(("net.", "actor.", "critic.", "angular_velocity.", "critic_net.", "critic_motion.")):
+            copy_linear_prefix(dst, src)
+    if isinstance(model, ActorCritic) and model.critic_net is not None and not has_critic_net:
+        for name in model.critic_net.state_dict():
+            current["critic_net." + name].copy_(current["net." + name])
+        if model.critic_motion is not None:
+            current["critic_motion.weight"].copy_(current["angular_velocity.weight"])
+    model.load_state_dict(current)
+
+
+def compute_gae(rewards, dones, values, next_value, cfg: PPOConfig):
+    """用 Generalized Advantage Estimation 计算 advantage 和 return。
+
+    delta 是一步 TD 误差：实际奖励 + 下一状态估值 - 当前状态估值。
+    advantage 可以理解为“这个动作比 critic 原本预期的好多少”；
+    return = advantage + value，是 critic 要回归的目标。
+    """
+
+    advantages = torch.zeros_like(rewards)
+    last_gae = torch.zeros(rewards.shape[1], device=rewards.device)
+    # 从后往前递推，因为当前步的 advantage 依赖后续步的 TD 残差。
+    for t in reversed(range(cfg.rollout_steps)):
+        # done 后不再 bootstrap 下一状态价值，否则会把下一局/下一条 episode 的价值串进来。
+        next_nonterminal = 1.0 - dones[t]
+        next_values = next_value if t == cfg.rollout_steps - 1 else values[t + 1]
+        delta = rewards[t] + cfg.gamma * next_values * next_nonterminal - values[t]
+        last_gae = delta + cfg.gamma * cfg.gae_lambda * next_nonterminal * last_gae
+        advantages[t] = last_gae
+    returns = advantages + values
+    return advantages, returns
+
+
+class TrainingLogger:
+    # TensorBoard 的薄封装：训练配置写成 text，指标写成 scalar。
+    def __init__(self, log_dir: Path):
+        self.log_dir = log_dir
+        self.log_dir.mkdir(parents=True, exist_ok=True)
+        self.writer = SummaryWriter(log_dir)
+
+    def add_text(self, tag: str, text: str, step: int) -> None:
+        self.writer.add_text(tag, text, step)
+
+    def log(self, global_step: int, metrics: dict[str, float]) -> None:
+        for key, value in metrics.items():
+            self.writer.add_scalar(key, value, global_step)
+        self.writer.flush()
+
+    def close(self) -> None:
+        self.writer.close()
+
+
+def train(cfg: PPOConfig) -> None:
+    # The native distance shaping profile uses F = .999 * Phi(next) - Phi(now),
+    # with Phi=0 at every terminal outcome. Its policy-invariance contract
+    # requires the same discount in GAE and returns.
+    if cfg.reward_profile == "long_jump_task" and not np.isclose(cfg.gamma, 0.999, atol=1e-10, rtol=0):
+        raise ValueError("long_jump_task distance shaping requires gamma=0.999")
+    if not np.isfinite(cfg.jump_explore_logit_scale) or not 0 < cfg.jump_explore_logit_scale <= 1:
+        raise ValueError("jump_explore_logit_scale must be in (0,1]")
+    if not np.isfinite(cfg.jump_explore_meters) or cfg.jump_explore_meters <= 0:
+        raise ValueError("jump_explore_meters must be positive and finite")
+    if not np.isfinite(cfg.rnd_beta) or cfg.rnd_beta < 0:
+        raise ValueError("rnd_beta must be finite and nonnegative")
+    if cfg.rnd_beta > 0:
+        if cfg.rnd_beta_final is not None and (not np.isfinite(cfg.rnd_beta_final) or cfg.rnd_beta_final < 0):
+            raise ValueError("rnd_beta_final must be finite and nonnegative, or None")
+        if not np.isfinite(cfg.rnd_learning_rate) or cfg.rnd_learning_rate <= 0:
+            raise ValueError("rnd_learning_rate must be finite and positive")
+    if cfg.critic_learning_rate is not None and (not np.isfinite(cfg.critic_learning_rate) or cfg.critic_learning_rate <= 0):
+        raise ValueError("critic_learning_rate must be finite and positive, or None")
+    if not np.isfinite(cfg.start_logit_scale) or not 0 < cfg.start_logit_scale <= 1:
+        raise ValueError("start_logit_scale must be in (0, 1]")
+    if not np.isfinite(cfg.start_explore_meters) or cfg.start_explore_meters <= 0:
+        raise ValueError("start_explore_meters must be finite and positive")
+    if cfg.ent_coef_final is not None and (not np.isfinite(cfg.ent_coef_final) or cfg.ent_coef_final < 0):
+        raise ValueError("ent_coef_final must be finite and nonnegative, or None")
+    if cfg.target_kl is not None and (not np.isfinite(cfg.target_kl) or cfg.target_kl <= 0):
+        raise ValueError("target_kl must be finite and positive, or None")
+    # 固定随机种子，让同样配置下的结果尽量可复现。
+    torch.manual_seed(cfg.seed)
+    np.random.seed(cfg.seed)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    # 向量化环境一次并行跑多个游戏实例。PPO 是 on-policy 算法，吞吐越高越容易收集足够新鲜样本。
+    env = VectorRunningGameEnv(
+        cfg.num_envs,
+        num_threads=cfg.num_threads,
+        reward_profile=cfg.reward_profile,
+        game_mode=cfg.game_mode,
+    )
+    cfg.game_mode = env.game_mode
+    if cfg.rnd_beta > 0 and cfg.game_mode != "classic_100m":
+        raise ValueError("RND physical features currently support classic_100m only")
+    if cfg.start_logit_scale != 1.0 and cfg.game_mode != "classic_100m":
+        raise ValueError("Start exploration currently supports classic_100m only")
+    if cfg.effective_action_entropy and cfg.game_mode != "classic_100m":
+        raise ValueError("Effective action entropy currently supports classic_100m only")
+    if (cfg.enable_flat_actor_bias or cfg.enable_flat_actor_residual) and cfg.game_mode != "classic_100m":
+        raise ValueError("Flat actor bias currently supports classic_100m only")
+    base_obs_np, _ = env.reset()
+    stacker = FrameStacker(cfg.num_envs, base_obs_np.shape[1], cfg.frame_stack)
+    obs_np = stacker.reset(base_obs_np)
+    obs_dim = stacker.obs_dim
+    action_dim = env.action_space_n
+
+    observation_scale = None
+    if cfg.normalize_observations:
+        if env.game_mode not in ("classic_100m", "long_jump_30m") or base_obs_np.shape[1] != 68:
+            raise ValueError("Fixed observation scales support classic_100m and long_jump_30m")
+        body_scale = np.tile([5.0, 15.0, np.pi, 10.0, 10.0], 12)
+        task_scale = ([30.0, 45.0, 300.0, 400.0, 1.0, 1.0, 1.0, 1.0]
+            if env.game_mode == "long_jump_30m" else
+            [100.0, 120.0, 1000.0, 1000.0, 1.0, 1.0, 1.0, 1.0])
+        observation_scale = np.tile(np.concatenate((body_scale, task_scale)), cfg.frame_stack)
+    if cfg.derive_angular_velocity and env.game_mode not in ("classic_100m", "long_jump_30m"):
+        raise ValueError("Angular velocity features support classic_100m and long_jump_30m")
+    model = ActorCritic(obs_dim, action_dim, cfg.hidden_sizes, observation_scale, cfg.derive_angular_velocity).to(device)
+    if cfg.enable_flat_actor_residual:
+        model.enable_flat_residual()
+    elif cfg.enable_flat_actor_bias:
+        model.enable_flat_bias()
+    checkpoint_data = None
+    if cfg.resume_from:
+        checkpoint_data = torch.load(cfg.resume_from, map_location=device)
+        load_model_compatible(model, checkpoint_data["model"])
+    cfg.derive_angular_velocity = model.angular_velocity is not None
+    cfg.enable_flat_actor_bias = model.flat_actor_bias is not None
+    cfg.enable_flat_actor_residual = model.flat_actor_weight is not None
+    if cfg.jump_explore_logit_scale != 1.0:
+        if env.game_mode != "long_jump_30m":
+            raise ValueError("Jump sampling only supports long_jump_30m")
+        model.enable_jump_sampling([cfg.jump_explore_logit_scale, cfg.jump_explore_meters * 10.0])
+    if model.jump_sampling is not None:
+        if env.game_mode != "long_jump_30m":
+            raise ValueError("Jump sampling checkpoint requires long_jump_30m")
+        cfg.jump_explore_logit_scale = float(model.jump_sampling[0])
+        cfg.jump_explore_meters = float(model.jump_sampling[1]) / 10.0
+    if cfg.enable_jump_actor_residual:
+        model.enable_jump_residual()
+    cfg.enable_jump_actor_residual = model.jump_actor_weight is not None
+    if cfg.enable_jump_actor_residual:
+        if env.game_mode != "long_jump_30m" or not (cfg.separate_critic_features or model.critic_net is not None):
+            raise ValueError("Jump residual requires long_jump_30m and separate Critic features")
+        cfg.freeze_backbone = True
+        model.actor.requires_grad_(False)
+    model.detach_critic_features = cfg.detach_critic_features
+    if cfg.separate_critic_features:
+        model.enable_separate_critic()
+    cfg.separate_critic_features = model.critic_net is not None
+    if cfg.freeze_backbone or cfg.enable_flat_actor_bias:
+        # Preserve learned gait features while PPO refines the two output heads.
+        model.net.requires_grad_(False)
+        if model.angular_velocity is not None:
+            model.angular_velocity.requires_grad_(False)
+    if cfg.enable_flat_actor_bias:
+        model.actor.requires_grad_(False)
+    actor_params, critic_params = [], []
+    for name, parameter in model.named_parameters():
+        (critic_params if name.startswith(("critic.", "critic_net.", "critic_motion.")) else actor_params).append(parameter)
+    if cfg.critic_learning_rate is None:
+        optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate, eps=1e-5)
+    else:
+        optimizer = optim.Adam([
+            {"params": actor_params, "lr": cfg.learning_rate, "role": "actor"},
+            {"params": critic_params, "lr": cfg.critic_learning_rate, "role": "critic"},
+        ], eps=1e-5)
+    use_rnd = cfg.rnd_beta > 0.0
+    rnd_model, rnd_optimizer = make_rnd(cfg, device) if use_rnd else (None, None)
+    resumed_update = 0
+    global_step = 0
+    if cfg.resume_from:
+        # 续训时恢复模型和优化器状态；随后把学习率改成当前配置里的 learning_rate。
+        if "optimizer" in checkpoint_data and not cfg.reset_optimizer_on_resume:
+            try:
+                optimizer.load_state_dict(checkpoint_data["optimizer"])
+            except ValueError:
+                print("optimizer_state_skipped=1 reason=incompatible_model_shape")
+            for group in optimizer.param_groups:
+                group["lr"] = cfg.critic_learning_rate if group.get("role") == "critic" and cfg.critic_learning_rate is not None else cfg.learning_rate
+        if rnd_model and "rnd_model" in checkpoint_data:
+            compatible = rnd_model.checkpoint_compatible(checkpoint_data["rnd_model"])
+            load_optimizer = "rnd_optimizer" in checkpoint_data and not cfg.reset_optimizer_on_resume
+            if load_optimizer:
+                compatible = compatible and rnd_optimizer_compatible(rnd_model, checkpoint_data["rnd_optimizer"])
+            if compatible:
+                try:
+                    rnd_model.load_state_dict(checkpoint_data["rnd_model"], strict=True)
+                    if load_optimizer:
+                        rnd_optimizer.load_state_dict(checkpoint_data["rnd_optimizer"])
+                except (RuntimeError, ValueError, KeyError):
+                    compatible = False
+            if not compatible:
+                rnd_model, rnd_optimizer = make_rnd(cfg, device)
+                print("rnd_state_reset=1 reason=incompatible_rnd_checkpoint")
+            for group in rnd_optimizer.param_groups:
+                group["lr"] = cfg.rnd_learning_rate
+        resumed_update = int(checkpoint_data.get("update", 0))
+        global_step = int(checkpoint_data.get("global_step", 0))
+        print(
+            f"resumed_from={cfg.resume_from} checkpoint_update={resumed_update} "
+            f"global_step={global_step} reset_optimizer={int(cfg.reset_optimizer_on_resume)}"
+        )
+    run_name = cfg.run_name or datetime.now().strftime("ppo_%Y%m%d_%H%M%S")
+    log_dir = cfg.run_dir / run_name
+    logger = TrainingLogger(log_dir)
+    # 把配置写进 TensorBoard，之后看曲线时能反查这次实验到底用了什么参数。
+    logger.add_text("config/device", str(device), 0)
+    logger.add_text("config/run_name", run_name, 0)
+    for key, value in cfg.__dict__.items():
+        logger.add_text(f"config/{key}", str(value), 0)
+
+    obs = torch.tensor(obs_np, dtype=torch.float32, device=device)
+    episode_returns = np.zeros(cfg.num_envs, dtype=np.float32)
+    # These buffers keep the same shape for the whole run. Reusing them avoids
+    # repeated CUDA/Python allocator churn inside the hot update loop.
+    obs_buf = torch.empty((cfg.rollout_steps, cfg.num_envs, obs_dim), device=device)
+    actions_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), dtype=torch.long, device=device)
+    logprobs_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
+    rewards_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
+    extrinsic_rewards_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
+    intrinsic_rewards_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
+    rnd_features_buf = torch.empty((cfg.rollout_steps, cfg.num_envs, 62), device=device) if rnd_model else None
+    rnd_valid_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), dtype=torch.bool, device=device) if rnd_model else None
+    dones_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
+    values_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
+    batch_size = cfg.num_envs * cfg.rollout_steps
+    minibatch_size = batch_size // cfg.minibatches
+    if minibatch_size <= 0:
+        raise ValueError("minibatch size must be positive")
+    try:
+        for update in range(1, cfg.updates + 1):
+            absolute_update = resumed_update + update
+            update_started = time.perf_counter()
+
+            episode_finishes = 0
+            episode_return_samples = []
+            final_distance_samples = []
+            rnd_beta = rnd_beta_for_update(cfg, update)
+            entropy_coef = entropy_coef_for_update(cfg, update)
+            start_logit_scale = start_logit_scale_for_update(cfg, update)
+            # 第一阶段：用当前策略和环境交互，收集一批 on-policy 轨迹。
+            for step in range(cfg.rollout_steps):
+                global_step += cfg.num_envs
+                obs_buf[step] = obs
+                with torch.no_grad():
+                    # 采样动作时不需要梯度；真正反传发生在 rollout 收集完之后。
+                    actions, logprobs, _, values = model.act(
+                        obs, start_logit_scale, cfg.start_explore_meters, cfg.effective_action_entropy)
+                actions_np = actions.cpu().numpy()
+                step_result = env.step_arrays(actions_np)
+                base_next_obs_np = step_result["obs"]
+                rewards_np = step_result["reward"]
+                terminated_np = step_result["terminated"]
+                truncated_np = step_result["truncated"]
+                done_np = np.logical_or(terminated_np, truncated_np)
+                next_obs_np = stacker.update(base_next_obs_np, done_np)
+                next_obs = torch.tensor(next_obs_np, dtype=torch.float32, device=device)
+                extrinsic_reward = torch.tensor(rewards_np, dtype=torch.float32, device=device)
+                if rnd_model:
+                    with torch.no_grad():
+                        rnd_features = rnd_model.observation_features(next_obs)
+                        rnd_valid = torch.tensor(~done_np, dtype=torch.bool, device=device)
+                        intrinsic_reward = rnd_model.intrinsic_bonus(rnd_features, rnd_valid)
+                    rnd_features_buf[step] = rnd_features
+                    rnd_valid_buf[step] = rnd_valid
+                    total_reward = extrinsic_reward + rnd_beta * intrinsic_reward
+                    intrinsic_rewards_buf[step] = intrinsic_reward
+                else:
+                    total_reward = extrinsic_reward
+                    intrinsic_rewards_buf[step].zero_()
+                # terminated 通常表示游戏自然结束；truncated 通常表示时间限制等外部截断。
+                episode_returns += rewards_np.astype(np.float32)
+                episode_finishes += int(done_np.sum())
+                if np.any(step_result["has_final"]):
+                    final_mask = step_result["has_final"]
+                    episode_return_samples.extend(
+                        float(episode_return)
+                        for episode_return in episode_returns[final_mask]
+                    )
+                    final_distance_samples.extend(
+                        float(distance)
+                        for distance in step_result["final_distance"][final_mask]
+                    )
+                    episode_returns[final_mask] = 0.0
+
+                actions_buf[step] = actions
+                logprobs_buf[step] = logprobs
+                rewards_buf[step] = total_reward
+                extrinsic_rewards_buf[step] = extrinsic_reward
+                dones_buf[step] = torch.tensor(done_np.astype(np.float32), dtype=torch.float32, device=device)
+                values_buf[step] = values
+                obs = next_obs
+
+            with torch.no_grad():
+                # rollout 最后一个 obs 还没有 value，需要 bootstrap 它来估计最后一步之后的未来。
+                _, next_value = model(obs)
+                advantages, returns = compute_gae(rewards_buf, dones_buf, values_buf, next_value, cfg)
+
+            # 把 [T, N, ...] 展平成 [T*N, ...]，接下来像普通监督学习一样分 minibatch。
+            b_obs = obs_buf.reshape((-1, obs_dim))
+            b_actions = actions_buf.reshape(-1)
+            b_logprobs = logprobs_buf.reshape(-1)
+            b_advantages = advantages.reshape(-1)
+            b_returns = returns.reshape(-1)
+            b_values = values_buf.reshape(-1)
+
+            explained_var = 1.0 - torch.var(b_returns - b_values) / (torch.var(b_returns) + 1e-8)
+            # 标准化 advantage 不改变正负含义，但能让梯度尺度更稳。
+            b_advantages = (b_advantages - b_advantages.mean()) / (b_advantages.std() + 1e-8)
+            policy_loss_value = 0.0
+            value_loss_value = 0.0
+            entropy_value = 0.0
+            approx_kl_value = 0.0
+            clipfrac_value = 0.0
+            rnd_loss_value = 0.0
+            early_stop = False
+            optimization_steps = 0
+            # 第二阶段：固定这批 rollout 数据，对策略和价值函数做多轮小批量优化。
+            for _ in range(cfg.epochs):
+                indices = torch.randperm(batch_size, device=device)
+                for start in range(0, batch_size, minibatch_size):
+                    mb = indices[start:start + minibatch_size]
+                    new_logprobs, entropy, new_values = model.evaluate(
+                        b_obs[mb], b_actions[mb], start_logit_scale, cfg.start_explore_meters,
+                        cfg.effective_action_entropy)
+                    # ratio = pi_new(a|s) / pi_old(a|s)，衡量新策略对旧动作概率改了多少。
+                    logratio = new_logprobs - b_logprobs[mb]
+                    ratio = logratio.exp()
+                    # approx_kl/clipfrac 是诊断指标：太大通常说明策略更新过猛。
+                    approx_kl = ((ratio - 1.0) - logratio).mean()
+                    # The critic also changes shared policy features. Stop this
+                    # batch when their combined updates move the policy too far.
+                    if cfg.target_kl is not None and float(approx_kl.detach().cpu()) > cfg.target_kl:
+                        approx_kl_value = float(approx_kl.detach().cpu())
+                        early_stop = True
+                        break
+                    clipfrac = ((ratio - 1.0).abs() > cfg.clip_coef).float().mean()
+                    # PPO clipped objective：advantage 为正时希望增大动作概率，为负时希望减小；
+                    # clamp 会阻止 ratio 偏离 1 太远，从而避免一次 update 把策略改坏。
+                    unclipped = -b_advantages[mb] * ratio
+                    clipped = -b_advantages[mb] * torch.clamp(ratio, 1.0 - cfg.clip_coef, 1.0 + cfg.clip_coef)
+                    policy_loss = torch.max(unclipped, clipped).mean()
+                    # critic 学习预测 return；乘 0.5 是 MSE 常见写法，方便求导时抵消平方的 2。
+                    value_loss = 0.5 * ((new_values - b_returns[mb]) ** 2).mean()
+                    # entropy 越大，策略越随机；总 loss 里减去 entropy，相当于奖励探索。
+                    entropy_loss = entropy.mean()
+                    loss = policy_loss - entropy_coef * entropy_loss + cfg.vf_coef * value_loss
+
+                    optimizer.zero_grad()
+                    loss.backward()
+                    if cfg.separate_critic_features:
+                        # Large value errors must not shrink unrelated policy
+                        # gradients after separating the two feature networks.
+                        nn.utils.clip_grad_norm_(actor_params, 0.5)
+                        nn.utils.clip_grad_norm_(critic_params, 0.5)
+                    else:
+                        nn.utils.clip_grad_norm_(model.parameters(), 0.5)
+                    optimizer.step()
+                    optimization_steps += 1
+
+                    policy_loss_value = float(policy_loss.detach().cpu())
+                    value_loss_value = float(value_loss.detach().cpu())
+                    entropy_value = float(entropy_loss.detach().cpu())
+                    approx_kl_value = float(approx_kl.detach().cpu())
+                    clipfrac_value = float(clipfrac.detach().cpu())
+
+                if early_stop:
+                    break
+
+            if rnd_model and rnd_optimizer:
+                b_rnd_features = rnd_features_buf.reshape(-1, 62)
+                valid_indices = torch.nonzero(rnd_valid_buf.reshape(-1), as_tuple=False).flatten()
+                rnd_error_sum = 0.0
+                # One predictor pass per rollout on the exact next-state
+                # features that earned curiosity; no extra policy RNG draws.
+                for start in range(0, valid_indices.numel(), minibatch_size):
+                    mb = valid_indices[start:start + minibatch_size]
+                    prediction, target = rnd_model(b_rnd_features[mb])
+                    rnd_loss = 0.5 * ((prediction - target.detach()) ** 2).mean()
+                    rnd_optimizer.zero_grad()
+                    rnd_loss.backward()
+                    nn.utils.clip_grad_norm_(rnd_model.predictor.parameters(), 0.5)
+                    rnd_optimizer.step()
+                    rnd_error_sum += float(rnd_loss.detach().cpu()) * mb.numel()
+                rnd_loss_value = rnd_error_sum / max(1, valid_indices.numel())
+
+            update_elapsed = time.perf_counter() - update_started
+            rnd_rewards_buf = intrinsic_rewards_buf * rnd_beta
+            rnd_reward_abs_ratio = float(
+                rnd_rewards_buf.abs().mean().cpu() / (extrinsic_rewards_buf.abs().mean().cpu() + 1e-8)
+            )
+            final_distance_mean = (
+                float(np.mean(final_distance_samples))
+                if final_distance_samples
+                else None
+            )
+            episode_return_mean = (
+                float(np.mean(episode_return_samples))
+                if episode_return_samples
+                else None
+            )
+            explained_var_value = float(explained_var.detach().cpu())
+
+            metrics = {
+                "charts/update_seconds": update_elapsed,
+                "charts/episodes": float(episode_finishes),
+                "charts/optimization_steps": float(optimization_steps),
+                "charts/early_stop": float(early_stop),
+                "losses/policy_loss": policy_loss_value,
+                "losses/value_loss": value_loss_value,
+                "losses/entropy": entropy_value,
+                "losses/approx_kl": approx_kl_value,
+                "losses/clipfrac": clipfrac_value,
+                "losses/explained_variance": explained_var_value,
+                "hyperparams/learning_rate": cfg.learning_rate,
+                "hyperparams/entropy_coefficient": entropy_coef,
+                "hyperparams/start_logit_scale": start_logit_scale,
+            }
+            if cfg.critic_learning_rate is not None:
+                metrics["hyperparams/critic_learning_rate"] = cfg.critic_learning_rate
+            if cfg.effective_action_entropy:
+                with torch.no_grad():
+                    diagnostic_dist, _ = model.action_distribution(
+                        b_obs[:minibatch_size], start_logit_scale, cfg.start_explore_meters)
+                    metrics["diagnostics/mask_entropy"] = float(diagnostic_dist.entropy().mean().cpu())
+                    metrics["diagnostics/effective_action_entropy"] = float(
+                        model.action_entropy(diagnostic_dist, True).mean().cpu())
+            if final_distance_mean is not None:
+                metrics["charts/final_distance_mean"] = final_distance_mean
+            if episode_return_mean is not None:
+                metrics["charts/episode_return_mean"] = episode_return_mean
+            logger.log(global_step, metrics)
+            if rnd_model:
+                logger.log(
+                    global_step,
+                    {
+                        "charts/rnd_reward_abs_ratio": rnd_reward_abs_ratio,
+                        "losses/rnd_loss": rnd_loss_value,
+                        "hyperparams/rnd_beta": rnd_beta,
+                    },
+                )
+
+            # 控制台输出只打印最新 update 的摘要；完整曲线看 TensorBoard。
+            log_line = (
+                f"update={update}/{cfg.updates} absolute_update={absolute_update} steps={global_step} "
+                f"episodes={episode_finishes} "
+                f"policy_loss={policy_loss_value:.4f} value_loss={value_loss_value:.4f} "
+                f"entropy={entropy_value:.4f} kl={approx_kl_value:.5f} clipfrac={clipfrac_value:.3f}"
+            )
+            if final_distance_mean is not None:
+                log_line += f" final_distance_mean={final_distance_mean:.3f}"
+            if episode_return_mean is not None:
+                log_line += f" episode_return_mean={episode_return_mean:.3f}"
+            if rnd_model:
+                log_line += (
+                    f" rnd_reward_abs_ratio={rnd_reward_abs_ratio:.4f} "
+                    f"rnd_beta={rnd_beta:.4f} rnd_loss={rnd_loss_value:.4f}"
+                )
+            print(log_line)
+
+            if cfg.save_interval > 0 and update % cfg.save_interval == 0:
+                # 周期性保存带 update 编号的 checkpoint，方便回看不同训练阶段的策略。
+                periodic_path = cfg.checkpoint.with_name(f"{cfg.checkpoint.stem}_update_{absolute_update:06d}{cfg.checkpoint.suffix}")
+                save_checkpoint(periodic_path, model, optimizer, cfg, absolute_update, global_step, rnd_model, rnd_optimizer)
+                print(f"saved_checkpoint={periodic_path}")
+    finally:
+        logger.close()
+
+    save_checkpoint(cfg.checkpoint, model, optimizer, cfg, resumed_update + cfg.updates, global_step, rnd_model, rnd_optimizer)
+    print(f"saved_checkpoint={cfg.checkpoint}")
+    print(f"logdir={log_dir}")
+    print(f"tensorboard_logdir={log_dir}")
+
+
+def main() -> int:
+    # 命令行参数和 PPOConfig 字段一一对应；未传入的参数保持 None，让 make_config 使用默认/JSON 值。
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", type=Path, default=None)
+    parser.add_argument("--num-envs", type=int, default=None)
+    parser.add_argument("--rollout-steps", type=int, default=None)
+    parser.add_argument("--updates", type=int, default=None)
+    parser.add_argument("--epochs", type=int, default=None)
+    parser.add_argument("--minibatches", type=int, default=None)
+    parser.add_argument("--gamma", type=float, default=None)
+    parser.add_argument("--gae-lambda", type=float, default=None)
+    parser.add_argument("--clip-coef", type=float, default=None)
+    parser.add_argument("--target-kl", type=float, default=None)
+    parser.add_argument("--ent-coef", type=float, default=None)
+    parser.add_argument("--ent-coef-final", type=float, default=None)
+    parser.add_argument("--ent-coef-decay-updates", type=int, default=None)
+    parser.add_argument("--start-logit-scale", type=float, default=None)
+    parser.add_argument("--start-logit-scale-decay-updates", type=int, default=None)
+    parser.add_argument("--start-explore-meters", type=float, default=None)
+    parser.add_argument("--effective-action-entropy", action="store_true", default=None)
+    parser.add_argument("--freeze-backbone", action="store_true", default=None)
+    parser.add_argument("--enable-flat-actor-bias", action="store_true", default=None)
+    parser.add_argument("--enable-flat-actor-residual", action="store_true", default=None)
+    parser.add_argument("--detach-critic-features", action="store_true", default=None)
+    parser.add_argument("--separate-critic-features", action="store_true", default=None)
+    parser.add_argument("--critic-learning-rate", type=float, default=None)
+    parser.add_argument("--vf-coef", type=float, default=None)
+    parser.add_argument("--learning-rate", type=float, default=None)
+    parser.add_argument("--seed", type=int, default=None)
+    parser.add_argument("--num-threads", type=int, default=None)
+    parser.add_argument("--checkpoint", type=Path, default=None)
+    parser.add_argument("--resume-from", type=Path, default=None)
+    parser.add_argument("--reset-optimizer-on-resume", action="store_true", default=None)
+    parser.add_argument(
+        "--reward-profile",
+        choices=["classic_100m", "classic_100m_task", "hurdle_110m", "long_jump_30m", "long_jump_task"],
+        default=None,
+    )
+    parser.add_argument("--game-mode", choices=["auto", "classic_100m", "hurdle_110m", "long_jump_30m"], default=None)
+    parser.add_argument("--run-dir", type=Path, default=None)
+    parser.add_argument("--run-name", type=str, default=None)
+    parser.add_argument("--save-interval", type=int, default=None)
+    parser.add_argument("--hidden-sizes", type=parse_hidden_sizes, default=None)
+    parser.add_argument("--frame-stack", type=int, default=None)
+    parser.add_argument("--normalize-observations", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--derive-angular-velocity", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--rnd-beta", type=float, default=None)
+    parser.add_argument("--rnd-beta-final", type=float, default=None)
+    parser.add_argument("--rnd-beta-decay-updates", type=int, default=None)
+    parser.add_argument("--rnd-learning-rate", type=float, default=None)
+    parser.add_argument("--rnd-hidden-size", type=int, default=None)
+    parser.add_argument("--rnd-feature-dim", type=int, default=None)
+    args = parser.parse_args()
+    train(make_config(args))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

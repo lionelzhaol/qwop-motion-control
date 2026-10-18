@@ -1,0 +1,149 @@
+{
+  "deck": {
+    "title": "基于深度强化学习的 QWOP 运动控制与策略优化研究",
+    "audience": "课程老师，课堂项目汇报",
+    "outcome": "理解任务、PPO训练链路、策略优化证据及研究局限",
+    "main_promise": "用原生游戏成绩检验奖励、探索、示范学习与跨任务迁移",
+    "narrative_spine": "任务与方法、基线问题、奖励优化、奖励审计、探索与模仿、跨任务迁移、结论与后续",
+    "output_lane": "native-pptx",
+    "format": "editable PPTX and Markdown with speaker notes",
+    "slide_count": 12,
+    "design_posture": "浅色学术汇报，16:9，Microsoft YaHei，深蓝与青绿，原生可编辑数据图表",
+    "assumptions": ["共12页，封面计入总页数", "计划讲述600秒", "每页不超过5个要点", "成绩依据截至2026-10-11的本地记录", "原版游戏图片只作任务示意"]
+  },
+  "slides": [
+    {
+      "number": 1,
+      "action_title": "基于深度强化学习的 QWOP\n运动控制与策略优化研究",
+      "role": "cover",
+      "key_message": "让神经网络学习按键控制，研究速度与跨任务适应",
+      "visual": "大标题与单行研究范围，保留充分留白",
+      "duration_seconds": 20,
+      "bullets": ["百米提速与跳远迁移", "Lionel_Zhao · 课堂项目汇报"],
+      "speaker_note": "老师好，我汇报的题目是基于深度强化学习的QWOP运动控制与策略优化研究。项目从开源训练框架出发，围绕百米跑步和跳远，依次尝试奖励优化、探索和示范学习。我重点介绍方法、实验结果，以及哪些提升已经验证、哪些问题还没有解决。",
+      "source_refs": ["E:/Work/强化学习小项目/verification/project_report/report_front.md", "https://github.com/LYiHub/QWOP_rl_training_public"]
+    },
+    {
+      "number": 2,
+      "action_title": "研究任务：从按键到稳定运动",
+      "role": "task",
+      "key_message": "用身体状态决定离散按键，目标由原生正式成绩定义",
+      "visual": "左侧4条任务定义，右侧原版QWOP画面示意",
+      "duration_seconds": 45,
+      "bullets": ["观测：68维身体与任务状态", "动作：四键组合，共16类", "百米：成功完赛，用时越少越好", "跳远：有效落点，距离越大越好"],
+      "speaker_note": "QWOP用四个按键控制腿部运动，动作需要连续协调，错误容易导致摔倒。模型读取身体位置、角度、速度和脚接触等状态，而不是读取游戏画面，输出四个按键的组合。百米模式还有50米处的障碍，120秒上限，所以并非全程平跑。跳远包括30米助跑、起跳和落地，原生有效通关还要求走出沙坑。评价百米看正式完赛用时，评价跳远看最终落点距离，同时统计成功率。右边是原版游戏的示意图，不代表本项目成绩。",
+      "source_refs": ["E:/Work/强化学习小项目/verification/project_report/report_front.md 第3节", "E:/Work/强化学习小项目/QWOP_rl_training_public/src/training_env.cpp", "https://thecreativeindependent.com/people/bennett-foddy-on-the-pitfalls-of-perfectionism/", "https://s3.amazonaws.com/tci-assets/uploads/bennett-pic.jpg"]
+    },
+    {
+      "number": 3,
+      "action_title": "系统架构与训练闭环",
+      "role": "architecture",
+      "key_message": "Python负责学习，原生环境提供交互与正式计分",
+      "visual": "四段平铺训练流程，底部独立评测与回放",
+      "duration_seconds": 50,
+      "bullets": ["状态处理：固定缩放与历史堆帧", "交互采集：并行C++环境与物理DLL", "网络更新：rollout、GAE与PPO", "记录验证：TensorBoard、checkpoint与原生回放"],
+      "speaker_note": "训练入口是train_ppo.py。每轮先根据配置创建并行环境，归一化观测并堆叠历史，Actor根据这些状态采样动作。Python封装通过pybind11调用C++环境，再调用物理DLL执行按键并读回状态、奖励与终止标志。我们把本轮交互存入rollout，计算优势，再按小批量更新Actor和Critic。更新后保存权重、优化器、配置和计数，独立执行模型评测，并导出动作回放。项目保留原有PPO、日志和保存架构，改进主要集中在奖励、观测处理和局部策略。",
+      "source_refs": ["E:/Work/强化学习小项目/QWOP_rl_training_public/scripts/train_ppo.py", "E:/Work/强化学习小项目/QWOP_rl_training_public/scripts/running_env.py", "E:/Work/强化学习小项目/QWOP_rl_training_public/src/python_module.cpp", "E:/Work/强化学习小项目/QWOP_rl_training_public/src/training_env.cpp"]
+    },
+    {
+      "number": 4,
+      "action_title": "核心算法：PPO-Clip 与 GAE",
+      "role": "method",
+      "key_message": "通过优势估计改进动作概率，并限制更新幅度",
+      "visual": "Actor与Critic两列说明，下面给出一条裁剪目标公式",
+      "duration_seconds": 60,
+      "bullets": ["Actor：输出16类按键概率", "Critic：估计当前状态的未来回报", "GAE：综合多步反馈，估计动作优势", "PPO：裁剪概率比，限制过大的策略更新"],
+      "speaker_note": "项目自行实现离散动作PPO，没有调用SAC或TD3。Actor输出按键概率，Critic预测未来回报。GAE结合当前奖励、下一状态价值和多步反馈，估计这个动作相对于预期好多少。PPO用新旧策略的概率比更新动作分布，裁剪机制会限制过度改变策略，减少一次更新破坏已有步态的风险。训练还使用熵奖励、Adam和梯度裁剪。本项目使用on-policy rollout，每轮采集新数据，不使用长期经验回放池。网络从128乘128的Tanh层扩展到256乘256，后期尝试独立Critic和32帧历史，也就是2176维输入。",
+      "source_refs": ["E:/Work/强化学习小项目/QWOP_rl_training_public/scripts/train_ppo.py", "https://arxiv.org/abs/1707.06347", "https://arxiv.org/abs/1506.02438"]
+    },
+    {
+      "number": 5,
+      "action_title": "基线：链路跑通，运动策略仍低效",
+      "role": "baseline",
+      "key_message": "先验证训练与保存链路，再处理奖励与观测问题",
+      "visual": "左侧原始随机通关0/64与验证要点，右侧v3单版本真实奖励曲线",
+      "duration_seconds": 50,
+      "bullets": ["原奖励训练：随机评测0/64通关", "问题：持续低姿态，状态输入使Tanh饱和", "改进：高度代理、脚支撑进度与固定缩放", "v3：随机38/64通关，确定性75.27秒"],
+      "speaker_note": "首先完成Windows环境构建，确认观测和动作形状、reset、数值有限性，以及checkpoint保存和加载。原奖励续训约1049万条转移后，64次随机运行没有通关，平均前进35.59米。回放还暴露出低姿态前进的问题，原输入尺度使Tanh大量饱和。我们增加固定缩放、历史帧，使用躯干高度代理和脚支撑进度来减少持续低姿态。v3达到38次随机通关，确定性75.27秒。右图是这一轮自己的真实回合回报曲线，不能与更换奖励后的数值直接比较。后端没有膝盖碰撞标志，所以只能声称改善低姿态代理指标。",
+      "source_refs": ["E:/Work/强化学习小项目/verification/baseline_report.md", "E:/Work/强化学习小项目/verification/classic_training_report.md", "E:/Work/强化学习小项目/verification/foot_running_training_report.md", "E:/Work/强化学习小项目/verification/project_report/events_data.json：ppo_foot_running_v3/charts/episode_return_mean"]
+    },
+    {
+      "number": 6,
+      "action_title": "奖励与时序迭代推动百米提速",
+      "role": "optimization",
+      "key_message": "有效观测、阶段反馈和更新控制共同改善纯PPO成绩",
+      "visual": "原生百米确定性用时柱状图，标出纯PPO与参数搜索的边界",
+      "duration_seconds": 55,
+      "bullets": ["姿态与速度反馈，减少明显后仰和低速", "历史扩展到32帧，起步与越栏分阶段处理", "纯PPO最好45.40秒，局部偏置搜索后44.93秒", "43秒目标尚未达成"],
+      "speaker_note": "随后加入姿态、近期速度、低速处罚和更早完赛反馈，并增加历史帧，让模型更容易识别运动阶段。纯PPO的已验证候选从75.27秒，改善到65.63秒、50.17秒，后期最好45.40秒。部分阶段还对Actor偏置做小幅参数搜索，保留49.97秒、44.97秒，最终44.93秒。搜索改变了网络权重，所以这些成绩必须与未经搜索的PPO快照区分。我们还尝试起步反馈、越栏恢复、独立Critic和较长信用分配，但没有完成43秒目标。这说明继续堆奖励项或训练步数，不一定能解决策略的局部最优。",
+      "source_refs": ["E:/Work/强化学习小项目/verification/forward_lean_training_report.md", "E:/Work/强化学习小项目/QWOP_rl_training_public/docs/under50-training.md", "E:/Work/强化学习小项目/QWOP_rl_training_public/docs/under45-training.md", "E:/Work/强化学习小项目/QWOP_rl_training_public/docs/bottleneck-followup-training.md", "E:/Work/强化学习小项目/verification/project_report/report_front.md 第6.7节"]
+    },
+    {
+      "number": 7,
+      "action_title": "提速瓶颈：动作阶段与奖励排序",
+      "role": "diagnosis",
+      "key_message": "旧奖励对两条成功轨迹的排序与完赛速度冲突",
+      "visual": "原生奖励重放的分组柱状图，左侧解释运动瓶颈和排序冲突",
+      "duration_seconds": 55,
+      "bullets": ["动作瓶颈：起步加速、越栏落地后恢复", "5°前倾、步频与平稳度只是待验证假设", "旧奖励更偏爱44.93秒策略，任务奖励纠正排序", "仅审计两条成功轨迹，不证明全局最优"],
+      "speaker_note": "逐帧诊断发现，44.97秒策略约6.9秒才到10米，50米障碍附近又有腾空和落地恢复损失。但更根本的问题来自奖励审计。将33.03秒专家轨迹和44.93秒旧策略在原生环境重放，旧奖励给慢策略1877分，却只给快示范1451分。专家大量动作不符合旧姿态门槛，使快轨迹错失额外奖励。改成正式成功与用时导向奖励后，快轨迹获得更高分。这个结果直接指出旧规则对这两条轨迹的目标冲突，也提醒我们，5度前倾、步频更高、上下更平稳，都应作为假设验证。两条轨迹不足以证明新奖励在所有状态下都最优。",
+      "source_refs": ["E:/Work/强化学习小项目/verification/bottleneck_baseline_comparison.json", "E:/Work/强化学习小项目/QWOP_rl_training_public/docs/shadow-imitation-pilot.md", "E:/Work/强化学习小项目/QWOP_rl_training_public/src/reward_profiles.cpp"],
+      "evidence": ["旧奖励：33.03秒示范1450.95，44.93秒策略1877.42", "任务奖励：33.03秒示范2300.67，44.93秒策略2055.80"]
+    },
+    {
+      "number": 8,
+      "action_title": "RND：部分成功率改善，最快值未刷新",
+      "role": "exploration",
+      "key_message": "新颖性探索的效果需要与匹配对照和原生成绩一起判断",
+      "visual": "RND原理短句与三行原生评测表",
+      "duration_seconds": 45,
+      "bullets": ["预测随机固定网络，误差作为内在奖励", "同起点、同训练量，对比RND开与关", "随机成功57/64提高到61/64", "最快保存点46.80秒变为47.23秒，单种子证据有限"],
+      "speaker_note": "RND固定一个随机目标网络，训练预测器模仿它，预测误差越大表示状态相对新颖，并提供内在奖励。本次对照从同一个44.93秒Actor开始，两组各采集约1678万条转移。关闭RND时随机成功57次，开启后61次，成功平均用时也略有改善。但最好确定性保存点从46.80秒变成47.23秒，都没有超过原模型。因此，这次看到的是部分稳定性指标改善，不能把RND写成已经证明的提速方法。实验只有一个训练种子，仍需多种子和相同随机评测集验证。",
+      "source_refs": ["E:/Work/强化学习小项目/QWOP_rl_training_public/docs/task-reward-rnd-experiment.md", "E:/Work/强化学习小项目/QWOP_rl_training_public/scripts/train_ppo.py", "https://arxiv.org/abs/1810.12894"]
+    },
+    {
+      "number": 9,
+      "action_title": "公开影子模仿：本地网络复现33.03秒",
+      "role": "imitation",
+      "key_message": "行为克隆带来更快步态，但偏离轨迹后的恢复能力不足",
+      "visual": "33.03秒大数字、专家到策略的文字流程及两条闭环评测记录",
+      "duration_seconds": 65,
+      "bullets": ["外部冠军XYF：991帧公开示范", "行为克隆：状态动作监督与交叉熵", "固定初态确定性16/16复现33.03秒", "原始随机动作采样0/64通关"],
+      "speaker_note": "自主探索速度受限后，我们使用网站公开冠军XYF的影子动作作为示范。先在原生环境执行这991帧动作，构建状态动作样本，再复用原Actor进行交叉熵训练。测试时网络读取当前观测自行选动作，没有按时间播放专家动作列表。epoch900的分类准确率已经99.899%，闭环仍在52米失败，epoch1000准确率100%后才复现33.03秒。这说明序列控制中很小的动作偏差也会累积。固定初始状态下16次都完成，但按原始概率随机采样的64次全部失败。降低采样温度筛出的33.13和33.17秒是不同真实回放，权重没变，也没有突破示范速度。我们需要训练偏离轨迹后的纠错能力。",
+      "source_refs": ["E:/Work/强化学习小项目/QWOP_rl_training_public/docs/shadow-imitation-pilot.md", "E:/Work/强化学习小项目/QWOP_rl_training_public/scripts/train_replay_imitation.py", "E:/Work/强化学习小项目/verification/shadow_audit/imitation_pilot.json", "E:/Work/强化学习小项目/verification/project_report/report_front.md 第6.10节", "https://run.lyihub.com/"]
+    },
+    {
+      "number": 10,
+      "action_title": "跳远迁移：保留助跑，学习局部起跳",
+      "role": "transfer",
+      "key_message": "先校准观测语义，再保护已有技能并训练起跳区域",
+      "visual": "三条迁移设计及旧新模型的正式距离表",
+      "duration_seconds": 60,
+      "bullets": ["相同68维观测，位置字段原点不同", "校准后前25米、334帧助跑动作一致", "冻结助跑Actor，在起跳区域训练调整层", "确定性2.59米，2048次随机搜索最好3.16米"],
+      "speaker_note": "我们进一步把33秒跑步策略迁移到跳远。直接加载时很快摔倒，原因是百米和跳远虽然都为68维，但位置字段的原点和语义不同。通过第一层偏置校准输入原点后，前25米334帧动作和身体状态与百米一致。随后冻结助跑Actor和表征，只在起跳线附近训练动作调整层，同时使用独立Critic，继续沿用作者的跳远奖励。三轮训练后的确定性最好2.588米，2048次随机运行中最好3.161米，有1663次通关。独立64次评测51次成功，成功平均1.507米。最佳回放高于以前的2.802米，但两次搜索规模不同，确定性成绩仍未超过旧2.599米，稳定起跳还需要改善。",
+      "source_refs": ["E:/Work/强化学习小项目/QWOP_rl_training_public/docs/long-jump-training.md", "E:/Work/强化学习小项目/QWOP_rl_training_public/docs/long-jump-shadow-transfer.md", "E:/Work/强化学习小项目/verification/long_jump_shadow_final_report.json"]
+    },
+    {
+      "number": 11,
+      "action_title": "结果：速度、稳定性与泛化分别评价",
+      "role": "results",
+      "key_message": "方法来源与评测口径决定成绩能支持什么结论",
+      "visual": "四行结果矩阵，标明训练、参数搜索、示范复现和随机最佳",
+      "duration_seconds": 50,
+      "bullets": ["纯PPO：已验证45.40秒", "PPO加局部参数搜索：44.93秒", "外部示范行为克隆：33.03秒", "跳远迁移：随机最佳3.16米，确定性约2.59米"],
+      "speaker_note": "汇总结果时，需要按方法来源分开。纯PPO最好已验证45.40秒，加入Actor偏置搜索得到44.93秒。33.03秒是本地模型模仿公开外部专家的成果，不能说成自主PPO探索出冠军策略。跳远迁移的随机最佳提高到3.16米，但确定性没有超过旧结果。训练奖励、原生正式成绩、成功率和成功回合均值也需要分别报告。这里的固定初态确定性复跑验证了保存、加载和执行的一致性，没有验证不同初始姿态下的泛化。项目已经形成可加载模型、日志和回放的完整产物，下一步应把重点转向稳定控制与可重复评测。",
+      "source_refs": ["E:/Work/强化学习小项目/verification/project_report/report_front.md 第1、7、8节", "E:/Work/强化学习小项目/verification/long_jump_shadow_final_report.json"]
+    },
+    {
+      "number": 12,
+      "action_title": "后续：从轨迹复现走向稳定控制",
+      "role": "closing",
+      "key_message": "优先对齐正式目标，训练恢复能力，并统一评测",
+      "visual": "四条研究计划，最后一句项目结论",
+      "duration_seconds": 45,
+      "bullets": ["先用原生成绩审计奖励，减少未经验证的姿态假设", "BC约束下小步PPO微调，训练偏离轨迹后的恢复", "统一初态、随机种子和扰动，开展多种子对照", "跳远按正式距离和成功率选模，继续优化起跳"],
+      "speaker_note": "后续首先建立统一评测协议，固定随机种子和测试条件，报告成功率、成功均值、分位数和最佳值，再加入初始状态扰动与多训练种子。策略方面，可以在行为克隆约束下小步PPO微调，通过受控扰动收集偏离轨迹后的状态，逐步训练纠错，防止破坏已学助跑。跳远继续按正式落点和有效通关选模，集中优化起跳时机。这些都是计划，尚未作为新结果验证。本项目的主要收获是跑通并保留训练架构，用真实回放发现奖励冲突，并验证了示范学习和跨任务迁移的价值与局限。谢谢老师。",
+      "source_refs": ["E:/Work/强化学习小项目/verification/project_report/report_front.md 第9节"]
+    }
+  ]
+}

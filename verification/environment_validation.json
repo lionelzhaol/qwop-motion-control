@@ -1,0 +1,71 @@
+[
+  {
+    "profile": "classic_100m",
+    "num_envs": 4,
+    "threads": 2,
+    "observation_shape": [
+      4,
+      68
+    ],
+    "action_shape": [
+      4
+    ],
+    "action_range": [
+      0,
+      15
+    ],
+    "vector_steps": 256,
+    "transitions": 1024,
+    "completed_episodes": 8,
+    "reward_min": -9.699999809265137,
+    "reward_max": 0.10000002384185791,
+    "max_reset_observation_error": 0.0,
+    "finite": true
+  },
+  {
+    "profile": "hurdle_110m",
+    "num_envs": 4,
+    "threads": 2,
+    "observation_shape": [
+      4,
+      66
+    ],
+    "action_shape": [
+      4
+    ],
+    "action_range": [
+      0,
+      15
+    ],
+    "vector_steps": 256,
+    "transitions": 1024,
+    "completed_episodes": 7,
+    "reward_min": -9.699999809265137,
+    "reward_max": 0.10000002384185791,
+    "max_reset_observation_error": 0.0,
+    "finite": true
+  },
+  {
+    "profile": "long_jump_30m",
+    "num_envs": 4,
+    "threads": 2,
+    "observation_shape": [
+      4,
+      68
+    ],
+    "action_shape": [
+      4
+    ],
+    "action_range": [
+      0,
+      15
+    ],
+    "vector_steps": 256,
+    "transitions": 1024,
+    "completed_episodes": 9,
+    "reward_min": -10.0,
+    "reward_max": 0.10000002384185791,
+    "max_reset_observation_error": 0.0,
+    "finite": true
+  }
+]

@@ -1,0 +1,10 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\speed50_bias_gen5.pt checkpoint_update=4384 global_step=142622720 reset_optimizer=1
+update=1/4 absolute_update=4385 steps=142623232 episodes=0 policy_loss=-0.1963 value_loss=1.6792 entropy=1.2668 kl=0.00694 clipfrac=0.086
+update=2/4 absolute_update=4386 steps=142623744 episodes=0 policy_loss=0.0613 value_loss=1.5704 entropy=1.3753 kl=0.00700 clipfrac=0.086
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\start50_v11_smoke_update_004386.pt
+update=3/4 absolute_update=4387 steps=142624256 episodes=0 policy_loss=-0.1200 value_loss=1.9087 entropy=1.3358 kl=0.00495 clipfrac=0.062
+update=4/4 absolute_update=4388 steps=142624768 episodes=0 policy_loss=0.0393 value_loss=2.2791 entropy=1.3779 kl=0.00411 clipfrac=0.031
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\start50_v11_smoke_update_004388.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\start50_v11_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\start50_v11_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\start50_v11_smoke

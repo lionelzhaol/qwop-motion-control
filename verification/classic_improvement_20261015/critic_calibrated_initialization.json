@@ -1,0 +1,16 @@
+{
+  "configs": {
+    "smoke": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_shadow_calibrated_smoke_20261015.json",
+    "v3": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_shadow_calibrated_v3_20261015.json"
+  },
+  "initial": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_calibrated_initial_20261015.pt",
+  "demonstration_scaled_value_rmse": 0.008235530496020684,
+  "target_quantiles": [
+    20.903829237074962,
+    21.26709773133929,
+    21.39133544921875
+  ],
+  "greedy_preserved": true,
+  "gae_scaling_verified": true,
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_explore_v2_20261015.pt"
+}

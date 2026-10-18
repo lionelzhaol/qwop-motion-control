@@ -1,0 +1,100 @@
+{
+  "candidate_checkpoint": "speed50_bias_gen5.pt",
+  "success": true,
+  "completion_seconds": 53.5,
+  "distance": 100.4000015258789,
+  "crossings_game_seconds": {
+    "10": 7.433333396911621,
+    "20": 12.600000381469727,
+    "40": 22.633333206176758,
+    "60": 33.20000076293945,
+    "80": 43.233333587646484,
+    "90": 48.0,
+    "100": 53.33333206176758
+  },
+  "segments": [
+    {
+      "meters": [
+        0,
+        10
+      ],
+      "seconds": 7.433333396911621,
+      "speed_m_per_second": 1.345291468314171
+    },
+    {
+      "meters": [
+        10,
+        20
+      ],
+      "seconds": 5.1666669845581055,
+      "speed_m_per_second": 1.9354837518825068
+    },
+    {
+      "meters": [
+        20,
+        40
+      ],
+      "seconds": 10.033332824707031,
+      "speed_m_per_second": 1.9933555827780478
+    },
+    {
+      "meters": [
+        40,
+        60
+      ],
+      "seconds": 10.566667556762695,
+      "speed_m_per_second": 1.8927443200576464
+    },
+    {
+      "meters": [
+        60,
+        80
+      ],
+      "seconds": 10.033332824707031,
+      "speed_m_per_second": 1.9933555827780478
+    },
+    {
+      "meters": [
+        80,
+        90
+      ],
+      "seconds": 4.766666412353516,
+      "speed_m_per_second": 2.0979022098302353
+    },
+    {
+      "meters": [
+        90,
+        100
+      ],
+      "seconds": 5.333332061767578,
+      "speed_m_per_second": 1.8750004470349424
+    }
+  ],
+  "action_switches_per_game_second": 11.457943925233645,
+  "height_ratio_percentiles_1_10_50_90": [
+    0.8494436005768932,
+    0.9245225647279728,
+    0.9659866870384521,
+    1.0008485833015905
+  ],
+  "lean_degrees_percentiles_10_50_90": [
+    -4.874759769439697,
+    4.840175628662109,
+    10.095319366455083
+  ],
+  "foot_supported_fraction": 0.49096573208722744,
+  "gamma": 0.995,
+  "discount_over_50_seconds": 0.0005427766029404467,
+  "discount_time_constant_seconds": 6.649986076278537,
+  "gae_trace_time_constant_seconds": 0.5920049425847103,
+  "searched_rollouts": 784,
+  "successful_search_rollouts": 689,
+  "fastest_search_success_even_without_posture_filter": {
+    "report": "speed50_weight_gen1.json",
+    "time": 53.5,
+    "distance": 100.4000015258789,
+    "low_posture_fraction": 0.0,
+    "backward_fraction": 0.021993127147766325
+  },
+  "search_successes_under_50": 0
+}

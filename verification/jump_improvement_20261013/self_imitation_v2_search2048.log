@@ -1,0 +1,18 @@
+episode=1 new_best steps=406 score=29.400 distance=29.400 time=13.533 success=0
+episode=2 new_best steps=466 score=2.579 distance=32.579 time=15.533 success=1
+episode=4 new_best steps=467 score=2.706 distance=32.706 time=15.567 success=1
+episode=14 new_best steps=475 score=2.802 distance=32.802 time=15.833 success=1
+episode=29 new_best steps=493 score=2.859 distance=32.859 time=16.433 success=1
+episode=35 new_best steps=501 score=3.141 distance=33.141 time=16.700 success=1
+episode=36 new_best steps=503 score=3.799 distance=33.799 time=16.767 success=1
+episode=116 new_best steps=582 score=3.824 distance=33.824 time=19.400 success=1
+progress=256/2048 successes=240
+episode=268 new_best steps=541 score=3.824 distance=33.824 time=18.033 success=1
+episode=301 new_best steps=519 score=4.102 distance=34.102 time=17.300 success=1
+progress=512/2048 successes=463
+progress=768/2048 successes=668
+progress=1025/2048 successes=881
+progress=1281/2048 successes=1088
+progress=1537/2048 successes=1302
+progress=1793/2048 successes=1508
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\long_jump_self_imitation_v2_search_20261013.bin episodes=2048 successes=1716 steps=519 score=4.102 distance=34.102 time=17.300 success=1 device=cpu

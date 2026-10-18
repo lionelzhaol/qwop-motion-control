@@ -1,0 +1,10 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_unfreeze_full_20261015.json",
+  "returncode": 0,
+  "elapsed_seconds": 311.184666000001,
+  "started_utc": "2026-10-15T05:02:29.081466+00:00",
+  "ended_utc": "2026-10-15T05:07:40.265909+00:00",
+  "updates": 64,
+  "new_transitions": 8388608,
+  "finite_losses": true
+}

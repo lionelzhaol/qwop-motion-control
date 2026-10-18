@@ -1,0 +1,10 @@
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.41
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+test_foot_reward.cpp
+reward_profiles.cpp
+course_rules.cpp
+正在生成代码...
+foot_reward_behavior_checks=passed

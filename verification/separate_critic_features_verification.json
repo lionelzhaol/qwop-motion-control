@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "legacy_default_parameter_count": 9,
+  "separate_parameter_count": 14,
+  "initial_copy_logits_values_exact": true,
+  "no_shared_feature_parameters_or_storage": true,
+  "critic_backward_only_independent_critic_branch": true,
+  "policy_backward_only_original_actor_branch": true,
+  "critic_features_trainable_when_copied_from_frozen_actor": true,
+  "new_strict_compatible_state_exact": true,
+  "legacy_pre_enabled_target_copy_exact": true,
+  "optimizer_roles_disjoint_complete": true,
+  "actor_group_parameter_count": 7,
+  "critic_group_parameter_count": 7,
+  "resumed_role_learning_rates": {
+    "actor": 7e-06,
+    "critic": 0.0002
+  },
+  "optimizer_states_preserved": 14,
+  "auto_config_separate_true": true,
+  "export_logits_values_exact": true,
+  "verification_files_only": true
+}

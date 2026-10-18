@@ -1,0 +1,10 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_distance_initial_20261013.pt checkpoint_update=0 global_step=0 reset_optimizer=1
+update=1/4 absolute_update=1 steps=2048 episodes=3 policy_loss=0.0252 value_loss=488.1279 entropy=0.1166 kl=0.00001 clipfrac=0.000 final_distance_mean=32.103 episode_return_mean=98.739
+update=2/4 absolute_update=2 steps=4096 episodes=2 policy_loss=0.0453 value_loss=134.0878 entropy=0.2875 kl=0.00025 clipfrac=0.000 final_distance_mean=31.363 episode_return_mean=69.374
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_distance_smoke_20261013_update_000002.pt
+update=3/4 absolute_update=3 steps=6144 episodes=3 policy_loss=0.0186 value_loss=164.8550 entropy=0.2821 kl=0.00002 clipfrac=0.000 final_distance_mean=30.975 episode_return_mean=25.253
+update=4/4 absolute_update=4 steps=8192 episodes=4 policy_loss=0.0070 value_loss=385.3260 entropy=0.1154 kl=0.00007 clipfrac=0.000 final_distance_mean=31.497 episode_return_mean=61.005
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_distance_smoke_20261013_update_000004.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_long_jump_distance_smoke_20261013.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_long_jump_distance_smoke_20261013
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_long_jump_distance_smoke_20261013

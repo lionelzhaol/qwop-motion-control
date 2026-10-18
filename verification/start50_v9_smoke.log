@@ -1,0 +1,10 @@
+resumed_from=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\checkpoints\speed50_bias_gen5.pt checkpoint_update=4384 global_step=142622720 reset_optimizer=1
+update=1/4 absolute_update=4385 steps=142623232 episodes=0 policy_loss=-0.1998 value_loss=0.8347 entropy=1.2822 kl=0.01877 clipfrac=0.188
+update=2/4 absolute_update=4386 steps=142623744 episodes=0 policy_loss=-0.0658 value_loss=0.4481 entropy=1.3425 kl=0.00276 clipfrac=0.008
+saved_checkpoint=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\checkpoints\start50_v9_smoke_update_004386.pt
+update=3/4 absolute_update=4387 steps=142624256 episodes=0 policy_loss=0.1107 value_loss=0.5845 entropy=1.3966 kl=0.00876 clipfrac=0.133
+update=4/4 absolute_update=4388 steps=142624768 episodes=0 policy_loss=-0.1412 value_loss=0.4406 entropy=1.3961 kl=0.01346 clipfrac=0.117
+saved_checkpoint=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\checkpoints\start50_v9_smoke_update_004388.pt
+saved_checkpoint=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\checkpoints\start50_v9_smoke.pt
+logdir=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\runs\start50_v9_smoke
+tensorboard_logdir=E:\Work\ǿ��ѧϰС��Ŀ\QWOP_rl_training_public\runs\start50_v9_smoke

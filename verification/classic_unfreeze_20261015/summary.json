@@ -1,0 +1,458 @@
+{
+  "best_frames": 991,
+  "best_time_s": 33.03333333333333,
+  "broke_reference": false,
+  "ppo_training_seconds": 967.9233592000019,
+  "new_ppo_transitions": 25198592,
+  "sampled_search_episodes": 16384,
+  "elapsed_seconds": 1569.6066434383392,
+  "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_actor_unfreeze_best_20261015.pt",
+  "greedy_replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_actor_unfreeze_greedy_20261015.bin",
+  "best_search": {
+    "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_full_20261015.pt",
+    "checkpoint_sha256": "d4fa98137141a8d6952b7d7ba1b947d3ebb906519bc9ca42ba505b1e4f49f581",
+    "output": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_unfreeze_full_search_20261015.bin",
+    "replay_sha256": "2541a82549fda334bbb58b4f7d5f40041e82b4bb8767ed7834f81df38f153bcb",
+    "episodes": 4096,
+    "seed": 2026101573,
+    "frames": 991,
+    "time_s": 33.03333282470703,
+    "native_success": true,
+    "low_torso_fraction": 0.010090817356205853,
+    "faster_than_reference": false,
+    "replay_crc_and_native_reexecution": true,
+    "elapsed_seconds": 62.43958360000033,
+    "started_utc": "2026-10-15T05:10:59.255896+00:00",
+    "ended_utc": "2026-10-15T05:12:01.695488+00:00",
+    "author_search_summary": "saved_replay=E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_unfreeze_full_search_20261015.bin episodes=4096 successes=3863 steps=991 score=100.000 distance=100.000 time=33.033 success=1 device=cuda",
+    "protocol": "Author asynchronous vector search; best-of-completed-episodes, separate from first-episode heldout performance"
+  },
+  "retained_checkpoint_global_step": 35651584,
+  "heldout": {
+    "baseline": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_finetuned_best_20261015.pt",
+      "checkpoint_sha256": "9b5ceff459013fa9e08ff64323c3a83ec5a7543bd234e6ea6c34dcdf00884bcc",
+      "episodes": 192,
+      "successes": 181,
+      "success_rate": 0.9427083333333334,
+      "best_time_s": 33.03333282470703,
+      "mean_success_time_s": 33.03333282470703,
+      "faster_than_reference": 0
+    },
+    "selected": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_actor_unfreeze_best_20261015.pt",
+      "checkpoint_sha256": "ddb9a6fbbee2cd75e0db994e49082198348e8fdaef481ee9399fd536d673c90a",
+      "episodes": 192,
+      "successes": 187,
+      "success_rate": 0.9739583333333334,
+      "best_time_s": 33.03333282470703,
+      "mean_success_time_s": 33.03333282470703,
+      "faster_than_reference": 0
+    }
+  },
+  "stages": [
+    {
+      "scope": "head",
+      "selection_seed": 2026101551,
+      "selection_episodes": 64,
+      "chosen": {
+        "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_head_20261015_update_000192.pt",
+        "native_success": true,
+        "frames": 991,
+        "time_s": 33.03333282470703,
+        "distance_m": 100.0,
+        "expert_state_mean_kl_from_stage_source": 7.549394922534702e-06,
+        "expert_state_argmax_changes": 0,
+        "max_parameter_changes": {
+          "net.0.weight": 0.0,
+          "net.2.weight": 0.0,
+          "angular_velocity.weight": 0.0,
+          "actor.weight": 0.007156848907470703
+        },
+        "successes": 58,
+        "mean_success_time_s": 33.03333282470703,
+        "sample_best_frames": 991
+      },
+      "candidates": [
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_finetuned_best_20261015.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 0.0,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.0
+          },
+          "successes": 57,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_head_20261015_update_000176.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 1.5334600902860984e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.004088401794433594
+          },
+          "successes": 57,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_head_20261015_update_000192.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 7.549394922534702e-06,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.007156848907470703
+          },
+          "successes": 58,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_head_20261015_update_000208.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 2.0260733435861766e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.011194944381713867
+          },
+          "successes": 58,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_head_20261015_update_000224.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 1.9523944501997903e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.015543460845947266
+          },
+          "successes": 58,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_head_20261015.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 1.9523944501997903e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.015543460845947266
+          },
+          "successes": 58,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        }
+      ],
+      "rule": "Prefer native greedy finish then shortest frames, stochastic successes, mean successful time; >=32/64 gate when available"
+    },
+    {
+      "scope": "last_hidden",
+      "selection_seed": 2026101551,
+      "selection_episodes": 64,
+      "chosen": {
+        "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_last_hidden_20261015_update_000240.pt",
+        "native_success": true,
+        "frames": 991,
+        "time_s": 33.03333282470703,
+        "distance_m": 100.0,
+        "expert_state_mean_kl_from_stage_source": 2.370473521295935e-05,
+        "expert_state_argmax_changes": 0,
+        "max_parameter_changes": {
+          "net.0.weight": 0.0,
+          "net.2.weight": 0.0026686787605285645,
+          "angular_velocity.weight": 0.0,
+          "actor.weight": 0.0025849342346191406
+        },
+        "successes": 61,
+        "mean_success_time_s": 33.03333282470703,
+        "sample_best_frames": 991
+      },
+      "candidates": [
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_head_20261015_update_000192.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 0.0,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.0
+          },
+          "successes": 58,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_last_hidden_20261015_update_000208.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 2.0540466721286066e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0010954886674880981,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.0009298324584960938
+          },
+          "successes": 59,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_last_hidden_20261015_update_000224.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 4.831664773519151e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.001896195113658905,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.001665353775024414
+          },
+          "successes": 56,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_last_hidden_20261015_update_000240.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 2.370473521295935e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0026686787605285645,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.0025849342346191406
+          },
+          "successes": 61,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_last_hidden_20261015_update_000256.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 3.253457907703705e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.003440678119659424,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.0028738975524902344
+          },
+          "successes": 61,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_last_hidden_20261015.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 3.253457907703705e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.003440678119659424,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.0028738975524902344
+          },
+          "successes": 61,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        }
+      ],
+      "rule": "Prefer native greedy finish then shortest frames, stochastic successes, mean successful time; >=32/64 gate when available"
+    },
+    {
+      "scope": "full",
+      "selection_seed": 2026101551,
+      "selection_episodes": 64,
+      "chosen": {
+        "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_full_20261015_update_000288.pt",
+        "native_success": true,
+        "frames": 991,
+        "time_s": 33.03333282470703,
+        "distance_m": 100.0,
+        "expert_state_mean_kl_from_stage_source": 2.846144707291387e-05,
+        "expert_state_argmax_changes": 0,
+        "max_parameter_changes": {
+          "net.0.weight": 9.154528379440308e-05,
+          "net.2.weight": 7.449090480804443e-05,
+          "angular_velocity.weight": 6.121397018432617e-05,
+          "actor.weight": 4.506111145019531e-05
+        },
+        "successes": 62,
+        "mean_success_time_s": 33.03333282470703,
+        "sample_best_frames": 991
+      },
+      "candidates": [
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_last_hidden_20261015_update_000240.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 0.0,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.0,
+            "net.2.weight": 0.0,
+            "angular_velocity.weight": 0.0,
+            "actor.weight": 0.0
+          },
+          "successes": 61,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_full_20261015_update_000256.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 1.003384568321053e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 4.863180220127106e-05,
+            "net.2.weight": 4.1931867599487305e-05,
+            "angular_velocity.weight": 3.575719892978668e-05,
+            "actor.weight": 2.568960189819336e-05
+          },
+          "successes": 61,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_full_20261015_update_000272.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 1.087774580810219e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 7.963646203279495e-05,
+            "net.2.weight": 6.119906902313232e-05,
+            "angular_velocity.weight": 4.419684410095215e-05,
+            "actor.weight": 4.2378902435302734e-05
+          },
+          "successes": 61,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_full_20261015_update_000288.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 2.846144707291387e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 9.154528379440308e-05,
+            "net.2.weight": 7.449090480804443e-05,
+            "angular_velocity.weight": 6.121397018432617e-05,
+            "actor.weight": 4.506111145019531e-05
+          },
+          "successes": 62,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_full_20261015_update_000304.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 1.9608998627518304e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.00011578202247619629,
+            "net.2.weight": 8.84905457496643e-05,
+            "angular_velocity.weight": 6.841123104095459e-05,
+            "actor.weight": 6.0558319091796875e-05
+          },
+          "successes": 62,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        },
+        {
+          "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_unfreeze_full_20261015.pt",
+          "native_success": true,
+          "frames": 991,
+          "time_s": 33.03333282470703,
+          "distance_m": 100.0,
+          "expert_state_mean_kl_from_stage_source": 1.9608998627518304e-05,
+          "expert_state_argmax_changes": 0,
+          "max_parameter_changes": {
+            "net.0.weight": 0.00011578202247619629,
+            "net.2.weight": 8.84905457496643e-05,
+            "angular_velocity.weight": 6.841123104095459e-05,
+            "actor.weight": 6.0558319091796875e-05
+          },
+          "successes": 62,
+          "mean_success_time_s": 33.03333282470703,
+          "sample_best_frames": 991
+        }
+      ],
+      "rule": "Prefer native greedy finish then shortest frames, stochastic successes, mean successful time; >=32/64 gate when available"
+    }
+  ],
+  "retained_previous_baseline": false
+}

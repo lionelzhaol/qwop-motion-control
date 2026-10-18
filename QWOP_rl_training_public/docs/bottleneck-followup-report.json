@@ -1,0 +1,232 @@
+{
+  "started_utc": "2026-10-09T09:22:17+00:00",
+  "completed_utc": "2026-10-09T11:09:46.091822+00:00",
+  "wall_seconds_including_diagnosis_and_validation": 6449.091822,
+  "training_seconds_sum_processes_overlap": 5258.0670379,
+  "new_environment_steps": 201326592,
+  "trials": [
+    {
+      "phase": "v30_hurdle",
+      "training_seconds": 790.6761305,
+      "exit_code": 0,
+      "new_environment_steps": 33554432,
+      "snapshots_evaluated": 64,
+      "qualified_success_snapshots": 62,
+      "best_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v30_hurdle_update_011424.pt",
+      "best_time_s": 45.63333511352539,
+      "best_splits_s": {
+        "0_10": 6.9666666984558105,
+        "40_50": 4.166667938232422,
+        "50_60": 4.666666030883789,
+        "60_70": 4.233331680297852
+      }
+    },
+    {
+      "phase": "v31_start",
+      "training_seconds": 828.5119248,
+      "exit_code": 0,
+      "new_environment_steps": 33554432,
+      "snapshots_evaluated": 64,
+      "qualified_success_snapshots": 59,
+      "best_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v31_start_update_011392.pt",
+      "best_time_s": 46.33333206176758,
+      "best_splits_s": {
+        "0_10": 6.900000095367432,
+        "40_50": 4.233333587646484,
+        "50_60": 4.733331680297852,
+        "60_70": 4.733333587646484
+      }
+    },
+    {
+      "phase": "v32_start_explore",
+      "exit_code": 0,
+      "training_seconds": 850.7951369,
+      "new_environment_steps": 33554432,
+      "snapshots_evaluated": 64,
+      "qualified_success_snapshots": 58,
+      "best_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v32_start_explore_update_011280.pt",
+      "best_time_s": 46.266666412353516,
+      "best_splits_s": {
+        "0_10": 6.933333396911621,
+        "40_50": 4.133333206176758,
+        "50_60": 5.133333206176758,
+        "60_70": 4.766666412353516
+      }
+    },
+    {
+      "phase": "v33_effective_explore",
+      "training_seconds": 957.7800831,
+      "exit_code": 0,
+      "new_environment_steps": 33554432,
+      "snapshots_evaluated": 64,
+      "qualified_success_snapshots": 58,
+      "best_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v33_effective_explore_update_011472.pt",
+      "best_time_s": 45.400001525878906,
+      "best_splits_s": {
+        "0_10": 6.933333396911621,
+        "40_50": 4.166667938232422,
+        "50_60": 4.533332824707031,
+        "60_70": 4.166667938232422
+      }
+    },
+    {
+      "phase": "v34_long_credit",
+      "training_seconds": 929.2590596,
+      "exit_code": 0,
+      "new_environment_steps": 33554432,
+      "snapshots_evaluated": 64,
+      "qualified_success_snapshots": 54,
+      "best_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v34_long_credit_update_011056.pt",
+      "best_time_s": 47.63333511352539,
+      "best_splits_s": {
+        "0_10": 7.066666603088379,
+        "40_50": 4.5,
+        "50_60": 4.733333587646484,
+        "60_70": 4.299997329711914
+      }
+    },
+    {
+      "phase": "v35_frozen_gait",
+      "training_seconds": 901.044703,
+      "exit_code": 0,
+      "new_environment_steps": 33554432,
+      "snapshots_evaluated": 64,
+      "qualified_success_snapshots": 57,
+      "best_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v35_frozen_gait_update_010696.pt",
+      "best_time_s": 46.63333511352539,
+      "best_splits_s": {
+        "0_10": 6.933333396911621,
+        "40_50": 4.566667556762695,
+        "50_60": 4.799999237060547,
+        "60_70": 4.5666656494140625
+      }
+    }
+  ],
+  "models": [
+    {
+      "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_phase_fast.pt",
+      "source_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v32_hidden2_baseline.pt",
+      "source_sha256": "7c47e59b88741ccd2e495a2367f91dc3782c19213d43c0c4f45a9e1ba0344df9",
+      "method": "PPO ancestor plus hidden-layer parameter search",
+      "verified_game_time_s": 44.93333435058594,
+      "verified_frames": 1348,
+      "reward_version": "v31",
+      "native_terminal_required": true,
+      "optimizer_reset": true,
+      "created_utc": "2026-10-09T11:04:44.286098+00:00"
+    },
+    {
+      "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_phase_ppo.pt",
+      "source_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v33_effective_explore_update_011472.pt",
+      "source_sha256": "4de964a6fe5635aad7d3aaf24fe6cb1fb59193a3edee72d04e4ab742b411db81",
+      "method": "PPO with bounded phase reward, start exploration and effective action entropy",
+      "verified_game_time_s": 45.400001525878906,
+      "verified_frames": 1362,
+      "reward_version": "v31",
+      "native_terminal_required": true,
+      "optimizer_reset": true,
+      "created_utc": "2026-10-09T11:04:44.310105+00:00"
+    }
+  ],
+  "replay_validation": [
+    {
+      "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_100m_phase_fast_44p93.bin",
+      "frames": 1348,
+      "time_s": 44.93333435058594,
+      "success": true,
+      "distance_m": 100.0999984741211,
+      "crc_and_terminal_verified": true
+    },
+    {
+      "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_100m_phase_ppo_45p40.bin",
+      "frames": 1362,
+      "time_s": 45.400001525878906,
+      "success": true,
+      "distance_m": 100.30000305175781,
+      "crc_and_terminal_verified": true
+    }
+  ],
+  "stochastic64_comparison": {
+    "target45_under45_random64": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\target45_fine_gen2.pt",
+      "global_step": 348143616,
+      "update": 10656,
+      "seed": 20261008,
+      "device": "cuda",
+      "deterministic": false,
+      "episodes": 64,
+      "successes": 56,
+      "success_rate": 0.875,
+      "success_time_mean": 48.921428884778706,
+      "success_time_min": 45.56666564941406,
+      "low_posture_fraction": 0.004770376959857667,
+      "successes_under_45_seconds": 0,
+      "successes_under_50_seconds": 44,
+      "evaluation_seconds": 2.7534969999996974
+    },
+    "phase_fast44p93_stochastic64": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v32_hidden2_baseline.pt",
+      "global_step": 348143616,
+      "update": 10656,
+      "seed": 20261008,
+      "device": "cuda",
+      "deterministic": false,
+      "episodes": 64,
+      "successes": 59,
+      "success_rate": 0.921875,
+      "success_time_mean": 49.36101687156548,
+      "success_time_min": 46.233333587646484,
+      "low_posture_fraction": 0.001815217391304348,
+      "successes_under_45_seconds": 0,
+      "successes_under_50_seconds": 40,
+      "evaluation_seconds": 3.477790399996593,
+      "successes_delta_vs_committed": 3,
+      "success_mean_time_delta_vs_committed_s": 0.43958798678677624,
+      "episode_mean_low_posture_fraction": 0.0029693841555019423
+    },
+    "phase_ppo45p40_stochastic64": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v33_effective_explore_update_011472.pt",
+      "global_step": 374882304,
+      "update": 11472,
+      "seed": 20261008,
+      "device": "cuda",
+      "deterministic": false,
+      "episodes": 64,
+      "successes": 60,
+      "success_rate": 0.9375,
+      "success_time_mean": 48.44444433848063,
+      "success_time_min": 46.29999923706055,
+      "low_posture_fraction": 0.003697405233419277,
+      "successes_under_45_seconds": 0,
+      "successes_under_50_seconds": 56,
+      "evaluation_seconds": 3.250396200000978,
+      "successes_delta_vs_committed": 4,
+      "success_mean_time_delta_vs_committed_s": -0.47698454629807685,
+      "episode_mean_low_posture_fraction": 0.0047114222134686645
+    },
+    "phase_fast44p93_deterministic16": {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v32_hidden2_baseline.pt",
+      "global_step": 348143616,
+      "update": 10656,
+      "seed": 20261008,
+      "device": "cuda",
+      "deterministic": true,
+      "episodes": 16,
+      "successes": 16,
+      "success_rate": 1.0,
+      "success_time_mean": 44.93333435058594,
+      "success_time_min": 44.93333435058594,
+      "low_posture_fraction": 0.0,
+      "successes_under_45_seconds": 16,
+      "successes_under_50_seconds": 16,
+      "evaluation_seconds": 1.686447499996575
+    }
+  },
+  "best_single_run_improvement_seconds": 0.03333282470703125,
+  "limitations": [
+    "one-frame single-run improvement; start bottleneck not solved",
+    "stochastic64 uses fixed initial state and one action-sampling seed",
+    "effective action aliases empirically verified at six states; native DLL source unavailable"
+  ],
+  "git_committed": false
+}

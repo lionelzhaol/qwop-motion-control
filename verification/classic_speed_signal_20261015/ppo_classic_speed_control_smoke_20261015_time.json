@@ -1,0 +1,10 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_control_smoke_20261015.json",
+  "returncode": 0,
+  "elapsed_seconds": 9.495082500001445,
+  "started_utc": "2026-10-15T05:33:39.634947+00:00",
+  "ended_utc": "2026-10-15T05:33:49.130017+00:00",
+  "updates": 2,
+  "new_transitions": 8192,
+  "finite_losses": true
+}

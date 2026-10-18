@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "beta0_actual_native_ppo_model_optimizer_rng_bitwise_unchanged": true,
+  "cpu_cuda_rng_init_unchanged": true,
+  "normalized_latest_62_features": true,
+  "time_score_course_status_history_excluded": true,
+  "input_clamped_five": true,
+  "target_frozen_exact": true,
+  "prediction_error_before": 0.1485217660665512,
+  "prediction_error_after": 0.0007333476678468287,
+  "learned_states_intrinsic_bonus_declines": true,
+  "running_stats_checkpoint_roundtrip_exact": true,
+  "done_bonus_zero_no_stats": true,
+  "reward_training_next_features_exact": true,
+  "predictor_passes_per_rollout": 1,
+  "predictor_minibatches": 4,
+  "done_samples_excluded_predictor": true,
+  "legacy_rnd_whole_model_optimizer_reset": true,
+  "single_mixed_reward_value_variant": true
+}

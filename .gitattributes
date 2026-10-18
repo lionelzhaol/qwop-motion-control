@@ -1,0 +1,2 @@
+# Preserve snapshot file bytes. Native model and document files remain binary.
+* -text

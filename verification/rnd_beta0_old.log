@@ -1,0 +1,5 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_target43_v39_time_priority_initial.pt checkpoint_update=10656 global_step=348143616 reset_optimizer=1
+update=1/1 absolute_update=10657 steps=348143632 episodes=0 policy_loss=0.1521 value_loss=34.7583 entropy=1.4887 kl=0.00014 clipfrac=0.000
+saved_checkpoint=E:\Work\强化学习小项目\verification\rnd_beta0_old.pt
+logdir=E:\Work\强化学习小项目\verification\rnd_verification_logs\beta0_old
+tensorboard_logdir=E:\Work\强化学习小项目\verification\rnd_verification_logs\beta0_old

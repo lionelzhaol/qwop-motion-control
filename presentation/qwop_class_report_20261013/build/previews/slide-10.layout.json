@@ -1,0 +1,11 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/wguqi6","index":9,"layout":{"id":"ly/at83qp8z","name":"Blank"},"backgroundColor":"rgba(250,251,252,1)","position":{"left":0,"top":0,"width":1280,"height":720}},
+"elements":[
+{"id":"sh/nux8zutw","kind":"textbox","name":"slide-title","position":{"left":72,"top":54,"width":1136,"height":88},"text":"跳远迁移：保留助跑，学习局部起跳","style":{"fontSize":42,"typeface":"Microsoft YaHei","color":"#16243A","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/8vqpszah","kind":"textbox","name":"page-number","position":{"left":1185,"top":671,"width":45,"height":26},"text":"10","style":{"fontSize":18,"typeface":"Microsoft YaHei","color":"#556578","alignment":"right"},"geometry":"rect","lineWidth":0},
+{"id":"sh/9wzq1kb2","kind":"textbox","name":"text-3","position":{"left":72,"top":203,"width":422,"height":55},"text":"校准位置字段原点","style":{"fontSize":33,"typeface":"Microsoft YaHei","color":"#225B85","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/ax87ups7","kind":"textbox","name":"text-4","position":{"left":72,"top":288,"width":419,"height":110},"text":"25米、334帧助跑动作一致\n同为68维，语义仍需核对","style":{"fontSize":27,"typeface":"Microsoft YaHei","color":"#16243A","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/vyh83uts","kind":"textbox","name":"text-5","position":{"left":72,"top":465,"width":442,"height":54},"text":"冻结助跑，局部学习起跳","style":{"fontSize":31,"typeface":"Microsoft YaHei","color":"#078578","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/wzqpwzad","kind":"textbox","name":"text-6","position":{"left":72,"top":549,"width":426,"height":76},"text":"起跳区域调整层 + 独立Critic","style":{"fontSize":26,"typeface":"Microsoft YaHei","color":"#16243A","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"tb/cz2ho36l","kind":"table","position":{"left":548,"top":201,"width":660,"height":304},"text":"跳远路线\t确定性\t随机最佳\n旧PPO迁移\t2.60米\t2.80米\n1024次搜索\n保留33秒助跑\t2.59米\t3.16米\n2048次搜索","rows":3,"cols":3},
+{"id":"sh/i187y9sj","kind":"textbox","name":"text-7","position":{"left":550,"top":553,"width":660,"height":102},"text":"新模型独立64次：51次成功，成功平均1.51米\n搜索规模不同，最佳值不能代表平均能力","style":{"fontSize":23,"typeface":"Microsoft YaHei","color":"#556578","alignment":"left"},"geometry":"rect","lineWidth":0}
+]}

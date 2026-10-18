@@ -1,0 +1,8 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/hwbqtkby","index":1,"layout":{"id":"ly/4v2ps7ql","name":"2_标题和内容"},"backgroundColor":"rgba(255,255,255,1)","position":{"left":0,"top":0,"width":1280,"height":720}},
+"elements":[
+{"id":"sh/9072xkry","kind":"textbox","name":"标题 1","position":{"left":40,"top":16,"width":1085,"height":57},"text":"开源项目提供的训练基础","style":{"fontSize":37.33,"typeface":"微软雅黑","color":"#FFFFFF","bold":true,"alignment":"left"}},
+{"id":"sh/ozy1ofad","kind":"textbox","name":"content-1","position":{"left":50,"top":117,"width":1170,"height":48},"text":"复用作者架构，在任务奖励与策略学习上开展实验","style":{"fontSize":30,"typeface":"微软雅黑","color":"#064A8D","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"tb/6hg3ylc3","kind":"table","position":{"left":50,"top":202,"width":1170,"height":365},"text":"工作层次\t开源项目已提供\t本地完成的工作\n仿真环境\t原生物理后端、Python 接口\n百米、跨栏与跳远任务\tWindows 11 / PyTorch / CUDA\n跑通训练、重置和模型加载\n训练算法\tPPO、Actor / Critic、GAE\n并行采样与策略蒸馏\t奖励迭代、历史状态与探索\nPPO 微调及局部参数搜索\n实验工具\t训练日志与 checkpoint\n评估、模型加载及回放导出\t公开回放采集与行为克隆\n原生闭环验证及结果归档","rows":4,"cols":3},
+{"id":"sh/a10jqpsj","kind":"textbox","name":"content-2","position":{"left":50,"top":603,"width":1170,"height":40},"text":"项目来源：LYiHub / QWOP_rl_training_public","style":{"fontSize":24,"typeface":"微软雅黑","color":"#064A8D","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/x4r21kru","kind":"textbox","name":"content-3","position":{"left":50,"top":656,"width":1170,"height":37},"text":"保留作者的 PPO、采样、日志与模型保存流程","style":{"fontSize":23,"typeface":"微软雅黑","color":"#586778","alignment":"left"},"geometry":"rect","lineWidth":0}
+]}

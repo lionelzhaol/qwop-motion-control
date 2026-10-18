@@ -1,0 +1,9 @@
+actor_unfreeze=full trainable_actor_parameters=634400
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_unfreeze_last_hidden_20261015_update_000240.pt checkpoint_update=240 global_step=29360128 reset_optimizer=1
+update=1/2 absolute_update=241 steps=29364224 episodes=4 policy_loss=0.0067 value_loss=174374.7188 entropy=0.0074 kl=0.01672 clipfrac=0.006 final_distance_mean=100.000 episode_return_mean=2300.667 imitation_loss=0.00028 imitation_coef=0.02000
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_unfreeze_full_smoke_20261015_update_000241.pt
+update=2/2 absolute_update=242 steps=29368320 episodes=7 policy_loss=0.0327 value_loss=11496.3926 entropy=0.0219 kl=0.00695 clipfrac=0.004 final_distance_mean=27.843 episode_return_mean=-171.052 imitation_loss=0.01438 imitation_coef=0.00200
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_unfreeze_full_smoke_20261015_update_000242.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_unfreeze_full_smoke_20261015.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_unfreeze_full_smoke_20261015
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\ppo_classic_unfreeze_full_smoke_20261015

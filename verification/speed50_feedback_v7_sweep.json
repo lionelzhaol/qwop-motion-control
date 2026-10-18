@@ -1,0 +1,79 @@
+{
+  "source": "checkpoints\\ppo_speed50_v7.pt",
+  "records": [
+    {
+      "factor": 1.399999976158142,
+      "success": false,
+      "time": 3.8333332538604736,
+      "distance": 3.4000000953674316,
+      "low_posture_fraction": 0.5130434782608696,
+      "backward_fraction": 0.0
+    },
+    {
+      "factor": 1.2999999523162842,
+      "success": false,
+      "time": 4.633333206176758,
+      "distance": 3.5999999046325684,
+      "low_posture_fraction": 0.5899280575539568,
+      "backward_fraction": 0.0
+    },
+    {
+      "factor": 1.600000023841858,
+      "success": false,
+      "time": 5.199999809265137,
+      "distance": 5.199999809265137,
+      "low_posture_fraction": 0.26282051282051283,
+      "backward_fraction": 0.0
+    },
+    {
+      "factor": 1.0,
+      "success": true,
+      "time": 57.20000076293945,
+      "distance": 100.0999984741211,
+      "low_posture_fraction": 0.0,
+      "backward_fraction": 0.022988505747126436
+    },
+    {
+      "factor": 0.8500000238418579,
+      "success": true,
+      "time": 57.33333206176758,
+      "distance": 100.0,
+      "low_posture_fraction": 0.0,
+      "backward_fraction": 0.031210191082802548
+    },
+    {
+      "factor": 1.100000023841858,
+      "success": true,
+      "time": 57.43333435058594,
+      "distance": 100.19999694824219,
+      "low_posture_fraction": 0.008705745792222866,
+      "backward_fraction": 0.0
+    },
+    {
+      "factor": 1.2000000476837158,
+      "success": true,
+      "time": 59.766666412353516,
+      "distance": 100.30000305175781,
+      "low_posture_fraction": 0.0,
+      "backward_fraction": 0.0
+    },
+    {
+      "factor": 0.699999988079071,
+      "success": true,
+      "time": 61.900001525878906,
+      "distance": 101.0,
+      "low_posture_fraction": 0.003769520732364028,
+      "backward_fraction": 0.22026947861745752
+    }
+  ],
+  "best": {
+    "factor": 1.0,
+    "success": true,
+    "time": 57.20000076293945,
+    "distance": 100.0999984741211,
+    "low_posture_fraction": 0.0,
+    "backward_fraction": 0.022988505747126436
+  },
+  "method": "fixed policy, divide horizontal-velocity input by factor; same physics/time/termination",
+  "warm_start_checkpoint": "checkpoints\\speed50_v7_feedback_warmstart.pt"
+}

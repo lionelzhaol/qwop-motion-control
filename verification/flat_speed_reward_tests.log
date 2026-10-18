@@ -1,0 +1,9 @@
+test_flat_speed_reward.cpp
+flat_speed_baseline_reward.cpp
+reward_profiles.cpp
+course_rules.cpp
+正在生成代码...
+flat_speed_reward_behavior_checks=passed
+coefficient_at_2p4=5.53841
+coefficient_at_2p6=6.76917
+coefficient_at_2p8=7.99993

@@ -1,0 +1,70 @@
+{
+  "reference_replay": "QWOP_rl_training_public\\replays\\long_jump_shadow_ppo_sampled_best_3p16m.bin",
+  "reference_sha256": "12e7e95b1d5f302e6c81f6968bf992a87c7822b72c4cce348ff6eb41fe73d05a",
+  "source_checkpoint": "QWOP_rl_training_public\\checkpoints\\ppo_long_jump_distance_initial_20261013.pt",
+  "source_sha256": "108e1a4a71f04a0e04f9e5eaf91a01162c606ad7cffb642e1be6723930777579",
+  "expert_frames": 529,
+  "expert_native_time_s": 17.633333206176758,
+  "expert_native_score": 3.1607298851013184,
+  "game_mode": "long_jump_30m",
+  "freeze_runup": true,
+  "device": "cpu",
+  "training_frames": 195,
+  "trainable_parameters": [
+    "jump_actor_weight",
+    "jump_actor_bias"
+  ],
+  "labels": "Physically equivalent canonical Q/W/O/P masks, verified on every expert frame",
+  "training": "Observation-conditioned behavioral cloning; no replay controller at inference",
+  "critic_note": "Copied source critic kept separate; recalibrate before PPO fine-tuning",
+  "output": "verification\\jump_improvement_20261013\\imitation_smoke.pt",
+  "dataset_shape": [
+    529,
+    2176
+  ],
+  "selected": {
+    "epoch": 1,
+    "expert_action_accuracy": 0.9735350012779236,
+    "train_phase_action_accuracy": 0.928205132484436,
+    "cross_entropy": 0.282076358795166,
+    "success": true,
+    "truncated": false,
+    "game_mode": "long_jump_30m",
+    "time_s": 15.733333587646484,
+    "distance_m": 32.58818435668945,
+    "score": 2.588183641433716,
+    "long_jump_m": 2.588183641433716,
+    "low_torso_fraction": 0.025423728813559324
+  },
+  "evaluations": [
+    {
+      "epoch": 1,
+      "expert_action_accuracy": 0.9735350012779236,
+      "train_phase_action_accuracy": 0.928205132484436,
+      "cross_entropy": 0.282076358795166,
+      "success": true,
+      "truncated": false,
+      "game_mode": "long_jump_30m",
+      "time_s": 15.733333587646484,
+      "distance_m": 32.58818435668945,
+      "score": 2.588183641433716,
+      "long_jump_m": 2.588183641433716,
+      "low_torso_fraction": 0.025423728813559324
+    }
+  ],
+  "final_evaluation": {
+    "success": true,
+    "truncated": false,
+    "game_mode": "long_jump_30m",
+    "time_s": 15.733333587646484,
+    "distance_m": 32.58818435668945,
+    "score": 2.588183641433716,
+    "long_jump_m": 2.588183641433716,
+    "low_torso_fraction": 0.025423728813559324
+  },
+  "frozen_runup_state_unchanged": true,
+  "strict_checkpoint_reload": true,
+  "logger_path": "verification\\jump_improvement_20261013\\imitation_smoke_logs",
+  "elapsed_seconds": 1.173564499999884,
+  "seed": 20261010
+}

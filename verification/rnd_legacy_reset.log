@@ -1,0 +1,5 @@
+rnd_state_reset=1 reason=incompatible_rnd_checkpoint
+resumed_from=E:\Work\强化学习小项目\verification\rnd_legacy_poison.pt checkpoint_update=10656 global_step=348143616 reset_optimizer=0
+saved_checkpoint=E:\Work\强化学习小项目\verification\rnd_legacy_reset.pt
+logdir=E:\Work\强化学习小项目\verification\rnd_verification_logs\legacy_reset
+tensorboard_logdir=E:\Work\强化学习小项目\verification\rnd_verification_logs\legacy_reset

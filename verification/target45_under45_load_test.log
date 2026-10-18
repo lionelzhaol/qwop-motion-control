@@ -1,0 +1,6 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic100m_under45.pt checkpoint_update=10656 global_step=348143616 reset_optimizer=0
+update=1/2 absolute_update=10657 steps=348143872 episodes=0 policy_loss=0.0384 value_loss=1.5710 entropy=0.4323 kl=0.08706 clipfrac=0.047
+update=2/2 absolute_update=10658 steps=348144128 episodes=0 policy_loss=0.0600 value_loss=4.2435 entropy=0.6457 kl=0.02497 clipfrac=0.016
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\under45_load_test.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\under45_load_test
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\under45_load_test

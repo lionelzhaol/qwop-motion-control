@@ -1,0 +1,13 @@
+{
+  "source": "E:\\Work\\\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee\\QWOP_rl_training_public\\checkpoints\\bc_classic100m_shadow.pt",
+  "source_sha256": "a605b173ec7befe1024538f2e4a728be5ae22ffb7b6d9ae4dd2f22c73b914491",
+  "input_origin_delta_indices": {
+    "62": 200.0,
+    "63": 610.0
+  },
+  "actor_logit_multiplier": 2.5,
+  "critic_head_reset": true,
+  "runup_verified_identical_frames": 334,
+  "runup_verified_distance_m": 25.0,
+  "note": "Running body trajectory exactly matches teacher through 25m before jump-specific fine-tuning; native long-jump course unchanged"
+}

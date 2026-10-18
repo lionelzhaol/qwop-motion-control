@@ -1,0 +1,10 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_classic_speed_speed3600_train_20261015.json",
+  "returncode": 0,
+  "elapsed_seconds": 314.43869520000044,
+  "started_utc": "2026-10-15T05:49:02.115457+00:00",
+  "ended_utc": "2026-10-15T05:54:16.554085+00:00",
+  "updates": 64,
+  "new_transitions": 8388608,
+  "finite_losses": true
+}

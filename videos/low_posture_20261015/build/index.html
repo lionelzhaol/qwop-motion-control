@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><title>QWOP 原始回放视频导出</title>
+<style>
+body{font-family:'Microsoft YaHei',sans-serif;margin:18px;background:#f4f6f8;color:#162c40}
+h1{font-size:25px;margin:0 0 12px}p{margin:8px 0}button{font:inherit;padding:10px 20px;margin-right:16px}
+canvas{width:1280px;height:720px;background:#111;display:block;max-width:none}
+#status{font-size:19px;color:#164b80}#preview{width:960px;display:none;background:#111}#result{white-space:pre-wrap}
+</style>
+<h1>QWOP 早期低姿态蠕动回放</h1>
+<p>原始回放：foot_running_v1_eval_000580.bin，3415 帧，原生时间 113.833 秒。</p>
+<p><button id="record" disabled>开始录制完整回放</button><span id="status">正在加载原项目渲染器…</span></p>
+<canvas id="game" width="1280" height="720" tabindex="0"></canvas>
+<video id="preview" controls></video><pre id="result"></pre>
+<script>
+const canvas=document.getElementById('game'), status=document.getElementById('status'), button=document.getElementById('record');
+const types=['video/mp4;codecs=avc1.42001E','video/mp4;codecs=avc1.42E01E','video/mp4','video/webm;codecs=vp9','video/webm;codecs=vp8'];
+const supported=types.filter(x=>MediaRecorder.isTypeSupported(x));
+const report={supported,expected_frames:3415,expected_game_time_s:3415/30,requested_fps:30};
+let recording=false,recorder,chunks=[],timer,watchdog,startTime,finish;
+async function log(extra){Object.assign(report,extra);await fetch('/api/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(report)});}
+window.__onRunFinished=function(bytes,success,score,time,fromUpload,shadowFinished,shadowActive){
+  if(!recording||finish)return;
+  finish={success,score,time,fromUpload,shadowFinished,shadowActive,wall_s:(performance.now()-startTime)/1000};
+  log({stage:'finishing',native_callback:finish});
+  status.textContent='回放结束，保留结尾画面并保存视频…';
+  setTimeout(()=>{if(recorder.state==='recording')recorder.stop()},1800);
+};
+window.__onRunRestarted=()=>{};
+window.Module={canvas,arguments:['--game','classic'],locateFile:x=>'/game/'+x,
+  print:text=>console.log(text),printErr:text=>console.error(text),
+  setStatus:text=>{if(text)status.textContent=text},
+  onRuntimeInitialized:()=>setTimeout(async()=>{
+    const bytes=new Uint8Array(await(await fetch('/replay.bin')).arrayBuffer());
+    const view=new DataView(bytes.buffer);
+    report.replay_frames=view.getUint32(6,true);report.width=canvas.width;report.height=canvas.height;
+    report.mime=supported[0];
+    button.disabled=!supported.length;
+    status.textContent=supported.length?'已就绪，支持 '+supported[0]:'当前浏览器不支持视频编码';
+    await log({stage:'ready'});
+    button.onclick=async()=>{
+      button.disabled=true;chunks=[];finish=null;recording=true;
+      const stream=canvas.captureStream(30);
+      recorder=new MediaRecorder(stream,{mimeType:supported[0],videoBitsPerSecond:5000000});
+      recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
+      recorder.onerror=e=>log({stage:'error',error:String(e.error||e)});
+      recorder.onstop=async()=>{
+        recording=false;clearInterval(timer);clearTimeout(watchdog);stream.getTracks().forEach(x=>x.stop());
+        const blob=new Blob(chunks,{type:recorder.mimeType});
+        const response=await fetch('/api/video',{method:'POST',headers:{'Content-Type':recorder.mimeType},body:blob});
+        if(!response.ok)throw new Error('本地视频保存失败');
+        const preview=document.getElementById('preview');preview.src=URL.createObjectURL(blob);preview.style.display='block';
+        preview.onloadedmetadata=async()=>{
+          await log({stage:'complete',mime:recorder.mimeType,bytes:blob.size,width:preview.videoWidth,height:preview.videoHeight,video_duration_s:preview.duration,recording_wall_s:(performance.now()-startTime)/1000,native_callback:finish});
+          status.textContent='导出完成，视频已保存到项目 videos 文件夹';
+          document.getElementById('result').textContent=JSON.stringify(report,null,2);
+        };
+      };
+      Module._js_clear_ghost_replay();
+      const ptr=Module._malloc(bytes.length);Module.HEAPU8.set(bytes,ptr);
+      startTime=performance.now();recorder.start(1000);Module._js_play_replay(ptr,bytes.length);Module._free(ptr);
+      await log({stage:'recording',mime:recorder.mimeType,width:canvas.width,height:canvas.height});
+      timer=setInterval(()=>{status.textContent='正在录制原速回放：'+((performance.now()-startTime)/1000).toFixed(1)+' / 约 114 秒'},1000);
+      watchdog=setTimeout(()=>{log({stage:'timeout',native_callback:finish});if(recorder.state==='recording')recorder.stop()},130000);
+    };
+  },250)
+};
+</script><script src="/game/running_ai.js"></script></html>

@@ -1,0 +1,139 @@
+--- before/scripts/train_ppo.py
++++ after/scripts/train_ppo.py
+@@ -67,6 +67,9 @@
+     imitation_coef: float = 0.0
+     imitation_coef_final: float | None = None
+     reward_scale: float = 1.0
++    classic_finish_speed_bonus: float = 0.0
++    classic_finish_speed_reference: float = 991.0 / 30.0
++    classic_finish_speed_width: float = 0.25
+     vf_coef: float = 0.5
+     learning_rate: float = 3e-4
+     seed: int = 1
+@@ -760,11 +763,38 @@
+     model.actor.requires_grad_(True)
+ 
+ 
++def classic_finish_speed_bonus(step_result: dict, cfg: PPOConfig) -> np.ndarray:
++    """Bounded positive speed bonus, only for posture-qualified native finishes.
++
++    Under classic_100m_task, the positive terminal reward identifies its
++    existing posture-qualified finish; failures/unqualified finishes get -200.
++    This transforms learning rewards only, never physics or episode outcomes.
++    """
++    bonus = np.zeros_like(step_result["reward"], dtype=np.float32)
++    if cfg.classic_finish_speed_bonus == 0:
++        return bonus
++    eligible = (step_result["has_final"] & step_result["final_success"]
++                & ~step_result["truncated"] & (step_result["reward"] > 0))
++    times = step_result["final_time"][eligible].astype(np.float64)
++    if not np.isfinite(times).all() or np.any(times <= 0):
++        raise ValueError("Successful native finish times must be positive and finite")
++    offset = (cfg.classic_finish_speed_reference - times) / cfg.classic_finish_speed_width
++    bonus[eligible] = cfg.classic_finish_speed_bonus * 0.5 * (1.0 + np.tanh(0.5 * offset))
++    return bonus
++
++
+ def train(cfg: PPOConfig) -> None:
+     if cfg.actor_unfreeze not in ("none", "head", "last_hidden", "full"):
+         raise ValueError("Invalid actor_unfreeze scope")
+     if not np.isfinite(cfg.reward_scale) or cfg.reward_scale <= 0:
+         raise ValueError("reward_scale must be finite and positive")
++    if not np.isfinite(cfg.classic_finish_speed_bonus) or cfg.classic_finish_speed_bonus < 0:
++        raise ValueError("classic_finish_speed_bonus must be finite and nonnegative")
++    if not np.isfinite(cfg.classic_finish_speed_reference) or cfg.classic_finish_speed_reference <= 0:
++        raise ValueError("classic_finish_speed_reference must be finite and positive")
++    if not np.isfinite(cfg.classic_finish_speed_width) or cfg.classic_finish_speed_width <= 0:
++        raise ValueError("classic_finish_speed_width must be finite and positive")
++    use_finish_speed_bonus = cfg.classic_finish_speed_bonus > 0
+     imitation_final = cfg.imitation_coef if cfg.imitation_coef_final is None else cfg.imitation_coef_final
+     if not all(np.isfinite(v) and v >= 0 for v in (cfg.imitation_coef, imitation_final)):
+         raise ValueError("Imitation coefficients must be finite and nonnegative")
+@@ -812,6 +842,8 @@
+         game_mode=cfg.game_mode,
+     )
+     cfg.game_mode = env.game_mode
++    if use_finish_speed_bonus and (cfg.game_mode != "classic_100m" or cfg.reward_profile != "classic_100m_task"):
++        raise ValueError("Finish speed bonus requires classic_100m_task and classic_100m")
+     if cfg.actor_unfreeze != "none" and cfg.game_mode != "classic_100m":
+         raise ValueError("Actor unfreezing currently supports classic_100m only")
+     if cfg.rnd_beta > 0 and cfg.game_mode != "classic_100m":
+@@ -987,6 +1019,8 @@
+             episode_finishes = 0
+             episode_return_samples = []
+             final_distance_samples = []
++            qualified_finish_times = []
++            finish_speed_bonus_sum = 0.0
+             rnd_beta = rnd_beta_for_update(cfg, update)
+             entropy_coef = entropy_coef_for_update(cfg, update)
+             imitation_coef = cfg.imitation_coef + (imitation_final - cfg.imitation_coef) * (
+@@ -1005,13 +1039,19 @@
+                 step_result = env.step_arrays(actions_np)
+                 base_next_obs_np = step_result["obs"]
+                 rewards_np = step_result["reward"]
++                learning_rewards_np = rewards_np
++                if use_finish_speed_bonus:
++                    speed_bonus_np = classic_finish_speed_bonus(step_result, cfg)
++                    learning_rewards_np = rewards_np + speed_bonus_np
++                    finish_speed_bonus_sum += float(speed_bonus_np.sum())
+                 terminated_np = step_result["terminated"]
+                 truncated_np = step_result["truncated"]
+                 done_np = np.logical_or(terminated_np, truncated_np)
+                 next_obs_np = stacker.update(base_next_obs_np, done_np)
+                 next_obs = torch.tensor(next_obs_np, dtype=torch.float32, device=device)
+-                # Scale learning targets only; log raw native episode returns.
+-                extrinsic_reward = torch.tensor(rewards_np, dtype=torch.float32, device=device) * cfg.reward_scale
++                # Native episode returns stay raw; optional finish shaping is
++                # part of the learning targets before applying their scale.
++                extrinsic_reward = torch.tensor(learning_rewards_np, dtype=torch.float32, device=device) * cfg.reward_scale
+                 if rnd_model:
+                     with torch.no_grad():
+                         rnd_features = rnd_model.observation_features(next_obs)
+@@ -1029,6 +1069,9 @@
+                 episode_finishes += int(done_np.sum())
+                 if np.any(step_result["has_final"]):
+                     final_mask = step_result["has_final"]
++                    if cfg.reward_profile == "classic_100m_task":
++                        qualified = final_mask & step_result["final_success"] & ~truncated_np & (rewards_np > 0)
++                        qualified_finish_times.extend(float(t) for t in step_result["final_time"][qualified])
+                     episode_return_samples.extend(
+                         float(episode_return)
+                         for episode_return in episode_returns[final_mask]
+@@ -1194,6 +1237,15 @@
+                 metrics["charts/final_distance_mean"] = final_distance_mean
+             if episode_return_mean is not None:
+                 metrics["charts/episode_return_mean"] = episode_return_mean
++            if cfg.reward_profile == "classic_100m_task":
++                metrics["charts/qualified_finishes"] = float(len(qualified_finish_times))
++                metrics["rewards/finish_speed_bonus_sum"] = finish_speed_bonus_sum
++                metrics["hyperparams/finish_speed_bonus_max"] = cfg.classic_finish_speed_bonus
++                if qualified_finish_times:
++                    metrics["charts/qualified_finish_time_min"] = min(qualified_finish_times)
++                    metrics["charts/qualified_finish_time_mean"] = float(np.mean(qualified_finish_times))
++                    metrics["charts/faster_than_reference_finishes"] = float(sum(
++                        t < cfg.classic_finish_speed_reference - 1e-4 for t in qualified_finish_times))
+             logger.log(global_step, metrics)
+             if rnd_model:
+                 logger.log(
+@@ -1218,6 +1270,11 @@
+                 log_line += f" episode_return_mean={episode_return_mean:.3f}"
+             if use_imitation:
+                 log_line += f" imitation_loss={imitation_loss_value:.5f} imitation_coef={imitation_coef:.5f}"
++            if cfg.reward_profile == "classic_100m_task":
++                log_line += f" qualified_finishes={len(qualified_finish_times)} finish_speed_bonus_sum={finish_speed_bonus_sum:.3f}"
++                if qualified_finish_times:
++                    log_line += f" best_finish_s={min(qualified_finish_times):.6f} mean_finish_s={np.mean(qualified_finish_times):.6f}"
++                    log_line += f" faster_finishes={sum(t < cfg.classic_finish_speed_reference - 1e-4 for t in qualified_finish_times)}"
+             if rnd_model:
+                 log_line += (
+                     f" rnd_reward_abs_ratio={rnd_reward_abs_ratio:.4f} "
+@@ -1271,6 +1328,9 @@
+     parser.add_argument("--imitation-coef", type=float, default=None)
+     parser.add_argument("--imitation-coef-final", type=float, default=None)
+     parser.add_argument("--reward-scale", type=float, default=None)
++    parser.add_argument("--classic-finish-speed-bonus", type=float, default=None)
++    parser.add_argument("--classic-finish-speed-reference", type=float, default=None)
++    parser.add_argument("--classic-finish-speed-width", type=float, default=None)
+     parser.add_argument("--vf-coef", type=float, default=None)
+     parser.add_argument("--learning-rate", type=float, default=None)
+     parser.add_argument("--seed", type=int, default=None)

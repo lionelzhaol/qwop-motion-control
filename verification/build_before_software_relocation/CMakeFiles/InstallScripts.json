@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/build/cmake_install.cmake",
+		"E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/build/third_party/pybind11/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

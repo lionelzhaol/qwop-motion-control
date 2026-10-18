@@ -1,0 +1,547 @@
+{
+  "control_chain_verified": [
+    "src/python_module.cpp:53 actionFromMask extracts Q=1,W=2,O=4,P=8",
+    "src/training_env.cpp:27 stepAction calls backend_.step(actionMask(action))",
+    "src/training_env.cpp:55 actionMask reconstructs the same four bits",
+    "src/physics_backend_loader.cpp:121 forwards uint8 mask directly to DLL rg_step"
+  ],
+  "native_implementation_source_available": false,
+  "native_implementation_note": "Only physics_backend_api.h, loader and prebuilt bin/running_physics.dll are in the repository. Internal priority source is unavailable.",
+  "full_90_frame_policy_replay_pairs": [
+    {
+      "checkpoint_update": 10672,
+      "changed_raw_actions": [
+        {
+          "frame": 54,
+          "baseline_action": 4,
+          "candidate_action": 12
+        },
+        {
+          "frame": 62,
+          "baseline_action": 15,
+          "candidate_action": 5
+        },
+        {
+          "frame": 74,
+          "baseline_action": 9,
+          "candidate_action": 11
+        }
+      ],
+      "compared_frames": 90,
+      "full_68obs_max_absolute_difference": 0.0,
+      "full_native_frame_numeric_max_absolute_difference": 0.0,
+      "all_12_native_bodies_max_absolute_difference": 0.0,
+      "frames_with_any_observation_difference": [],
+      "frames_with_any_native_frame_difference": []
+    },
+    {
+      "checkpoint_update": 10720,
+      "changed_raw_actions": [
+        {
+          "frame": 62,
+          "baseline_action": 15,
+          "candidate_action": 5
+        },
+        {
+          "frame": 63,
+          "baseline_action": 15,
+          "candidate_action": 5
+        },
+        {
+          "frame": 64,
+          "baseline_action": 15,
+          "candidate_action": 5
+        }
+      ],
+      "compared_frames": 90,
+      "full_68obs_max_absolute_difference": 0.0,
+      "full_native_frame_numeric_max_absolute_difference": 0.0,
+      "all_12_native_bodies_max_absolute_difference": 0.0,
+      "frames_with_any_observation_difference": [],
+      "frames_with_any_native_frame_difference": []
+    },
+    {
+      "checkpoint_update": 10768,
+      "changed_raw_actions": [
+        {
+          "frame": 62,
+          "baseline_action": 15,
+          "candidate_action": 5
+        },
+        {
+          "frame": 63,
+          "baseline_action": 15,
+          "candidate_action": 5
+        }
+      ],
+      "compared_frames": 90,
+      "full_68obs_max_absolute_difference": 0.0,
+      "full_native_frame_numeric_max_absolute_difference": 0.0,
+      "all_12_native_bodies_max_absolute_difference": 0.0,
+      "frames_with_any_observation_difference": [],
+      "frames_with_any_native_frame_difference": []
+    }
+  ],
+  "single_action_branch_and_30_frame_delayed_effect_checks": [
+    {
+      "branch_frame": 54,
+      "original_action": 4,
+      "alternate_action": 12,
+      "test": "One different action, then 30 identical original actions; reset and identical original prefix.",
+      "compared_frames": 31,
+      "full_68obs_max_absolute_difference": 0.0,
+      "full_native_frame_numeric_max_absolute_difference": 0.0,
+      "all_12_native_bodies_max_absolute_difference": 0.0,
+      "frames_with_any_observation_difference": [],
+      "frames_with_any_native_frame_difference": []
+    },
+    {
+      "branch_frame": 62,
+      "original_action": 15,
+      "alternate_action": 5,
+      "test": "One different action, then 30 identical original actions; reset and identical original prefix.",
+      "compared_frames": 31,
+      "full_68obs_max_absolute_difference": 0.0,
+      "full_native_frame_numeric_max_absolute_difference": 0.0,
+      "all_12_native_bodies_max_absolute_difference": 0.0,
+      "frames_with_any_observation_difference": [],
+      "frames_with_any_native_frame_difference": []
+    },
+    {
+      "branch_frame": 63,
+      "original_action": 15,
+      "alternate_action": 5,
+      "test": "One different action, then 30 identical original actions; reset and identical original prefix.",
+      "compared_frames": 31,
+      "full_68obs_max_absolute_difference": 0.0,
+      "full_native_frame_numeric_max_absolute_difference": 0.0,
+      "all_12_native_bodies_max_absolute_difference": 0.0,
+      "frames_with_any_observation_difference": [],
+      "frames_with_any_native_frame_difference": []
+    },
+    {
+      "branch_frame": 64,
+      "original_action": 15,
+      "alternate_action": 5,
+      "test": "One different action, then 30 identical original actions; reset and identical original prefix.",
+      "compared_frames": 31,
+      "full_68obs_max_absolute_difference": 0.0,
+      "full_native_frame_numeric_max_absolute_difference": 0.0,
+      "all_12_native_bodies_max_absolute_difference": 0.0,
+      "frames_with_any_observation_difference": [],
+      "frames_with_any_native_frame_difference": []
+    },
+    {
+      "branch_frame": 74,
+      "original_action": 9,
+      "alternate_action": 11,
+      "test": "One different action, then 30 identical original actions; reset and identical original prefix.",
+      "compared_frames": 31,
+      "full_68obs_max_absolute_difference": 0.0,
+      "full_native_frame_numeric_max_absolute_difference": 0.0,
+      "all_12_native_bodies_max_absolute_difference": 0.0,
+      "frames_with_any_observation_difference": [],
+      "frames_with_any_native_frame_difference": []
+    }
+  ],
+  "all_16_actions_in_six_states": [
+    {
+      "original_prefix_frames": 0,
+      "hold_same_mask_frames": 10,
+      "classes_identical_at_all_10_frames_and_full_native_fields": [
+        [
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          7,
+          13,
+          15
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          8
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10
+        ]
+      ],
+      "contrasts": {
+        "4_vs_12": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "15_vs_5": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "9_vs_11": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "0_vs_1": {
+          "full_68obs_max_difference": 12.64924430847168,
+          "full_native_frame_max_difference": 108.23438739776611
+        },
+        "4_vs_8": {
+          "full_68obs_max_difference": 14.284214973449707,
+          "full_native_frame_max_difference": 159.24923622608185
+        },
+        "9_vs_10": {
+          "full_68obs_max_difference": 27.70056915283203,
+          "full_native_frame_max_difference": 268.0668640136719
+        }
+      }
+    },
+    {
+      "original_prefix_frames": 30,
+      "hold_same_mask_frames": 10,
+      "classes_identical_at_all_10_frames_and_full_native_fields": [
+        [
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          7,
+          13,
+          15
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          8
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10
+        ]
+      ],
+      "contrasts": {
+        "4_vs_12": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "15_vs_5": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "9_vs_11": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "0_vs_1": {
+          "full_68obs_max_difference": 10.092432022094727,
+          "full_native_frame_max_difference": 108.84326171875
+        },
+        "4_vs_8": {
+          "full_68obs_max_difference": 15.727448463439941,
+          "full_native_frame_max_difference": 111.30519104003906
+        },
+        "9_vs_10": {
+          "full_68obs_max_difference": 15.55380916595459,
+          "full_native_frame_max_difference": 163.6719512939453
+        }
+      }
+    },
+    {
+      "original_prefix_frames": 90,
+      "hold_same_mask_frames": 10,
+      "classes_identical_at_all_10_frames_and_full_native_fields": [
+        [
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          7,
+          13,
+          15
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          8
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10
+        ]
+      ],
+      "contrasts": {
+        "4_vs_12": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "15_vs_5": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "9_vs_11": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "0_vs_1": {
+          "full_68obs_max_difference": 13.108863830566406,
+          "full_native_frame_max_difference": 97.6290283203125
+        },
+        "4_vs_8": {
+          "full_68obs_max_difference": 15.594228744506836,
+          "full_native_frame_max_difference": 147.285888671875
+        },
+        "9_vs_10": {
+          "full_68obs_max_difference": 29.840002059936523,
+          "full_native_frame_max_difference": 335.2642822265625
+        }
+      }
+    },
+    {
+      "original_prefix_frames": 200,
+      "hold_same_mask_frames": 10,
+      "classes_identical_at_all_10_frames_and_full_native_fields": [
+        [
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          7,
+          13,
+          15
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          8
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10
+        ]
+      ],
+      "contrasts": {
+        "4_vs_12": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "15_vs_5": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "9_vs_11": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "0_vs_1": {
+          "full_68obs_max_difference": 6.566226959228516,
+          "full_native_frame_max_difference": 57.195945739746094
+        },
+        "4_vs_8": {
+          "full_68obs_max_difference": 19.448253631591797,
+          "full_native_frame_max_difference": 44.865234375
+        },
+        "9_vs_10": {
+          "full_68obs_max_difference": 36.823280334472656,
+          "full_native_frame_max_difference": 325.47314453125
+        }
+      }
+    },
+    {
+      "original_prefix_frames": 700,
+      "hold_same_mask_frames": 10,
+      "classes_identical_at_all_10_frames_and_full_native_fields": [
+        [
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          7,
+          13,
+          15
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          8
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10
+        ]
+      ],
+      "contrasts": {
+        "4_vs_12": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "15_vs_5": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "9_vs_11": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "0_vs_1": {
+          "full_68obs_max_difference": 15.974471092224121,
+          "full_native_frame_max_difference": 148.087890625
+        },
+        "4_vs_8": {
+          "full_68obs_max_difference": 21.81892204284668,
+          "full_native_frame_max_difference": 204.61328125
+        },
+        "9_vs_10": {
+          "full_68obs_max_difference": 21.790199279785156,
+          "full_native_frame_max_difference": 192.12890625
+        }
+      }
+    },
+    {
+      "original_prefix_frames": 1000,
+      "hold_same_mask_frames": 10,
+      "classes_identical_at_all_10_frames_and_full_native_fields": [
+        [
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          7,
+          13,
+          15
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          8
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10
+        ]
+      ],
+      "contrasts": {
+        "4_vs_12": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "15_vs_5": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "9_vs_11": {
+          "full_68obs_max_difference": 0.0,
+          "full_native_frame_max_difference": 0.0
+        },
+        "0_vs_1": {
+          "full_68obs_max_difference": 8.018241882324219,
+          "full_native_frame_max_difference": 60.83984375
+        },
+        "4_vs_8": {
+          "full_68obs_max_difference": 17.339248657226562,
+          "full_native_frame_max_difference": 134.74609375
+        },
+        "9_vs_10": {
+          "full_68obs_max_difference": 23.230098724365234,
+          "full_native_frame_max_difference": 235.4609375
+        }
+      }
+    }
+  ],
+  "conclusion": "Across six live states and every measured frame, raw masks form nine exact observable classes. The classes match Q taking precedence when Q and W are both pressed, and O taking precedence when O and P are both pressed. Other distinct masks change all-body physics, so controls are active. This is direct behavioral evidence, not a claim to have read opaque DLL implementation or proved all possible states.",
+  "physics_actions_enumeration_and_training_unchanged": true
+}

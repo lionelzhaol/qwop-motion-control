@@ -1,0 +1,2 @@
+episode=1 steps=3600 score=0.600 distance=0.600 time=120.000 success=0
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\baseline_full_episode_20261008.bin steps=3600 score=0.600 distance=0.600 time=120.000 success=0 device=cuda

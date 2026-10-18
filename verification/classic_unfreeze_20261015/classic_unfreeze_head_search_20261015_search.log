@@ -1,0 +1,23 @@
+episode=1 new_best steps=424 score=32.200 distance=32.200 time=14.133 success=0
+episode=2 new_best steps=533 score=45.300 distance=45.300 time=17.767 success=0
+episode=3 new_best steps=534 score=45.400 distance=45.400 time=17.800 success=0
+episode=4 new_best steps=540 score=45.800 distance=45.800 time=18.000 success=0
+episode=5 new_best steps=624 score=55.400 distance=55.400 time=20.800 success=0
+episode=6 new_best steps=625 score=55.600 distance=55.600 time=20.833 success=0
+episode=7 new_best steps=627 score=55.900 distance=55.900 time=20.900 success=0
+episode=9 new_best steps=631 score=56.300 distance=56.300 time=21.033 success=0
+episode=10 new_best steps=634 score=56.900 distance=56.900 time=21.133 success=0
+episode=12 new_best steps=650 score=57.600 distance=57.600 time=21.667 success=0
+episode=13 new_best steps=664 score=58.600 distance=58.600 time=22.133 success=0
+episode=14 new_best steps=666 score=59.900 distance=59.900 time=22.200 success=0
+episode=16 new_best steps=675 score=61.300 distance=61.300 time=22.500 success=0
+episode=19 new_best steps=698 score=62.800 distance=62.800 time=23.267 success=0
+episode=20 new_best steps=991 score=100.000 distance=100.000 time=33.033 success=1
+progress=512/4096 successes=467
+progress=1025/4096 successes=929
+progress=1537/4096 successes=1389
+progress=2054/4096 successes=1858
+progress=2571/4096 successes=2327
+progress=3094/4096 successes=2799
+progress=3615/4096 successes=3258
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\classic_unfreeze_head_search_20261015.bin episodes=4096 successes=3697 steps=991 score=100.000 distance=100.000 time=33.033 success=1 device=cuda

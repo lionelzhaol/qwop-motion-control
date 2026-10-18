@@ -1,0 +1,2 @@
+episode=1 steps=631 score=2.599 distance=32.599 time=21.033 success=1
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\long_jump_ppo_deterministic.bin steps=631 score=2.599 distance=32.599 time=21.033 success=1 device=cpu

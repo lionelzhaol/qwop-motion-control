@@ -1,0 +1,4 @@
+resumed_from=E:\Work\强化学习小项目\verification\flat_actor_residual_probe.pt checkpoint_update=10656 global_step=348143616 reset_optimizer=1
+saved_checkpoint=E:\Work\强化学习小项目\verification\flat_actor_residual_auto_sync.pt
+logdir=E:\Work\强化学习小项目\verification\flat_residual_probe_logs\auto_sync_zero_updates
+tensorboard_logdir=E:\Work\强化学习小项目\verification\flat_residual_probe_logs\auto_sync_zero_updates

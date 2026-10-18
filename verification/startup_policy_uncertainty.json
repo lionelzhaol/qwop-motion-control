@@ -1,0 +1,2506 @@
+{
+  "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_under45.pt",
+  "update": 10656,
+  "device": "cpu",
+  "torch_threads": 1,
+  "uniform_16_action_entropy_nats": 2.772588722239781,
+  "frame_stack": 32,
+  "initial_history": "authorFrameStacker.reset repeats all reset observations; update rolls actual selected-action observations",
+  "actual_argmax_actions_match_verified_baseline": true,
+  "argmax_invariant_under_scaling_checked": true,
+  "evaluation_type": "Only probability distributions recalculated on original deterministic policy trajectory; no alternate policy rollout or training",
+  "whole_0_to_3_s": {
+    "frames": 90,
+    "logit_gap_mean": 5.873710017734104,
+    "logit_gap_median": 3.135772705078125,
+    "logit_gap_p10": 0.2811656951904297,
+    "logit_gap_max": 29.39544677734375,
+    "action_switches": 29,
+    "action_run_lengths_frames": [
+      3,
+      2,
+      2,
+      1,
+      5,
+      2,
+      5,
+      1,
+      8,
+      8,
+      4,
+      2,
+      3,
+      1,
+      2,
+      1,
+      3,
+      4,
+      2,
+      2,
+      3,
+      2,
+      5,
+      1,
+      2,
+      2,
+      1,
+      7,
+      1,
+      5
+    ],
+    "maximum_action_run_frames": 8,
+    "first_action_run_frames": 3,
+    "by_logit_scale": {
+      "1.0": {
+        "top_action_probability_mean": 0.8483387480179468,
+        "top_action_probability_median": 0.9567787349224091,
+        "top_action_probability_min": 0.40691184997558594,
+        "fraction_top_probability_gt0p9": 0.5888888888888889,
+        "fraction_top_probability_gt0p99": 0.43333333333333335,
+        "entropy_nats_mean": 0.3512910681462072,
+        "entropy_nats_min": 5.035002796638377e-12,
+        "effective_actions_mean": 1.5575081162982516
+      },
+      "0.5": {
+        "top_action_probability_mean": 0.760982279645072,
+        "top_action_probability_median": 0.8114644587039948,
+        "top_action_probability_min": 0.3028484582901001,
+        "fraction_top_probability_gt0p9": 0.43333333333333335,
+        "fraction_top_probability_gt0p99": 0.24444444444444444,
+        "entropy_nats_mean": 0.5677578451386529,
+        "entropy_nats_min": 6.440515335270902e-06,
+        "effective_actions_mean": 2.0358934256765577
+      },
+      "0.25": {
+        "top_action_probability_mean": 0.6394648662871785,
+        "top_action_probability_median": 0.6311202943325043,
+        "top_action_probability_min": 0.21717728674411774,
+        "fraction_top_probability_gt0p9": 0.2222222222222222,
+        "fraction_top_probability_gt0p99": 0.03333333333333333,
+        "entropy_nats_mean": 0.8958532622601423,
+        "entropy_nats_min": 0.005369844846427441,
+        "effective_actions_mean": 2.9035384072197807
+      }
+    }
+  },
+  "windows": {
+    "0_to_1_s": {
+      "frames": 30,
+      "logit_gap_mean": 6.2641351064046225,
+      "logit_gap_median": 5.635894775390625,
+      "logit_gap_p10": 1.0301597595214844,
+      "logit_gap_max": 15.463958740234375,
+      "action_switches": 9,
+      "action_run_lengths_frames": [
+        3,
+        2,
+        2,
+        1,
+        5,
+        2,
+        5,
+        1,
+        8,
+        1
+      ],
+      "maximum_action_run_frames": 8,
+      "first_action_run_frames": 3,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability_mean": 0.8962230642636617,
+          "top_action_probability_median": 0.9963533878326416,
+          "top_action_probability_min": 0.5020796060562134,
+          "fraction_top_probability_gt0p9": 0.6666666666666666,
+          "fraction_top_probability_gt0p99": 0.5666666666666667,
+          "entropy_nats_mean": 0.27632458462811277,
+          "entropy_nats_min": 3.2128821203514235e-06,
+          "effective_actions_mean": 1.4172237674395243
+        },
+        "0.5": {
+          "top_action_probability_mean": 0.8030982424815496,
+          "top_action_probability_median": 0.9320163726806641,
+          "top_action_probability_min": 0.40986350178718567,
+          "fraction_top_probability_gt0p9": 0.5666666666666667,
+          "fraction_top_probability_gt0p99": 0.23333333333333334,
+          "entropy_nats_mean": 0.5085347652512913,
+          "entropy_nats_min": 0.0038282943423837423,
+          "effective_actions_mean": 1.9065620263417562
+        },
+        "0.25": {
+          "top_action_probability_mean": 0.6732865194479625,
+          "top_action_probability_median": 0.7431063950061798,
+          "top_action_probability_min": 0.3023116886615753,
+          "fraction_top_probability_gt0p9": 0.2,
+          "fraction_top_probability_gt0p99": 0.0,
+          "entropy_nats_mean": 0.8354754177232583,
+          "entropy_nats_min": 0.10157383978366852,
+          "effective_actions_mean": 2.6535807331403096
+        }
+      }
+    },
+    "1_to_2_s": {
+      "frames": 30,
+      "logit_gap_mean": 6.847710355122884,
+      "logit_gap_median": 3.0187435150146484,
+      "logit_gap_p10": 0.37278823852539067,
+      "logit_gap_max": 29.39544677734375,
+      "action_switches": 10,
+      "action_run_lengths_frames": [
+        7,
+        4,
+        2,
+        3,
+        1,
+        2,
+        1,
+        3,
+        4,
+        2,
+        1
+      ],
+      "maximum_action_run_frames": 7,
+      "first_action_run_frames": 7,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability_mean": 0.8499403486649195,
+          "top_action_probability_median": 0.9520675539970398,
+          "top_action_probability_min": 0.42983028292655945,
+          "fraction_top_probability_gt0p9": 0.5666666666666667,
+          "fraction_top_probability_gt0p99": 0.3333333333333333,
+          "entropy_nats_mean": 0.32733870400004655,
+          "entropy_nats_min": 5.035002796638377e-12,
+          "effective_actions_mean": 1.484392023086548
+        },
+        "0.5": {
+          "top_action_probability_mean": 0.769031552473704,
+          "top_action_probability_median": 0.8114644587039948,
+          "top_action_probability_min": 0.35135236382484436,
+          "fraction_top_probability_gt0p9": 0.3333333333333333,
+          "fraction_top_probability_gt0p99": 0.3,
+          "entropy_nats_mean": 0.5116522852495564,
+          "entropy_nats_min": 6.440515335270902e-06,
+          "effective_actions_mean": 1.8404374718666077
+        },
+        "0.25": {
+          "top_action_probability_mean": 0.6595266242822011,
+          "top_action_probability_median": 0.6311202943325043,
+          "top_action_probability_min": 0.2645939886569977,
+          "fraction_top_probability_gt0p9": 0.26666666666666666,
+          "fraction_top_probability_gt0p99": 0.1,
+          "entropy_nats_mean": 0.8101903727588554,
+          "entropy_nats_min": 0.005369844846427441,
+          "effective_actions_mean": 2.649323292573293
+        }
+      }
+    },
+    "2_to_3_s": {
+      "frames": 30,
+      "logit_gap_mean": 4.509284591674804,
+      "logit_gap_median": 2.4622631072998047,
+      "logit_gap_p10": 0.21086730957031252,
+      "logit_gap_max": 18.086868286132812,
+      "action_switches": 10,
+      "action_run_lengths_frames": [
+        1,
+        3,
+        2,
+        5,
+        1,
+        2,
+        2,
+        1,
+        7,
+        1,
+        5
+      ],
+      "maximum_action_run_frames": 7,
+      "first_action_run_frames": 1,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability_mean": 0.7988528311252594,
+          "top_action_probability_median": 0.9210308492183685,
+          "top_action_probability_min": 0.40691184997558594,
+          "fraction_top_probability_gt0p9": 0.5333333333333333,
+          "fraction_top_probability_gt0p99": 0.4,
+          "entropy_nats_mean": 0.45020991581046227,
+          "entropy_nats_min": 2.52543685519413e-07,
+          "effective_actions_mean": 1.7709085583686828
+        },
+        "0.5": {
+          "top_action_probability_mean": 0.7108170439799627,
+          "top_action_probability_median": 0.7502423226833344,
+          "top_action_probability_min": 0.3028484582901001,
+          "fraction_top_probability_gt0p9": 0.4,
+          "fraction_top_probability_gt0p99": 0.2,
+          "entropy_nats_mean": 0.6830864849151113,
+          "entropy_nats_min": 0.0011881421087309718,
+          "effective_actions_mean": 2.3606807788213096
+        },
+        "0.25": {
+          "top_action_probability_mean": 0.5855814551313718,
+          "top_action_probability_median": 0.5520760118961334,
+          "top_action_probability_min": 0.21717728674411774,
+          "fraction_top_probability_gt0p9": 0.2,
+          "fraction_top_probability_gt0p99": 0.0,
+          "entropy_nats_mean": 1.0418939962983131,
+          "entropy_nats_min": 0.06347422301769257,
+          "effective_actions_mean": 3.4077111959457396
+        }
+      }
+    }
+  },
+  "original_action_runs": [
+    {
+      "action": 15,
+      "first_frame_within_window": 1,
+      "frames": 3,
+      "duration_s": 0.1
+    },
+    {
+      "action": 4,
+      "first_frame_within_window": 4,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 15,
+      "first_frame_within_window": 6,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 7,
+      "first_frame_within_window": 8,
+      "frames": 1,
+      "duration_s": 0.03333333333333333
+    },
+    {
+      "action": 11,
+      "first_frame_within_window": 9,
+      "frames": 5,
+      "duration_s": 0.16666666666666666
+    },
+    {
+      "action": 8,
+      "first_frame_within_window": 14,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 9,
+      "first_frame_within_window": 16,
+      "frames": 5,
+      "duration_s": 0.16666666666666666
+    },
+    {
+      "action": 0,
+      "first_frame_within_window": 21,
+      "frames": 1,
+      "duration_s": 0.03333333333333333
+    },
+    {
+      "action": 8,
+      "first_frame_within_window": 22,
+      "frames": 8,
+      "duration_s": 0.26666666666666666
+    },
+    {
+      "action": 10,
+      "first_frame_within_window": 30,
+      "frames": 8,
+      "duration_s": 0.26666666666666666
+    },
+    {
+      "action": 6,
+      "first_frame_within_window": 38,
+      "frames": 4,
+      "duration_s": 0.13333333333333333
+    },
+    {
+      "action": 10,
+      "first_frame_within_window": 42,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 6,
+      "first_frame_within_window": 44,
+      "frames": 3,
+      "duration_s": 0.1
+    },
+    {
+      "action": 2,
+      "first_frame_within_window": 47,
+      "frames": 1,
+      "duration_s": 0.03333333333333333
+    },
+    {
+      "action": 6,
+      "first_frame_within_window": 48,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 2,
+      "first_frame_within_window": 50,
+      "frames": 1,
+      "duration_s": 0.03333333333333333
+    },
+    {
+      "action": 6,
+      "first_frame_within_window": 51,
+      "frames": 3,
+      "duration_s": 0.1
+    },
+    {
+      "action": 4,
+      "first_frame_within_window": 54,
+      "frames": 4,
+      "duration_s": 0.13333333333333333
+    },
+    {
+      "action": 7,
+      "first_frame_within_window": 58,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 5,
+      "first_frame_within_window": 60,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 15,
+      "first_frame_within_window": 62,
+      "frames": 3,
+      "duration_s": 0.1
+    },
+    {
+      "action": 5,
+      "first_frame_within_window": 65,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 9,
+      "first_frame_within_window": 67,
+      "frames": 5,
+      "duration_s": 0.16666666666666666
+    },
+    {
+      "action": 13,
+      "first_frame_within_window": 72,
+      "frames": 1,
+      "duration_s": 0.03333333333333333
+    },
+    {
+      "action": 9,
+      "first_frame_within_window": 73,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 11,
+      "first_frame_within_window": 75,
+      "frames": 2,
+      "duration_s": 0.06666666666666667
+    },
+    {
+      "action": 9,
+      "first_frame_within_window": 77,
+      "frames": 1,
+      "duration_s": 0.03333333333333333
+    },
+    {
+      "action": 0,
+      "first_frame_within_window": 78,
+      "frames": 7,
+      "duration_s": 0.23333333333333334
+    },
+    {
+      "action": 14,
+      "first_frame_within_window": 85,
+      "frames": 1,
+      "duration_s": 0.03333333333333333
+    },
+    {
+      "action": 10,
+      "first_frame_within_window": 86,
+      "frames": 5,
+      "duration_s": 0.16666666666666666
+    }
+  ],
+  "steps": [
+    {
+      "frame": 1,
+      "state_time_s": 0.0,
+      "action": 15,
+      "top_two_logit_gap": 1.8199539184570312,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.796977698802948,
+          "entropy_nats": 0.6831485033035278,
+          "effective_action_count": 1.980102300643921
+        },
+        "0.5": {
+          "top_action_probability": 0.5456790924072266,
+          "entropy_nats": 1.1815414428710938,
+          "effective_action_count": 3.259394407272339
+        },
+        "0.25": {
+          "top_action_probability": 0.37776073813438416,
+          "entropy_nats": 1.4467995166778564,
+          "effective_action_count": 4.249492168426514
+        }
+      }
+    },
+    {
+      "frame": 2,
+      "state_time_s": 0.03333333507180214,
+      "action": 15,
+      "top_two_logit_gap": 1.883575439453125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.7812109589576721,
+          "entropy_nats": 0.7385072708129883,
+          "effective_action_count": 2.0928092002868652
+        },
+        "0.5": {
+          "top_action_probability": 0.519922137260437,
+          "entropy_nats": 1.273382306098938,
+          "effective_action_count": 3.5729169845581055
+        },
+        "0.25": {
+          "top_action_probability": 0.3520427942276001,
+          "entropy_nats": 1.5326199531555176,
+          "effective_action_count": 4.630291938781738
+        }
+      }
+    },
+    {
+      "frame": 3,
+      "state_time_s": 0.06666667014360428,
+      "action": 15,
+      "top_two_logit_gap": 1.8619232177734375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.6835353970527649,
+          "entropy_nats": 1.0318491458892822,
+          "effective_action_count": 2.8062500953674316
+        },
+        "0.5": {
+          "top_action_probability": 0.43041279911994934,
+          "entropy_nats": 1.4567058086395264,
+          "effective_action_count": 4.291798114776611
+        },
+        "0.25": {
+          "top_action_probability": 0.3023116886615753,
+          "entropy_nats": 1.6078394651412964,
+          "effective_action_count": 4.992013931274414
+        }
+      }
+    },
+    {
+      "frame": 4,
+      "state_time_s": 0.10000000149011612,
+      "action": 4,
+      "top_two_logit_gap": 2.8924789428710938,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9261873960494995,
+          "entropy_nats": 0.32903215289115906,
+          "effective_action_count": 1.3896225690841675
+        },
+        "0.5": {
+          "top_action_probability": 0.6696777939796448,
+          "entropy_nats": 1.0488426685333252,
+          "effective_action_count": 2.8543457984924316
+        },
+        "0.25": {
+          "top_action_probability": 0.41839584708213806,
+          "entropy_nats": 1.517529010772705,
+          "effective_action_count": 4.560941219329834
+        }
+      }
+    },
+    {
+      "frame": 5,
+      "state_time_s": 0.13333334028720856,
+      "action": 4,
+      "top_two_logit_gap": 2.9451141357421875,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9312728643417358,
+          "entropy_nats": 0.30659782886505127,
+          "effective_action_count": 1.3587943315505981
+        },
+        "0.5": {
+          "top_action_probability": 0.6834308505058289,
+          "entropy_nats": 1.0143003463745117,
+          "effective_action_count": 2.7574334144592285
+        },
+        "0.25": {
+          "top_action_probability": 0.4254942834377289,
+          "entropy_nats": 1.5202703475952148,
+          "effective_action_count": 4.573461532592773
+        }
+      }
+    },
+    {
+      "frame": 6,
+      "state_time_s": 0.1666666716337204,
+      "action": 15,
+      "top_two_logit_gap": 1.059051513671875,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.653969407081604,
+          "entropy_nats": 0.978661298751831,
+          "effective_action_count": 2.6608917713165283
+        },
+        "0.5": {
+          "top_action_probability": 0.43493324518203735,
+          "entropy_nats": 1.4058362245559692,
+          "effective_action_count": 4.0789361000061035
+        },
+        "0.25": {
+          "top_action_probability": 0.3063817322254181,
+          "entropy_nats": 1.6179317235946655,
+          "effective_action_count": 5.042649745941162
+        }
+      }
+    },
+    {
+      "frame": 7,
+      "state_time_s": 0.20000000298023224,
+      "action": 15,
+      "top_two_logit_gap": 0.7701339721679688,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.6291370391845703,
+          "entropy_nats": 0.9169884920120239,
+          "effective_action_count": 2.5017449855804443
+        },
+        "0.5": {
+          "top_action_probability": 0.444168359041214,
+          "entropy_nats": 1.3303914070129395,
+          "effective_action_count": 3.7825236320495605
+        },
+        "0.25": {
+          "top_action_probability": 0.31828927993774414,
+          "entropy_nats": 1.5784579515457153,
+          "effective_action_count": 4.847475051879883
+        }
+      }
+    },
+    {
+      "frame": 8,
+      "state_time_s": 0.23333333432674408,
+      "action": 7,
+      "top_two_logit_gap": 0.2865333557128906,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.5142247080802917,
+          "entropy_nats": 0.9645513296127319,
+          "effective_action_count": 2.623610258102417
+        },
+        "0.5": {
+          "top_action_probability": 0.40986350178718567,
+          "entropy_nats": 1.2566834688186646,
+          "effective_action_count": 3.5137486457824707
+        },
+        "0.25": {
+          "top_action_probability": 0.30652546882629395,
+          "entropy_nats": 1.6581758260726929,
+          "effective_action_count": 5.249725818634033
+        }
+      }
+    },
+    {
+      "frame": 9,
+      "state_time_s": 0.2666666805744171,
+      "action": 11,
+      "top_two_logit_gap": 1.9421806335449219,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.8745915293693542,
+          "entropy_nats": 0.3775642514228821,
+          "effective_action_count": 1.4587271213531494
+        },
+        "0.5": {
+          "top_action_probability": 0.7253301739692688,
+          "entropy_nats": 0.5879582166671753,
+          "effective_action_count": 1.8003088235855103
+        },
+        "0.25": {
+          "top_action_probability": 0.6164605021476746,
+          "entropy_nats": 0.6958914399147034,
+          "effective_action_count": 2.005496025085449
+        }
+      }
+    },
+    {
+      "frame": 10,
+      "state_time_s": 0.30000001192092896,
+      "action": 11,
+      "top_two_logit_gap": 4.06622314453125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9831468462944031,
+          "entropy_nats": 0.08552530407905579,
+          "effective_action_count": 1.0892891883850098
+        },
+        "0.5": {
+          "top_action_probability": 0.8842299580574036,
+          "entropy_nats": 0.35841241478919983,
+          "effective_action_count": 1.4310556650161743
+        },
+        "0.25": {
+          "top_action_probability": 0.7341194152832031,
+          "entropy_nats": 0.5813213586807251,
+          "effective_action_count": 1.7884000539779663
+        }
+      }
+    },
+    {
+      "frame": 11,
+      "state_time_s": 0.3333333432674408,
+      "action": 11,
+      "top_two_logit_gap": 1.7570381164550781,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.8528381586074829,
+          "entropy_nats": 0.4177573025226593,
+          "effective_action_count": 1.5185520648956299
+        },
+        "0.5": {
+          "top_action_probability": 0.7062328457832336,
+          "entropy_nats": 0.6087373495101929,
+          "effective_action_count": 1.838109016418457
+        },
+        "0.25": {
+          "top_action_probability": 0.5936589241027832,
+          "entropy_nats": 0.8000872135162354,
+          "effective_action_count": 2.2257349491119385
+        }
+      }
+    },
+    {
+      "frame": 12,
+      "state_time_s": 0.36666667461395264,
+      "action": 11,
+      "top_two_logit_gap": 1.25616455078125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.7783609628677368,
+          "entropy_nats": 0.5290369987487793,
+          "effective_action_count": 1.6972969770431519
+        },
+        "0.5": {
+          "top_action_probability": 0.6507535576820374,
+          "entropy_nats": 0.6605149507522583,
+          "effective_action_count": 1.935788869857788
+        },
+        "0.25": {
+          "top_action_probability": 0.5464946627616882,
+          "entropy_nats": 0.9398104548454285,
+          "effective_action_count": 2.5594961643218994
+        }
+      }
+    },
+    {
+      "frame": 13,
+      "state_time_s": 0.4000000059604645,
+      "action": 11,
+      "top_two_logit_gap": 0.052433013916015625,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.5020796060562134,
+          "entropy_nats": 0.7845516204833984,
+          "effective_action_count": 2.1914241313934326
+        },
+        "0.5": {
+          "top_action_probability": 0.4505161643028259,
+          "entropy_nats": 1.0273747444152832,
+          "effective_action_count": 2.793721914291382
+        },
+        "0.25": {
+          "top_action_probability": 0.35581955313682556,
+          "entropy_nats": 1.5004972219467163,
+          "effective_action_count": 4.483918190002441
+        }
+      }
+    },
+    {
+      "frame": 14,
+      "state_time_s": 0.4333333373069763,
+      "action": 8,
+      "top_two_logit_gap": 6.646511077880859,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9972930550575256,
+          "entropy_nats": 0.020989112555980682,
+          "effective_action_count": 1.0212109088897705
+        },
+        "0.5": {
+          "top_action_probability": 0.923267662525177,
+          "entropy_nats": 0.34771668910980225,
+          "effective_action_count": 1.4158310890197754
+        },
+        "0.25": {
+          "top_action_probability": 0.6652959585189819,
+          "entropy_nats": 1.0481312274932861,
+          "effective_action_count": 2.852315902709961
+        }
+      }
+    },
+    {
+      "frame": 15,
+      "state_time_s": 0.46666666865348816,
+      "action": 8,
+      "top_two_logit_gap": 7.1528778076171875,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9987145662307739,
+          "entropy_nats": 0.010734302923083305,
+          "effective_action_count": 1.0107921361923218
+        },
+        "0.5": {
+          "top_action_probability": 0.9497495889663696,
+          "entropy_nats": 0.24266989529132843,
+          "effective_action_count": 1.274647831916809
+        },
+        "0.25": {
+          "top_action_probability": 0.7236796617507935,
+          "entropy_nats": 0.9044996500015259,
+          "effective_action_count": 2.4706954956054688
+        }
+      }
+    },
+    {
+      "frame": 16,
+      "state_time_s": 0.5,
+      "action": 9,
+      "top_two_logit_gap": 9.108367919921875,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.999840259552002,
+          "entropy_nats": 0.0016545068938285112,
+          "effective_action_count": 1.0016558170318604
+        },
+        "0.5": {
+          "top_action_probability": 0.9825635552406311,
+          "entropy_nats": 0.10086269676685333,
+          "effective_action_count": 1.106124758720398
+        },
+        "0.25": {
+          "top_action_probability": 0.8254693746566772,
+          "entropy_nats": 0.6561554670333862,
+          "effective_action_count": 1.9273682832717896
+        }
+      }
+    },
+    {
+      "frame": 17,
+      "state_time_s": 0.5333333611488342,
+      "action": 9,
+      "top_two_logit_gap": 11.554817199707031,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999890327453613,
+          "entropy_nats": 0.00014239296433515847,
+          "effective_action_count": 1.0001424551010132
+        },
+        "0.5": {
+          "top_action_probability": 0.9952214360237122,
+          "entropy_nats": 0.03468490391969681,
+          "effective_action_count": 1.035293459892273
+        },
+        "0.25": {
+          "top_action_probability": 0.893413782119751,
+          "entropy_nats": 0.46849775314331055,
+          "effective_action_count": 1.5975923538208008
+        }
+      }
+    },
+    {
+      "frame": 18,
+      "state_time_s": 0.5666666626930237,
+      "action": 9,
+      "top_two_logit_gap": 7.39892578125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9993661046028137,
+          "entropy_nats": 0.005398670211434364,
+          "effective_action_count": 1.005413293838501
+        },
+        "0.5": {
+          "top_action_probability": 0.9711773991584778,
+          "entropy_nats": 0.14456617832183838,
+          "effective_action_count": 1.1555382013320923
+        },
+        "0.25": {
+          "top_action_probability": 0.8019928932189941,
+          "entropy_nats": 0.6813265681266785,
+          "effective_action_count": 1.976498007774353
+        }
+      }
+    },
+    {
+      "frame": 19,
+      "state_time_s": 0.6000000238418579,
+      "action": 9,
+      "top_two_logit_gap": 12.987220764160156,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999971389770508,
+          "entropy_nats": 4.105617699678987e-05,
+          "effective_action_count": 1.0000410079956055
+        },
+        "0.5": {
+          "top_action_probability": 0.9975065588951111,
+          "entropy_nats": 0.019752206280827522,
+          "effective_action_count": 1.0199486017227173
+        },
+        "0.25": {
+          "top_action_probability": 0.9209210276603699,
+          "entropy_nats": 0.3710581958293915,
+          "effective_action_count": 1.4492673873901367
+        }
+      }
+    },
+    {
+      "frame": 20,
+      "state_time_s": 0.6333333253860474,
+      "action": 9,
+      "top_two_logit_gap": 5.862373352050781,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9971635937690735,
+          "entropy_nats": 0.01946856826543808,
+          "effective_action_count": 1.0196592807769775
+        },
+        "0.5": {
+          "top_action_probability": 0.9493584036827087,
+          "entropy_nats": 0.2004929929971695,
+          "effective_action_count": 1.222005009651184
+        },
+        "0.25": {
+          "top_action_probability": 0.8087872862815857,
+          "entropy_nats": 0.5146672129631042,
+          "effective_action_count": 1.673081636428833
+        }
+      }
+    },
+    {
+      "frame": 21,
+      "state_time_s": 0.6666666865348816,
+      "action": 0,
+      "top_two_logit_gap": 5.409416198730469,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9955431818962097,
+          "entropy_nats": 0.02859463170170784,
+          "effective_action_count": 1.0290074348449707
+        },
+        "0.5": {
+          "top_action_probability": 0.9359045624732971,
+          "entropy_nats": 0.24517883360385895,
+          "effective_action_count": 1.277849793434143
+        },
+        "0.25": {
+          "top_action_probability": 0.7700185775756836,
+          "entropy_nats": 0.6305035948753357,
+          "effective_action_count": 1.8785563707351685
+        }
+      }
+    },
+    {
+      "frame": 22,
+      "state_time_s": 0.699999988079071,
+      "action": 8,
+      "top_two_logit_gap": 7.078987121582031,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9991581439971924,
+          "entropy_nats": 0.006802129093557596,
+          "effective_action_count": 1.00682532787323
+        },
+        "0.5": {
+          "top_action_probability": 0.9717907905578613,
+          "entropy_nats": 0.12846103310585022,
+          "effective_action_count": 1.1370770931243896
+        },
+        "0.25": {
+          "top_action_probability": 0.854318380355835,
+          "entropy_nats": 0.41629859805107117,
+          "effective_action_count": 1.516338586807251
+        }
+      }
+    },
+    {
+      "frame": 23,
+      "state_time_s": 0.7333333492279053,
+      "action": 8,
+      "top_two_logit_gap": 15.326385498046875,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999997615814209,
+          "entropy_nats": 3.6212079521646956e-06,
+          "effective_action_count": 1.0000035762786865
+        },
+        "0.5": {
+          "top_action_probability": 0.9995304346084595,
+          "entropy_nats": 0.004068263806402683,
+          "effective_action_count": 1.004076600074768
+        },
+        "0.25": {
+          "top_action_probability": 0.9787044525146484,
+          "entropy_nats": 0.10363517701625824,
+          "effective_action_count": 1.1091957092285156
+        }
+      }
+    },
+    {
+      "frame": 24,
+      "state_time_s": 0.7666666507720947,
+      "action": 8,
+      "top_two_logit_gap": 15.463958740234375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999997615814209,
+          "entropy_nats": 3.2128821203514235e-06,
+          "effective_action_count": 1.0000032186508179
+        },
+        "0.5": {
+          "top_action_probability": 0.999561607837677,
+          "entropy_nats": 0.0038282943423837423,
+          "effective_action_count": 1.003835678100586
+        },
+        "0.25": {
+          "top_action_probability": 0.9793410897254944,
+          "entropy_nats": 0.10157383978366852,
+          "effective_action_count": 1.1069116592407227
+        }
+      }
+    },
+    {
+      "frame": 25,
+      "state_time_s": 0.800000011920929,
+      "action": 8,
+      "top_two_logit_gap": 13.805923461914062,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999990463256836,
+          "entropy_nats": 1.4892582839820534e-05,
+          "effective_action_count": 1.0000149011611938
+        },
+        "0.5": {
+          "top_action_probability": 0.9989959597587585,
+          "entropy_nats": 0.007937410846352577,
+          "effective_action_count": 1.0079690217971802
+        },
+        "0.25": {
+          "top_action_probability": 0.9687169194221497,
+          "entropy_nats": 0.1423368752002716,
+          "effective_action_count": 1.1529649496078491
+        }
+      }
+    },
+    {
+      "frame": 26,
+      "state_time_s": 0.8333333134651184,
+      "action": 8,
+      "top_two_logit_gap": 15.016891479492188,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999996423721313,
+          "entropy_nats": 4.874469595961273e-06,
+          "effective_action_count": 1.0000048875808716
+        },
+        "0.5": {
+          "top_action_probability": 0.9994500279426575,
+          "entropy_nats": 0.004689694847911596,
+          "effective_action_count": 1.0047006607055664
+        },
+        "0.25": {
+          "top_action_probability": 0.9757088422775269,
+          "entropy_nats": 0.12022357434034348,
+          "effective_action_count": 1.127748966217041
+        }
+      }
+    },
+    {
+      "frame": 27,
+      "state_time_s": 0.8666666746139526,
+      "action": 8,
+      "top_two_logit_gap": 13.42327880859375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999985694885254,
+          "entropy_nats": 2.1307649149093777e-05,
+          "effective_action_count": 1.0000213384628296
+        },
+        "0.5": {
+          "top_action_probability": 0.9987670183181763,
+          "entropy_nats": 0.009584957733750343,
+          "effective_action_count": 1.0096310377120972
+        },
+        "0.25": {
+          "top_action_probability": 0.962162971496582,
+          "entropy_nats": 0.17520776391029358,
+          "effective_action_count": 1.1914937496185303
+        }
+      }
+    },
+    {
+      "frame": 28,
+      "state_time_s": 0.8999999761581421,
+      "action": 8,
+      "top_two_logit_gap": 7.5601959228515625,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.999479353427887,
+          "entropy_nats": 0.004458177834749222,
+          "effective_action_count": 1.0044680833816528
+        },
+        "0.5": {
+          "top_action_probability": 0.9773232936859131,
+          "entropy_nats": 0.11018788814544678,
+          "effective_action_count": 1.1164878606796265
+        },
+        "0.25": {
+          "top_action_probability": 0.853912353515625,
+          "entropy_nats": 0.470491498708725,
+          "effective_action_count": 1.600780725479126
+        }
+      }
+    },
+    {
+      "frame": 29,
+      "state_time_s": 0.9333333373069763,
+      "action": 8,
+      "top_two_logit_gap": 6.3671417236328125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9982852339744568,
+          "entropy_nats": 0.012638605199754238,
+          "effective_action_count": 1.0127187967300415
+        },
+        "0.5": {
+          "top_action_probability": 0.9595003128051758,
+          "entropy_nats": 0.173270583152771,
+          "effective_action_count": 1.1891878843307495
+        },
+        "0.25": {
+          "top_action_probability": 0.8103037476539612,
+          "entropy_nats": 0.567057192325592,
+          "effective_action_count": 1.763071060180664
+        }
+      }
+    },
+    {
+      "frame": 30,
+      "state_time_s": 0.9666666388511658,
+      "action": 10,
+      "top_two_logit_gap": 5.167976379394531,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9943329095840454,
+          "entropy_nats": 0.03499597683548927,
+          "effective_action_count": 1.0356155633926392
+        },
+        "0.5": {
+          "top_action_probability": 0.928128182888031,
+          "entropy_nats": 0.267409086227417,
+          "effective_action_count": 1.306574821472168
+        },
+        "0.25": {
+          "top_action_probability": 0.7520933747291565,
+          "entropy_nats": 0.6953668594360352,
+          "effective_action_count": 2.0044443607330322
+        }
+      }
+    },
+    {
+      "frame": 31,
+      "state_time_s": 1.0,
+      "action": 10,
+      "top_two_logit_gap": 16.20024871826172,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999998807907104,
+          "entropy_nats": 1.745028498589818e-06,
+          "effective_action_count": 1.0000017881393433
+        },
+        "0.5": {
+          "top_action_probability": 0.9996064305305481,
+          "entropy_nats": 0.0037156951148062944,
+          "effective_action_count": 1.0037225484848022
+        },
+        "0.25": {
+          "top_action_probability": 0.9710261821746826,
+          "entropy_nats": 0.16001710295677185,
+          "effective_action_count": 1.17353093624115
+        }
+      }
+    },
+    {
+      "frame": 32,
+      "state_time_s": 1.0333333015441895,
+      "action": 10,
+      "top_two_logit_gap": 19.184173583984375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 1.0,
+          "entropy_nats": 8.940815376945466e-08,
+          "effective_action_count": 1.0000001192092896
+        },
+        "0.5": {
+          "top_action_probability": 0.9999312162399292,
+          "entropy_nats": 0.0007303428719751537,
+          "effective_action_count": 1.0007306337356567
+        },
+        "0.25": {
+          "top_action_probability": 0.9907481074333191,
+          "entropy_nats": 0.05700325220823288,
+          "effective_action_count": 1.058659315109253
+        }
+      }
+    },
+    {
+      "frame": 33,
+      "state_time_s": 1.0666667222976685,
+      "action": 10,
+      "top_two_logit_gap": 18.99256134033203,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 1.0,
+          "entropy_nats": 1.0988883047957643e-07,
+          "effective_action_count": 1.0000001192092896
+        },
+        "0.5": {
+          "top_action_probability": 0.9999128580093384,
+          "entropy_nats": 0.0009411206701770425,
+          "effective_action_count": 1.000941514968872
+        },
+        "0.25": {
+          "top_action_probability": 0.9870787858963013,
+          "entropy_nats": 0.07979872077703476,
+          "effective_action_count": 1.083069086074829
+        }
+      }
+    },
+    {
+      "frame": 34,
+      "state_time_s": 1.100000023841858,
+      "action": 10,
+      "top_two_logit_gap": 13.295486450195312,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999982118606567,
+          "entropy_nats": 2.559079439379275e-05,
+          "effective_action_count": 1.0000256299972534
+        },
+        "0.5": {
+          "top_action_probability": 0.9983494281768799,
+          "entropy_nats": 0.013258698396384716,
+          "effective_action_count": 1.0133470296859741
+        },
+        "0.25": {
+          "top_action_probability": 0.942270040512085,
+          "entropy_nats": 0.27486276626586914,
+          "effective_action_count": 1.316349983215332
+        }
+      }
+    },
+    {
+      "frame": 35,
+      "state_time_s": 1.1333333253860474,
+      "action": 10,
+      "top_two_logit_gap": 29.39544677734375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 1.0,
+          "entropy_nats": 5.035002796638377e-12,
+          "effective_action_count": 1.0
+        },
+        "0.5": {
+          "top_action_probability": 0.9999996423721313,
+          "entropy_nats": 6.440515335270902e-06,
+          "effective_action_count": 1.0000064373016357
+        },
+        "0.25": {
+          "top_action_probability": 0.9993569254875183,
+          "entropy_nats": 0.005369844846427441,
+          "effective_action_count": 1.0053843259811401
+        }
+      }
+    },
+    {
+      "frame": 36,
+      "state_time_s": 1.1666666269302368,
+      "action": 10,
+      "top_two_logit_gap": 23.50371551513672,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 1.0,
+          "entropy_nats": 1.4638857903648272e-09,
+          "effective_action_count": 1.0
+        },
+        "0.5": {
+          "top_action_probability": 0.9999915361404419,
+          "entropy_nats": 0.00010988862777594477,
+          "effective_action_count": 1.0001099109649658
+        },
+        "0.25": {
+          "top_action_probability": 0.9961498975753784,
+          "entropy_nats": 0.0282057523727417,
+          "effective_action_count": 1.0286072492599487
+        }
+      }
+    },
+    {
+      "frame": 37,
+      "state_time_s": 1.2000000476837158,
+      "action": 10,
+      "top_two_logit_gap": 13.921798706054688,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999985694885254,
+          "entropy_nats": 2.2077932953834534e-05,
+          "effective_action_count": 1.000022053718567
+        },
+        "0.5": {
+          "top_action_probability": 0.998115062713623,
+          "entropy_nats": 0.015544266439974308,
+          "effective_action_count": 1.0156656503677368
+        },
+        "0.25": {
+          "top_action_probability": 0.932232141494751,
+          "entropy_nats": 0.31967467069625854,
+          "effective_action_count": 1.37667977809906
+        }
+      }
+    },
+    {
+      "frame": 38,
+      "state_time_s": 1.2333333492279053,
+      "action": 6,
+      "top_two_logit_gap": 2.03985595703125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.8849186301231384,
+          "entropy_nats": 0.35700905323028564,
+          "effective_action_count": 1.429048776626587
+        },
+        "0.5": {
+          "top_action_probability": 0.7349581122398376,
+          "entropy_nats": 0.5782729983329773,
+          "effective_action_count": 1.782956600189209
+        },
+        "0.25": {
+          "top_action_probability": 0.6243680715560913,
+          "entropy_nats": 0.6672826409339905,
+          "effective_action_count": 1.9489341974258423
+        }
+      }
+    },
+    {
+      "frame": 39,
+      "state_time_s": 1.2666666507720947,
+      "action": 6,
+      "top_two_logit_gap": 2.1880950927734375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.8991753458976746,
+          "entropy_nats": 0.326891154050827,
+          "effective_action_count": 1.386650562286377
+        },
+        "0.5": {
+          "top_action_probability": 0.7491429448127747,
+          "entropy_nats": 0.5632789731025696,
+          "effective_action_count": 1.7564222812652588
+        },
+        "0.25": {
+          "top_action_probability": 0.63311368227005,
+          "entropy_nats": 0.661564290523529,
+          "effective_action_count": 1.9378212690353394
+        }
+      }
+    },
+    {
+      "frame": 40,
+      "state_time_s": 1.2999999523162842,
+      "action": 6,
+      "top_two_logit_gap": 1.4149246215820312,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.8045393824577332,
+          "entropy_nats": 0.49407958984375,
+          "effective_action_count": 1.638988971710205
+        },
+        "0.5": {
+          "top_action_probability": 0.6686807870864868,
+          "entropy_nats": 0.6471263766288757,
+          "effective_action_count": 1.9100441932678223
+        },
+        "0.25": {
+          "top_action_probability": 0.563704252243042,
+          "entropy_nats": 0.848007321357727,
+          "effective_action_count": 2.334989309310913
+        }
+      }
+    },
+    {
+      "frame": 41,
+      "state_time_s": 1.3333333730697632,
+      "action": 6,
+      "top_two_logit_gap": 0.9011077880859375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.7098988890647888,
+          "entropy_nats": 0.6132155060768127,
+          "effective_action_count": 1.8463587760925293
+        },
+        "0.5": {
+          "top_action_probability": 0.5915148258209229,
+          "entropy_nats": 0.7942995429039001,
+          "effective_action_count": 2.212890386581421
+        },
+        "0.25": {
+          "top_action_probability": 0.48126137256622314,
+          "entropy_nats": 1.056408166885376,
+          "effective_action_count": 2.8760223388671875
+        }
+      }
+    },
+    {
+      "frame": 42,
+      "state_time_s": 1.3666666746139526,
+      "action": 10,
+      "top_two_logit_gap": 16.637680053710938,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 1.0,
+          "entropy_nats": 9.895554740069201e-07,
+          "effective_action_count": 1.0000009536743164
+        },
+        "0.5": {
+          "top_action_probability": 0.9997561573982239,
+          "entropy_nats": 0.002272780518978834,
+          "effective_action_count": 1.0022753477096558
+        },
+        "0.25": {
+          "top_action_probability": 0.9843711256980896,
+          "entropy_nats": 0.08198301494121552,
+          "effective_action_count": 1.0854374170303345
+        }
+      }
+    },
+    {
+      "frame": 43,
+      "state_time_s": 1.399999976158142,
+      "action": 10,
+      "top_two_logit_gap": 10.598091125488281,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999649524688721,
+          "entropy_nats": 0.00042319786734879017,
+          "effective_action_count": 1.0004233121871948
+        },
+        "0.5": {
+          "top_action_probability": 0.9906062483787537,
+          "entropy_nats": 0.0627552717924118,
+          "effective_action_count": 1.06476628780365
+        },
+        "0.25": {
+          "top_action_probability": 0.8581441640853882,
+          "entropy_nats": 0.5613450407981873,
+          "effective_action_count": 1.7530288696289062
+        }
+      }
+    },
+    {
+      "frame": 44,
+      "state_time_s": 1.4333332777023315,
+      "action": 6,
+      "top_two_logit_gap": 0.23285675048828125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.5579504370689392,
+          "entropy_nats": 0.6864638328552246,
+          "effective_action_count": 1.986677885055542
+        },
+        "0.5": {
+          "top_action_probability": 0.5283045768737793,
+          "entropy_nats": 0.7017090320587158,
+          "effective_action_count": 2.0171971321105957
+        },
+        "0.25": {
+          "top_action_probability": 0.49835580587387085,
+          "entropy_nats": 0.8261080384254456,
+          "effective_action_count": 2.2844104766845703
+        }
+      }
+    },
+    {
+      "frame": 45,
+      "state_time_s": 1.4666666984558105,
+      "action": 6,
+      "top_two_logit_gap": 0.9681167602539062,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.7247439622879028,
+          "entropy_nats": 0.5884168148040771,
+          "effective_action_count": 1.8011345863342285
+        },
+        "0.5": {
+          "top_action_probability": 0.6187039017677307,
+          "entropy_nats": 0.6647325158119202,
+          "effective_action_count": 1.9439704418182373
+        },
+        "0.25": {
+          "top_action_probability": 0.5595202445983887,
+          "entropy_nats": 0.6946520209312439,
+          "effective_action_count": 2.00301194190979
+        }
+      }
+    },
+    {
+      "frame": 46,
+      "state_time_s": 1.5,
+      "action": 6,
+      "top_two_logit_gap": 0.388336181640625,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.5957661271095276,
+          "entropy_nats": 0.6763726472854614,
+          "effective_action_count": 1.9667307138442993
+        },
+        "0.5": {
+          "top_action_probability": 0.5430043339729309,
+          "entropy_nats": 0.7369198203086853,
+          "effective_action_count": 2.089489698410034
+        },
+        "0.25": {
+          "top_action_probability": 0.4889698922634125,
+          "entropy_nats": 0.8994075655937195,
+          "effective_action_count": 2.458146333694458
+        }
+      }
+    },
+    {
+      "frame": 47,
+      "state_time_s": 1.5333333015441895,
+      "action": 2,
+      "top_two_logit_gap": 4.869560241699219,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9884129166603088,
+          "entropy_nats": 0.07064133882522583,
+          "effective_action_count": 1.073196291923523
+        },
+        "0.5": {
+          "top_action_probability": 0.8683617115020752,
+          "entropy_nats": 0.48109644651412964,
+          "effective_action_count": 1.6178473234176636
+        },
+        "0.25": {
+          "top_action_probability": 0.6379960179328918,
+          "entropy_nats": 0.9493942260742188,
+          "effective_action_count": 2.584143877029419
+        }
+      }
+    },
+    {
+      "frame": 48,
+      "state_time_s": 1.5666667222976685,
+      "action": 6,
+      "top_two_logit_gap": 2.7064971923828125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9374088048934937,
+          "entropy_nats": 0.23404033482074738,
+          "effective_action_count": 1.263695478439331
+        },
+        "0.5": {
+          "top_action_probability": 0.7944254875183105,
+          "entropy_nats": 0.5102624893188477,
+          "effective_action_count": 1.6657283306121826
+        },
+        "0.25": {
+          "top_action_probability": 0.6546131372451782,
+          "entropy_nats": 0.6987587213516235,
+          "effective_action_count": 2.0112545490264893
+        }
+      }
+    },
+    {
+      "frame": 49,
+      "state_time_s": 1.600000023841858,
+      "action": 6,
+      "top_two_logit_gap": 3.3152236938476562,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9649337530136108,
+          "entropy_nats": 0.15205830335617065,
+          "effective_action_count": 1.164228081703186
+        },
+        "0.5": {
+          "top_action_probability": 0.8372297883033752,
+          "entropy_nats": 0.4599749743938446,
+          "effective_action_count": 1.5840343236923218
+        },
+        "0.25": {
+          "top_action_probability": 0.6673805713653564,
+          "entropy_nats": 0.7607645988464355,
+          "effective_action_count": 2.1399118900299072
+        }
+      }
+    },
+    {
+      "frame": 50,
+      "state_time_s": 1.6333333253860474,
+      "action": 2,
+      "top_two_logit_gap": 6.914253234863281,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.998957633972168,
+          "entropy_nats": 0.008398603647947311,
+          "effective_action_count": 1.0084339380264282
+        },
+        "0.5": {
+          "top_action_probability": 0.9628520607948303,
+          "entropy_nats": 0.17645181715488434,
+          "effective_action_count": 1.192976951599121
+        },
+        "0.25": {
+          "top_action_probability": 0.7926096320152283,
+          "entropy_nats": 0.6412548422813416,
+          "effective_action_count": 1.8988621234893799
+        }
+      }
+    },
+    {
+      "frame": 51,
+      "state_time_s": 1.6666666269302368,
+      "action": 6,
+      "top_two_logit_gap": 3.6025161743164062,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9727286696434021,
+          "entropy_nats": 0.12859384715557098,
+          "effective_action_count": 1.1372281312942505
+        },
+        "0.5": {
+          "top_action_probability": 0.838198721408844,
+          "entropy_nats": 0.5095511078834534,
+          "effective_action_count": 1.664543867111206
+        },
+        "0.25": {
+          "top_action_probability": 0.6355345845222473,
+          "entropy_nats": 0.8759042024612427,
+          "effective_action_count": 2.401045322418213
+        }
+      }
+    },
+    {
+      "frame": 52,
+      "state_time_s": 1.7000000476837158,
+      "action": 6,
+      "top_two_logit_gap": 2.7649154663085938,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9406959414482117,
+          "entropy_nats": 0.22550709545612335,
+          "effective_action_count": 1.2529579401016235
+        },
+        "0.5": {
+          "top_action_probability": 0.7944073677062988,
+          "entropy_nats": 0.5359669923782349,
+          "effective_action_count": 1.7091001272201538
+        },
+        "0.25": {
+          "top_action_probability": 0.6291269063949585,
+          "entropy_nats": 0.8163694739341736,
+          "effective_action_count": 2.2622716426849365
+        }
+      }
+    },
+    {
+      "frame": 53,
+      "state_time_s": 1.7333333492279053,
+      "action": 6,
+      "top_two_logit_gap": 0.8914566040039062,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.7087692022323608,
+          "entropy_nats": 0.6075255274772644,
+          "effective_action_count": 1.8358829021453857
+        },
+        "0.5": {
+          "top_action_probability": 0.5989993810653687,
+          "entropy_nats": 0.7457161545753479,
+          "effective_action_count": 2.107950448989868
+        },
+        "0.25": {
+          "top_action_probability": 0.5012117624282837,
+          "entropy_nats": 0.9993678331375122,
+          "effective_action_count": 2.7165639400482178
+        }
+      }
+    },
+    {
+      "frame": 54,
+      "state_time_s": 1.7666666507720947,
+      "action": 4,
+      "top_two_logit_gap": 0.1576366424560547,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.5379855036735535,
+          "entropy_nats": 0.7093660235404968,
+          "effective_action_count": 2.0327022075653076
+        },
+        "0.5": {
+          "top_action_probability": 0.47969210147857666,
+          "entropy_nats": 1.0565639734268188,
+          "effective_action_count": 2.8764703273773193
+        },
+        "0.25": {
+          "top_action_probability": 0.3233885169029236,
+          "entropy_nats": 1.9003467559814453,
+          "effective_action_count": 6.688213348388672
+        }
+      }
+    },
+    {
+      "frame": 55,
+      "state_time_s": 1.7999999523162842,
+      "action": 4,
+      "top_two_logit_gap": 1.8115158081054688,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.8594850301742554,
+          "entropy_nats": 0.40656203031539917,
+          "effective_action_count": 1.5016462802886963
+        },
+        "0.5": {
+          "top_action_probability": 0.7038987278938293,
+          "entropy_nats": 0.6727406978607178,
+          "effective_action_count": 1.9596006870269775
+        },
+        "0.25": {
+          "top_action_probability": 0.5192461013793945,
+          "entropy_nats": 1.2602133750915527,
+          "effective_action_count": 3.5261738300323486
+        }
+      }
+    },
+    {
+      "frame": 56,
+      "state_time_s": 1.8333333730697632,
+      "action": 4,
+      "top_two_logit_gap": 3.272571563720703,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9634391665458679,
+          "entropy_nats": 0.15719228982925415,
+          "effective_action_count": 1.1702206134796143
+        },
+        "0.5": {
+          "top_action_probability": 0.8290294408798218,
+          "entropy_nats": 0.507607638835907,
+          "effective_action_count": 1.6613119840621948
+        },
+        "0.25": {
+          "top_action_probability": 0.5950886011123657,
+          "entropy_nats": 1.1861344575881958,
+          "effective_action_count": 3.2743992805480957
+        }
+      }
+    },
+    {
+      "frame": 57,
+      "state_time_s": 1.8666666746139526,
+      "action": 4,
+      "top_two_logit_gap": 3.90374755859375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9789990186691284,
+          "entropy_nats": 0.10798145830631256,
+          "effective_action_count": 1.1140270233154297
+        },
+        "0.5": {
+          "top_action_probability": 0.828503429889679,
+          "entropy_nats": 0.6363305449485779,
+          "effective_action_count": 1.889534592628479
+        },
+        "0.25": {
+          "top_action_probability": 0.5201186537742615,
+          "entropy_nats": 1.4921678304672241,
+          "effective_action_count": 4.446724891662598
+        }
+      }
+    },
+    {
+      "frame": 58,
+      "state_time_s": 1.899999976158142,
+      "action": 7,
+      "top_two_logit_gap": 0.6925239562988281,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.5466422438621521,
+          "entropy_nats": 1.0775656700134277,
+          "effective_action_count": 2.9375200271606445
+        },
+        "0.5": {
+          "top_action_probability": 0.3870810270309448,
+          "entropy_nats": 1.4792859554290771,
+          "effective_action_count": 4.389810085296631
+        },
+        "0.25": {
+          "top_action_probability": 0.2645939886569977,
+          "entropy_nats": 1.8799601793289185,
+          "effective_action_count": 6.553244113922119
+        }
+      }
+    },
+    {
+      "frame": 59,
+      "state_time_s": 1.9333332777023315,
+      "action": 7,
+      "top_two_logit_gap": 0.15280532836914062,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.42983028292655945,
+          "entropy_nats": 1.1038891077041626,
+          "effective_action_count": 3.0158722400665283
+        },
+        "0.5": {
+          "top_action_probability": 0.35135236382484436,
+          "entropy_nats": 1.3881808519363403,
+          "effective_action_count": 4.0075531005859375
+        },
+        "0.25": {
+          "top_action_probability": 0.2660370171070099,
+          "entropy_nats": 1.7688913345336914,
+          "effective_action_count": 5.8643479347229
+        }
+      }
+    },
+    {
+      "frame": 60,
+      "state_time_s": 1.9666666984558105,
+      "action": 5,
+      "top_two_logit_gap": 0.5135917663574219,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.4929679036140442,
+          "entropy_nats": 1.0879170894622803,
+          "effective_action_count": 2.968085289001465
+        },
+        "0.5": {
+          "top_action_probability": 0.3763369023799896,
+          "entropy_nats": 1.4041651487350464,
+          "effective_action_count": 4.0721259117126465
+        },
+        "0.25": {
+          "top_action_probability": 0.26818254590034485,
+          "entropy_nats": 1.8544931411743164,
+          "effective_action_count": 6.388459205627441
+        }
+      }
+    },
+    {
+      "frame": 61,
+      "state_time_s": 2.0,
+      "action": 5,
+      "top_two_logit_gap": 0.3714942932128906,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.5188288688659668,
+          "entropy_nats": 1.0372886657714844,
+          "effective_action_count": 2.821556568145752
+        },
+        "0.5": {
+          "top_action_probability": 0.3884580135345459,
+          "entropy_nats": 1.4011796712875366,
+          "effective_action_count": 4.059986591339111
+        },
+        "0.25": {
+          "top_action_probability": 0.2760976254940033,
+          "entropy_nats": 1.8094491958618164,
+          "effective_action_count": 6.107082843780518
+        }
+      }
+    },
+    {
+      "frame": 62,
+      "state_time_s": 2.0333333015441895,
+      "action": 15,
+      "top_two_logit_gap": 0.01035308837890625,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.4386405646800995,
+          "entropy_nats": 1.097018837928772,
+          "effective_action_count": 2.9952235221862793
+        },
+        "0.5": {
+          "top_action_probability": 0.34134984016418457,
+          "entropy_nats": 1.5051571130752563,
+          "effective_action_count": 4.504861354827881
+        },
+        "0.25": {
+          "top_action_probability": 0.2489086538553238,
+          "entropy_nats": 1.854945421218872,
+          "effective_action_count": 6.3913493156433105
+        }
+      }
+    },
+    {
+      "frame": 63,
+      "state_time_s": 2.066666603088379,
+      "action": 15,
+      "top_two_logit_gap": 0.1417083740234375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.4436980187892914,
+          "entropy_nats": 1.2567503452301025,
+          "effective_action_count": 3.513983726501465
+        },
+        "0.5": {
+          "top_action_probability": 0.30962884426116943,
+          "entropy_nats": 1.7234807014465332,
+          "effective_action_count": 5.604000568389893
+        },
+        "0.25": {
+          "top_action_probability": 0.2173154205083847,
+          "entropy_nats": 1.9784022569656372,
+          "effective_action_count": 7.231180191040039
+        }
+      }
+    },
+    {
+      "frame": 64,
+      "state_time_s": 2.0999999046325684,
+      "action": 15,
+      "top_two_logit_gap": 0.2185516357421875,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.453946053981781,
+          "entropy_nats": 1.1801066398620605,
+          "effective_action_count": 3.254721164703369
+        },
+        "0.5": {
+          "top_action_probability": 0.3389497697353363,
+          "entropy_nats": 1.5258690118789673,
+          "effective_action_count": 4.5991387367248535
+        },
+        "0.25": {
+          "top_action_probability": 0.24891485273838043,
+          "entropy_nats": 1.8260269165039062,
+          "effective_action_count": 6.209167957305908
+        }
+      }
+    },
+    {
+      "frame": 65,
+      "state_time_s": 2.133333444595337,
+      "action": 5,
+      "top_two_logit_gap": 0.0161895751953125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.4079001545906067,
+          "entropy_nats": 1.1848630905151367,
+          "effective_action_count": 3.2702391147613525
+        },
+        "0.5": {
+          "top_action_probability": 0.33088040351867676,
+          "entropy_nats": 1.4200403690338135,
+          "effective_action_count": 4.137287616729736
+        },
+        "0.25": {
+          "top_action_probability": 0.26176103949546814,
+          "entropy_nats": 1.7038580179214478,
+          "effective_action_count": 5.4951066970825195
+        }
+      }
+    },
+    {
+      "frame": 66,
+      "state_time_s": 2.1666667461395264,
+      "action": 5,
+      "top_two_logit_gap": 0.3221015930175781,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.4269614815711975,
+          "entropy_nats": 1.326667308807373,
+          "effective_action_count": 3.768463373184204
+        },
+        "0.5": {
+          "top_action_probability": 0.3028484582901001,
+          "entropy_nats": 1.7032761573791504,
+          "effective_action_count": 5.491910457611084
+        },
+        "0.25": {
+          "top_action_probability": 0.21717728674411774,
+          "entropy_nats": 1.9557441473007202,
+          "effective_action_count": 7.069177627563477
+        }
+      }
+    },
+    {
+      "frame": 67,
+      "state_time_s": 2.200000047683716,
+      "action": 9,
+      "top_two_logit_gap": 2.998973846435547,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9495800137519836,
+          "entropy_nats": 0.21621257066726685,
+          "effective_action_count": 1.2413662672042847
+        },
+        "0.5": {
+          "top_action_probability": 0.73851478099823,
+          "entropy_nats": 0.9126676321029663,
+          "effective_action_count": 2.4909586906433105
+        },
+        "0.25": {
+          "top_action_probability": 0.4271364212036133,
+          "entropy_nats": 1.7118653059005737,
+          "effective_action_count": 5.5392842292785645
+        }
+      }
+    },
+    {
+      "frame": 68,
+      "state_time_s": 2.2333333492279053,
+      "action": 9,
+      "top_two_logit_gap": 2.9512710571289062,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9501183032989502,
+          "entropy_nats": 0.19989974796772003,
+          "effective_action_count": 1.2212803363800049
+        },
+        "0.5": {
+          "top_action_probability": 0.7914777994155884,
+          "entropy_nats": 0.6409989595413208,
+          "effective_action_count": 1.8983763456344604
+        },
+        "0.25": {
+          "top_action_probability": 0.5188279151916504,
+          "entropy_nats": 1.439242959022522,
+          "effective_action_count": 4.217501640319824
+        }
+      }
+    },
+    {
+      "frame": 69,
+      "state_time_s": 2.2666666507720947,
+      "action": 9,
+      "top_two_logit_gap": 2.5712242126464844,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9288678169250488,
+          "entropy_nats": 0.2576920986175537,
+          "effective_action_count": 1.2939403057098389
+        },
+        "0.5": {
+          "top_action_probability": 0.767253041267395,
+          "entropy_nats": 0.6476072072982788,
+          "effective_action_count": 1.9109628200531006
+        },
+        "0.25": {
+          "top_action_probability": 0.5209851264953613,
+          "entropy_nats": 1.3825135231018066,
+          "effective_action_count": 3.984905242919922
+        }
+      }
+    },
+    {
+      "frame": 70,
+      "state_time_s": 2.299999952316284,
+      "action": 9,
+      "top_two_logit_gap": 2.353302001953125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9131938815116882,
+          "entropy_nats": 0.2951219379901886,
+          "effective_action_count": 1.343290090560913
+        },
+        "0.5": {
+          "top_action_probability": 0.7619698643684387,
+          "entropy_nats": 0.5707589387893677,
+          "effective_action_count": 1.7696095705032349
+        },
+        "0.25": {
+          "top_action_probability": 0.5849989652633667,
+          "entropy_nats": 1.0560762882232666,
+          "effective_action_count": 2.875067949295044
+        }
+      }
+    },
+    {
+      "frame": 71,
+      "state_time_s": 2.3333332538604736,
+      "action": 9,
+      "top_two_logit_gap": 1.7302742004394531,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.814877986907959,
+          "entropy_nats": 0.6311540603637695,
+          "effective_action_count": 1.8797787427902222
+        },
+        "0.5": {
+          "top_action_probability": 0.5278176665306091,
+          "entropy_nats": 1.4203121662139893,
+          "effective_action_count": 4.138411998748779
+        },
+        "0.25": {
+          "top_action_probability": 0.3076706528663635,
+          "entropy_nats": 1.887734293937683,
+          "effective_action_count": 6.604388236999512
+        }
+      }
+    },
+    {
+      "frame": 72,
+      "state_time_s": 2.366666555404663,
+      "action": 13,
+      "top_two_logit_gap": 0.5280952453613281,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.40691184997558594,
+          "entropy_nats": 1.3309879302978516,
+          "effective_action_count": 3.784780502319336
+        },
+        "0.5": {
+          "top_action_probability": 0.30971789360046387,
+          "entropy_nats": 1.55680513381958,
+          "effective_action_count": 4.7436418533325195
+        },
+        "0.25": {
+          "top_action_probability": 0.23502947390079498,
+          "entropy_nats": 1.8470795154571533,
+          "effective_action_count": 6.341272830963135
+        }
+      }
+    },
+    {
+      "frame": 73,
+      "state_time_s": 2.4000000953674316,
+      "action": 9,
+      "top_two_logit_gap": 0.6599273681640625,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.6592440605163574,
+          "entropy_nats": 0.6415360569953918,
+          "effective_action_count": 1.8993961811065674
+        },
+        "0.5": {
+          "top_action_probability": 0.5816258192062378,
+          "entropy_nats": 0.6819379925727844,
+          "effective_action_count": 1.977706789970398
+        },
+        "0.25": {
+          "top_action_probability": 0.5283963084220886,
+          "entropy_nats": 0.8261706233024597,
+          "effective_action_count": 2.2845535278320312
+        }
+      }
+    },
+    {
+      "frame": 74,
+      "state_time_s": 2.433333396911621,
+      "action": 9,
+      "top_two_logit_gap": 0.22283935546875,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.555480420589447,
+          "entropy_nats": 0.6869783997535706,
+          "effective_action_count": 1.9877004623413086
+        },
+        "0.5": {
+          "top_action_probability": 0.5278033018112183,
+          "entropy_nats": 0.6920941472053528,
+          "effective_action_count": 1.9978950023651123
+        },
+        "0.25": {
+          "top_action_probability": 0.5091506838798523,
+          "entropy_nats": 0.7536522746086121,
+          "effective_action_count": 2.124746084213257
+        }
+      }
+    },
+    {
+      "frame": 75,
+      "state_time_s": 2.4666666984558105,
+      "action": 11,
+      "top_two_logit_gap": 1.605255126953125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.8327515721321106,
+          "entropy_nats": 0.45149630308151245,
+          "effective_action_count": 1.5706605911254883
+        },
+        "0.5": {
+          "top_action_probability": 0.6905362606048584,
+          "entropy_nats": 0.6186710596084595,
+          "effective_action_count": 1.8564592599868774
+        },
+        "0.25": {
+          "top_action_probability": 0.598942220211029,
+          "entropy_nats": 0.674485981464386,
+          "effective_action_count": 1.9630236625671387
+        }
+      }
+    },
+    {
+      "frame": 76,
+      "state_time_s": 2.5,
+      "action": 11,
+      "top_two_logit_gap": 0.6998138427734375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.6681464910507202,
+          "entropy_nats": 0.6354835033416748,
+          "effective_action_count": 1.887934684753418
+        },
+        "0.5": {
+          "top_action_probability": 0.5865949988365173,
+          "entropy_nats": 0.6780750751495361,
+          "effective_action_count": 1.9700818061828613
+        },
+        "0.25": {
+          "top_action_probability": 0.5434858798980713,
+          "entropy_nats": 0.6917943954467773,
+          "effective_action_count": 1.9972962141036987
+        }
+      }
+    },
+    {
+      "frame": 77,
+      "state_time_s": 2.5333333015441895,
+      "action": 9,
+      "top_two_logit_gap": 1.1186790466308594,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.7486598491668701,
+          "entropy_nats": 0.5948587656021118,
+          "effective_action_count": 1.812774896621704
+        },
+        "0.5": {
+          "top_action_probability": 0.6000467538833618,
+          "entropy_nats": 0.8369326591491699,
+          "effective_action_count": 2.3092727661132812
+        },
+        "0.25": {
+          "top_action_probability": 0.482200026512146,
+          "entropy_nats": 1.0331108570098877,
+          "effective_action_count": 2.80979323387146
+        }
+      }
+    },
+    {
+      "frame": 78,
+      "state_time_s": 2.566666603088379,
+      "action": 0,
+      "top_two_logit_gap": 18.086868286132812,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 1.0,
+          "entropy_nats": 2.52543685519413e-07,
+          "effective_action_count": 1.000000238418579
+        },
+        "0.5": {
+          "top_action_probability": 0.9998817443847656,
+          "entropy_nats": 0.0011881421087309718,
+          "effective_action_count": 1.00118887424469
+        },
+        "0.25": {
+          "top_action_probability": 0.9888343214988708,
+          "entropy_nats": 0.06347422301769257,
+          "effective_action_count": 1.0655319690704346
+        }
+      }
+    },
+    {
+      "frame": 79,
+      "state_time_s": 2.5999999046325684,
+      "action": 0,
+      "top_two_logit_gap": 11.377975463867188,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999885559082031,
+          "entropy_nats": 0.00014166126493364573,
+          "effective_action_count": 1.0001416206359863
+        },
+        "0.5": {
+          "top_action_probability": 0.9966283440589905,
+          "entropy_nats": 0.022558407858014107,
+          "effective_action_count": 1.0228147506713867
+        },
+        "0.25": {
+          "top_action_probability": 0.9450051784515381,
+          "entropy_nats": 0.2132539302110672,
+          "effective_action_count": 1.2376989126205444
+        }
+      }
+    },
+    {
+      "frame": 80,
+      "state_time_s": 2.633333444595337,
+      "action": 0,
+      "top_two_logit_gap": 9.391319274902344,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999165534973145,
+          "entropy_nats": 0.0008670460083521903,
+          "effective_action_count": 1.0008673667907715
+        },
+        "0.5": {
+          "top_action_probability": 0.9909477829933167,
+          "entropy_nats": 0.05159996449947357,
+          "effective_action_count": 1.0529544353485107
+        },
+        "0.25": {
+          "top_action_probability": 0.9125410914421082,
+          "entropy_nats": 0.2984886169433594,
+          "effective_action_count": 1.3478201627731323
+        }
+      }
+    },
+    {
+      "frame": 81,
+      "state_time_s": 2.6666667461395264,
+      "action": 0,
+      "top_two_logit_gap": 9.30478286743164,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999090433120728,
+          "entropy_nats": 0.000937507429625839,
+          "effective_action_count": 1.0009379386901855
+        },
+        "0.5": {
+          "top_action_probability": 0.9905508756637573,
+          "entropy_nats": 0.05345958471298218,
+          "effective_action_count": 1.0549143552780151
+        },
+        "0.25": {
+          "top_action_probability": 0.9100508689880371,
+          "entropy_nats": 0.3095838129520416,
+          "effective_action_count": 1.3628578186035156
+        }
+      }
+    },
+    {
+      "frame": 82,
+      "state_time_s": 2.700000047683716,
+      "action": 0,
+      "top_two_logit_gap": 10.608474731445312,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.999975323677063,
+          "entropy_nats": 0.0002867604489438236,
+          "effective_action_count": 1.0002868175506592
+        },
+        "0.5": {
+          "top_action_probability": 0.9950529932975769,
+          "entropy_nats": 0.031210390850901604,
+          "effective_action_count": 1.0317025184631348
+        },
+        "0.25": {
+          "top_action_probability": 0.9322980642318726,
+          "entropy_nats": 0.2593177556991577,
+          "effective_action_count": 1.2960455417633057
+        }
+      }
+    },
+    {
+      "frame": 83,
+      "state_time_s": 2.7333333492279053,
+      "action": 0,
+      "top_two_logit_gap": 13.788848876953125,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.999998927116394,
+          "entropy_nats": 1.5236276340147015e-05,
+          "effective_action_count": 1.0000152587890625
+        },
+        "0.5": {
+          "top_action_probability": 0.9989737272262573,
+          "entropy_nats": 0.008176477625966072,
+          "effective_action_count": 1.0082099437713623
+        },
+        "0.25": {
+          "top_action_probability": 0.9629467129707336,
+          "entropy_nats": 0.1835201531648636,
+          "effective_action_count": 1.2014391422271729
+        }
+      }
+    },
+    {
+      "frame": 84,
+      "state_time_s": 2.7666666507720947,
+      "action": 0,
+      "top_two_logit_gap": 9.828147888183594,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9999325275421143,
+          "entropy_nats": 0.0007497353944927454,
+          "effective_action_count": 1.0007500648498535
+        },
+        "0.5": {
+          "top_action_probability": 0.9887922406196594,
+          "entropy_nats": 0.07006210833787918,
+          "effective_action_count": 1.0725748538970947
+        },
+        "0.25": {
+          "top_action_probability": 0.8521156907081604,
+          "entropy_nats": 0.5900912880897522,
+          "effective_action_count": 1.8041530847549438
+        }
+      }
+    },
+    {
+      "frame": 85,
+      "state_time_s": 2.799999952316284,
+      "action": 14,
+      "top_two_logit_gap": 1.7956809997558594,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.8574422001838684,
+          "entropy_nats": 0.411160409450531,
+          "effective_action_count": 1.5085673332214355
+        },
+        "0.5": {
+          "top_action_probability": 0.7025527954101562,
+          "entropy_nats": 0.6573935151100159,
+          "effective_action_count": 1.9297559261322021
+        },
+        "0.25": {
+          "top_action_probability": 0.5606661438941956,
+          "entropy_nats": 0.9359019994735718,
+          "effective_action_count": 2.5495121479034424
+        }
+      }
+    },
+    {
+      "frame": 86,
+      "state_time_s": 2.8333332538604736,
+      "action": 10,
+      "top_two_logit_gap": 7.4321136474609375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.999219536781311,
+          "entropy_nats": 0.006845829077064991,
+          "effective_action_count": 1.0068693161010742
+        },
+        "0.5": {
+          "top_action_probability": 0.9593049883842468,
+          "entropy_nats": 0.2113463580608368,
+          "effective_action_count": 1.2353401184082031
+        },
+        "0.25": {
+          "top_action_probability": 0.7264806032180786,
+          "entropy_nats": 0.9529623985290527,
+          "effective_action_count": 2.593380928039551
+        }
+      }
+    },
+    {
+      "frame": 87,
+      "state_time_s": 2.866666555404663,
+      "action": 10,
+      "top_two_logit_gap": 5.588714599609375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.996212363243103,
+          "entropy_nats": 0.02522624284029007,
+          "effective_action_count": 1.0255471467971802
+        },
+        "0.5": {
+          "top_action_probability": 0.9342033267021179,
+          "entropy_nats": 0.2722914516925812,
+          "effective_action_count": 1.3129695653915405
+        },
+        "0.25": {
+          "top_action_probability": 0.7240262627601624,
+          "entropy_nats": 0.8479670286178589,
+          "effective_action_count": 2.334895133972168
+        }
+      }
+    },
+    {
+      "frame": 88,
+      "state_time_s": 2.9000000953674316,
+      "action": 10,
+      "top_two_logit_gap": 6.238258361816406,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9980493783950806,
+          "entropy_nats": 0.014130394905805588,
+          "effective_action_count": 1.014230728149414
+        },
+        "0.5": {
+          "top_action_probability": 0.9565039873123169,
+          "entropy_nats": 0.18503884971141815,
+          "effective_action_count": 1.2032651901245117
+        },
+        "0.25": {
+          "top_action_probability": 0.7925453782081604,
+          "entropy_nats": 0.6518824100494385,
+          "effective_action_count": 1.9191501140594482
+        }
+      }
+    },
+    {
+      "frame": 89,
+      "state_time_s": 2.933333396911621,
+      "action": 10,
+      "top_two_logit_gap": 6.248954772949219,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9980276226997375,
+          "entropy_nats": 0.014469328336417675,
+          "effective_action_count": 1.0145745277404785
+        },
+        "0.5": {
+          "top_action_probability": 0.9510101079940796,
+          "entropy_nats": 0.21884271502494812,
+          "effective_action_count": 1.2446354627609253
+        },
+        "0.25": {
+          "top_action_probability": 0.7541097402572632,
+          "entropy_nats": 0.782773494720459,
+          "effective_action_count": 2.187530994415283
+        }
+      }
+    },
+    {
+      "frame": 90,
+      "state_time_s": 2.9666666984558105,
+      "action": 10,
+      "top_two_logit_gap": 7.0683441162109375,
+      "by_logit_scale": {
+        "1.0": {
+          "top_action_probability": 0.9991055130958557,
+          "entropy_nats": 0.007350807543843985,
+          "effective_action_count": 1.0073778629302979
+        },
+        "0.5": {
+          "top_action_probability": 0.964634895324707,
+          "entropy_nats": 0.17356258630752563,
+          "effective_action_count": 1.189535140991211
+        },
+        "0.25": {
+          "top_action_probability": 0.778825044631958,
+          "entropy_nats": 0.735450804233551,
+          "effective_action_count": 2.0864224433898926
+        }
+      }
+    }
+  ]
+}

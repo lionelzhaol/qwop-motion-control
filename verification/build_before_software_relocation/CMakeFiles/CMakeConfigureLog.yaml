@@ -1,0 +1,1638 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake:218 (message)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/"
+    found: "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.60+43b635718
+      鐢熸垚鍚姩鏃堕棿涓?2026/10/7 23:40:25銆?
+      
+      鑺傜偣 1 涓婄殑椤圭洰鈥淨:\\QWOP_rl_training_public\\build\\CMakeFiles\\4.4.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)銆?
+      PrepareForBuild:
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\鈥濄€?
+        宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\CompilerIdCXX.tlog\\鈥濄€?
+      InitializeBuildStatus:
+        姝ｅ湪鍒涘缓鈥淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+      ClCompile:
+        E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\4.4.4\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        姝ｅ湪鍒犻櫎鏂囦欢鈥淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+      宸插畬鎴愮敓鎴愰」鐩€淨:\\QWOP_rl_training_public\\build\\CMakeFiles\\4.4.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+      
+      宸叉垚鍔熺敓鎴愩€?
+          0 涓鍛?
+          0 涓敊璇?
+      
+      宸茬敤鏃堕棿 00:00:01.11
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        Q:/QWOP_rl_training_public/build/CMakeFiles/4.4.4/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:64 (__resolve_tool_path)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:102 (__resolve_linker_path)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:3 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/"
+      - "E:/Program Files/MATLAB/R2026a/bin/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/"
+    searched_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
+    found: "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:64 (__resolve_tool_path)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:3 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/"
+      - "E:/Program Files/MATLAB/R2026a/bin/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/"
+    searched_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/lld-link.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/lld-link.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/lld-link"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/lld-link.com"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/lld-link.exe"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/lld-link"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/lld-link.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/lld-link.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/lld-link"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/lld-link.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/lld-link.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/lld-link"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/lld-link.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/lld-link.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/lld-link"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/lld-link.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/lld-link.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/lld-link.com"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/lld-link.exe"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/lld-link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/lld-link"
+      - "E:/Program Files/MATLAB/R2026a/bin/lld-link.com"
+      - "E:/Program Files/MATLAB/R2026a/bin/lld-link.exe"
+      - "E:/Program Files/MATLAB/R2026a/bin/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/lld-link.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/lld-link.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/lld-link"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/lld-link.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/lld-link.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/lld-link"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/lld-link.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/lld-link.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/lld-link"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/lld-link"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:3 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/"
+      - "E:/Program Files/MATLAB/R2026a/bin/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/"
+    searched_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
+    found: "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:3 (project)"
+    mode: "program"
+    variable: "CMAKE_MT"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mt"
+    candidate_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/"
+      - "E:/Program Files/MATLAB/R2026a/bin/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/"
+    searched_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.com"
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.exe"
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/mt.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/mt.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/mt"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/mt.com"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/mt.exe"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/mt"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/mt.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/mt.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/mt"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/mt.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/mt.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/mt"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/mt.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/mt.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/mt"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/mt.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/mt.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/mt"
+      - "C:/Windows/System32/mt.com"
+      - "C:/Windows/System32/mt.exe"
+      - "C:/Windows/System32/mt"
+      - "C:/Windows/mt.com"
+      - "C:/Windows/mt.exe"
+      - "C:/Windows/mt"
+      - "C:/Windows/System32/wbem/mt.com"
+      - "C:/Windows/System32/wbem/mt.exe"
+      - "C:/Windows/System32/wbem/mt"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt"
+      - "C:/Windows/System32/OpenSSH/mt.com"
+      - "C:/Windows/System32/OpenSSH/mt.exe"
+      - "C:/Windows/System32/OpenSSH/mt"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/mt.com"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/mt.exe"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/mt"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mt.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mt.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mt"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/mt.com"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/mt.exe"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/mt"
+      - "E:/Program Files/MATLAB/R2026a/bin/mt.com"
+      - "E:/Program Files/MATLAB/R2026a/bin/mt.exe"
+      - "E:/Program Files/MATLAB/R2026a/bin/mt"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/mt.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/mt.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/mt"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/mt.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/mt.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/mt"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/mt.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/mt.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/mt"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/mt.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/mt.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/mt"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/mt.com"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/mt.exe"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/mt"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/mt.com"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/mt.exe"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/mt"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:3 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lib"
+    candidate_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/"
+      - "E:/Program Files/MATLAB/R2026a/bin/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/"
+    searched_directories:
+      - "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.com"
+    found: "Q:/.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/Platform/Windows-MSVC.cmake:592 (enable_language)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/Platform/Windows-MSVC.cmake:565 (__windows_compiler_msvc_enable_rc)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/Platform/Windows-MSVC-CXX.cmake:6 (__windows_compiler_msvc)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeCXXInformation.cmake:48 (include)"
+      - "CMakeLists.txt:3 (project)"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "rc"
+    candidate_directories:
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/"
+      - "E:/Program Files/MATLAB/R2026a/bin/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin/"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/sbin/"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/"
+      - "C:/Program Files (x86)/running_ai_env/bin/"
+      - "C:/Program Files (x86)/running_ai_env/sbin/"
+      - "C:/Program Files (x86)/running_ai_env/"
+    searched_directories:
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/rc.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/rc.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/rc"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/rc.com"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/rc.exe"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/rc"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/rc.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/rc.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/rc"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/rc.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/rc.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/rc"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/rc.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/rc.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/rc"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/rc.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/rc.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/rc"
+      - "C:/Windows/System32/rc.com"
+      - "C:/Windows/System32/rc.exe"
+      - "C:/Windows/System32/rc"
+      - "C:/Windows/rc.com"
+      - "C:/Windows/rc.exe"
+      - "C:/Windows/rc"
+      - "C:/Windows/System32/wbem/rc.com"
+      - "C:/Windows/System32/wbem/rc.exe"
+      - "C:/Windows/System32/wbem/rc"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc"
+      - "C:/Windows/System32/OpenSSH/rc.com"
+      - "C:/Windows/System32/OpenSSH/rc.exe"
+      - "C:/Windows/System32/OpenSSH/rc"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/rc.com"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/rc.exe"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/rc"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/rc.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/rc.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/rc"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/rc.com"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/rc.exe"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/rc"
+      - "E:/Program Files/MATLAB/R2026a/bin/rc.com"
+      - "E:/Program Files/MATLAB/R2026a/bin/rc.exe"
+      - "E:/Program Files/MATLAB/R2026a/bin/rc"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/rc.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/rc.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/rc"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/rc.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/rc.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/rc"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/rc.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/rc.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/rc"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/rc.com"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/rc.exe"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/rc"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/rc.com"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/rc.exe"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/rc"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/rc.com"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/rc.exe"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/rc"
+      - "C:/Program Files/bin/rc.com"
+      - "C:/Program Files/bin/rc.exe"
+      - "C:/Program Files/bin/rc"
+      - "C:/Program Files/sbin/rc.com"
+      - "C:/Program Files/sbin/rc.exe"
+      - "C:/Program Files/sbin/rc"
+      - "C:/Program Files/rc.com"
+      - "C:/Program Files/rc.exe"
+      - "C:/Program Files/rc"
+      - "C:/Program Files (x86)/bin/rc.com"
+      - "C:/Program Files (x86)/bin/rc.exe"
+      - "C:/Program Files (x86)/bin/rc"
+      - "C:/Program Files (x86)/sbin/rc.com"
+      - "C:/Program Files (x86)/sbin/rc.exe"
+      - "C:/Program Files (x86)/sbin/rc"
+      - "C:/Program Files (x86)/rc.com"
+      - "C:/Program Files (x86)/rc.exe"
+      - "C:/Program Files (x86)/rc"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin/rc.com"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin/rc.exe"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin/rc"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/sbin/rc.com"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/sbin/rc.exe"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/sbin/rc"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/rc.com"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/rc.exe"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/rc"
+      - "C:/Program Files (x86)/running_ai_env/bin/rc.com"
+      - "C:/Program Files (x86)/running_ai_env/bin/rc.exe"
+      - "C:/Program Files (x86)/running_ai_env/bin/rc"
+      - "C:/Program Files (x86)/running_ai_env/sbin/rc.com"
+      - "C:/Program Files (x86)/running_ai_env/sbin/rc.exe"
+      - "C:/Program Files (x86)/running_ai_env/sbin/rc"
+      - "C:/Program Files (x86)/running_ai_env/rc.com"
+      - "C:/Program Files (x86)/running_ai_env/rc.exe"
+      - "C:/Program Files (x86)/running_ai_env/rc"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64"
+        - "C:/Program Files (x86)/running_ai_env"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:123 (try_compile)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-nvoit3"
+      binary: "Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-nvoit3"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: false
+      stdout: |
+        Change Dir: 'Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-nvoit3'
+        
+        Run Build Command(s): E:/Work/强化学习小项目/.tools/BuildTools2022/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_cbd1b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.60+43b635718
+        鐢熸垚鍚姩鏃堕棿涓?2026/10/7 23:40:27銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淨:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nvoit3\\cmTC_cbd1b.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淨:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nvoit3\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_cbd1b.dir\\Debug\\cmTC_cbd1b.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_cbd1b.dir\\Debug\\cmTC_cbd1b.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_cbd1b.dir\\Debug\\cmTC_cbd1b.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_cbd1b.dir\\Debug\\\\" /Fd"cmTC_cbd1b.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "Q:\\.tools\\cmake-4.4.4-windows-x86_64\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.44.35229 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_cbd1b.dir\\Debug\\\\" /Fd"cmTC_cbd1b.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "Q:\\.tools\\cmake-4.4.4-windows-x86_64\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nvoit3\\Debug\\cmTC_cbd1b.exe" /INCREMENTAL /ILK:"cmTC_cbd1b.dir\\Debug\\cmTC_cbd1b.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-nvoit3/Debug/cmTC_cbd1b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-nvoit3/Debug/cmTC_cbd1b.lib" /MACHINE:X64  /machine:x64 cmTC_cbd1b.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_cbd1b.vcxproj -> Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nvoit3\\Debug\\cmTC_cbd1b.exe
+        FinalizeBuildStatus:
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_cbd1b.dir\\Debug\\cmTC_cbd1b.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_cbd1b.dir\\Debug\\cmTC_cbd1b.tlog\\cmTC_cbd1b.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淨:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nvoit3\\cmTC_cbd1b.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+        
+        宸叉垚鍔熺敓鎴愩€?
+            0 涓鍛?
+            0 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:01.20
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:291 (message)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        link line: [  E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nvoit3\\Debug\\cmTC_cbd1b.exe" /INCREMENTAL /ILK:"cmTC_cbd1b.dir\\Debug\\cmTC_cbd1b.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-nvoit3/Debug/cmTC_cbd1b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-nvoit3/Debug/cmTC_cbd1b.lib" /MACHINE:X64  /machine:x64 cmTC_cbd1b.dir\\Debug\\CMakeCXXCompilerABI.obj] ==> linker [E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe]
+        linker tool for 'CXX': E:/Work/寮哄寲瀛︿範灏忛」鐩甛.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe 
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "E:/Work/寮哄寲瀛︿範灏忛」鐩甛.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "E:/Work/寮哄寲瀛︿範灏忛」鐩甛.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-V"
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "E:/Work/寮哄寲瀛︿範灏忛」鐩甛.tools/BuildTools2022/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "--version"
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:2631 (find_program)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython3.cmake:699 (include)"
+      - "CMakeLists.txt:9 (find_package)"
+    mode: "program"
+    variable: "_Python3_EXECUTABLE_DEBUG"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python3.10_d"
+      - "python3_d"
+      - "python_d"
+    candidate_directories:
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/"
+    searched_directories:
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.10_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.10_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.10_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python_d"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64"
+        - "C:/Program Files (x86)/running_ai_env"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:3399 (find_library)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython3.cmake:699 (include)"
+      - "CMakeLists.txt:9 (find_package)"
+    mode: "library"
+    variable: "_Python3_LIBRARY_RELEASE"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: false
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python310"
+      - "python3.10"
+    candidate_directories:
+      - "Q:/QWOP_rl_training_public/.venv/lib/"
+      - "Q:/QWOP_rl_training_public/.venv/libs/"
+      - "Q:/QWOP_rl_training_public/.venv/lib/python3.10/config-3.10/"
+      - "Q:/QWOP_rl_training_public/.venv/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/lib/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/libs/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/lib/python3.10/config-3.10/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/"
+    searched_directories:
+      - "Q:/QWOP_rl_training_public/.venv/lib/"
+      - "Q:/QWOP_rl_training_public/.venv/lib/"
+      - "Q:/QWOP_rl_training_public/.venv/libs/"
+      - "Q:/QWOP_rl_training_public/.venv/libs/"
+      - "Q:/QWOP_rl_training_public/.venv/lib/python3.10/config-3.10/"
+      - "Q:/QWOP_rl_training_public/.venv/lib/python3.10/config-3.10/"
+      - "Q:/QWOP_rl_training_public/.venv/"
+      - "Q:/QWOP_rl_training_public/.venv/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/lib/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/lib/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/libs/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/libs/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/lib/python3.10/config-3.10/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/lib/python3.10/config-3.10/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/"
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64"
+        - "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files (x86)/running_ai_env/bin"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin"
+        - "/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:3934 (find_path)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython3.cmake:699 (include)"
+      - "CMakeLists.txt:9 (find_package)"
+    mode: "path"
+    variable: "_Python3_INCLUDE_DIR"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: false
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "Python.h"
+    candidate_directories:
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/Include/"
+    searched_directories:
+      - "E:/Work/\u5bee\u54c4\u5bf2\u701b\ufe3f\u7bc4\u704f\u5fdb\u300d\u9429\u751b.tools/python310/tools/Include/Python.h"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64"
+        - "C:/Program Files (x86)/running_ai_env"
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:2631 (find_program)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython3.cmake:699 (include)"
+      - "CMakeLists.txt:9 (find_package)"
+    mode: "program"
+    variable: "_Python3_EXECUTABLE_DEBUG"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python3.15_d"
+      - "python3.14_d"
+      - "python3.13_d"
+      - "python3.12_d"
+      - "python3.11_d"
+      - "python3.10_d"
+      - "python3.9_d"
+      - "python3.8_d"
+      - "python3.7_d"
+      - "python3.6_d"
+      - "python3.5_d"
+      - "python3.4_d"
+      - "python3.3_d"
+      - "python3.2_d"
+      - "python3.1_d"
+      - "python3.0_d"
+      - "python3_d"
+      - "python_d"
+    candidate_directories:
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/"
+    searched_directories:
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.15_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.15_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.15_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.14_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.14_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.14_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.13_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.13_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.13_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.12_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.12_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.12_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.11_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.11_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.11_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.10_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.10_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.10_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.9_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.9_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.9_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.8_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.8_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.8_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.7_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.7_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.7_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.6_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.6_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.6_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.5_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.5_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.5_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.4_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.4_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.4_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.3_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.3_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.3_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.2_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.2_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.2_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.1_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.1_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.1_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.0_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.0_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3.0_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python3_d"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python_d.com"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python_d.exe"
+      - "Q:/QWOP_rl_training_public/.venv/Scripts/python_d"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64"
+        - "C:/Program Files (x86)/running_ai_env"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:3595 (find_library)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython3.cmake:699 (include)"
+      - "CMakeLists.txt:9 (find_package)"
+    mode: "library"
+    variable: "_Python3_LIBRARY_DEBUG"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python310_d"
+    candidate_directories:
+      - "Q:/.tools/python310/tools/libs/"
+    searched_directories:
+      - "Q:/.tools/python310/tools/libs/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64"
+        - "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files (x86)/running_ai_env/bin"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin"
+        - "/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:1531 (find_library)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:3613 (_python_find_runtime_library)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython3.cmake:699 (include)"
+      - "CMakeLists.txt:9 (find_package)"
+    mode: "library"
+    variable: "_Python3_RUNTIME_LIBRARY_RELEASE"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python310"
+      - "python3.10"
+    candidate_directories:
+      - "Q:/.tools/python310/tools/libs/bin/"
+      - "Q:/.tools/python310/tools/libs/"
+      - "Q:/.tools/python310/tools/bin/"
+      - "Q:/.tools/python310/tools/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/bin/"
+      - "C:/Users/Administrator/.codex/tmp/arg0/codex-arg0vLZUTr/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libheif/libheif/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/jxrlib/jxrlib/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/"
+      - "C:/Windows/System32/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/bin/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/bin/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/bin/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/bin/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/bin/"
+      - "C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/bin/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/bin/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/bin/"
+      - "C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/"
+      - "E:/Program Files/MATLAB/R2026a/bin/bin/"
+      - "E:/Program Files/MATLAB/R2026a/bin/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/bin/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/bin/"
+      - "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/bin/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/438f63242d1bcf85/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/bin/"
+      - "C:/Users/Administrator/AppData/Local/OpenAI/Codex/bin/ca9abb0b4d8ac692/"
+      - "C:/Program Files/lib/bin/"
+      - "C:/Program Files/lib/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/lib/bin/"
+      - "C:/Program Files (x86)/lib/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/lib/bin/"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/lib/"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin/"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/"
+      - "C:/Program Files (x86)/running_ai_env/lib/bin/"
+      - "C:/Program Files (x86)/running_ai_env/lib/"
+      - "C:/Program Files (x86)/running_ai_env/bin/"
+      - "C:/Program Files (x86)/running_ai_env/"
+      - "C:/Program Files (x86)/running_ai_env/bin/bin/"
+      - "C:/Program Files (x86)/running_ai_env/bin/"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin/bin/"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin/"
+      - "/bin/bin/"
+      - "/bin/"
+    searched_directories:
+      - "Q:/.tools/python310/tools/libs/bin/"
+      - "Q:/.tools/python310/tools/libs/bin/"
+      - "Q:/.tools/python310/tools/libs/"
+      - "Q:/.tools/python310/tools/libs/"
+      - "Q:/.tools/python310/tools/bin/"
+      - "Q:/.tools/python310/tools/bin/"
+    found: "Q:/.tools/python310/tools/python310.dll"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64"
+        - "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files (x86)/running_ai_env/bin"
+        - "Q:/.tools/cmake-4.4.4-windows-x86_64/bin"
+        - "/bin"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "Q:/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "third_party/pybind11/tools/pybind11Common.cmake:332 (check_cxx_compiler_flag)"
+      - "third_party/pybind11/tools/pybind11Common.cmake:404 (_pybind11_return_if_cxx_and_linker_flags_work)"
+      - "third_party/pybind11/tools/pybind11Common.cmake:438 (_pybind11_generate_lto)"
+      - "third_party/pybind11/CMakeLists.txt:298 (include)"
+    checks:
+      - "Performing Test HAS_MSVC_GL_LTCG"
+    directories:
+      source: "Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-22z7w5"
+      binary: "Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-22z7w5"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "HAS_MSVC_GL_LTCG"
+      cached: true
+      stdout: |
+        Change Dir: 'Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-22z7w5'
+        
+        Run Build Command(s): E:/Work/强化学习小项目/.tools/BuildTools2022/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_b352e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.60+43b635718
+        鐢熸垚鍚姩鏃堕棿涓?2026/10/7 23:41:17銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淨:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\cmTC_b352e.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淨:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_b352e.dir\\Debug\\cmTC_b352e.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_b352e.dir\\Debug\\cmTC_b352e.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_b352e.dir\\Debug\\cmTC_b352e.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        SetModuleDependencies:
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_b352e.dir\\Debug\\cmTC_b352e_MD.tlog\\鈥濄€?
+          姝ｅ湪鎵弿婧愪互鏌ユ壘妯″潡渚濊禆椤?..
+          E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D HAS_MSVC_GL_LTCG /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++20 /ifcOutput "cmTC_b352e.dir\\Debug\\\\" /scanDependencies "cmTC_b352e.dir\\Debug\\\\" /Fo"cmTC_b352e.dir\\Debug\\\\" /Fd"cmTC_b352e.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\src.cxx"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.44.35229 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D HAS_MSVC_GL_LTCG /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++20 /ifcOutput "cmTC_b352e.dir\\Debug\\\\" /scanDependencies "cmTC_b352e.dir\\Debug\\\\" /Fo"cmTC_b352e.dir\\Debug\\\\" /Fd"cmTC_b352e.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\src.cxx"
+          src.cxx
+        ClCompile:
+          姝ｅ湪缂栬瘧...
+          E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D HAS_MSVC_GL_LTCG /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++20 /ifcOutput "cmTC_b352e.dir\\Debug\\\\" /Fo"cmTC_b352e.dir\\Debug\\\\" /Fd"cmTC_b352e.dir\\Debug\\vc143.pdb" /sourceDependencies "cmTC_b352e.dir\\Debug\\.d.json" /external:W1 /TP /errorReport:queue "Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\src.cxx"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.44.35229 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D HAS_MSVC_GL_LTCG /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++20 /ifcOutput "cmTC_b352e.dir\\Debug\\\\" /Fo"cmTC_b352e.dir\\Debug\\\\" /Fd"cmTC_b352e.dir\\Debug\\vc143.pdb" /sourceDependencies "cmTC_b352e.dir\\Debug\\.d.json" /external:W1 /TP /errorReport:queue "Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\src.cxx"
+          src.cxx
+        Link:
+          E:\\Work\\寮哄寲瀛︿範灏忛」鐩甛.tools\\BuildTools2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\Debug\\cmTC_b352e.exe" /INCREMENTAL /ILK:"cmTC_b352e.dir\\Debug\\cmTC_b352e.ilk" /NOLOGO "-LTCG" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-22z7w5/Debug/cmTC_b352e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"Q:/QWOP_rl_training_public/build/CMakeFiles/CMakeScratch/TryCompile-22z7w5/Debug/cmTC_b352e.lib" /MACHINE:X64  /machine:x64 cmTC_b352e.dir\\Debug\\src.obj
+        LINK : warning LNK4075: 蹇界暐鈥?INCREMENTAL鈥?鐢变簬鈥?LTCG鈥濊鑼? [Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\cmTC_b352e.vcxproj]
+          姝ｅ湪鐢熸垚浠ｇ爜
+          宸插畬鎴愪唬鐮佺殑鐢熸垚
+          cmTC_b352e.vcxproj -> Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\Debug\\cmTC_b352e.exe
+        FinalizeBuildStatus:
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_b352e.dir\\Debug\\cmTC_b352e.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_b352e.dir\\Debug\\cmTC_b352e.tlog\\cmTC_b352e.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淨:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\cmTC_b352e.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+        
+        宸叉垚鍔熺敓鎴愩€?
+        
+        鈥淨:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\cmTC_b352e.vcxproj鈥?榛樿鐩爣) (1) ->
+        (Link 鐩爣) -> 
+          LINK : warning LNK4075: 蹇界暐鈥?INCREMENTAL鈥?鐢变簬鈥?LTCG鈥濊鑼? [Q:\\QWOP_rl_training_public\\build\\CMakeFiles\\CMakeScratch\\TryCompile-22z7w5\\cmTC_b352e.vcxproj]
+        
+            1 涓鍛?
+            0 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:01.23
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:2631 (find_program)"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython3.cmake:699 (include)"
+      - "CMakeLists.txt:9 (find_package)"
+    mode: "program"
+    variable: "_Python3_EXECUTABLE_DEBUG"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python3.10_d"
+      - "python3_d"
+      - "python_d"
+    candidate_directories:
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/"
+    searched_directories:
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/python3.10_d.com"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/python3.10_d.exe"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/python3.10_d"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/python3_d.com"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/python3_d.exe"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/python3_d"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/python_d.com"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/python_d.exe"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/QWOP_rl_training_public/.venv/Scripts/python_d"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "E:\\Work\\\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee\\.tools\\cmake-4.4.4-windows-x86_64\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/.tools/cmake-4.4.4-windows-x86_64"
+        - "C:/Program Files (x86)/running_ai_env"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython/Support.cmake:3595 (find_library)"
+      - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/.tools/cmake-4.4.4-windows-x86_64/share/cmake-4.4/Modules/FindPython3.cmake:699 (include)"
+      - "CMakeLists.txt:9 (find_package)"
+    mode: "library"
+    variable: "_Python3_LIBRARY_DEBUG"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python310_d"
+    candidate_directories:
+      - "Q:/.tools/python310/tools/libs/"
+    searched_directories:
+      - "Q:/.tools/python310/tools/libs/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "E:\\Work\\\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee\\.tools\\cmake-4.4.4-windows-x86_64\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\.codex\\tmp\\arg0\\codex-arg0vLZUTr"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\"
+        - "E:\\Program Files\\MATLAB\\R2026a\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin"
+        - "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\438f63242d1bcf85"
+        - "C:\\Users\\Administrator\\AppData\\Local\\OpenAI\\Codex\\bin\\ca9abb0b4d8ac692"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/.tools/cmake-4.4.4-windows-x86_64"
+        - "C:/Program Files (x86)/running_ai_env"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files (x86)/running_ai_env/bin"
+        - "E:/Work/\u5f3a\u5316\u5b66\u4e60\u5c0f\u9879\u76ee/.tools/cmake-4.4.4-windows-x86_64/bin"
+        - "/bin"
+...

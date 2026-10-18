@@ -1,0 +1,578 @@
+[
+  {
+    "attempts": 512,
+    "total": 36453,
+    "native_successes_within_horizon": 1,
+    "qualified_within_horizon": 1,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 1024,
+    "total": 36453,
+    "native_successes_within_horizon": 1,
+    "qualified_within_horizon": 1,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 1536,
+    "total": 36453,
+    "native_successes_within_horizon": 13,
+    "qualified_within_horizon": 13,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 2048,
+    "total": 36453,
+    "native_successes_within_horizon": 20,
+    "qualified_within_horizon": 20,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 2560,
+    "total": 36453,
+    "native_successes_within_horizon": 31,
+    "qualified_within_horizon": 31,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 3072,
+    "total": 36453,
+    "native_successes_within_horizon": 31,
+    "qualified_within_horizon": 31,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 3584,
+    "total": 36453,
+    "native_successes_within_horizon": 32,
+    "qualified_within_horizon": 32,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 4096,
+    "total": 36453,
+    "native_successes_within_horizon": 32,
+    "qualified_within_horizon": 32,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 4608,
+    "total": 36453,
+    "native_successes_within_horizon": 32,
+    "qualified_within_horizon": 32,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 5120,
+    "total": 36453,
+    "native_successes_within_horizon": 32,
+    "qualified_within_horizon": 32,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 5632,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 6144,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 6656,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 7168,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 7680,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 8192,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 8704,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 9216,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 9728,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 10240,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 10752,
+    "total": 36453,
+    "native_successes_within_horizon": 45,
+    "qualified_within_horizon": 45,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 11264,
+    "total": 36453,
+    "native_successes_within_horizon": 46,
+    "qualified_within_horizon": 46,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 11776,
+    "total": 36453,
+    "native_successes_within_horizon": 46,
+    "qualified_within_horizon": 46,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 12288,
+    "total": 36453,
+    "native_successes_within_horizon": 46,
+    "qualified_within_horizon": 46,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 12800,
+    "total": 36453,
+    "native_successes_within_horizon": 46,
+    "qualified_within_horizon": 46,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 13312,
+    "total": 36453,
+    "native_successes_within_horizon": 49,
+    "qualified_within_horizon": 49,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 13824,
+    "total": 36453,
+    "native_successes_within_horizon": 49,
+    "qualified_within_horizon": 49,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 14336,
+    "total": 36453,
+    "native_successes_within_horizon": 49,
+    "qualified_within_horizon": 49,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 14848,
+    "total": 36453,
+    "native_successes_within_horizon": 49,
+    "qualified_within_horizon": 49,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 15360,
+    "total": 36453,
+    "native_successes_within_horizon": 49,
+    "qualified_within_horizon": 49,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 15872,
+    "total": 36453,
+    "native_successes_within_horizon": 49,
+    "qualified_within_horizon": 49,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 16384,
+    "total": 36453,
+    "native_successes_within_horizon": 49,
+    "qualified_within_horizon": 49,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 16896,
+    "total": 36453,
+    "native_successes_within_horizon": 50,
+    "qualified_within_horizon": 50,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 17408,
+    "total": 36453,
+    "native_successes_within_horizon": 51,
+    "qualified_within_horizon": 51,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 17920,
+    "total": 36453,
+    "native_successes_within_horizon": 51,
+    "qualified_within_horizon": 51,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 18432,
+    "total": 36453,
+    "native_successes_within_horizon": 52,
+    "qualified_within_horizon": 52,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 18944,
+    "total": 36453,
+    "native_successes_within_horizon": 52,
+    "qualified_within_horizon": 52,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 19456,
+    "total": 36453,
+    "native_successes_within_horizon": 55,
+    "qualified_within_horizon": 55,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 19968,
+    "total": 36453,
+    "native_successes_within_horizon": 55,
+    "qualified_within_horizon": 55,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 20480,
+    "total": 36453,
+    "native_successes_within_horizon": 55,
+    "qualified_within_horizon": 55,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 20992,
+    "total": 36453,
+    "native_successes_within_horizon": 55,
+    "qualified_within_horizon": 55,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 21504,
+    "total": 36453,
+    "native_successes_within_horizon": 55,
+    "qualified_within_horizon": 55,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 22016,
+    "total": 36453,
+    "native_successes_within_horizon": 59,
+    "qualified_within_horizon": 59,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 22528,
+    "total": 36453,
+    "native_successes_within_horizon": 59,
+    "qualified_within_horizon": 59,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 23040,
+    "total": 36453,
+    "native_successes_within_horizon": 59,
+    "qualified_within_horizon": 59,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 23552,
+    "total": 36453,
+    "native_successes_within_horizon": 59,
+    "qualified_within_horizon": 59,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 24064,
+    "total": 36453,
+    "native_successes_within_horizon": 59,
+    "qualified_within_horizon": 59,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 24576,
+    "total": 36453,
+    "native_successes_within_horizon": 59,
+    "qualified_within_horizon": 59,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 25088,
+    "total": 36453,
+    "native_successes_within_horizon": 59,
+    "qualified_within_horizon": 59,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 25600,
+    "total": 36453,
+    "native_successes_within_horizon": 60,
+    "qualified_within_horizon": 60,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 26112,
+    "total": 36453,
+    "native_successes_within_horizon": 60,
+    "qualified_within_horizon": 60,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 26624,
+    "total": 36453,
+    "native_successes_within_horizon": 60,
+    "qualified_within_horizon": 60,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 27136,
+    "total": 36453,
+    "native_successes_within_horizon": 60,
+    "qualified_within_horizon": 60,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 27648,
+    "total": 36453,
+    "native_successes_within_horizon": 60,
+    "qualified_within_horizon": 60,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 28160,
+    "total": 36453,
+    "native_successes_within_horizon": 60,
+    "qualified_within_horizon": 60,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 28672,
+    "total": 36453,
+    "native_successes_within_horizon": 60,
+    "qualified_within_horizon": 60,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 29184,
+    "total": 36453,
+    "native_successes_within_horizon": 60,
+    "qualified_within_horizon": 60,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 29696,
+    "total": 36453,
+    "native_successes_within_horizon": 61,
+    "qualified_within_horizon": 61,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 30208,
+    "total": 36453,
+    "native_successes_within_horizon": 61,
+    "qualified_within_horizon": 61,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 30720,
+    "total": 36453,
+    "native_successes_within_horizon": 61,
+    "qualified_within_horizon": 61,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 31232,
+    "total": 36453,
+    "native_successes_within_horizon": 61,
+    "qualified_within_horizon": 61,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 31744,
+    "total": 36453,
+    "native_successes_within_horizon": 61,
+    "qualified_within_horizon": 61,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 32256,
+    "total": 36453,
+    "native_successes_within_horizon": 61,
+    "qualified_within_horizon": 61,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 32768,
+    "total": 36453,
+    "native_successes_within_horizon": 61,
+    "qualified_within_horizon": 61,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 33280,
+    "total": 36453,
+    "native_successes_within_horizon": 62,
+    "qualified_within_horizon": 62,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 33792,
+    "total": 36453,
+    "native_successes_within_horizon": 62,
+    "qualified_within_horizon": 62,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 34304,
+    "total": 36453,
+    "native_successes_within_horizon": 62,
+    "qualified_within_horizon": 62,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 34816,
+    "total": 36453,
+    "native_successes_within_horizon": 64,
+    "qualified_within_horizon": 64,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 35328,
+    "total": 36453,
+    "native_successes_within_horizon": 75,
+    "qualified_within_horizon": 75,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 35840,
+    "total": 36453,
+    "native_successes_within_horizon": 76,
+    "qualified_within_horizon": 76,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 36352,
+    "total": 36453,
+    "native_successes_within_horizon": 117,
+    "qualified_within_horizon": 117,
+    "improved_qualified": 0,
+    "best_frames": 991
+  },
+  {
+    "attempts": 36453,
+    "total": 36453,
+    "native_successes_within_horizon": 172,
+    "qualified_within_horizon": 172,
+    "improved_qualified": 0,
+    "best_frames": 991
+  }
+]

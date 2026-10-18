@@ -1,0 +1,37 @@
++ "E:\Program Files\CMake\bin\cmake.EXE" -S E:\Work\强化学习小项目\QWOP_rl_training_public -B E:\Work\强化学习小项目\QWOP_rl_training_public\build -DPython3_EXECUTABLE=E:\Work\强化学习小项目\QWOP_rl_training_public\.venv\Scripts\python.exe
+-- Building for: Visual Studio 17 2022
+-- The CXX compiler identification is MSVC 19.44.35229.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: E:/Program Files/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Python3: E:\Work\强化学习小项目\QWOP_rl_training_public\.venv\Scripts\python.exe (found version "3.10.11") found components: Interpreter Development.Module
+-- pybind11 v3.0.4 
+-- Performing Test HAS_MSVC_GL_LTCG
+-- Performing Test HAS_MSVC_GL_LTCG - Success
+-- Configuring done (9.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: E:/Work/强化学习小项目/QWOP_rl_training_public/build
++ "E:\Program Files\CMake\bin\cmake.EXE" --build E:\Work\强化学习小项目\QWOP_rl_training_public\build --config Release
+适用于 .NET Framework MSBuild 版本 17.14.60+43b635718
+
+  1>Checking Build System
+  Building Custom Rule E:/Work/强化学习小项目/QWOP_rl_training_public/CMakeLists.txt
+  course_rules.cpp
+  physics_backend_loader.cpp
+  reward_profiles.cpp
+  training_env.cpp
+  正在生成代码...
+  running_training_core.vcxproj -> E:\Work\强化学习小项目\QWOP_rl_training_public\build\Release\running_training_core.lib
+  Building Custom Rule E:/Work/强化学习小项目/QWOP_rl_training_public/CMakeLists.txt
+  python_module.cpp
+    正在创建库 E:/Work/强化学习小项目/QWOP_rl_training_public/build/Release/_running_env.lib 和对象 E:/Work/强化学习小项目/QWOP_rl_training_public/build/Release/_running_env.exp
+  正在生成代码
+  已完成代码的生成
+  _running_env.vcxproj -> E:\Work\强化学习小项目\QWOP_rl_training_public\build\Release\_running_env.cp310-win_amd64.pyd
+  Building Custom Rule E:/Work/强化学习小项目/QWOP_rl_training_public/CMakeLists.txt
++ "E:\Program Files\CMake\bin\cmake.EXE" --install E:\Work\强化学习小项目\QWOP_rl_training_public\build --config Release --prefix E:\Work\强化学习小项目\QWOP_rl_training_public
+-- Installing: E:\Work\强化学习小项目\QWOP_rl_training_public/bin/_running_env.cp310-win_amd64.pyd
+
+Built bin\_running_env.cp310-win_amd64.pyd

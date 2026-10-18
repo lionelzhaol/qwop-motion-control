@@ -1,0 +1,72 @@
+--- before/scripts/train_ppo.py
++++ after/scripts/train_ppo.py
+@@ -57,6 +57,7 @@
+     jump_residual_hidden_size: int = 0
+     effective_action_entropy: bool = False
+     freeze_backbone: bool = False
++    actor_unfreeze: str = "none"
+     enable_flat_actor_bias: bool = False
+     enable_flat_actor_residual: bool = False
+     detach_critic_features: bool = False
+@@ -738,7 +739,30 @@
+         self.writer.close()
+ 
+ 
++def configure_actor_unfreeze(model: ActorCritic, scope: str) -> None:
++    """Explicit staged overrides; legacy freeze behavior remains the default."""
++    if scope not in ("none", "head", "last_hidden", "full"):
++        raise ValueError("actor_unfreeze must be none, head, last_hidden, or full")
++    if scope == "none":
++        return
++    if model.critic_net is None:
++        raise ValueError("Actor unfreezing requires separate Critic features")
++    if model.jump_sampling is not None:
++        raise ValueError("Actor unfreezing currently supports classic_100m only")
++    model.net.requires_grad_(scope == "full")
++    if model.angular_velocity is not None:
++        model.angular_velocity.requires_grad_(scope == "full")
++    if scope == "last_hidden":
++        linear_layers = [layer for layer in model.net if isinstance(layer, nn.Linear)]
++        if len(linear_layers) < 2:
++            raise ValueError("last_hidden requires at least two feature layers")
++        linear_layers[-1].requires_grad_(True)
++    model.actor.requires_grad_(True)
++
++
+ def train(cfg: PPOConfig) -> None:
++    if cfg.actor_unfreeze not in ("none", "head", "last_hidden", "full"):
++        raise ValueError("Invalid actor_unfreeze scope")
+     if not np.isfinite(cfg.reward_scale) or cfg.reward_scale <= 0:
+         raise ValueError("reward_scale must be finite and positive")
+     imitation_final = cfg.imitation_coef if cfg.imitation_coef_final is None else cfg.imitation_coef_final
+@@ -788,6 +812,8 @@
+         game_mode=cfg.game_mode,
+     )
+     cfg.game_mode = env.game_mode
++    if cfg.actor_unfreeze != "none" and cfg.game_mode != "classic_100m":
++        raise ValueError("Actor unfreezing currently supports classic_100m only")
+     if cfg.rnd_beta > 0 and cfg.game_mode != "classic_100m":
+         raise ValueError("RND physical features currently support classic_100m only")
+     if cfg.start_logit_scale != 1.0 and cfg.game_mode != "classic_100m":
+@@ -876,9 +902,13 @@
+             model.angular_velocity.requires_grad_(False)
+     if cfg.enable_flat_actor_bias:
+         model.actor.requires_grad_(False)
++    configure_actor_unfreeze(model, cfg.actor_unfreeze)
+     actor_params, critic_params = [], []
+     for name, parameter in model.named_parameters():
+         (critic_params if name.startswith(("critic.", "critic_net.", "critic_motion.")) else actor_params).append(parameter)
++    if cfg.actor_unfreeze != "none":
++        print(f"actor_unfreeze={cfg.actor_unfreeze} trainable_actor_parameters="
++              f"{sum(p.numel() for p in actor_params if p.requires_grad)}")
+     if cfg.critic_learning_rate is None:
+         optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate, eps=1e-5)
+     else:
+@@ -1231,6 +1261,7 @@
+     parser.add_argument("--jump-residual-hidden-size", type=int, default=None)
+     parser.add_argument("--effective-action-entropy", action="store_true", default=None)
+     parser.add_argument("--freeze-backbone", action="store_true", default=None)
++    parser.add_argument("--actor-unfreeze", choices=["none", "head", "last_hidden", "full"], default=None)
+     parser.add_argument("--enable-flat-actor-bias", action="store_true", default=None)
+     parser.add_argument("--enable-flat-actor-residual", action="store_true", default=None)
+     parser.add_argument("--detach-critic-features", action="store_true", default=None)

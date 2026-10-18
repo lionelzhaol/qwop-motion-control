@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v34_credit_calibrated.pt",
+  "output": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_target43_v38_soft_actor_initial.pt",
+  "actor_scale": 0.25,
+  "changed_parameters": [
+    "actor.weight",
+    "actor.bias"
+  ],
+  "all_other_tensors_bitwise_unchanged": true,
+  "actor_logits_exactly_quarter": true,
+  "critic_values_bitwise_unchanged": true,
+  "strict_reload_success": true,
+  "empty_adam_parameters": 9,
+  "all_greedy_actions_unchanged": true,
+  "deterministic_terminal": {
+    "time_s": 44.93333435058594,
+    "distance_m": 100.0999984741211,
+    "steps": 1348,
+    "success": true,
+    "truncated": false
+  },
+  "early_3s_state_count": 90,
+  "early_3s_entropy_probability_means": {
+    "old_mask_entropy": 0.351106798632854,
+    "new_mask_entropy": 0.8959442327109476,
+    "old_physical_entropy": 0.02692452999822078,
+    "new_physical_entropy": 0.40068818156271135,
+    "old_max_mask_probability": 0.8485249270995457,
+    "new_max_mask_probability": 0.6394367749492328,
+    "old_max_physical_probability": 0.9938496622774337,
+    "new_max_physical_probability": 0.8647693746619755,
+    "old_physical_9_probabilities_mean": [
+      0.08896150154918113,
+      0.0011642594959292698,
+      0.022199057752376673,
+      0.06727046743287834,
+      0.17656239516498332,
+      0.1445577530821945,
+      0.11114466771210112,
+      0.22160863323658717,
+      0.16653126412714245
+    ],
+    "new_physical_9_probabilities_mean": [
+      0.09456808419946065,
+      0.026411450562350162,
+      0.030954080498554366,
+      0.055100912315976185,
+      0.1793297243060932,
+      0.15234556708860825,
+      0.1063787851473136,
+      0.2045933258703676,
+      0.15031807064850328
+    ]
+  },
+  "source_sha256_unchanged": "01c5fedfb7e5b9b23fe8c49bc1c7e1cbd3243dd3e761b3e5a8ff43d5bc50312b",
+  "output_sha256": "f6559d3576cc473df9e32c87421904552c6c4fb0e02e5d7bbedb5e036898ba5d",
+  "elapsed_seconds": 1.5739773999957833,
+  "new_training_performed": false
+}

@@ -1,0 +1,20 @@
+{
+  "frame_size": 284,
+  "distance": 100.19999694824219,
+  "time": 65.63333129882812,
+  "score_based_speed_10_50_90": [
+    1.4999713898796467,
+    1.500004768398867,
+    2.0
+  ],
+  "world_torso_speed_10_50_90": [
+    1.3477170268362928,
+    1.601911927925584,
+    1.7754817446945383
+  ],
+  "score_minus_torso_speed_rmse": 0.21897272488612968,
+  "raw_velocity_times_012_mean": 1.5914371504312033,
+  "torso_speed_mean": 1.5812530121679904,
+  "torso_velocity_conversion_correlation": 0.9377950917817771,
+  "measurement": "original DLL API replay, x/400 meters per game second"
+}

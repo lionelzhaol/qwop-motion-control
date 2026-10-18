@@ -1,0 +1,51 @@
+{
+  "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_finetuned_best_20261015.pt",
+  "model_sha256": "9b5ceff459013fa9e08ff64323c3a83ec5a7543bd234e6ea6c34dcdf00884bcc",
+  "source": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_local_v1_20261015.pt",
+  "selection": {
+    "version": 1,
+    "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_local_v1_20261015.pt",
+    "successes": 115,
+    "episodes": 128,
+    "mean_success_time_s": 33.03333282470703,
+    "greedy_frames": 991,
+    "greedy_success": true
+  },
+  "all_selection": [
+    {
+      "version": 1,
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_local_v1_20261015.pt",
+      "successes": 115,
+      "episodes": 128,
+      "mean_success_time_s": 33.03333282470703,
+      "greedy_frames": 991,
+      "greedy_success": true
+    },
+    {
+      "version": 2,
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_explore_v2_20261015.pt",
+      "successes": 71,
+      "episodes": 128,
+      "mean_success_time_s": 33.09436577810368,
+      "greedy_frames": 991,
+      "greedy_success": true
+    },
+    {
+      "version": 3,
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_shadow_calibrated_v3_20261015.pt",
+      "successes": 73,
+      "episodes": 128,
+      "mean_success_time_s": 33.08036485436845,
+      "greedy_frames": 991,
+      "greedy_success": true
+    }
+  ],
+  "deterministic_frames": 991,
+  "deterministic_time_s": 33.03333282470703,
+  "replay": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\classic_shadow_finetuned_33p03s_20261015.bin",
+  "replay_sha256": "2541a82549fda334bbb58b4f7d5f40041e82b4bb8767ed7834f81df38f153bcb",
+  "strict_reload_identical_actions": true,
+  "complete_native_reexecution": true,
+  "old_model_and_physics_unchanged": true,
+  "frozen_features_and_sharpened_actor_preserved": true
+}

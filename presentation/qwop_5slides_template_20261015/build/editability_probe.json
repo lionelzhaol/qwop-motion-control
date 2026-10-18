@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "method": "copy PPTX -> mutate one native a:t text object -> reopen ZIP/XML -> verify replacement",
+  "search": "专家模仿的实现与结果",
+  "replacement": "专家模仿的实现与结果（测试副本）",
+  "changed_slide_part": "ppt/slides/slide5.xml",
+  "replacement_count": 1,
+  "probe_package_valid": true,
+  "probe_file_retained": false,
+  "original_unchanged": true,
+  "original_sha256": "64d2f3dd2f323e3c347c412b9136d4ec16c7fb73235ce8624ee1dea51f832372",
+  "probe_sha256": "92d0bbe07082749f27e7f3bd41fec3bb363db037fd5abbb3f24da3b70f3bc16f"
+}

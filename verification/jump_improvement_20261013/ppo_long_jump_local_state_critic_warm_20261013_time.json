@@ -1,0 +1,11 @@
+{
+  "config": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\configs\\ppo_long_jump_local_state_critic_warm_20261013.json",
+  "returncode": 0,
+  "started_utc": "2026-10-13T07:06:04.094508+00:00",
+  "ended_utc": "2026-10-13T07:06:28.775697+00:00",
+  "elapsed_seconds": 24.680983899999774,
+  "updates_logged": 16,
+  "transitions": 524288,
+  "all_logged_losses_finite": true,
+  "log": "E:\\Work\\强化学习小项目\\verification\\jump_improvement_20261013\\ppo_long_jump_local_state_critic_warm_20261013.log"
+}

@@ -1,0 +1,80 @@
+{
+  "criterion": "success-weighted mean on selection seed11; native greedy>=4m",
+  "evaluations": [
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000096.pt",
+      "greedy_m": 4.099179744720459,
+      "successes": 56,
+      "successful_mean_m": 3.2427101840398143,
+      "success_weighted_mean_m": 2.8373714110348374
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013.pt",
+      "greedy_m": 4.099179744720459,
+      "successes": 56,
+      "successful_mean_m": 3.2138936852903237,
+      "success_weighted_mean_m": 2.8121569746290334
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000144.pt",
+      "greedy_m": 4.099179744720459,
+      "successes": 56,
+      "successful_mean_m": 3.2138936852903237,
+      "success_weighted_mean_m": 2.8121569746290334
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000112.pt",
+      "greedy_m": 4.099179744720459,
+      "successes": 57,
+      "successful_mean_m": 3.093119644543581,
+      "success_weighted_mean_m": 2.7548096834216267
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000064.pt",
+      "greedy_m": 4.099179744720459,
+      "successes": 55,
+      "successful_mean_m": 3.15080068863251,
+      "success_weighted_mean_m": 2.707719341793563
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000048.pt",
+      "greedy_m": 4.101657867431641,
+      "successes": 54,
+      "successful_mean_m": 3.102153340699496,
+      "success_weighted_mean_m": 2.6174418812152
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000080.pt",
+      "greedy_m": 4.081125259399414,
+      "successes": 52,
+      "successful_mean_m": 3.0604682728075066,
+      "success_weighted_mean_m": 2.486630471656099
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000032.pt",
+      "greedy_m": 4.101657867431641,
+      "successes": 53,
+      "successful_mean_m": 2.9317868210656464,
+      "success_weighted_mean_m": 2.4278859611949883
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_self_imitation_v3_20261013.pt",
+      "greedy_m": 4.101657867431641,
+      "successes": 51,
+      "successful_mean_m": 3.006517989670529,
+      "success_weighted_mean_m": 2.395819023018703
+    }
+  ],
+  "best": {
+    "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_elite_v7_20261013_update_000096.pt",
+    "greedy_m": 4.099179744720459,
+    "successes": 56,
+    "successful_mean_m": 3.2427101840398143,
+    "success_weighted_mean_m": 2.8373714110348374
+  },
+  "heldout_seeds_reserved": [
+    2026101321,
+    2026101322,
+    2026101323
+  ]
+}

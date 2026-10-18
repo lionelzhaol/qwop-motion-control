@@ -1,0 +1,12 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/5mkj1u","index":5,"layout":{"id":"ly/at83qp8z","name":"Blank"},"backgroundColor":"rgba(250,251,252,1)","position":{"left":0,"top":0,"width":1280,"height":720}},
+"elements":[
+{"id":"sh/h4rm547q","kind":"textbox","name":"slide-title","position":{"left":72,"top":54,"width":1136,"height":88},"text":"奖励与时序迭代推动百米提速","style":{"fontSize":42,"typeface":"Microsoft YaHei","color":"#16243A","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/u10nup8z","kind":"textbox","name":"page-number","position":{"left":1185,"top":671,"width":45,"height":26},"text":"06","style":{"fontSize":18,"typeface":"Microsoft YaHei","color":"#556578","alignment":"right"},"geometry":"rect","lineWidth":0},
+{"id":"sh/v2943upk","kind":"textbox","name":"text-3","position":{"left":72,"top":169,"width":890,"height":45},"text":"纯 PPO 成功候选用时（秒，越低越好）","style":{"fontSize":27,"typeface":"Microsoft YaHei","color":"#16243A","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"ch/83uh8vm9","kind":"chart","position":{"left":60,"top":246,"width":823,"height":350},"chartType":"bar"},
+{"id":"sh/58bm947m","kind":"textbox","name":"text-4","position":{"left":929,"top":248,"width":282,"height":79},"text":"45.40 秒","style":{"fontSize":48,"typeface":"Microsoft YaHei","color":"#078578","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/i50ny98b","kind":"textbox","name":"text-5","position":{"left":931,"top":337,"width":280,"height":70},"text":"纯PPO最好已验证候选","style":{"fontSize":24,"typeface":"Microsoft YaHei","color":"#556578","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/36947epw","kind":"textbox","name":"text-6","position":{"left":929,"top":450,"width":280,"height":79},"text":"44.93 秒","style":{"fontSize":48,"typeface":"Microsoft YaHei","color":"#225B85","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/kby5ofqx","kind":"textbox","name":"text-7","position":{"left":931,"top":539,"width":275,"height":70},"text":"Actor偏置局部搜索后","style":{"fontSize":24,"typeface":"Microsoft YaHei","color":"#556578","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/lc7mxkri","kind":"textbox","name":"text-8","position":{"left":72,"top":632,"width":1136,"height":29},"text":"阶段改进：姿态与速度反馈、32帧历史、起步及越栏反馈；43秒目标未达成","style":{"fontSize":18,"typeface":"Microsoft YaHei","color":"#556578","alignment":"left"},"geometry":"rect","lineWidth":0}
+]}

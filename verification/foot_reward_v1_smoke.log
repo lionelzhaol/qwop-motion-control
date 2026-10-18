@@ -1,0 +1,10 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_classic_continue_20261008.pt checkpoint_update=323 global_step=10487296 reset_optimizer=1
+update=1/4 absolute_update=324 steps=10487808 episodes=0 policy_loss=0.0392 value_loss=0.0175 entropy=1.9189 kl=0.00127 clipfrac=0.000
+update=2/4 absolute_update=325 steps=10488320 episodes=0 policy_loss=-0.0193 value_loss=0.0047 entropy=1.9573 kl=0.00072 clipfrac=0.000
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_reward_v1_smoke_update_000325.pt
+update=3/4 absolute_update=326 steps=10488832 episodes=0 policy_loss=-0.0178 value_loss=0.0063 entropy=1.9905 kl=0.00064 clipfrac=0.000
+update=4/4 absolute_update=327 steps=10489344 episodes=0 policy_loss=-0.0053 value_loss=0.0019 entropy=2.0707 kl=0.00362 clipfrac=0.000
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_reward_v1_smoke_update_000327.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_reward_v1_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\foot_reward_v1_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\foot_reward_v1_smoke

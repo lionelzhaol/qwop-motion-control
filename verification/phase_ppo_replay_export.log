@@ -1,0 +1,2 @@
+episode=1 steps=1362 score=100.300 distance=100.300 time=45.400 success=1
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\classic_100m_phase_ppo_45p40.bin steps=1362 score=100.300 distance=100.300 time=45.400 success=1 device=cpu

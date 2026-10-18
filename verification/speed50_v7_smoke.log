@@ -1,0 +1,10 @@
+resumed_from=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\ppo_speed50_v6_update_002328.pt checkpoint_update=2328 global_step=75509760 reset_optimizer=1
+update=1/4 absolute_update=2329 steps=75510272 episodes=0 policy_loss=-0.0008 value_loss=0.2613 entropy=1.2708 kl=0.01181 clipfrac=0.117
+update=2/4 absolute_update=2330 steps=75510784 episodes=0 policy_loss=-0.0541 value_loss=0.4865 entropy=1.3006 kl=0.01125 clipfrac=0.172
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\speed50_v7_smoke_update_002330.pt
+update=3/4 absolute_update=2331 steps=75511296 episodes=1 policy_loss=-0.1013 value_loss=1.2790 entropy=1.2491 kl=0.01697 clipfrac=0.180 final_distance_mean=13.400 episode_return_mean=11.522
+update=4/4 absolute_update=2332 steps=75511808 episodes=0 policy_loss=0.0678 value_loss=0.3432 entropy=1.3797 kl=0.00498 clipfrac=0.070
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\speed50_v7_smoke_update_002332.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\speed50_v7_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\speed50_v7_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\speed50_v7_smoke

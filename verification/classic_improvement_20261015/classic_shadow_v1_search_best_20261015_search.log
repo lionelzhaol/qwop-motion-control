@@ -1,0 +1,22 @@
+episode=1 new_best steps=533 score=45.300 distance=45.300 time=17.767 success=0
+episode=2 new_best steps=539 score=45.800 distance=45.800 time=17.967 success=0
+episode=3 new_best steps=577 score=48.700 distance=48.700 time=19.233 success=0
+episode=4 new_best steps=613 score=55.300 distance=55.300 time=20.433 success=0
+episode=6 new_best steps=636 score=56.400 distance=56.400 time=21.200 success=0
+episode=9 new_best steps=649 score=57.600 distance=57.600 time=21.633 success=0
+episode=10 new_best steps=649 score=59.000 distance=59.000 time=21.633 success=0
+episode=18 new_best steps=659 score=59.300 distance=59.300 time=21.967 success=0
+episode=20 new_best steps=670 score=60.100 distance=60.100 time=22.333 success=0
+episode=22 new_best steps=688 score=61.500 distance=61.500 time=22.933 success=0
+episode=24 new_best steps=780 score=72.800 distance=72.800 time=26.000 success=0
+episode=25 new_best steps=823 score=77.700 distance=77.700 time=27.433 success=0
+episode=26 new_best steps=824 score=77.800 distance=77.800 time=27.467 success=0
+episode=29 new_best steps=991 score=100.000 distance=100.000 time=33.033 success=1
+progress=512/4096 successes=459
+progress=1024/4096 successes=912
+progress=1536/4096 successes=1362
+progress=2052/4096 successes=1814
+progress=2577/4096 successes=2269
+progress=3099/4096 successes=2735
+progress=3628/4096 successes=3213
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\classic_shadow_v1_search_best_20261015.bin episodes=4096 successes=3624 steps=991 score=100.000 distance=100.000 time=33.033 success=1 device=cuda

@@ -1,0 +1,84 @@
+{
+  "arm": "speed1200",
+  "chosen": {
+    "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed1200_train_20261015_update_000352.pt",
+    "native_success": true,
+    "frames": 991,
+    "time_s": 33.03333282470703,
+    "distance_m": 100.0,
+    "qualified_finishes": 58,
+    "unique_qualified_action_sequences": 1,
+    "qualified_under_991": 0,
+    "qualified_mean_time_s": 33.03333282470703
+  },
+  "candidates": [
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_actor_unfreeze_best_20261015.pt",
+      "native_success": true,
+      "frames": 991,
+      "time_s": 33.03333282470703,
+      "distance_m": 100.0,
+      "qualified_finishes": 56,
+      "unique_qualified_action_sequences": 1,
+      "qualified_under_991": 0,
+      "qualified_mean_time_s": 33.03333282470703
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed1200_train_20261015_update_000320.pt",
+      "native_success": true,
+      "frames": 991,
+      "time_s": 33.03333282470703,
+      "distance_m": 100.0,
+      "qualified_finishes": 57,
+      "unique_qualified_action_sequences": 1,
+      "qualified_under_991": 0,
+      "qualified_mean_time_s": 33.03333282470703
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed1200_train_20261015_update_000336.pt",
+      "native_success": true,
+      "frames": 991,
+      "time_s": 33.03333282470703,
+      "distance_m": 100.0,
+      "qualified_finishes": 56,
+      "unique_qualified_action_sequences": 1,
+      "qualified_under_991": 0,
+      "qualified_mean_time_s": 33.03333282470703
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed1200_train_20261015_update_000352.pt",
+      "native_success": true,
+      "frames": 991,
+      "time_s": 33.03333282470703,
+      "distance_m": 100.0,
+      "qualified_finishes": 58,
+      "unique_qualified_action_sequences": 1,
+      "qualified_under_991": 0,
+      "qualified_mean_time_s": 33.03333282470703
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed1200_train_20261015_update_000368.pt",
+      "native_success": true,
+      "frames": 991,
+      "time_s": 33.03333282470703,
+      "distance_m": 100.0,
+      "qualified_finishes": 58,
+      "unique_qualified_action_sequences": 1,
+      "qualified_under_991": 0,
+      "qualified_mean_time_s": 33.03333282470703
+    },
+    {
+      "checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic_speed_speed1200_train_20261015.pt",
+      "native_success": true,
+      "frames": 991,
+      "time_s": 33.03333282470703,
+      "distance_m": 100.0,
+      "qualified_finishes": 58,
+      "unique_qualified_action_sequences": 1,
+      "qualified_under_991": 0,
+      "qualified_mean_time_s": 33.03333282470703
+    }
+  ],
+  "selection_seed": 2026101586,
+  "rule": "Native greedy success; >=48/64 qualified sampled finishes; shortest frames then qualified finish count then mean time"
+}

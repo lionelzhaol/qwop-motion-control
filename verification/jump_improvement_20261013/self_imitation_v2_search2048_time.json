@@ -1,0 +1,26 @@
+{
+  "started_utc": "2026-10-13T07:11:12.390919+00:00",
+  "ended_utc": "2026-10-13T07:11:57.632232+00:00",
+  "elapsed_seconds": 45.24125169999934,
+  "returncode": 0,
+  "args": [
+    "--checkpoint",
+    "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_long_jump_self_imitation_v2_20261013.pt",
+    "--output",
+    "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\replays\\long_jump_self_imitation_v2_search_20261013.bin",
+    "--episodes",
+    "2048",
+    "--num-envs",
+    "128",
+    "--num-threads",
+    "8",
+    "--device",
+    "cpu",
+    "--seed",
+    "2026101331",
+    "--progress-interval",
+    "256"
+  ],
+  "torch_threads": 1,
+  "device": "cpu"
+}

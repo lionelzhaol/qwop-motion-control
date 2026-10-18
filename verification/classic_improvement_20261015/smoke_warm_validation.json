@@ -1,0 +1,14 @@
+[
+  {
+    "phase": "smoke",
+    "frozen_running_weights_identical": true,
+    "all_state_finite": true,
+    "critic_updated": true
+  },
+  {
+    "phase": "critic_warm",
+    "frozen_running_weights_identical": true,
+    "all_state_finite": true,
+    "critic_updated": true
+  }
+]

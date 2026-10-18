@@ -1,0 +1,9 @@
+update=1/4 absolute_update=1 steps=512 episodes=2 policy_loss=0.0105 value_loss=1.4494 entropy=2.7682 kl=0.00052 clipfrac=0.000 final_distance_mean=1.200 episode_return_mean=-8.837
+update=2/4 absolute_update=2 steps=1024 episodes=3 policy_loss=0.1239 value_loss=2.0799 entropy=2.7668 kl=0.00056 clipfrac=0.000 final_distance_mean=1.200 episode_return_mean=-8.942
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_scaled_smoke_update_000002.pt
+update=3/4 absolute_update=3 steps=1536 episodes=3 policy_loss=-0.0054 value_loss=1.2947 entropy=2.7642 kl=0.00055 clipfrac=0.000 final_distance_mean=1.100 episode_return_mean=-9.107
+update=4/4 absolute_update=4 steps=2048 episodes=1 policy_loss=0.0110 value_loss=0.3303 entropy=2.7648 kl=0.00044 clipfrac=0.000 final_distance_mean=1.300 episode_return_mean=-8.973
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_scaled_smoke_update_000004.pt
+saved_checkpoint=E:\Work\强化学习小项目\QWOP_rl_training_public\checkpoints\foot_scaled_smoke.pt
+logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\foot_scaled_smoke
+tensorboard_logdir=E:\Work\强化学习小项目\QWOP_rl_training_public\runs\foot_scaled_smoke

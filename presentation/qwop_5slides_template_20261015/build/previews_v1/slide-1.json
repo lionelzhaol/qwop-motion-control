@@ -1,0 +1,14 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/y90nupkv","index":0,"layout":{"id":"ly/4v2ps7ql","name":"2_标题和内容"},"backgroundColor":"rgba(255,255,255,1)","position":{"left":0,"top":0,"width":1280,"height":720}},
+"elements":[
+{"id":"sh/547294r6","kind":"textbox","name":"标题 1","position":{"left":40,"top":16,"width":1085,"height":57},"text":"QWOP 游戏简介与研究任务","style":{"fontSize":37.33,"typeface":"微软雅黑","color":"#FFFFFF","bold":true,"alignment":"left"}},
+{"id":"sh/k3yl0zql","kind":"textbox","name":"content-1","position":{"left":50,"top":115,"width":1165,"height":51},"text":"基于深度强化学习的运动控制与策略优化","style":{"fontSize":32,"typeface":"微软雅黑","color":"#064A8D","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"im/qh0jmhw7","kind":"image","position":{"left":50.4,"top":199,"width":654.2,"height":409}},
+{"id":"sh/65g3298r","kind":"textbox","name":"content-2","position":{"left":755,"top":214,"width":455,"height":47},"text":"四键控制双腿","style":{"fontSize":30,"typeface":"微软雅黑","color":"#064A8D","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/ts7md4r2","kind":"textbox","name":"content-3","position":{"left":755,"top":271,"width":455,"height":67},"text":"Q / W / O / P 组成 16 类动作","style":{"fontSize":25,"typeface":"微软雅黑","color":"#1D2A38","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/sryl4zqx","kind":"textbox","name":"content-4","position":{"left":755,"top":353,"width":455,"height":47},"text":"目标：稳定完成百米","style":{"fontSize":30,"typeface":"微软雅黑","color":"#064A8D","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/fu94fe98","kind":"textbox","name":"content-5","position":{"left":755,"top":410,"width":455,"height":67},"text":"在原生计分规则下缩短完赛用时","style":{"fontSize":25,"typeface":"微软雅黑","color":"#1D2A38","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/utg3698n","kind":"textbox","name":"content-6","position":{"left":755,"top":492,"width":455,"height":47},"text":"难点：全身连续协调","style":{"fontSize":30,"typeface":"微软雅黑","color":"#064A8D","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/wn6dc7eh","kind":"textbox","name":"content-7","position":{"left":755,"top":549,"width":455,"height":67},"text":"平衡、推进与越栏需要连续配合","style":{"fontSize":25,"typeface":"微软雅黑","color":"#1D2A38","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/hofulsf2","kind":"textbox","name":"content-8","position":{"left":50,"top":619,"width":690,"height":30},"text":"原版 QWOP 游戏示意，图中数值不代表本项目成绩","style":{"fontSize":19,"typeface":"微软雅黑","color":"#586778","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/ul4vaxgb","kind":"textbox","name":"content-9","position":{"left":50,"top":669,"width":900,"height":30},"text":"Lionel_Zhao    课堂项目汇报","style":{"fontSize":21,"typeface":"微软雅黑","color":"#586778","alignment":"left"},"geometry":"rect","lineWidth":0}
+]}

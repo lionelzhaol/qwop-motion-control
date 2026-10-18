@@ -1,0 +1,9 @@
+episode=1 new_best steps=3600 score=37.000 distance=37.000 time=120.000 success=0
+episode=3 new_best steps=3600 score=37.300 distance=37.300 time=120.000 success=0
+episode=4 new_best steps=3600 score=37.700 distance=37.700 time=120.000 success=0
+episode=25 new_best steps=3600 score=37.800 distance=37.800 time=120.000 success=0
+episode=32 new_best steps=3600 score=38.600 distance=38.600 time=120.000 success=0
+episode=52 new_best steps=3600 score=38.900 distance=38.900 time=120.000 success=0
+episode=57 new_best steps=3600 score=39.200 distance=39.200 time=120.000 success=0
+progress=64/64 successes=0
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\classic_continue_stochastic_best64_20261008.bin episodes=64 successes=0 steps=3600 score=39.200 distance=39.200 time=120.000 success=0 device=cuda

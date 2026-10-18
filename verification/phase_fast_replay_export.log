@@ -1,0 +1,2 @@
+episode=1 steps=1348 score=100.100 distance=100.100 time=44.933 success=1
+saved_replay=E:\Work\强化学习小项目\QWOP_rl_training_public\replays\classic_100m_phase_fast_44p93.bin steps=1348 score=100.100 distance=100.100 time=44.933 success=1 device=cpu

@@ -1,0 +1,26 @@
+[
+  {
+    "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_phase_fast.pt",
+    "source_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v32_hidden2_baseline.pt",
+    "source_sha256": "7c47e59b88741ccd2e495a2367f91dc3782c19213d43c0c4f45a9e1ba0344df9",
+    "method": "PPO ancestor plus hidden-layer parameter search",
+    "verified_game_time_s": 44.93333435058594,
+    "verified_frames": 1348,
+    "reward_version": "v31",
+    "native_terminal_required": true,
+    "optimizer_reset": true,
+    "created_utc": "2026-10-09T11:04:44.286098+00:00"
+  },
+  {
+    "model": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_classic100m_phase_ppo.pt",
+    "source_checkpoint": "E:\\Work\\强化学习小项目\\QWOP_rl_training_public\\checkpoints\\ppo_phase_v33_effective_explore_update_011472.pt",
+    "source_sha256": "4de964a6fe5635aad7d3aaf24fe6cb1fb59193a3edee72d04e4ab742b411db81",
+    "method": "PPO with bounded phase reward, start exploration and effective action entropy",
+    "verified_game_time_s": 45.400001525878906,
+    "verified_frames": 1362,
+    "reward_version": "v31",
+    "native_terminal_required": true,
+    "optimizer_reset": true,
+    "created_utc": "2026-10-09T11:04:44.310105+00:00"
+  }
+]
