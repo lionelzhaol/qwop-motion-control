@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "files_verified": 32603,
+  "logical_bytes_verified": 28346660378,
+  "method": "full tar entry and SHA256 verification, including deduplicated content links"
+}

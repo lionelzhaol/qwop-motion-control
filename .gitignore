@@ -17,6 +17,9 @@
 /handoff_20261018/pack_progress.json
 /handoff_20261018/upload_progress.json
 /handoff_20261018/remote_release.json
+/handoff_20261018/git_main_files.json
+/handoff_20261018/git_publish_report.json
+/handoff_20261018/upload_errors.json
 **/node_modules/
 **/__pycache__/
 *.pyc

@@ -2,8 +2,8 @@
   "snapshot_date": "2026-10-18",
   "workspace": "E:\\Work\\强化学习小项目",
   "archive_root": "qwop-workspace",
-  "file_count": 32602,
-  "total_bytes": 28346656682,
+  "file_count": 32603,
+  "total_bytes": 28346660378,
   "files": [
     {
       "path": ".cache/pip/http-v2/0/6/7/d/e/067de891d4624fc09de1c690b01d8bf477f69f0ce81f8101b21b3549",
@@ -174801,7 +174801,7 @@
       "path": "handoff_20261018/directory_links.json",
       "size": 747,
       "sha256": "dc01fc6f018a40de23804d41db49b497b130cc4bae3322c2d2acd5f2d4aef948",
-      "mtime_ns": 1792308973915011000
+      "mtime_ns": 1792309146268583300
     },
     {
       "path": "handoff_20261018/remote_repository.json",
@@ -174818,8 +174818,14 @@
     {
       "path": "handoff_20261018/tools/pack_snapshot.mjs",
       "size": 2607,
-      "sha256": "a6825d030b3cec456a4ca7f1783b3fa892244e9a94b776059808838f7545f3b4",
-      "mtime_ns": 1792308971245395500
+      "sha256": "33f3da21d191178592f7bb916132bd42aa688f45927ca995dcf73072dade6ec4",
+      "mtime_ns": 1792309126197787900
+    },
+    {
+      "path": "handoff_20261018/tools/prepare_git.py",
+      "size": 3696,
+      "sha256": "8fa1141e5a6833ac85dda845e915d3fc8ca752bdca60061da9b2841d27465c80",
+      "mtime_ns": 1792309126623006700
     },
     {
       "path": "handoff_20261018/tools/prepare_snapshot.py",
@@ -198865,5 +198871,5 @@
     "Git administrative .git paths (history preserved separately in bundle and branch)",
     "Generated snapshot archive parts and volatile transfer reports (not original project contents)"
   ],
-  "hash_elapsed_seconds": 51.84399999999732
+  "hash_elapsed_seconds": 35.84399999999732
 }
