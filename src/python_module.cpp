@@ -21,11 +21,17 @@ RewardProfile rewardProfileFromName(const std::string& name) {
     if (name == "classic_100m") {
         return RewardProfile::Classic100m;
     }
+    if (name == "classic_100m_task") {
+        return RewardProfile::Classic100mTask;
+    }
     if (name == "hurdle_110m") {
         return RewardProfile::Hurdle110m;
     }
     if (name == "long_jump_30m") {
         return RewardProfile::LongJump30m;
+    }
+    if (name == "long_jump_task") {
+        return RewardProfile::LongJumpTask;
     }
     throw std::invalid_argument("unknown reward profile: " + name);
 }

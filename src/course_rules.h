@@ -13,6 +13,8 @@ enum class RewardProfile {
     Classic100m,
     Hurdle110m,
     LongJump30m,
+    Classic100mTask,
+    LongJumpTask,
 };
 
 enum class FinishType {

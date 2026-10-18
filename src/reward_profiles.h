@@ -51,5 +51,6 @@ private:
     float classicHurdleGroundTime_ = 0.0f;
     bool longJumpLandingSeen_ = false;
     float longJumpPostLandingX_ = 0.0f;
+    float longJumpMeasuredDistance_ = 0.0f;
 };
 

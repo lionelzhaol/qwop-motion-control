@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
 from dataclasses import dataclass
 from dataclasses import fields
 from datetime import datetime
@@ -50,8 +51,25 @@ class PPOConfig:
     start_logit_scale: float = 1.0
     start_logit_scale_decay_updates: int = 0
     start_explore_meters: float = 3.0
+    jump_explore_logit_scale: float = 1.0
+    jump_explore_meters: float = 5.0
+    enable_jump_actor_residual: bool = False
+    jump_residual_hidden_size: int = 0
     effective_action_entropy: bool = False
     freeze_backbone: bool = False
+    actor_unfreeze: str = "none"
+    enable_flat_actor_bias: bool = False
+    enable_flat_actor_residual: bool = False
+    detach_critic_features: bool = False
+    separate_critic_features: bool = False
+    critic_learning_rate: float | None = None
+    imitation_dataset: Path | None = None
+    imitation_coef: float = 0.0
+    imitation_coef_final: float | None = None
+    reward_scale: float = 1.0
+    classic_finish_speed_bonus: float = 0.0
+    classic_finish_speed_reference: float = 991.0 / 30.0
+    classic_finish_speed_width: float = 0.25
     vf_coef: float = 0.5
     learning_rate: float = 3e-4
     seed: int = 1
@@ -108,7 +126,7 @@ def make_config(args: argparse.Namespace) -> PPOConfig:
             continue
         config_values[key] = value
 
-    for path_key in ("checkpoint", "resume_from", "run_dir"):
+    for path_key in ("checkpoint", "resume_from", "run_dir", "imitation_dataset"):
         if path_key in config_values:
             config_values[path_key] = None if config_values[path_key] is None else resolve_path(config_values[path_key])
 
@@ -174,20 +192,113 @@ class ActorCritic(nn.Module):
         self.net = nn.Sequential(*layers)
         self.actor = nn.Linear(in_dim, action_dim)
         self.critic = nn.Linear(in_dim, 1)
+        self.detach_critic_features = False
+        self.critic_net = None
+        self.critic_motion = None
         # Fixed preprocessing belongs to the checkpoint, so replay/export paths
         # use exactly the same scales without changing the raw environment API.
         self.register_buffer("observation_scale", None)
         if observation_scale is not None:
             self.set_observation_scale(observation_scale)
         self.angular_velocity = None
+        self.register_parameter("flat_actor_bias", None)
+        self.register_parameter("flat_actor_weight", None)
+        self.register_buffer("flat_actor_bounds", None)
+        self.register_buffer("jump_sampling", None)
+        self.register_parameter("jump_actor_weight", None)
+        self.register_parameter("jump_actor_bias", None)
+        self.jump_state_net = None
         if derive_angular_velocity:
             self.enable_angular_velocity()
+
+    def enable_flat_bias(self, bounds=None):
+        if self.net[0].in_features % 68 or self.actor.out_features != 16:
+            raise ValueError("Flat actor bias requires classic_100m observations and 16 actions")
+        if bounds is None and self.flat_actor_bias is not None:
+            return
+        bounds = (10.0, 45.0, 65.0, 100.0) if bounds is None else bounds
+        bounds = torch.as_tensor(bounds, device=self.actor.weight.device, dtype=self.actor.weight.dtype)
+        if bounds.shape != (4,) or not torch.isfinite(bounds).all() or not (bounds[1:] > bounds[:-1]).all():
+            raise ValueError("Flat actor bounds must contain four finite increasing distances")
+        if self.flat_actor_bias is None:
+            self.flat_actor_bias = nn.Parameter(torch.zeros_like(self.actor.bias))
+        self.flat_actor_bounds = bounds.detach().clone()
+
+    def enable_jump_sampling(self, settings):
+        settings = torch.as_tensor(settings, device=self.actor.weight.device, dtype=self.actor.weight.dtype)
+        if self.net[0].in_features % 68 or self.actor.out_features != 16:
+            raise ValueError("Jump sampling requires stacked 68-value observations and 16 actions")
+        if settings.shape != (2,) or not torch.isfinite(settings).all() or not (0 < settings[0] <= 1) or settings[1] <= 0:
+            raise ValueError("Jump sampling requires scale in (0,1] and a positive takeoff distance")
+        self.jump_sampling = settings.detach().clone()
+
+    def enable_jump_residual(self):
+        if self.jump_sampling is None:
+            self.enable_jump_sampling([1.0, 50.0])
+        if self.jump_actor_weight is None:
+            self.jump_actor_weight = nn.Parameter(torch.zeros_like(self.actor.weight))
+            self.jump_actor_bias = nn.Parameter(torch.zeros_like(self.actor.bias))
+
+    def enable_jump_state_residual(self, hidden_size):
+        if isinstance(hidden_size, bool) or not isinstance(hidden_size, (int, np.integer)) or hidden_size <= 0:
+            raise ValueError("Jump state residual hidden size must be a positive integer")
+        if self.jump_sampling is None:
+            raise ValueError("Jump state residual requires jump sampling settings")
+        if self.net[0].in_features % 68 or self.net[0].in_features < 136 or self.actor.out_features != 16:
+            raise ValueError("Jump state residual requires at least two 68-value frames and 16 actions")
+        if self.jump_state_net is not None:
+            if self.jump_state_net[0].out_features != hidden_size:
+                raise ValueError("Jump state residual hidden size differs from the loaded checkpoint")
+            return
+        self.jump_state_net = nn.Sequential(nn.Linear(80, hidden_size), nn.Tanh(), nn.Linear(hidden_size, 16)).to(
+            device=self.actor.weight.device, dtype=self.actor.weight.dtype)
+        # Preserve the loaded policy; only near-board actions learn this branch.
+        nn.init.zeros_(self.jump_state_net[-1].weight)
+        nn.init.zeros_(self.jump_state_net[-1].bias)
+
+    def restore_jump_state_residual(self, state_dict):
+        names = {name for name in state_dict if name.startswith("jump_state_net.")}
+        if not names:
+            return
+        expected = {"jump_state_net.0.weight", "jump_state_net.0.bias",
+                    "jump_state_net.2.weight", "jump_state_net.2.bias"}
+        if names != expected or "jump_sampling" not in state_dict:
+            raise ValueError("Jump state checkpoint is missing parameters or sampling settings")
+        weight = state_dict["jump_state_net.0.weight"]
+        if weight.ndim != 2 or weight.shape[1] != 80 or weight.shape[0] <= 0:
+            raise ValueError("Jump state checkpoint requires an 80-value input")
+        hidden_size = int(weight.shape[0])
+        shapes = {"jump_state_net.0.weight": (hidden_size, 80), "jump_state_net.0.bias": (hidden_size,),
+                  "jump_state_net.2.weight": (16, hidden_size), "jump_state_net.2.bias": (16,)}
+        if any(tuple(state_dict[name].shape) != shape for name, shape in shapes.items()):
+            raise ValueError("Jump state checkpoint has incompatible hidden or 16-action output shapes")
+        self.enable_jump_state_residual(hidden_size)
+
+    def enable_flat_residual(self, bounds=None):
+        self.enable_flat_bias(bounds)
+        if self.flat_actor_weight is None:
+            self.flat_actor_weight = nn.Parameter(torch.zeros_like(self.actor.weight))
+
+    def enable_separate_critic(self):
+        if self.critic_net is None:
+            self.critic_net = deepcopy(self.net).requires_grad_(True)
+        if self.angular_velocity is not None and self.critic_motion is None:
+            self.critic_motion = deepcopy(self.angular_velocity).requires_grad_(True)
+
+    def critic_features(self, obs):
+        normalized = obs / self.observation_scale if self.observation_scale is not None else obs
+        hidden = self.critic_net[0](normalized)
+        if self.critic_motion is not None:
+            hidden = hidden + self.critic_motion(self.motion_features(obs))
+        for layer in list(self.critic_net)[1:]:
+            hidden = layer(hidden)
+        return hidden
 
     def enable_angular_velocity(self):
         if self.angular_velocity is not None:
             return
         if self.net[0].in_features % 68 or self.net[0].in_features < 136:
-            raise ValueError("Angular velocity features require stacked classic_100m observations")
+            raise ValueError("Angular velocity features require stacked 68-value body observations")
         self.angular_velocity = nn.Linear(12, self.net[0].out_features, bias=False).to(self.actor.weight.device)
         # Preserve the existing policy exactly; PPO learns this optional branch.
         nn.init.zeros_(self.angular_velocity.weight)
@@ -224,6 +335,39 @@ class ActorCritic(nn.Module):
         self.observation_scale = scale.detach().clone()
 
     def load_state_dict(self, state_dict, strict=True, assign=False):
+        if any(name.startswith("jump_state_net.") for name in state_dict) and "jump_sampling" not in state_dict:
+            raise ValueError("Jump state checkpoint is missing sampling settings")
+        if "jump_sampling" in state_dict:
+            self.enable_jump_sampling(state_dict["jump_sampling"])
+        elif self.jump_sampling is not None:
+            state_dict = dict(state_dict, jump_sampling=self.jump_sampling)
+        if any(name.startswith("jump_state_net.") for name in state_dict):
+            self.restore_jump_state_residual(state_dict)
+        elif self.jump_state_net is not None:
+            nn.init.zeros_(self.jump_state_net[-1].weight)
+            nn.init.zeros_(self.jump_state_net[-1].bias)
+            state_dict = dict(state_dict)
+            for name, value in self.jump_state_net.state_dict().items():
+                state_dict["jump_state_net." + name] = value
+        if "jump_actor_weight" in state_dict:
+            if "jump_actor_bias" not in state_dict or "jump_sampling" not in state_dict:
+                raise ValueError("Jump residual checkpoint is missing bias or sampling settings")
+            self.enable_jump_residual()
+        if "flat_actor_weight" in state_dict and "flat_actor_bias" not in state_dict:
+            raise ValueError("Flat residual checkpoint is missing its bias")
+        if "flat_actor_bias" in state_dict:
+            if "flat_actor_bounds" not in state_dict:
+                raise ValueError("Flat actor checkpoint is missing its distance bounds")
+            self.enable_flat_bias(state_dict["flat_actor_bounds"])
+        elif self.flat_actor_bias is not None:
+            state_dict = dict(state_dict)
+            state_dict["flat_actor_bias"] = torch.zeros_like(self.flat_actor_bias)
+            state_dict["flat_actor_bounds"] = self.flat_actor_bounds
+        if "flat_actor_weight" in state_dict:
+            self.enable_flat_residual(state_dict["flat_actor_bounds"])
+        elif self.flat_actor_weight is not None:
+            state_dict = dict(state_dict)
+            state_dict["flat_actor_weight"] = torch.zeros_like(self.flat_actor_weight)
         if "angular_velocity.weight" in state_dict:
             self.enable_angular_velocity()
         elif self.angular_velocity is not None:
@@ -231,12 +375,48 @@ class ActorCritic(nn.Module):
             state_dict["angular_velocity.weight"] = torch.zeros_like(self.angular_velocity.weight)
         if "observation_scale" in state_dict:
             self.set_observation_scale(state_dict["observation_scale"])
+        if any(name.startswith("critic_net.") for name in state_dict):
+            self.enable_separate_critic()
+        elif self.critic_net is not None:
+            self.enable_separate_critic()
+            state_dict = dict(state_dict)
+            for name in self.critic_net.state_dict():
+                state_dict["critic_net." + name] = state_dict["net." + name]
+            if self.critic_motion is not None:
+                state_dict["critic_motion.weight"] = state_dict.get(
+                    "angular_velocity.weight", torch.zeros_like(self.critic_motion.weight))
         return super().load_state_dict(state_dict, strict=strict, assign=assign)
 
     def forward(self, obs: torch.Tensor):
         # 返回 actor logits 和 critic value。value squeeze 到 [batch]，便于和 reward/return 对齐。
         hidden = self.features(obs)
-        return self.actor(hidden), self.critic(hidden).squeeze(-1)
+        logits = self.actor(hidden)
+        if self.flat_actor_bias is not None:
+            score = obs[..., -8]
+            lower1, upper1, lower2, upper2 = self.flat_actor_bounds
+            flat = ((score >= lower1) & (score < upper1)) | ((score >= lower2) & (score <= upper2))
+            residual = self.flat_actor_bias if self.flat_actor_weight is None else nn.functional.linear(
+                hidden, self.flat_actor_weight, self.flat_actor_bias)
+            logits = torch.where(flat.unsqueeze(-1), logits + residual, logits)
+        if self.jump_sampling is not None:
+            # Long-jump index 62 is continuous takeoff-line distance in physics
+            # units (10 units/metre), unlike score which changes on landing.
+            scale, takeoff_dx = self.jump_sampling
+            near_jump = obs[..., -6] <= takeoff_dx
+            if self.jump_actor_weight is not None:
+                residual = nn.functional.linear(hidden, self.jump_actor_weight, self.jump_actor_bias)
+                logits = logits + torch.where(near_jump.unsqueeze(-1), residual, 0.0)
+            if self.jump_state_net is not None:
+                latest = obs[..., -68:]
+                if self.observation_scale is not None:
+                    latest = latest / self.observation_scale[-68:]
+                state_features = torch.cat((latest, self.motion_features(obs)), dim=-1)
+                state_residual = self.jump_state_net(state_features)
+                logits = logits + torch.where(near_jump.unsqueeze(-1), state_residual, 0.0)
+            logits = logits * torch.where(near_jump, scale, 1.0).unsqueeze(-1)
+        critic_hidden = self.critic_features(obs) if self.critic_net is not None else (
+            hidden.detach() if self.detach_critic_features else hidden)
+        return logits, self.critic(critic_hidden).squeeze(-1)
 
     def action_distribution(self, obs, start_logit_scale=1.0, start_explore_meters=3.0):
         logits, value = self(obs)
@@ -284,6 +464,13 @@ class ActorCritic(nn.Module):
 class RNDModel(nn.Module):
     def __init__(self, obs_dim: int, hidden_size: int = 128, feature_dim: int = 64):
         super().__init__()
+        if obs_dim != 62:
+            raise ValueError("RND requires 60 classic body features and two foot contacts")
+        scale = np.concatenate((np.tile([5.0, 15.0, np.pi, 10.0, 10.0], 12), [1.0, 1.0]))
+        self.register_buffer("input_scale", torch.tensor(scale, dtype=torch.float32))
+        self.register_buffer("schema_version", torch.tensor(1, dtype=torch.int64))
+        self.register_buffer("error_second_moment", torch.tensor(0.0, dtype=torch.float64))
+        self.register_buffer("error_count", torch.tensor(0, dtype=torch.int64))
         self.target = nn.Sequential(
             nn.Linear(obs_dim, hidden_size),
             nn.ReLU(),
@@ -297,7 +484,16 @@ class RNDModel(nn.Module):
         for parameter in self.target.parameters():
             parameter.requires_grad_(False)
 
+    def observation_features(self, obs: torch.Tensor) -> torch.Tensor:
+        if obs.shape[-1] < 68 or obs.shape[-1] % 68:
+            raise ValueError("RND physical features require classic_100m observations")
+        newest = obs[..., -68:]
+        physical = torch.cat((newest[..., :60], newest[..., 66:68]), dim=-1)
+        return (physical / self.input_scale).clamp(-5.0, 5.0)
+
     def forward(self, obs: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        if obs.shape[-1] != 62:
+            raise ValueError("RND forward requires normalized 62-value physical features")
         target = self.target(obs)
         prediction = self.predictor(obs)
         return prediction, target
@@ -305,6 +501,72 @@ class RNDModel(nn.Module):
     def prediction_error(self, obs: torch.Tensor) -> torch.Tensor:
         prediction, target = self(obs)
         return ((prediction - target) ** 2).mean(dim=-1)
+
+    @torch.no_grad()
+    def intrinsic_bonus(self, features: torch.Tensor, valid: torch.Tensor) -> torch.Tensor:
+        error = self.prediction_error(features)
+        if valid.shape != error.shape or valid.dtype != torch.bool:
+            raise ValueError("RND valid mask must match the feature batch")
+        if not torch.isfinite(error).all():
+            raise ValueError("Non-finite RND prediction error")
+        samples = error[valid].double()
+        if samples.numel():
+            old_count = self.error_count.clone()
+            self.error_count.add_(samples.numel())
+            self.error_second_moment.mul_(old_count.double() / self.error_count.double())
+            self.error_second_moment.add_(samples.square().sum() / self.error_count)
+        scale = self.error_second_moment.sqrt().to(error.dtype).clamp_min(1e-8)
+        bonus = (error / scale).clamp(0.0, 5.0)
+        return torch.where(valid, bonus, torch.zeros_like(bonus))
+
+    def checkpoint_compatible(self, state_dict) -> bool:
+        current = self.state_dict()
+        if not isinstance(state_dict, dict) or set(state_dict) != set(current):
+            return False
+        if any(not isinstance(value, torch.Tensor) or value.shape != current[name].shape
+               or not torch.isfinite(value).all() for name, value in state_dict.items()):
+            return False
+        return (int(state_dict["schema_version"]) == 1
+                and int(state_dict["error_count"]) >= 0
+                and float(state_dict["error_second_moment"]) >= 0.0
+                and torch.equal(state_dict["input_scale"].cpu(), self.input_scale.cpu()))
+
+
+def make_rnd(cfg: PPOConfig, device: torch.device):
+    # Only the CPU initialization generator is touched, then restored. Using
+    # torch.manual_seed here would also reseed CUDA and spoil A/B sampling.
+    with torch.random.fork_rng(devices=[]):
+        torch.random.default_generator.manual_seed(cfg.seed + 910007)
+        rnd_model = RNDModel(62, cfg.rnd_hidden_size, cfg.rnd_feature_dim)
+    rnd_model = rnd_model.to(device)
+    optimizer = optim.Adam(rnd_model.predictor.parameters(), lr=cfg.rnd_learning_rate, eps=1e-5)
+    return rnd_model, optimizer
+
+
+def rnd_optimizer_compatible(rnd_model, state_dict) -> bool:
+    if not isinstance(state_dict, dict) or not isinstance(state_dict.get("state"), dict):
+        return False
+    groups = state_dict.get("param_groups", [])
+    if len(groups) != 1:
+        return False
+    identifiers = groups[0].get("params", [])
+    params = list(rnd_model.predictor.parameters())
+    if len(identifiers) != len(params) or len(set(identifiers)) != len(identifiers):
+        return False
+    for identifier, param in zip(identifiers, params):
+        values = state_dict["state"].get(identifier, {})
+        if not isinstance(values, dict):
+            return False
+        if values and not {"step", "exp_avg", "exp_avg_sq"}.issubset(values):
+            return False
+        if "step" in values and (not isinstance(values["step"], torch.Tensor)
+                                  or values["step"].numel() != 1 or not torch.isfinite(values["step"]).all()):
+            return False
+        for key in ("exp_avg", "exp_avg_sq"):
+            if key in values and (not isinstance(values[key], torch.Tensor)
+                                  or values[key].shape != param.shape or not torch.isfinite(values[key]).all()):
+                return False
+    return True
 
 
 def rnd_beta_for_update(cfg: PPOConfig, update: int) -> float:
@@ -369,6 +631,32 @@ def copy_linear_prefix(dst: torch.Tensor, src: torch.Tensor) -> None:
 
 
 def load_model_compatible(model: nn.Module, state_dict: dict[str, torch.Tensor]) -> None:
+    if isinstance(model, ActorCritic) and "jump_sampling" in state_dict:
+        model.enable_jump_sampling(state_dict["jump_sampling"])
+    if isinstance(model, ActorCritic):
+        if any(name.startswith("jump_state_net.") for name in state_dict):
+            model.restore_jump_state_residual(state_dict)
+        elif model.jump_state_net is not None:
+            nn.init.zeros_(model.jump_state_net[-1].weight)
+            nn.init.zeros_(model.jump_state_net[-1].bias)
+    if isinstance(model, ActorCritic) and "jump_actor_weight" in state_dict:
+        if "jump_actor_bias" not in state_dict or "jump_sampling" not in state_dict:
+            raise ValueError("Jump residual checkpoint is missing bias or sampling settings")
+        model.enable_jump_residual()
+    if isinstance(model, ActorCritic) and "flat_actor_weight" in state_dict:
+        if "flat_actor_bias" not in state_dict or "flat_actor_bounds" not in state_dict or state_dict["flat_actor_weight"].shape != model.actor.weight.shape:
+            raise ValueError("Flat residual checkpoint has incompatible or missing weight/bias/bounds")
+        model.enable_flat_residual(state_dict["flat_actor_bounds"])
+    elif isinstance(model, ActorCritic) and model.flat_actor_weight is not None:
+        with torch.no_grad():
+            model.flat_actor_weight.zero_()
+    if isinstance(model, ActorCritic) and "flat_actor_bias" in state_dict:
+        if "flat_actor_bounds" not in state_dict or state_dict["flat_actor_bias"].shape != model.actor.bias.shape:
+            raise ValueError("Flat actor checkpoint has incompatible or missing bias/bounds")
+        model.enable_flat_bias(state_dict["flat_actor_bounds"])
+    elif isinstance(model, ActorCritic) and model.flat_actor_bias is not None:
+        with torch.no_grad():
+            model.flat_actor_bias.zero_()
     if isinstance(model, ActorCritic) and "angular_velocity.weight" in state_dict:
         model.enable_angular_velocity()
     elif isinstance(model, ActorCritic) and model.angular_velocity is not None:
@@ -385,6 +673,11 @@ def load_model_compatible(model: nn.Module, state_dict: dict[str, torch.Tensor])
             state_dict["observation_scale"] = target_scale
         else:
             model.set_observation_scale(source_scale)
+    has_critic_net = any(name.startswith("critic_net.") for name in state_dict)
+    if isinstance(model, ActorCritic) and has_critic_net:
+        model.enable_separate_critic()
+    elif isinstance(model, ActorCritic) and model.critic_net is not None:
+        model.enable_separate_critic()
     current = model.state_dict()
     for name, src in state_dict.items():
         if name not in current:
@@ -392,14 +685,19 @@ def load_model_compatible(model: nn.Module, state_dict: dict[str, torch.Tensor])
         dst = current[name]
         if dst.shape == src.shape:
             dst.copy_(src)
-        elif name == "net.0.weight" and dst.ndim == 2 and src.ndim == 2 and dst.shape[1] > src.shape[1]:
+        elif name in ("net.0.weight", "critic_net.0.weight") and dst.ndim == 2 and src.ndim == 2 and dst.shape[1] > src.shape[1]:
             rows = min(dst.shape[0], src.shape[0])
             # Start new history features at zero, preserving the old policy
             # exactly while keeping the author's right-aligned recent frames.
             dst[:rows].zero_()
             dst[:rows, -src.shape[1]:].copy_(src[:rows])
-        elif name.startswith(("net.", "actor.", "critic.", "angular_velocity.")):
+        elif name.startswith(("net.", "actor.", "critic.", "angular_velocity.", "critic_net.", "critic_motion.")):
             copy_linear_prefix(dst, src)
+    if isinstance(model, ActorCritic) and model.critic_net is not None and not has_critic_net:
+        for name in model.critic_net.state_dict():
+            current["critic_net." + name].copy_(current["net." + name])
+        if model.critic_motion is not None:
+            current["critic_motion.weight"].copy_(current["angular_velocity.weight"])
     model.load_state_dict(current)
 
 
@@ -444,7 +742,85 @@ class TrainingLogger:
         self.writer.close()
 
 
+def configure_actor_unfreeze(model: ActorCritic, scope: str) -> None:
+    """Explicit staged overrides; legacy freeze behavior remains the default."""
+    if scope not in ("none", "head", "last_hidden", "full"):
+        raise ValueError("actor_unfreeze must be none, head, last_hidden, or full")
+    if scope == "none":
+        return
+    if model.critic_net is None:
+        raise ValueError("Actor unfreezing requires separate Critic features")
+    if model.jump_sampling is not None:
+        raise ValueError("Actor unfreezing currently supports classic_100m only")
+    model.net.requires_grad_(scope == "full")
+    if model.angular_velocity is not None:
+        model.angular_velocity.requires_grad_(scope == "full")
+    if scope == "last_hidden":
+        linear_layers = [layer for layer in model.net if isinstance(layer, nn.Linear)]
+        if len(linear_layers) < 2:
+            raise ValueError("last_hidden requires at least two feature layers")
+        linear_layers[-1].requires_grad_(True)
+    model.actor.requires_grad_(True)
+
+
+def classic_finish_speed_bonus(step_result: dict, cfg: PPOConfig) -> np.ndarray:
+    """Bounded positive speed bonus, only for posture-qualified native finishes.
+
+    Under classic_100m_task, the positive terminal reward identifies its
+    existing posture-qualified finish; failures/unqualified finishes get -200.
+    This transforms learning rewards only, never physics or episode outcomes.
+    """
+    bonus = np.zeros_like(step_result["reward"], dtype=np.float32)
+    if cfg.classic_finish_speed_bonus == 0:
+        return bonus
+    eligible = (step_result["has_final"] & step_result["final_success"]
+                & ~step_result["truncated"] & (step_result["reward"] > 0))
+    times = step_result["final_time"][eligible].astype(np.float64)
+    if not np.isfinite(times).all() or np.any(times <= 0):
+        raise ValueError("Successful native finish times must be positive and finite")
+    offset = (cfg.classic_finish_speed_reference - times) / cfg.classic_finish_speed_width
+    bonus[eligible] = cfg.classic_finish_speed_bonus * 0.5 * (1.0 + np.tanh(0.5 * offset))
+    return bonus
+
+
 def train(cfg: PPOConfig) -> None:
+    if cfg.actor_unfreeze not in ("none", "head", "last_hidden", "full"):
+        raise ValueError("Invalid actor_unfreeze scope")
+    if not np.isfinite(cfg.reward_scale) or cfg.reward_scale <= 0:
+        raise ValueError("reward_scale must be finite and positive")
+    if not np.isfinite(cfg.classic_finish_speed_bonus) or cfg.classic_finish_speed_bonus < 0:
+        raise ValueError("classic_finish_speed_bonus must be finite and nonnegative")
+    if not np.isfinite(cfg.classic_finish_speed_reference) or cfg.classic_finish_speed_reference <= 0:
+        raise ValueError("classic_finish_speed_reference must be finite and positive")
+    if not np.isfinite(cfg.classic_finish_speed_width) or cfg.classic_finish_speed_width <= 0:
+        raise ValueError("classic_finish_speed_width must be finite and positive")
+    use_finish_speed_bonus = cfg.classic_finish_speed_bonus > 0
+    imitation_final = cfg.imitation_coef if cfg.imitation_coef_final is None else cfg.imitation_coef_final
+    if not all(np.isfinite(v) and v >= 0 for v in (cfg.imitation_coef, imitation_final)):
+        raise ValueError("Imitation coefficients must be finite and nonnegative")
+    use_imitation = max(cfg.imitation_coef, imitation_final) > 0
+    if use_imitation and cfg.imitation_dataset is None:
+        raise ValueError("Positive imitation coefficient requires an observation/action dataset")
+    if isinstance(cfg.jump_residual_hidden_size, bool) or not isinstance(cfg.jump_residual_hidden_size, (int, np.integer)) or cfg.jump_residual_hidden_size < 0:
+        raise ValueError("jump_residual_hidden_size must be a nonnegative integer")
+    # The native distance shaping profile uses F = .999 * Phi(next) - Phi(now),
+    # with Phi=0 at every terminal outcome. Its policy-invariance contract
+    # requires the same discount in GAE and returns.
+    if cfg.reward_profile == "long_jump_task" and not np.isclose(cfg.gamma, 0.999, atol=1e-10, rtol=0):
+        raise ValueError("long_jump_task distance shaping requires gamma=0.999")
+    if not np.isfinite(cfg.jump_explore_logit_scale) or not 0 < cfg.jump_explore_logit_scale <= 1:
+        raise ValueError("jump_explore_logit_scale must be in (0,1]")
+    if not np.isfinite(cfg.jump_explore_meters) or cfg.jump_explore_meters <= 0:
+        raise ValueError("jump_explore_meters must be positive and finite")
+    if not np.isfinite(cfg.rnd_beta) or cfg.rnd_beta < 0:
+        raise ValueError("rnd_beta must be finite and nonnegative")
+    if cfg.rnd_beta > 0:
+        if cfg.rnd_beta_final is not None and (not np.isfinite(cfg.rnd_beta_final) or cfg.rnd_beta_final < 0):
+            raise ValueError("rnd_beta_final must be finite and nonnegative, or None")
+        if not np.isfinite(cfg.rnd_learning_rate) or cfg.rnd_learning_rate <= 0:
+            raise ValueError("rnd_learning_rate must be finite and positive")
+    if cfg.critic_learning_rate is not None and (not np.isfinite(cfg.critic_learning_rate) or cfg.critic_learning_rate <= 0):
+        raise ValueError("critic_learning_rate must be finite and positive, or None")
     if not np.isfinite(cfg.start_logit_scale) or not 0 < cfg.start_logit_scale <= 1:
         raise ValueError("start_logit_scale must be in (0, 1]")
     if not np.isfinite(cfg.start_explore_meters) or cfg.start_explore_meters <= 0:
@@ -466,40 +842,114 @@ def train(cfg: PPOConfig) -> None:
         game_mode=cfg.game_mode,
     )
     cfg.game_mode = env.game_mode
+    if use_finish_speed_bonus and (cfg.game_mode != "classic_100m" or cfg.reward_profile != "classic_100m_task"):
+        raise ValueError("Finish speed bonus requires classic_100m_task and classic_100m")
+    if cfg.actor_unfreeze != "none" and cfg.game_mode != "classic_100m":
+        raise ValueError("Actor unfreezing currently supports classic_100m only")
+    if cfg.rnd_beta > 0 and cfg.game_mode != "classic_100m":
+        raise ValueError("RND physical features currently support classic_100m only")
     if cfg.start_logit_scale != 1.0 and cfg.game_mode != "classic_100m":
         raise ValueError("Start exploration currently supports classic_100m only")
     if cfg.effective_action_entropy and cfg.game_mode != "classic_100m":
         raise ValueError("Effective action entropy currently supports classic_100m only")
+    if (cfg.enable_flat_actor_bias or cfg.enable_flat_actor_residual) and cfg.game_mode != "classic_100m":
+        raise ValueError("Flat actor bias currently supports classic_100m only")
     base_obs_np, _ = env.reset()
     stacker = FrameStacker(cfg.num_envs, base_obs_np.shape[1], cfg.frame_stack)
     obs_np = stacker.reset(base_obs_np)
     obs_dim = stacker.obs_dim
     action_dim = env.action_space_n
 
+    # Expert observations are auxiliary supervised samples, never PPO rollouts.
+    imitation_obs, imitation_actions = None, None
+    if use_imitation:
+        with np.load(resolve_path(cfg.imitation_dataset), allow_pickle=False) as expert:
+            x = np.array(expert["observations"], dtype=np.float32, copy=True)
+            y = np.array(expert["actions"], copy=True)
+        if x.ndim != 2 or x.shape[1] != obs_dim or len(x) == 0 or not np.isfinite(x).all():
+            raise ValueError("Imitation observations must be finite [samples, model observation dimension]")
+        if y.shape != (len(x),) or not np.issubdtype(y.dtype, np.integer) or np.any((y < 0) | (y >= action_dim)):
+            raise ValueError("Imitation actions must be integer labels matching the action space")
+        imitation_obs = torch.as_tensor(x, device=device)
+        imitation_actions = torch.as_tensor(y, dtype=torch.long, device=device)
+
     observation_scale = None
     if cfg.normalize_observations:
-        if env.game_mode != "classic_100m" or base_obs_np.shape[1] != 68:
-            raise ValueError("Fixed observation scales currently support classic_100m only")
+        if env.game_mode not in ("classic_100m", "long_jump_30m") or base_obs_np.shape[1] != 68:
+            raise ValueError("Fixed observation scales support classic_100m and long_jump_30m")
         body_scale = np.tile([5.0, 15.0, np.pi, 10.0, 10.0], 12)
-        task_scale = [100.0, 120.0, 1000.0, 1000.0, 1.0, 1.0, 1.0, 1.0]
+        task_scale = ([30.0, 45.0, 300.0, 400.0, 1.0, 1.0, 1.0, 1.0]
+            if env.game_mode == "long_jump_30m" else
+            [100.0, 120.0, 1000.0, 1000.0, 1.0, 1.0, 1.0, 1.0])
         observation_scale = np.tile(np.concatenate((body_scale, task_scale)), cfg.frame_stack)
-    if cfg.derive_angular_velocity and env.game_mode != "classic_100m":
-        raise ValueError("Angular velocity features currently support classic_100m only")
+    if cfg.derive_angular_velocity and env.game_mode not in ("classic_100m", "long_jump_30m"):
+        raise ValueError("Angular velocity features support classic_100m and long_jump_30m")
     model = ActorCritic(obs_dim, action_dim, cfg.hidden_sizes, observation_scale, cfg.derive_angular_velocity).to(device)
+    if cfg.enable_flat_actor_residual:
+        model.enable_flat_residual()
+    elif cfg.enable_flat_actor_bias:
+        model.enable_flat_bias()
     checkpoint_data = None
     if cfg.resume_from:
         checkpoint_data = torch.load(cfg.resume_from, map_location=device)
         load_model_compatible(model, checkpoint_data["model"])
     cfg.derive_angular_velocity = model.angular_velocity is not None
-    if cfg.freeze_backbone:
+    cfg.enable_flat_actor_bias = model.flat_actor_bias is not None
+    cfg.enable_flat_actor_residual = model.flat_actor_weight is not None
+    if cfg.jump_explore_logit_scale != 1.0:
+        if env.game_mode != "long_jump_30m":
+            raise ValueError("Jump sampling only supports long_jump_30m")
+        model.enable_jump_sampling([cfg.jump_explore_logit_scale, cfg.jump_explore_meters * 10.0])
+    if model.jump_sampling is not None:
+        if env.game_mode != "long_jump_30m":
+            raise ValueError("Jump sampling checkpoint requires long_jump_30m")
+        cfg.jump_explore_logit_scale = float(model.jump_sampling[0])
+        cfg.jump_explore_meters = float(model.jump_sampling[1]) / 10.0
+    if cfg.enable_jump_actor_residual:
+        model.enable_jump_residual()
+    if cfg.jump_residual_hidden_size > 0:
+        if env.game_mode != "long_jump_30m":
+            raise ValueError("Jump state residual only supports long_jump_30m")
+        if model.jump_sampling is None:
+            model.enable_jump_sampling([cfg.jump_explore_logit_scale, cfg.jump_explore_meters * 10.0])
+        model.enable_jump_state_residual(cfg.jump_residual_hidden_size)
+    cfg.jump_residual_hidden_size = model.jump_state_net[0].out_features if model.jump_state_net is not None else 0
+    if model.jump_sampling is not None:
+        cfg.jump_explore_logit_scale = float(model.jump_sampling[0])
+        cfg.jump_explore_meters = float(model.jump_sampling[1]) / 10.0
+    cfg.enable_jump_actor_residual = model.jump_actor_weight is not None
+    if cfg.enable_jump_actor_residual or cfg.jump_residual_hidden_size > 0:
+        if env.game_mode != "long_jump_30m" or not (cfg.separate_critic_features or model.critic_net is not None):
+            raise ValueError("Jump residual requires long_jump_30m and separate Critic features")
+        cfg.freeze_backbone = True
+        model.actor.requires_grad_(False)
+    model.detach_critic_features = cfg.detach_critic_features
+    if cfg.separate_critic_features:
+        model.enable_separate_critic()
+    cfg.separate_critic_features = model.critic_net is not None
+    if cfg.freeze_backbone or cfg.enable_flat_actor_bias:
         # Preserve learned gait features while PPO refines the two output heads.
         model.net.requires_grad_(False)
         if model.angular_velocity is not None:
             model.angular_velocity.requires_grad_(False)
-    optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate, eps=1e-5)
+    if cfg.enable_flat_actor_bias:
+        model.actor.requires_grad_(False)
+    configure_actor_unfreeze(model, cfg.actor_unfreeze)
+    actor_params, critic_params = [], []
+    for name, parameter in model.named_parameters():
+        (critic_params if name.startswith(("critic.", "critic_net.", "critic_motion.")) else actor_params).append(parameter)
+    if cfg.actor_unfreeze != "none":
+        print(f"actor_unfreeze={cfg.actor_unfreeze} trainable_actor_parameters="
+              f"{sum(p.numel() for p in actor_params if p.requires_grad)}")
+    if cfg.critic_learning_rate is None:
+        optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate, eps=1e-5)
+    else:
+        optimizer = optim.Adam([
+            {"params": actor_params, "lr": cfg.learning_rate, "role": "actor"},
+            {"params": critic_params, "lr": cfg.critic_learning_rate, "role": "critic"},
+        ], eps=1e-5)
     use_rnd = cfg.rnd_beta > 0.0
-    rnd_model = RNDModel(obs_dim, cfg.rnd_hidden_size, cfg.rnd_feature_dim).to(device) if use_rnd else None
-    rnd_optimizer = optim.Adam(rnd_model.predictor.parameters(), lr=cfg.rnd_learning_rate, eps=1e-5) if rnd_model else None
+    rnd_model, rnd_optimizer = make_rnd(cfg, device) if use_rnd else (None, None)
     resumed_update = 0
     global_step = 0
     if cfg.resume_from:
@@ -510,17 +960,22 @@ def train(cfg: PPOConfig) -> None:
             except ValueError:
                 print("optimizer_state_skipped=1 reason=incompatible_model_shape")
             for group in optimizer.param_groups:
-                group["lr"] = cfg.learning_rate
+                group["lr"] = cfg.critic_learning_rate if group.get("role") == "critic" and cfg.critic_learning_rate is not None else cfg.learning_rate
         if rnd_model and "rnd_model" in checkpoint_data:
-            try:
-                rnd_model.load_state_dict(checkpoint_data["rnd_model"])
-            except RuntimeError:
-                print("rnd_model_state_skipped=1 reason=incompatible_model_shape")
-        if rnd_optimizer and "rnd_optimizer" in checkpoint_data and not cfg.reset_optimizer_on_resume:
-            try:
-                rnd_optimizer.load_state_dict(checkpoint_data["rnd_optimizer"])
-            except ValueError:
-                print("rnd_optimizer_state_skipped=1 reason=incompatible_model_shape")
+            compatible = rnd_model.checkpoint_compatible(checkpoint_data["rnd_model"])
+            load_optimizer = "rnd_optimizer" in checkpoint_data and not cfg.reset_optimizer_on_resume
+            if load_optimizer:
+                compatible = compatible and rnd_optimizer_compatible(rnd_model, checkpoint_data["rnd_optimizer"])
+            if compatible:
+                try:
+                    rnd_model.load_state_dict(checkpoint_data["rnd_model"], strict=True)
+                    if load_optimizer:
+                        rnd_optimizer.load_state_dict(checkpoint_data["rnd_optimizer"])
+                except (RuntimeError, ValueError, KeyError):
+                    compatible = False
+            if not compatible:
+                rnd_model, rnd_optimizer = make_rnd(cfg, device)
+                print("rnd_state_reset=1 reason=incompatible_rnd_checkpoint")
             for group in rnd_optimizer.param_groups:
                 group["lr"] = cfg.rnd_learning_rate
         resumed_update = int(checkpoint_data.get("update", 0))
@@ -548,6 +1003,8 @@ def train(cfg: PPOConfig) -> None:
     rewards_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
     extrinsic_rewards_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
     intrinsic_rewards_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
+    rnd_features_buf = torch.empty((cfg.rollout_steps, cfg.num_envs, 62), device=device) if rnd_model else None
+    rnd_valid_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), dtype=torch.bool, device=device) if rnd_model else None
     dones_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
     values_buf = torch.empty((cfg.rollout_steps, cfg.num_envs), device=device)
     batch_size = cfg.num_envs * cfg.rollout_steps
@@ -562,8 +1019,13 @@ def train(cfg: PPOConfig) -> None:
             episode_finishes = 0
             episode_return_samples = []
             final_distance_samples = []
+            qualified_finish_times = []
+            finish_speed_bonus_sum = 0.0
             rnd_beta = rnd_beta_for_update(cfg, update)
             entropy_coef = entropy_coef_for_update(cfg, update)
+            imitation_coef = cfg.imitation_coef + (imitation_final - cfg.imitation_coef) * (
+                (update - 1) / max(1, cfg.updates - 1))
+            imitation_loss_value = 0.0
             start_logit_scale = start_logit_scale_for_update(cfg, update)
             # 第一阶段：用当前策略和环境交互，收集一批 on-policy 轨迹。
             for step in range(cfg.rollout_steps):
@@ -577,16 +1039,26 @@ def train(cfg: PPOConfig) -> None:
                 step_result = env.step_arrays(actions_np)
                 base_next_obs_np = step_result["obs"]
                 rewards_np = step_result["reward"]
+                learning_rewards_np = rewards_np
+                if use_finish_speed_bonus:
+                    speed_bonus_np = classic_finish_speed_bonus(step_result, cfg)
+                    learning_rewards_np = rewards_np + speed_bonus_np
+                    finish_speed_bonus_sum += float(speed_bonus_np.sum())
                 terminated_np = step_result["terminated"]
                 truncated_np = step_result["truncated"]
                 done_np = np.logical_or(terminated_np, truncated_np)
                 next_obs_np = stacker.update(base_next_obs_np, done_np)
                 next_obs = torch.tensor(next_obs_np, dtype=torch.float32, device=device)
-                extrinsic_reward = torch.tensor(rewards_np, dtype=torch.float32, device=device)
+                # Native episode returns stay raw; optional finish shaping is
+                # part of the learning targets before applying their scale.
+                extrinsic_reward = torch.tensor(learning_rewards_np, dtype=torch.float32, device=device) * cfg.reward_scale
                 if rnd_model:
                     with torch.no_grad():
-                        intrinsic_reward = rnd_model.prediction_error(next_obs)
-                        intrinsic_reward = intrinsic_reward / (intrinsic_reward.mean() + 1e-8)
+                        rnd_features = rnd_model.observation_features(next_obs)
+                        rnd_valid = torch.tensor(~done_np, dtype=torch.bool, device=device)
+                        intrinsic_reward = rnd_model.intrinsic_bonus(rnd_features, rnd_valid)
+                    rnd_features_buf[step] = rnd_features
+                    rnd_valid_buf[step] = rnd_valid
                     total_reward = extrinsic_reward + rnd_beta * intrinsic_reward
                     intrinsic_rewards_buf[step] = intrinsic_reward
                 else:
@@ -597,6 +1069,9 @@ def train(cfg: PPOConfig) -> None:
                 episode_finishes += int(done_np.sum())
                 if np.any(step_result["has_final"]):
                     final_mask = step_result["has_final"]
+                    if cfg.reward_profile == "classic_100m_task":
+                        qualified = final_mask & step_result["final_success"] & ~truncated_np & (rewards_np > 0)
+                        qualified_finish_times.extend(float(t) for t in step_result["final_time"][qualified])
                     episode_return_samples.extend(
                         float(episode_return)
                         for episode_return in episode_returns[final_mask]
@@ -669,10 +1144,22 @@ def train(cfg: PPOConfig) -> None:
                     # entropy 越大，策略越随机；总 loss 里减去 entropy，相当于奖励探索。
                     entropy_loss = entropy.mean()
                     loss = policy_loss - entropy_coef * entropy_loss + cfg.vf_coef * value_loss
+                    if use_imitation and imitation_coef > 0:
+                        expert_ids = torch.randint(len(imitation_obs), (min(256, len(imitation_obs)),), device=device)
+                        expert_logits, _ = model(imitation_obs[expert_ids])
+                        imitation_loss = nn.functional.cross_entropy(expert_logits, imitation_actions[expert_ids])
+                        loss = loss + imitation_coef * imitation_loss
+                        imitation_loss_value = float(imitation_loss.detach().cpu())
 
                     optimizer.zero_grad()
                     loss.backward()
-                    nn.utils.clip_grad_norm_(model.parameters(), 0.5)
+                    if cfg.separate_critic_features:
+                        # Large value errors must not shrink unrelated policy
+                        # gradients after separating the two feature networks.
+                        nn.utils.clip_grad_norm_(actor_params, 0.5)
+                        nn.utils.clip_grad_norm_(critic_params, 0.5)
+                    else:
+                        nn.utils.clip_grad_norm_(model.parameters(), 0.5)
                     optimizer.step()
                     optimization_steps += 1
 
@@ -682,16 +1169,25 @@ def train(cfg: PPOConfig) -> None:
                     approx_kl_value = float(approx_kl.detach().cpu())
                     clipfrac_value = float(clipfrac.detach().cpu())
 
-                    if rnd_model and rnd_optimizer:
-                        prediction, target = rnd_model(b_obs[mb])
-                        rnd_loss = 0.5 * ((prediction - target.detach()) ** 2).mean()
-                        rnd_optimizer.zero_grad()
-                        rnd_loss.backward()
-                        nn.utils.clip_grad_norm_(rnd_model.predictor.parameters(), 0.5)
-                        rnd_optimizer.step()
-                        rnd_loss_value = float(rnd_loss.detach().cpu())
                 if early_stop:
                     break
+
+            if rnd_model and rnd_optimizer:
+                b_rnd_features = rnd_features_buf.reshape(-1, 62)
+                valid_indices = torch.nonzero(rnd_valid_buf.reshape(-1), as_tuple=False).flatten()
+                rnd_error_sum = 0.0
+                # One predictor pass per rollout on the exact next-state
+                # features that earned curiosity; no extra policy RNG draws.
+                for start in range(0, valid_indices.numel(), minibatch_size):
+                    mb = valid_indices[start:start + minibatch_size]
+                    prediction, target = rnd_model(b_rnd_features[mb])
+                    rnd_loss = 0.5 * ((prediction - target.detach()) ** 2).mean()
+                    rnd_optimizer.zero_grad()
+                    rnd_loss.backward()
+                    nn.utils.clip_grad_norm_(rnd_model.predictor.parameters(), 0.5)
+                    rnd_optimizer.step()
+                    rnd_error_sum += float(rnd_loss.detach().cpu()) * mb.numel()
+                rnd_loss_value = rnd_error_sum / max(1, valid_indices.numel())
 
             update_elapsed = time.perf_counter() - update_started
             rnd_rewards_buf = intrinsic_rewards_buf * rnd_beta
@@ -725,6 +1221,11 @@ def train(cfg: PPOConfig) -> None:
                 "hyperparams/entropy_coefficient": entropy_coef,
                 "hyperparams/start_logit_scale": start_logit_scale,
             }
+            if cfg.critic_learning_rate is not None:
+                metrics["hyperparams/critic_learning_rate"] = cfg.critic_learning_rate
+            if use_imitation:
+                metrics["losses/imitation_loss"] = imitation_loss_value
+                metrics["hyperparams/imitation_coefficient"] = imitation_coef
             if cfg.effective_action_entropy:
                 with torch.no_grad():
                     diagnostic_dist, _ = model.action_distribution(
@@ -736,6 +1237,15 @@ def train(cfg: PPOConfig) -> None:
                 metrics["charts/final_distance_mean"] = final_distance_mean
             if episode_return_mean is not None:
                 metrics["charts/episode_return_mean"] = episode_return_mean
+            if cfg.reward_profile == "classic_100m_task":
+                metrics["charts/qualified_finishes"] = float(len(qualified_finish_times))
+                metrics["rewards/finish_speed_bonus_sum"] = finish_speed_bonus_sum
+                metrics["hyperparams/finish_speed_bonus_max"] = cfg.classic_finish_speed_bonus
+                if qualified_finish_times:
+                    metrics["charts/qualified_finish_time_min"] = min(qualified_finish_times)
+                    metrics["charts/qualified_finish_time_mean"] = float(np.mean(qualified_finish_times))
+                    metrics["charts/faster_than_reference_finishes"] = float(sum(
+                        t < cfg.classic_finish_speed_reference - 1e-4 for t in qualified_finish_times))
             logger.log(global_step, metrics)
             if rnd_model:
                 logger.log(
@@ -758,6 +1268,13 @@ def train(cfg: PPOConfig) -> None:
                 log_line += f" final_distance_mean={final_distance_mean:.3f}"
             if episode_return_mean is not None:
                 log_line += f" episode_return_mean={episode_return_mean:.3f}"
+            if use_imitation:
+                log_line += f" imitation_loss={imitation_loss_value:.5f} imitation_coef={imitation_coef:.5f}"
+            if cfg.reward_profile == "classic_100m_task":
+                log_line += f" qualified_finishes={len(qualified_finish_times)} finish_speed_bonus_sum={finish_speed_bonus_sum:.3f}"
+                if qualified_finish_times:
+                    log_line += f" best_finish_s={min(qualified_finish_times):.6f} mean_finish_s={np.mean(qualified_finish_times):.6f}"
+                    log_line += f" faster_finishes={sum(t < cfg.classic_finish_speed_reference - 1e-4 for t in qualified_finish_times)}"
             if rnd_model:
                 log_line += (
                     f" rnd_reward_abs_ratio={rnd_reward_abs_ratio:.4f} "
@@ -798,8 +1315,22 @@ def main() -> int:
     parser.add_argument("--start-logit-scale", type=float, default=None)
     parser.add_argument("--start-logit-scale-decay-updates", type=int, default=None)
     parser.add_argument("--start-explore-meters", type=float, default=None)
+    parser.add_argument("--jump-residual-hidden-size", type=int, default=None)
     parser.add_argument("--effective-action-entropy", action="store_true", default=None)
     parser.add_argument("--freeze-backbone", action="store_true", default=None)
+    parser.add_argument("--actor-unfreeze", choices=["none", "head", "last_hidden", "full"], default=None)
+    parser.add_argument("--enable-flat-actor-bias", action="store_true", default=None)
+    parser.add_argument("--enable-flat-actor-residual", action="store_true", default=None)
+    parser.add_argument("--detach-critic-features", action="store_true", default=None)
+    parser.add_argument("--separate-critic-features", action="store_true", default=None)
+    parser.add_argument("--critic-learning-rate", type=float, default=None)
+    parser.add_argument("--imitation-dataset", type=Path, default=None)
+    parser.add_argument("--imitation-coef", type=float, default=None)
+    parser.add_argument("--imitation-coef-final", type=float, default=None)
+    parser.add_argument("--reward-scale", type=float, default=None)
+    parser.add_argument("--classic-finish-speed-bonus", type=float, default=None)
+    parser.add_argument("--classic-finish-speed-reference", type=float, default=None)
+    parser.add_argument("--classic-finish-speed-width", type=float, default=None)
     parser.add_argument("--vf-coef", type=float, default=None)
     parser.add_argument("--learning-rate", type=float, default=None)
     parser.add_argument("--seed", type=int, default=None)
@@ -809,7 +1340,7 @@ def main() -> int:
     parser.add_argument("--reset-optimizer-on-resume", action="store_true", default=None)
     parser.add_argument(
         "--reward-profile",
-        choices=["classic_100m", "hurdle_110m", "long_jump_30m"],
+        choices=["classic_100m", "classic_100m_task", "hurdle_110m", "long_jump_30m", "long_jump_task"],
         default=None,
     )
     parser.add_argument("--game-mode", choices=["auto", "classic_100m", "hurdle_110m", "long_jump_30m"], default=None)

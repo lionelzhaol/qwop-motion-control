@@ -1,0 +1,15 @@
+{
+  "game_mode": "long_jump_30m", "reward_profile": "long_jump_30m",
+  "num_envs": 4, "num_threads": 4, "rollout_steps": 512, "updates": 4,
+  "epochs": 4, "minibatches": 4, "gamma": 0.999, "gae_lambda": 0.995,
+  "clip_coef": 0.2, "target_kl": 0.01,
+  "ent_coef": 0.003, "vf_coef": 0.1,
+  "learning_rate": 0.000003, "critic_learning_rate": 0.0001,
+  "separate_critic_features": true, "seed": 202610220,
+  "hidden_sizes": [256, 256], "frame_stack": 32,
+  "normalize_observations": true, "derive_angular_velocity": true,
+  "resume_from": "checkpoints/ppo_long_jump_shadow_initial.pt",
+  "reset_optimizer_on_resume": true, "rnd_beta": 0.0,
+  "run_name": "ppo_long_jump_shadow_smoke",
+  "checkpoint": "checkpoints/ppo_long_jump_shadow_smoke.pt", "save_interval": 0
+}

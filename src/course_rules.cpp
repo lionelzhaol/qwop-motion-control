@@ -71,8 +71,10 @@ GameMode inferGameMode(RewardProfile profile) {
     case RewardProfile::Hurdle110m:
         return GameMode::Hurdle110m;
     case RewardProfile::LongJump30m:
+    case RewardProfile::LongJumpTask:
         return GameMode::LongJump30m;
     case RewardProfile::Classic100m:
+    case RewardProfile::Classic100mTask:
     default:
         return GameMode::Classic100m;
     }

@@ -14,7 +14,13 @@ constexpr float kBodyHeightRewardCap = 5.0f;
 constexpr float kBodyHeightTargetHurdleScale = 0.45f;
 constexpr float kLongJumpLandingDistanceScale = 5.0f;
 constexpr float kLongJumpPostLandingProgressScale = 0.5f;
-// Foot-running reward v31. Knee contacts are not exposed by the backend;
+constexpr float kLongJumpTaskRunupScale = 0.2f;
+constexpr float kLongJumpTaskDistancePotentialScale = 8.0f;
+constexpr float kLongJumpTaskShapingGamma = 0.999f;
+constexpr float kLongJumpTaskFinishBonus = 10.0f;
+constexpr float kLongJumpTaskFinalDistanceScale = 40.0f;
+constexpr float kLongJumpTaskFailurePenalty = 30.0f;
+// Foot-running reward v39. Knee contacts are not exposed by the backend;
 // sustained low torso height is a posture proxy, including feet-on-ground crawl.
 constexpr float kUprightHeightRatio = 0.8f;
 constexpr float kSupportedProgressBonus = 1.0f;
@@ -37,11 +43,13 @@ constexpr float kPaceWindowSeconds = 0.2f;
 constexpr float kTargetProgressSpeed = 2.5f;
 constexpr float kSpeedRewardMinimum = 1.5f;
 constexpr float kSpeedProgressBonus = 6.0f;
+constexpr float kFlatTargetProgressSpeed = 2.8f;
+constexpr float kFlatSpeedProgressBonus = 8.0f;
 constexpr float kPaceDeficitPenaltyPerSecond = 16.0f;
 constexpr float kClassicFailurePenalty = 30.0f;
 constexpr float kFastFinishReferenceSeconds = 65.0f;
 constexpr float kFastFinishTargetSeconds = 43.0f;
-constexpr float kFastFinishBonus = 80.0f;
+constexpr float kFastFinishBonus = 1200.0f;
 constexpr float kStartMilestoneMeters = 10.0f;
 constexpr float kStartReferenceSeconds = 7.5f;
 constexpr float kStartTargetSeconds = 5.5f;
@@ -62,7 +70,7 @@ constexpr float kFootGroundConfirmationSeconds = 2.0f / 30.0f;
 constexpr float kMinimumLandingIntervalSeconds = 0.15f;
 constexpr float kCadenceBaseline = 1.0f;
 constexpr float kCadenceTarget = 1.4f;
-constexpr float kCadenceProgressBonus = 2.4f;
+constexpr float kCadenceProgressBonus = 0.3f;
 constexpr float kHurdleArmMeters = 2.0f;
 constexpr float kHurdleJumpBeforeMeters = 1.0f;
 constexpr float kHurdleJumpAfterMeters = 3.5f;
@@ -136,6 +144,7 @@ void RewardState::reset(const CourseSpec& course) {
     classicHurdleGroundTime_ = 0.0f;
     longJumpLandingSeen_ = false;
     longJumpPostLandingX_ = 0.0f;
+    longJumpMeasuredDistance_ = 0.0f;
 }
 
 float RewardState::calculate(
@@ -144,6 +153,37 @@ float RewardState::calculate(
     const RgFrame& frame,
     bool truncated) {
     switch (profile) {
+    case RewardProfile::Classic100mTask: {
+        // Task-only ablation: leave angle, cadence and vertical excursion to
+        // the policy. Count each new metre once; pure integrated speed would
+        // pay the same total for every successful 100m trajectory.
+        const float cappedProgress = std::clamp(frame.score, 0.0f, 100.0f);
+        const float progress = std::max(0.0f, cappedProgress - progressScore_);
+        progressScore_ = std::max(progressScore_, cappedProgress);
+        const float elapsed = std::max(0.0f, frame.sim_time - previousRewardTime_);
+        previousRewardTime_ = frame.sim_time;
+        const float torsoHeight = kTrackY - frame.bodies[kTorsoBodySlot].y;
+        const bool upright = torsoHeight >= kUprightHeightRatio * (kTrackY - kStandingBodyY);
+        const float previousLowTime = lowPostureTime_;
+        lowPostureTime_ = upright ? 0.0f : lowPostureTime_ + elapsed;
+        const float lowSeconds = upright ? 0.0f : std::max(0.0f, lowPostureTime_ - kLowPostureGraceSeconds)
+            - std::max(0.0f, previousLowTime - kLowPostureGraceSeconds);
+        penalizedLowPostureSeconds_ += lowSeconds;
+        float reward = (upright ? 2.0f * progress : 0.0f) - elapsed - 5.0f * lowSeconds;
+        if (frame.failed || truncated) {
+            reward -= 200.0f;
+        } else if (frame.jump_landed) {
+            if (penalizedLowPostureSeconds_ <= kMaximumLowPostureFinishFraction * frame.sim_time) {
+                // Keep successful finishes positive throughout the course's
+                // original 120s limit. Every second saved is worth 21 points
+                // including the dense time cost, without a 43s reward plateau.
+                reward += 2800.0f - 20.0f * frame.sim_time;
+            } else {
+                reward -= 200.0f;
+            }
+        }
+        return reward;
+    }
     case RewardProfile::Classic100m: {
         const float cappedProgress = std::clamp(frame.score, 0.0f, 100.0f);
         const float startProgress = std::max(0.0f,
@@ -302,9 +342,15 @@ float RewardState::calculate(
             reward += kForwardLeanProgressBonus * progressReward * leanQuality;
         }
         if (upright && leanDegrees >= kBackwardLeanLimitDegrees && leanDegrees <= 30.0f) {
+            // Extend speed feedback only where the optional flat actor learns;
+            // acceleration, hurdle recovery and deficit penalties keep v31 goals.
+            const bool flatProgress = (cappedProgress >= 10.0f && cappedProgress < 45.0f)
+                || (cappedProgress >= 65.0f && cappedProgress <= 100.0f);
+            const float speedTarget = flatProgress ? kFlatTargetProgressSpeed : kTargetProgressSpeed;
+            const float speedBonus = flatProgress ? kFlatSpeedProgressBonus : kSpeedProgressBonus;
             const float speedQuality = std::clamp(
-                (recentProgressSpeed_ - kSpeedRewardMinimum) / (kTargetProgressSpeed - kSpeedRewardMinimum), 0.0f, 1.0f);
-            reward += kSpeedProgressBonus * progressReward * speedQuality;
+                (recentProgressSpeed_ - kSpeedRewardMinimum) / (speedTarget - kSpeedRewardMinimum), 0.0f, 1.0f);
+            reward += speedBonus * progressReward * speedQuality;
             // Give acceleration feedback before crossing 10m. Reward only new
             // distance, taper with game time, and cap the total at 40 points.
             if (!frame.failed && !truncated) {
@@ -411,6 +457,29 @@ float RewardState::calculate(
             reward -= 10.0f;
         } else if (frame.race_finished) {
             reward += 120.0f - frame.sim_time;
+        }
+        return reward;
+    }
+    case RewardProfile::LongJumpTask: {
+        const float runupProgress = std::clamp(
+            scoreFromReferenceX(frame.view_target_x), 0.0f, kLongJumpTakeoffDistance);
+        float reward = kLongJumpTaskRunupScale * std::max(0.0f, runupProgress - progressScore_);
+        progressScore_ = std::max(progressScore_, runupProgress);
+
+        const bool finished = frame.jump_landed && frame.long_jump_exited_sand;
+        const bool terminal = frame.failed || truncated || finished;
+        const float measuredDistance = !terminal && frame.long_jump_landing_started
+            ? std::clamp(frame.long_jump_distance, 0.0f, kLongJumpSandLength) : 0.0f;
+        // Potential shaping matches PPO gamma; every terminal potential is zero.
+        // Its discounted episode sum is zero, including failed/timeout attempts.
+        reward += kLongJumpTaskDistancePotentialScale
+            * (kLongJumpTaskShapingGamma * measuredDistance - longJumpMeasuredDistance_);
+        longJumpMeasuredDistance_ = measuredDistance;
+        if (frame.failed || truncated) {
+            reward -= kLongJumpTaskFailurePenalty;
+        } else if (finished) {
+            const float finalDistance = std::clamp(frame.long_jump_distance, 0.0f, kLongJumpSandLength);
+            reward += kLongJumpTaskFinishBonus + kLongJumpTaskFinalDistanceScale * finalDistance;
         }
         return reward;
     }
