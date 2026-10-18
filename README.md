@@ -44,4 +44,6 @@ py -3.10 -m venv .venv
 
 ## 完整资料与历史
 
-Git 文件区提供代码和精选成果；约 **26.37 GiB** 的完整工作区（包含全部模型、虚拟环境、缓存、安装包等）将以 `.tar.zst` 分卷在[同仓库 Releases](https://github.com/lionelzhaol/qwop-motion-control/releases) 交付，未纳入常规 Git 文件区的内容并非丢弃。跨电脑运行建议重建虚拟环境。三个指向外部软件的目录联接仅记录清单，不复制其外部目标。原工程 Git 历史通过 `training-history` 分支及 Git bundle 保留。
+Git 文件区提供代码和精选成果；完整工作区（包含全部模型、虚拟环境、缓存、安装包等）以 `.tar.zst` 分卷保存在[同仓库 Releases](https://github.com/lionelzhaol/qwop-motion-control/releases/tag/workspace-snapshot-20261018)，未纳入常规 Git 文件区的内容并非丢弃。快照约 **26.40 GiB**，压缩后 **22.25 GB、21 卷**，已通过 32,603 个文件的 SHA256 校验；恢复方法见 [RESTORE.md](handoff_20261018/RESTORE.md)。
+
+跨电脑运行建议重建虚拟环境。三个指向外部软件的目录联接仅记录清单，不复制其外部目标。原工程 Git 历史通过 `training-history` 分支及 [Git bundle](handoff_20261018/training-history.bundle) 保留。最新训练归档提交为 `4e23f8d`；`main` 分支提供包含验证、汇报资料在内的小组工作区结构。
