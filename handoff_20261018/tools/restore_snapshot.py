@@ -2,8 +2,37 @@
 from pathlib import Path
 import argparse
 import hashlib
+import os
 import shutil
+import stat
 import subprocess
+import tempfile
+
+def detach_hardlinks(root):
+    """Restore independent files without traversing symlinks or junctions."""
+    count = 0
+    for current, directories, files in os.walk(root, followlinks=False):
+        base = Path(current)
+        directories[:] = [name for name in directories if not (
+            getattr((base / name).lstat(), 'st_file_attributes', 0)
+            & stat.FILE_ATTRIBUTE_REPARSE_POINT
+        ) and not (base / name).is_symlink()]
+        for name in files:
+            path = base / name
+            info = path.lstat()
+            if (not stat.S_ISREG(info.st_mode) or info.st_nlink <= 1 or
+                    getattr(info, 'st_file_attributes', 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT):
+                continue
+            fd, temporary = tempfile.mkstemp(prefix='.qwop-restore-', dir=base)
+            os.close(fd)
+            try:
+                shutil.copy2(path, temporary)
+                os.replace(temporary, path)
+            finally:
+                if os.path.exists(temporary):
+                    os.unlink(temporary)
+            count += 1
+    return count
 
 def main():
     ap = argparse.ArgumentParser()
@@ -43,6 +72,8 @@ def main():
     finally:
         if process.poll() is None:
             process.terminate()
+    print('Detached', detach_hardlinks(destination / 'qwop-workspace'),
+          'hard links into independent files', flush=True)
     print('Restored to', destination / 'qwop-workspace')
 
 if __name__ == '__main__':

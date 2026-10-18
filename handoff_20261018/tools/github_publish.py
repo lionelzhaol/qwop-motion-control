@@ -38,6 +38,31 @@ class API:
         parsed = urllib.parse.urlparse(url)
         if parsed.hostname not in ('api.github.com', 'uploads.github.com'):
             raise ValueError('Unexpected GitHub API host')
+        if file is None:
+            # Windows curl uses the system TLS backend, which is reliable with the
+            # existing local proxy; Python/OpenSSL handshakes were intermittent.
+            def quoted(value):
+                return value.replace('\\', '\\\\').replace('"', '\\"')
+            config = 'header = "Authorization: Bearer ' + quoted(self.token) + '"\n'
+            config += 'header = "Accept: application/vnd.github+json"\n'
+            config += 'header = "X-GitHub-Api-Version: 2022-11-28"\n'
+            if payload is not None:
+                config += 'header = "Content-Type: application/json"\n'
+                config += 'data-binary = "' + quoted(json.dumps(payload, ensure_ascii=True)) + '"\n'
+            attempts = 3 if method == 'GET' else 1
+            for attempt in range(attempts):
+                result = subprocess.run(['curl.exe', '--config', '-', '--proxy', PROXY,
+                    '--http1.1', '--request', method, '--connect-timeout', '15', '--max-time', '90',
+                    '--silent', '--show-error', '--write-out', '\n%{http_code}', url],
+                    input=config, text=True, encoding='utf-8', capture_output=True)
+                raw, status = result.stdout.rsplit('\n', 1) if '\n' in result.stdout else (result.stdout, '0')
+                if result.returncode == 0 and status.isdigit() and 200 <= int(status) < 300:
+                    return json.loads(raw) if raw else None
+                if attempt + 1 < attempts:
+                    time.sleep(2)
+                    continue
+                detail = (result.stderr[-800:] + ' ' + raw[:1600]).replace(self.token, '[redacted]')
+                raise RuntimeError('GitHub API curl HTTP ' + status + ': ' + detail)
         headers = {'Authorization': 'Bearer ' + self.token, 'Accept': 'application/vnd.github+json',
             'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'QWOP-private-workspace-handoff'}
         if file:
@@ -115,10 +140,18 @@ def main():
     elif args.command == 'publish':
         if not release:
             raise RuntimeError('Snapshot release does not exist')
-        expected = {p.name for p in (OUT / 'archive').glob('qwop-workspace-20261018.tar.zst.part*')}
-        expected.update(('SHA256SUMS.txt', 'RESTORE.md', 'snapshot_manifest.json', 'directory_links.json'))
-        if not expected.issubset({a['name'] for a in release['assets'] if a['state'] == 'uploaded'}):
-            raise RuntimeError('Cannot publish an incomplete snapshot release')
+        files = sorted((OUT / 'archive').glob('qwop-workspace-20261018.tar.zst.part*'))
+        files += [OUT / n for n in ('SHA256SUMS.txt', 'RESTORE.md', 'snapshot_manifest.json',
+            'directory_links.json', 'archive_verify.json')]
+        if len(files) != 26 or not json.loads((OUT / 'archive_verify.json').read_text())['passed']:
+            raise RuntimeError('Expected 21 verified archive parts and five metadata files')
+        assets = api.call('GET', f'/repos/{REPO}/releases/{release["id"]}/assets?per_page=100')
+        for file in files:
+            asset = next((a for a in assets if a['name'] == file.name), None)
+            if not asset or asset['state'] != 'uploaded' or asset['size'] != file.stat().st_size:
+                raise RuntimeError('Cannot publish an incomplete snapshot: ' + file.name)
+            if asset.get('digest') != 'sha256:' + sha256(file):
+                raise RuntimeError('Remote asset SHA256 mismatch: ' + file.name)
         release = api.call('PATCH', f'/repos/{REPO}/releases/{release["id"]}', {'draft': False})
     if release:
         summary = {k: release.get(k) for k in ('id', 'html_url', 'tag_name', 'draft', 'published_at')}
