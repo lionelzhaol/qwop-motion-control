@@ -1,6 +1,6 @@
 # QWOP 运动控制与策略优化研究
 
-本仓库用于课程小组协作，基于 [LYiHub/QWOP_rl_training_public](https://github.com/LYiHub/QWOP_rl_training_public) 开展 PPO 自主训练、奖励优化、专家行为克隆（BC）与跑步策略向跳远迁移。沿用原项目的 C++ 物理环境、并行采样、PPO、日志、模型保存和回放架构；本地增加任务奖励、模仿训练、独立 Critic、局部策略分支等。原作者说明及许可证保留在内层工程中。
+基于 [LYiHub/QWOP_rl_training_public](https://github.com/LYiHub/QWOP_rl_training_public) 开展 PPO 自主训练、奖励优化、专家行为克隆（BC）与跑步策略向跳远迁移。沿用原项目的 C++ 物理环境、并行采样、PPO、日志、模型保存和回放架构；本地增加任务奖励、模仿训练、独立 Critic、局部策略分支等。原作者说明及许可证保留在内层工程中。
 
 ## 已验证成果
 
